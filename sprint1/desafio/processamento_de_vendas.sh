@@ -2,13 +2,10 @@
 
 prep_env() {
     echo "Preparando ambiente..."
-    sudo su\
-    && mkdir ./ecommerce\
-    && PATH=$(find / -name dados_de_vendas.csv)\
-    && chmod +rwx $PATH\
-    && cp $PATH  ./ecommerce/
+    [[ ! -d ./ecommerce ]] && mkdir ecommerce
     
-    exit 0
+    find / -name "*vendas.csv" 2> /dev/null | xargs -I {} mv {} ecommerce/ 2> /dev/null \
+    && echo "Preparação concluída: diretório ecommerce criado e planilha dados_de_vendas.csv movida dentro dele"
 }
 
 
