@@ -21,8 +21,8 @@
 
 ## EVIDÊNCIAS
 
-Na pasta `evidencias`, encontram-se prints referentes a momentos de execução do código, exemplificando abordagens adotas para a conclusão do desafio.  
-No passo a passo explicativo, encontrado na pasta `desafio`, serão comentados outros print de pontos específicos.
+Na pasta `evidencias`, encontram-se prints referentes a momentos de execução do código, exemplificando abordagens adotadas para a conclusão do desafio.  
+No passo a passo explicativo, encontrado na pasta `desafio`, serão comentados outros prints de pontos específicos.
 
 ### Etapa de Preparação em Ambiente Linux
 
@@ -81,7 +81,7 @@ Para absorver melhor o conteúdo desta sprint e me aprofundar em pontos de inter
 | |
 |---|
 |![Certificado-Comp-Bash](certificados/)|
-|| 
+||
 
 ## BIBLIOGRAFIA
 

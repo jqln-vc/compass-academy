@@ -36,7 +36,7 @@ Coordenação de rotinas de squad responsável pela documentação de processos,
     Novas maneiras de perceber e (re)criar a realidade, a minha e a dos outros, com explorações semânticas e permutações morfossintáticas, codificando ideias e sensações.  
     Das belas artes da escrita, saberes antepassados desenlaçam oferendas transmitidas a mim pela minha mão que traça no papel, formas há muito tempo já traçadas repetidamente, formas que tomam vida e que moldam minha própria autoexpressão.  
     Ao aprender a produzir novos sons me reconecto com meu corpo e exploro novos espaços de mim mesma outrora inacessados.  
-    -: **meta de vida**: aprender a falar alguma língua com [cliques](https://pt.wikipedia.org/wiki/Clique_(fon%C3%A9tica)#:~:text=Na%20fon%C3%A9tica%2C%20um%20clique%20%C3%A9,chamados%20tamb%C3%A9m%20de%20cliques%20consonantais.)!  
+    [![Duolingo](https://img.shields.io/badge/Duolingo-%234DC730.svg?style=for-the-badge&logo=Duolingo&logoColor=white)](https://www.duolingo.com/profile/niiin3)
 
 
 * **Yoga & Vipassana**  
