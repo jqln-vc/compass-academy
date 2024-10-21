@@ -1,7 +1,39 @@
 #!/usr/bin/bash
+# Desafio Sprint 1 - Processamento de Vendas
+# Autora & Data: Jaqueline Costa | 28/10/2024
+# processamento_de_vendas.sh: Script para processamento de relatórios de vendas,
+# com funções de backup, compressão e compilação de relatórios
+#-------------------------------------------------------------------------------------------------------------------------
+# Declaração de variáveis úteis
+#
+# Caminhos
 
-prep_env() {
+ECOMMERCE="./ecommerce"
+VENDAS="${ECOMMERCE}/vendas"
+BACKUP="${VENDAS}/backup"
+DESCARTE="/dev/null"
+
+# Prefixos e nomes de arquivos
+PLANILHA="dados_de_vendas.csv"
+DADOS_PLANILHA="dados-"
+BACKUP_PLANILHA="backup-dados-"
+
+
+# Formatos de Datas
+# + indica um output personalizado para date, ignorando o valor default 
+DATA_FILES=$(date +"%Y%m%d")
+DATA_HORA=$(date +"%Y/%m/%d %H:%M")
+
+
+# Outputs de confirmação
+
+
+
+#-------------------------------------------------------------------------------------------------------------------------
+
+prep_env() {                    # Preparação do ambiente ecommerce, com planilha dados_de_vendas.csv inserida
     echo -e "Preparando ambiente..."
+
     prep1="Diretório ecommerce criado"
     [[ ! -d ./ecommerce ]] && mkdir ecommerce && echo $prep1 || echo $prep1
     
@@ -11,8 +43,9 @@ prep_env() {
 
 }
 
-vendas_backup() {
+vendas_backup() {               # Criação de diretório vendas e backup, criação de cópia de segurança da planilha do dia
     echo "Iniciando backup..."
+    
     # + indica um output personalizado para date, ignorando o valor default 
     data=$(date +%Y%m%d)
     
@@ -33,7 +66,7 @@ vendas_backup() {
 
 }
 
-relatorio() {
+relatorio() {               # Criação de relatório de vendas, data inicial e final, quantidade de vendas, amostra
     echo "Iniciando criação de relatório..."
 
     #sudo ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
@@ -51,7 +84,7 @@ relatorio() {
 
 }    
 
-compressao() {
+compressao() {              # Compressão de arquivos de backup
     echo "Iniciando compressão de arquivos de backup..."
     cd ./ecommerce/vendas/backup
     data=$(find . -name backup*.csv | cut -d '-' -f 3 | cut -d '.' -f 1) \
@@ -60,13 +93,13 @@ compressao() {
     && echo -e "Compressão concluída com sucesso!\n"
 }
 
-limpeza_arquivos() {
-    echo "Limpando arquivos temporários e de backup..."
+limpeza_arquivos() {        # Remoção de dados de vendas e backup já processados
+    echo "Removendo arquivos csv de dados de vendas e backup já processados"
 
     rm -f ./ecommerce/vendas/backup/backup*.csv \
     && rm -f ./ecommerce/vendas/dados_de_vendas.csv
 
-    echo -e "Planilha de dados de vendas de hoje e seu backup removidos com sucesso!\n"
+    echo -e "Planilha de vendas de hoje e backup removidos com sucesso!\n"
 }
 
 agendamento_rotina() {
@@ -86,7 +119,6 @@ main () {
     && relatorio \
     && compressao \
     && limpeza_arquivos
-    #&& agendamento_rotina 
 }
 
 echo -e "Iniciando script ${0}\n"

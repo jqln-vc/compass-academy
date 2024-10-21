@@ -9,36 +9,19 @@
 
 ### PREPARAÇÃO
 
-Download do arquivo `vendas.csv` realizado na pasta `/home`, criação da pasta `ecommerce` e envio do arquivo para lá.
-
-![PreparaçãoParte1](../evidencias/1-preparacao1.png)
-Verifica-se na imagem que tive alguns problemas iniciais, relacionados a  
-
-* **permissão de acesso:** *solucionada utilizando o comando `sudo` na linha abaixo*
-
-```bash
-sudo mv vendas.csv /workspaces/compass-academy/sprint1/desafio/ecommerce
-```
-
-* **uso incorreto do comando `mv` :** em vez de criar a pasta no caminho acima, movi o arquivo `vendas.csv` para a pasta `desafio` e renomeei o arquivo para `ecommerce`. :clown_face:  
-
-   Percebi que tinha errado, e que `ecommerce` não era um diretório, tanto com as mensagens de erro quanto com a verificação das permissões do arquivo `-rwxrwxrwx`, mas ainda não tinha entendido o ocorrido, até fui verificar se `vendas.csv` tinha sido realmente movido da pasta `/home`. 😢
+Em ambiente Linux Ubuntu, foi realizado o download do arquivo `dados_de_vendas.csv` na pasta `/home`, a criação da pasta `ecommerce` e envio do arquivo para lá.
 
 > [!NOTE]
-> Sei que não é uma boa prática habilitar todas as permissões para todos, porém, como estou em ambiente virtual, só quis me certificar de que teria o acesso.
+> A pasta `ecommerce` foi criada diretamente no repositório da trilha de aprendizado, já trackeada pelo Git, na subpasta `desafio`. No momento da execução da preparação do print abaixo, já haviam sido criados alguns arquivos.
 
-   Após refletir um pouco, entendi que `ecommerce` era a planilha de vendas ao rodar o comando abaixo: 🤔
+![PreparaçãoParte1](../evidencias/1-preparacao.png)
 
-   ```bash
-   cat ecommerce
-   ```
+Como o caminho completo até para a criação da pasta `ecommerce` é longo, e ele seria utilizado algumas vezes, foi criada uma variável para facilitar o processo.
 
-   *Resolvi o problema renomeando o arquivo para `vendas.csv` novamente (para não dar conflito), criando a pasta `ecommerce` e, então, movendo corretamente.* 🎆
+```bash
+export repo_dir="/workspaces/compass-academy/sprint1/desafio"
+```
 
-   ```bash
-   mv ecommerce vendas.csv
-   mkdir ecommerce
-   mv -v vendas.csv ecommerce
-   ```
+<-- ![PreparaçãoParte2](../evidencias/1-preparacao2.png) -->
 
-![PreparaçãoParte2](../evidencias/1-preparacao2.png)
+## REFERÊNCIAS

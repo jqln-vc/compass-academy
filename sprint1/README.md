@@ -81,4 +81,10 @@ Para absorver melhor o conteúdo desta sprint e me aprofundar em pontos de inter
 | |
 |---|
 |![Certificado-Comp-Bash](certificados/)|
-||
+|| 
+
+## BIBLIOGRAFIA
+
+* ALBING, Carl; VOSSEN, JP. **Bash Idioms: Write Powerful, Flexible, Readable Shell Scripts**. Sebastopol: O’Reilly, 2022.
+* ALBING, Carl; VOSSEN, JP. **Bash Cookbook: Solutions and Examples for Bash Users**. Sebastopol: O’Reilly, 2018.
+* BARRETT, Daniel. **Efficient Linux at the Command Line.** Sebastopol: O’Reilly, 2022.
