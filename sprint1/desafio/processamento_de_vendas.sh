@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 # Desafio Sprint 1 - Processamento de Vendas
-# Autora & Data: Jaqueline Costa | 28/10/2024
+# Autoria: Jaqueline Costa
+# Data: out/2024
 # processamento_de_vendas.sh: Script para processamento de relatórios de vendas,
 # com funções de backup, compressão e compilação de relatórios
 #-------------------------------------------------------------------------------------------------------------------------
@@ -23,10 +24,6 @@ BACKUP_PLANILHA="backup-dados-"
 # + indica um output personalizado para date, ignorando o valor default 
 DATA_FILES=$(date +"%Y%m%d")
 DATA_HORA=$(date +"%Y/%m/%d %H:%M")
-
-
-# Outputs de confirmação
-
 
 
 #-------------------------------------------------------------------------------------------------------------------------
@@ -78,7 +75,8 @@ relatorio() {               # Criação de relatório de vendas, data inicial e 
     && echo $data >> relatorio.txt \
     && cut -d ',' -f 5 backup*.csv | sed -n '2p' >> relatorio.txt 2>/dev/null \
     && cut -d ',' -f 5 backup*.csv | tail -n 1 >> relatorio.txt 2>/dev/null \
-    && cut -d ',' -f 3 backup*.csv | paste -sd+ | bc >>  relatorio.txt \
+    #&& cut -d ',' -f 3 backup*.csv | paste -sd+ | bc >>  relatorio.txt \
+    && cut -d ',' -f 2 backup*.csv | sort | uniq -c >> relatorio.txt 2>/dev/null \
     && head backup*.csv >> relatorio.txt \
     && echo -e "${item4}\n"
 
@@ -114,8 +112,8 @@ agendamento_rotina() {
 
 
 main () {
-    prep_env \
-    && vendas_backup \
+
+    vendas_backup \
     && relatorio \
     && compressao \
     && limpeza_arquivos

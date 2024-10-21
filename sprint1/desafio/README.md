@@ -34,16 +34,36 @@ sudo mv dados_de_vendas.csv ${repo_dir}/ecommerce
 
 Os scripts foram desenvolvidos priorizando a modularização dos processos em funções, adotando boas práticas para documentação, legibilidade, reusabilidade e tratamento de erros.
 
+### Cabeçalho e Documentação
+
+> Para a organização e legibilidade do código, quebre ações em seções. [^X] 27
+
 ### Controle de Fluxo
 
 Para os controles de fluxo, foi priorizada a escrita simplificada, sem a utilização explícita de `if` e `then`, para otimizar a legilibilidade do código.
 
 IMAGEM DE IFS
 
-> *[...] para situações de teste e checagem de ações simples, usar **&&** e **||** pode ser muito conveniente e não desviará a atenção do fluxo de lógica principal.*[^X]
+> *[...] para situações de teste e checagem de ações simples, usar **&&** e **||** pode ser muito conveniente e não desviará a atenção do fluxo de lógica principal.*[^X] 7
 
 O encadeamento lógico de comandos com `&&` assegura a **atomicidade** das execuções, e a utilização de quebras de linha com `\` é uma adoção inspirada em estilos utilizados atualmente pela comunidade.
+
+### Tratativas de Erro
+
+IMAGEM DE STERR
+
+> *Mensagens de erro devem ir para STDERR, como echo "Algo ruim aconteceu" 1>&2.* [^] 132
+
+Nos comandos que poderiam gerar erros potenciais, foi feita a trativa com a abordagem a seguir:
+
+```bash
+DESCARTE="/dev/null"
+2> $DESCARTE
+```
+
+
 
 ## REFERÊNCIAS
 
 [^X] ALBING, VOSSEN, 2022, p. 7
+[^X] ALBING, VOSSEN, 2022, p. 27
