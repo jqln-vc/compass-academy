@@ -1,67 +1,153 @@
 id,produto,quantidade,preço,data
-1,camiseta,2,29.90,01/01/2023
-2,calça,5,80.00,02/01/2023
-3,sapato,3,100.00,03/01/2023
-4,meia,20,5.00,04/01/2023
-5,cinto,8,15.00,05/01/2023
-6,camisa,7,40.00,06/01/2023
-7,bermuda,6,50.00,07/01/2023
-8,tênis,4,120.00,08/01/2023
-9,bone,12,10.00,09/01/2023
-10,casaco,2,150.00,10/01/2023
-11,mochila,9,60.00,11/01/2023
-12,livro,15,20.00,12/01/2023
-13,caderno,18,8.00,13/01/2023
-14,lápis,30,1.00,14/01/2023
-15,borracha,25,0.50,15/01/2023
-16,cola,10,2.50,16/01/2023
-17,régua,12,4.00,17/01/2023
-18,pincel atômico,8,5.00,18/01/2023
-19,papel sulfite A4 500 folhas,6,25.00,19/01/2023
-20,pasta sanfonada,4,35.00,20/01/2023
-21,fone de ouvido,5,80.00,21/01/2023
-22,mouse sem fio,7,50.00,22/01/2023
-23,filtro de linha,6,30.00,23/01/2023
-24,cabo HDMI,10,15.00,24/01/2023
-25,pilha AA,20,2.00,25/01/2023
-26,luminária de mesa,4,40.00,26/01/2023
-27,relogio de parede,8,20.00,27/01/2023
-28,porta-retrato digital,2,100.00,28/01/2023
-29,vaporizador de roupas,1,150.00,29/01/2023
-30,balança digital,3,60.00,30/01/2023
-31,furadeira elétrica,2,200.00,31/01/2023
-32,jogo de panelas antiaderente,5,120.00,01/02/2023
-33,faca elétrica,4,80.00,02/02/2023
-34,sanduicheira elétrica,6,40.00,03/02/2023
-35,mixer de alimentos,7,50.00,04/02/2023
-36,batedeira planetária,2,300.00,05/02/2023
-52,guitarra elétrica fender,3,2999.00,20/02/2023
-53,amplificador de guitarra,4,799.00,21/02/2023
-54,pedaleira preta,5,499.00,22/02/2023
-55,cabo para instrumento ninja,10,59.00,23/02/2023
-56,palheta dunlop,20,1.00,24/02/2023
-57,afinador digital,6,49.00,25/02/2023
-58,capotraste,8,99.00,26/02/2023
-59,suporte para guitarra,7,29.00,27/02/2023
-60,correia para guitarra,9,19.00,28/02/2023
-61,encordoamento para guitarra,12,39.00,01/03/2023
-62,violão acústico,4,299.00,02/03/2023
-63,capa para violão,5,99.00,03/03/2023
-64,banqueta para violão,6,69.00,04/03/2023
-65,limpador de cordas,8,29.00,05/03/2023
-66,flauta transversal,2,1999.00,06/03/2023
-67,suporte para flauta,4,79.00,07/03/2023
-68,estojo para flauta,10,9999,08/03/2023
-70,saxofone,4,4359.00,10/03/2023
-71,suporte para saxofone,5,32.69,11/03/2023
-76,teclado musical casio,2,784.98,16/03/2023
-77,sintetizador de voz,3,324.12,17/03/2023
-78,controlador com cabo usb,4,124.00,18/03/2023
-79,caixa de som jbl,2,39.99,19/03/2023
-80,microfone sem fio shure,3,2000.00,20/03/2023
-81,pedestal para microfone,6,150.00,21/03/2023
-82,cabo para microfone,10,12.50,22/03/2023
-83,caixa acústica,8,789.00,24/03/2023
-85,mixer de áudio behringer,2,888.00,25/03/2023
-86,fone de ouvido profissional akg,3,300.00,27/03/2023
-88,monitor yamaha hs5,2,990.00,31/01/2023
+89,aspirador de pó,3,299.99,01/04/2023
+90,liquidificador,5,89.90,02/04/2023
+91,torradeira,4,59.99,03/04/2023
+92,cafeteira,6,129.00,04/04/2023
+93,ferro de passar,2,79.90,05/04/2023
+94,ventilador de teto,3,199.00,06/04/2023
+95,ar condicionado portátil,1,999.00,07/04/2023
+96,umidificador de ar,4,149.90,08/04/2023
+97,purificador de água,2,399.00,09/04/2023
+98,máquina de lavar roupa,1,1299.00,10/04/2023
+99,secadora de roupas,1,1499.00,11/04/2023
+100,fogão 4 bocas,2,599.00,12/04/2023
+101,geladeira frost free,1,2199.00,13/04/2023
+102,microondas,3,349.90,14/04/2023
+103,fritadeira elétrica,5,199.90,15/04/2023
+104,panela de pressão elétrica,2,299.00,16/04/2023
+105,batedeira,4,129.90,17/04/2023
+106,processador de alimentos,3,179.90,18/04/2023
+107,chaleira elétrica,6,69.90,19/04/2023
+108,grill elétrico,2,149.00,20/04/2023
+109,pipoqueira elétrica,4,59.90,21/04/2023
+110,forno elétrico,1,399.00,22/04/2023
+111,multiprocessador,2,249.90,23/04/2023
+112,espremedor de frutas,5,39.90,24/04/2023
+113,sanduicheira,7,79.90,25/04/2023
+114,mixer,6,59.90,26/04/2023
+115,balança de cozinha,8,29.90,27/04/2023
+116,jogo de talheres,3,129.00,28/04/2023
+117,conjunto de panelas,2,299.00,29/04/2023
+118,jogo de pratos,4,89.90,30/04/2023
+119,conjunto de copos,5,49.90,01/05/2023
+120,garrafa térmica,6,39.90,02/05/2023
+121,pote hermético,10,19.90,03/05/2023
+122,tábua de corte,4,29.90,04/05/2023
+123,escorredor de louça,3,59.90,05/05/2023
+124,lixeira de cozinha,2,79.90,06/05/2023
+125,faqueiro,1,199.00,07/05/2023
+126,jogo de travessas,3,69.90,08/05/2023
+127,escumadeira,5,9.90,09/05/2023
+128,concha,5,8.90,10/05/2023
+129,pegador de salada,4,12.90,11/05/2023
+130,abridor de latas,6,14.90,12/05/2023
+131,saca-rolhas,3,24.90,13/05/2023
+132,ralador,4,19.90,14/05/2023
+133,descascador de legumes,5,9.90,15/05/2023
+134,colher de pau,7,7.90,16/05/2023
+135,escova para louça,8,5.90,17/05/2023
+136,pano de prato,10,4.90,18/05/2023
+137,avental de cozinha,3,29.90,19/05/2023
+138,luva térmica,4,19.90,20/05/2023
+139,porta-guardanapos,5,14.90,21/05/2023
+140,saleiro,6,9.90,22/05/2023
+141,açucareiro,6,12.90,23/05/2023
+142,porta-temperos,2,39.90,24/05/2023
+143,escorredor de arroz,3,24.90,25/05/2023
+144,peneira,4,14.90,26/05/2023
+145,funil,5,9.90,27/05/2023
+146,espremedor de alho,6,12.90,28/05/2023
+147,cortador de pizza,4,19.90,29/05/2023
+148,afiador de facas,3,29.90,30/05/2023
+149,tesoura de cozinha,5,24.90,31/05/2023
+150,escorredor de macarrão,2,34.90,01/06/2023
+151,jarra medidora,4,19.90,02/06/2023
+152,forma de bolo,3,24.90,03/06/2023
+153,assadeira,5,29.90,04/06/2023
+154,rolo de massa,2,19.90,05/06/2023
+155,pincel de silicone,4,9.90,06/06/2023
+156,espátula,5,14.90,07/06/2023
+157,batedor de ovos,6,12.90,08/06/2023
+158,saco de confeitar,3,14.90,09/06/2023
+159,cortador de biscoito,5,9.90,10/06/2023
+160,forma de gelo,7,7.90,11/06/2023
+161,porta-detergente,4,19.90,12/06/2023
+162,escorredor de talheres,3,24.90,13/06/2023
+163,suporte para papel toalha,2,29.90,14/06/2023
+164,lixeira para pia,4,14.90,15/06/2023
+165,escova para garrafa,5,9.90,16/06/2023
+166,pote para microondas,6,14.90,17/06/2023
+167,tampa para microondas,8,9.90,18/06/2023
+168,cesto organizador,3,29.90,19/06/2023
+169,organizador de gavetas,4,24.90,20/06/2023
+170,porta-talheres,2,34.90,21/06/2023
+171,suporte para panelas,3,39.90,22/06/2023
+172,escorredor de pratos,1,49.90,23/06/2023
+173,porta-sabão em pó,2,24.90,24/06/2023
+174,dispenser para sabonete líquido,4,19.90,25/06/2023
+175,escova sanitária,5,14.90,26/06/2023
+176,tapete antiderrapante,6,24.90,27/06/2023
+177,cortina para box,2,39.90,28/06/2023
+178,porta-escova de dentes,4,14.90,29/06/2023
+179,lixeira para banheiro,3,29.90,30/06/2023
+180,toalha de rosto,8,9.90,01/07/2023
+181,toalha de banho,4,29.90,02/07/2023
+182,roupão de banho,2,79.90,03/07/2023
+183,cesto para roupas,3,39.90,04/07/2023
+184,cabide,10,2.90,05/07/2023
+185,organizador de guarda-roupa,2,49.90,06/07/2023
+186,sapateira,1,89.90,07/07/2023
+187,espelho de parede,3,59.90,08/07/2023
+188,relógio de parede,4,39.90,09/07/2023
+189,quadro decorativo,2,49.90,10/07/2023
+190,vaso de plantas,5,29.90,11/07/2023
+191,almofada decorativa,6,24.90,12/07/2023
+192,manta para sofá,3,59.90,13/07/2023
+193,cortina blackout,2,89.90,14/07/2023
+194,persiana,1,129.90,15/07/2023
+195,tapete,2,79.90,16/07/2023
+196,luminária de mesa,3,59.90,17/07/2023
+197,abajur,4,49.90,18/07/2023
+198,ventilador de coluna,2,129.90,19/07/2023
+199,umidificador de ar,3,149.90,20/07/2023
+200,purificador de ar,1,299.90,21/07/2023
+201,aquecedor portátil,2,179.90,22/07/2023
+202,desumidificador,1,399.90,23/07/2023
+203,climatizador de ar,1,499.90,24/07/2023
+204,aspirador de pó portátil,3,149.90,25/07/2023
+205,vassoura,5,19.90,26/07/2023
+206,rodo,4,14.90,27/07/2023
+207,pá de lixo,6,9.90,28/07/2023
+208,balde,4,12.90,29/07/2023
+209,pano de chão,10,4.90,30/07/2023
+210,esponja de limpeza,15,1.90,31/07/2023
+211,detergente,8,2.90,01/08/2023
+212,sabão em pó,3,14.90,02/08/2023
+213,amaciante,4,12.90,03/08/2023
+214,alvejante,5,8.90,04/08/2023
+215,desinfetante,6,7.90,05/08/2023
+216,limpa-vidros,4,9.90,06/08/2023
+217,lustra-móveis,3,12.90,07/08/2023
+218,saponáceo,5,5.90,08/08/2023
+219,limpador multiuso,7,6.90,09/08/2023
+220,cera líquida,2,14.90,10/08/2023
+221,luva de borracha,6,7.90,11/08/2023
+222,saco de lixo,10,9.90,12/08/2023
+223,escova para vaso sanitário,3,12.90,13/08/2023
+224,desentupidor de pia,2,14.90,14/08/2023
+225,desentupidor de vaso sanitário,1,19.90,15/08/2023
+226,inseticida,4,12.90,16/08/2023
+227,repelente,5,14.90,17/08/2023
+228,ratoeira,3,9.90,18/08/2023
+229,lâmpada LED,10,7.90,19/08/2023
+230,extensão elétrica,4,19.90,20/08/2023
+231,adaptador de tomada,6,5.90,21/08/2023
+232,pilha AA,12,2.90,22/08/2023
+233,pilha AAA,12,2.90,23/08/2023
+234,bateria 9V,3,12.90,24/08/2023
+235,carregador de pilhas,2,39.90,25/08/2023
+236,fita isolante,5,4.90,26/08/2023
+237,chave de fenda,3,9.90,27/08/2023
+238,chave phillips,3,9.90,28/08/2023
+239,alicate,2,19.90,29/08/2023
+240,martelo,1,24.90,30/08/2023
