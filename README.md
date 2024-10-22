@@ -26,11 +26,11 @@ Breve participação no grupo com contribuição de códigos de desenvolvimento 
 * **Analista de Metainformação Sênior & Squad Leader | Omnilogic SA**  
 Coordenação de rotinas de squad responsável pela documentação de processos, padronização de metadados e processamentos em batch de dados, com uso de RegEx e SQL, auxiliando o squad de MLOps na otimização dos modelos de machine learning dos produtos voltados à área de e-commerce.  
 
-## ALGUMAS INSPIRAÇÕES
+## MOTIVAÇÕES E INTERESSES
 
 * **Línguas & Códigos**  
 
-    Acho que me tornei confortável com ideias codificadas em escrita muito antes de conseguir o mesmo oralmente. Aos 5 anos, recebi esse ensinamento de minha avó e acredito que foi essencial para minha formação em ser o que hoje sou. Encontrar mensagens transmitidas em padrões desconhecidos se tornou um hobby desde cedo.  
+    Acho que me tornei confortável com ideias codificadas em escrita muito antes de conseguir o mesmo oralmente. Buscar mensagens transmitidas em padrões desconhecidos se tornou um hobby desde cedo.  
 
     Aprender novas línguas é expandir meu mundo ao incorporar outros, longínquos e perpétuos.  
     Novas maneiras de perceber e (re)criar a realidade, a minha e a dos outros, com explorações semânticas e permutações morfossintáticas, codificando ideias e sensações.  
@@ -47,11 +47,26 @@ Ambos demarcaram uma fase de ruptura em minha vida, a partir do qual venho me de
 
 ## IDEIAS QUE ME TRANSFORMARAM
 
-* **Siddharta** - Herman Hesse [֍](https://pt.wikipedia.org/wiki/Sidarta_(livro))
+* **Siddharta** - Herman Hesse [֍](https://en.wikipedia.org/wiki/Siddhartha_(novel))
 * **Speaker For The Dead** - Orson Scott Card [֍](https://pt.wikipedia.org/wiki/Speaker_for_the_Dead)
 * **Scattered Minds** - Gabor Maté [֍](https://www.amazon.com.br/Scattered-Minds-Origins-Attention-Disorder/dp/1785042211)
-* **The Selfish Gene** - Richard Dawkins [֍](https://pt.wikipedia.org/wiki/O_Gene_Ego%C3%ADsta)
+* **The Selfish Gene** - Richard Dawkins [֍](https://en.wikipedia.org/wiki/The_Selfish_Gene)
 * **Material Ecology** - Neri Oxman [֍](https://www.media.mit.edu/publications/material-ecology/)
 * **Assembly Theory Explains and Quantifies Selection and Evolution** - Leroy Cronin, Sara Walker et al [֍](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10567559/)
 
 ---
+
+## TRILHA DE APRENDIZADO
+
+### Sprints
+
+* Sprint 1: Linux, Git & GitHub [֍]()
+
+### Registros do Percurso
+
+| | |
+|:---|---:|
+|Daily Log|[![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white )](https://wool-papaya-d4a.notion.site/Daily-Log-11c0d30eb94d8085a21ac2e37db0b9a0)|
+Linux & Bash|[![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white )](https://wool-papaya-d4a.notion.site/Linux-Bash-11f0d30eb94d80e88db7df6abc848b61)|
+|Git|[![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white )](https://wool-papaya-d4a.notion.site/Git-1210d30eb94d80b296fafde3fbc00d20)|
+| | |
