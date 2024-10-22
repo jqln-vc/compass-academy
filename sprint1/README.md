@@ -12,9 +12,16 @@
 |**LINUX**|**NOTAS DE ESTUDO**|[![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white )](https://www.notion.so/Linux-Bash-11f0d30eb94d80e88db7df6abc848b61#1200d30eb94d8004b5f1db8f37bf2248)|
 | | | |
 
+Apesar de ter o Ubuntu instalado em meu PC pessoal, para tentar me habituar ao sistema por coerção, antes da sprint, eu tinha pouca familiaridade com o terminal. E confesso que uma certa curiosidade tingida de desconforto. Não o utilizava para nada além de instalações e atualizações de pacotes.  
+Hoje, após experienciar o poder dos scripts e desmistificar o uso do terminal (não é tão difícil quanto parece!), sinto prazer em utilizá-lo, e tenho confiança em escrever rotinas mais básicas.  
+Tenho interesse em continuar me aprofundando em Bash e melhorando meus códigos e habilidades com a linha de comando, adotando boas práticas e praticando a automação de processos.  
+Por meio de outros cursos complementares que fiz, aprendi que saber lidar com o terminal é essencial para uma utilização eficiente de muitos serviços de nuvem, nos quais o Linux se faz obíquo. Portanto, também procuro utilizar o AWS CLI em estudos pessoais para me ambientar e reforçar esse hábito.
+
+No repositório [bash-playground](https://github.com/jqln-vc/bash-playground){:target="_blank"}, comecei a compilar minhas práticas, com exercícios e demonstrações de cursos, livros e desafios do LeetCode.
+
 | | | |
 |:---|---|---:|
-|**GIT & GITHUB**|**NOTAS DE ESTUDO**|[![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white )](https://www.notion.so/Git-1210d30eb94d80b296fafde3fbc00d20)|
+|**GIT & GITHUB**|**NOTAS DE ESTUDO**|[![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white )](https://www.notion.so/Git-1210d30eb94d80b296fafde3fbc00d20){:target="_blank"}|
 | | | |
 
 ## DESAFIO
@@ -30,7 +37,7 @@ No passo a passo explicativo, encontrado na pasta `desafio`, serão comentados o
 
 ### Fluxo de Atualizações de Código com Git
 
-![Preparação](evidencias/2-commitfuncs.png)
+![Preparação](evidencias/2-commits.png)
 
 ## CERTIFICADOS
 
