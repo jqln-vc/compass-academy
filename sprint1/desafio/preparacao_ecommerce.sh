@@ -1,8 +1,8 @@
 #!/usr/bin/bash
 # Desafio Sprint 1 - Processamento de Vendas
 # Autoria: Jaqueline Costa
-# Data: out/2024
-# processamento_de_vendas.sh: Script complementar ao processamento_de_vendas.sh, responsável pela
+# Data: Out/2024
+# preparacao_ecommerce.sh: Script complementar ao processamento_de_vendas.sh, responsável pela
 # prepararação do ambiente ecommerce
 # ------------------------------------------------------------------------------------------------
 # Declaração de Variáveis
@@ -26,10 +26,11 @@ prep_env() {                    # Preparação do ambiente ecommerce, com planil
 
     cd ${SELF_PATH}
     OUT="Diretório ecommerce criado"
+
     [[ ! -d ${ECOMMERCE} ]] && mkdir ecommerce && echo $OUT || echo $OUT
     
     find / -name $PLANILHA 2> ${DESCARTE} | xargs -I {} mv {} $ECOMMERCE/ 2> ${DESCARTE} \
-    && echo -e "Planilha ${PLANILHA} movida para o diretório ecommerce\nPreparação concluída com sucesso!\n" 
+    && echo -e "Planilha ${PLANILHA} localizada e movida para o diretório ecommerce\nPreparação concluída com sucesso!\n" 
 
 }
 

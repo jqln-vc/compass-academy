@@ -14,7 +14,10 @@ Em ambiente Linux Ubuntu, foi realizado o download do arquivo `dados_de_vendas.c
 > [!NOTE]
 > A pasta `ecommerce` foi criada diretamente no repositório da trilha de aprendizado, já trackeada pelo Git, na subpasta `desafio`. No momento da execução da preparação do print abaixo, já haviam sido criados alguns arquivos.
 
-![PreparaçãoParte1](../evidencias/1-preparacao.png)
+| |
+|---|
+|![PreparaçãoParte1](../evidencias/1-preparacao.png)|
+| |
 
 Como o caminho completo até para a criação da pasta `ecommerce` é longo, e ele seria utilizado algumas vezes, foi criada uma variável para facilitar o processo.
 
@@ -30,9 +33,16 @@ sudo mkdir -p "${repo_dir}/ecommerce"
 sudo mv dados_de_vendas.csv ${repo_dir}/ecommerce
 ```
 
+Complementarmente, foi feita a automatização do procedimento acima no script `preparacao_ecommerce.sh`.
+
+| |
+|---|
+|![Função de Preparaçao](../evidencias/3-ecommercefunc.png)|
+| |
+
 ## COMENTÁRIOS DE SCRIPTS
 
-Os scripts foram desenvolvidos priorizando a modularização dos processos em funções, adotando boas práticas para documentação, legibilidade, reusabilidade e tratamento de erros.
+Os scripts foram desenvolvidos priorizando a modularização dos processos em funções, adotando boas práticas de documentação, legibilidade, reusabilidade e tratamento de erros.
 
 ### Cabeçalho e Documentação
 
@@ -61,7 +71,29 @@ DESCARTE="/dev/null"
 2> $DESCARTE
 ```
 
+### Agendamento de Rotina
 
+O agendamento da rotina de processamento foi feito por meio do programa `crontab`, com a configuração do arquivo feita com o editor de texto Nano.
+
+| |
+|---|
+|![CronTab](../evidencias/4-crontab.png)|
+| |
+
+Antes, foi necessário fazer a instalação do programa e alterar o horário do sistema, que estava com o fuso UTC. Abaixo os comandos utilizados no terminal para esta etapa.
+
+```bash
+# Configuração do fuso horário do sistema
+sudo ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
+
+# Configuração dos agendamento, abre o editor de texto
+crontab -e
+
+# Ativação do programa
+sudo cron service start
+```
+
+---
 
 ## REFERÊNCIAS
 
