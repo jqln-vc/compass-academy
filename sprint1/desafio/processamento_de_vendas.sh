@@ -9,17 +9,15 @@
 
 # Caminhos
 
-#SELF_PATH="/workspaces/compass-academy/sprint1/desafio"
-SELF_PATH=$(pwd)
+SELF_PATH="/workspaces/compass-academy/sprint1/desafio"
 ECOMMERCE="${SELF_PATH}/ecommerce"
 VENDAS="${ECOMMERCE}/vendas"
 BACKUP="${VENDAS}/backup"
 DESCARTE="/dev/null"
 
-# Arquivos
+# Arquivo
 
-#PLANILHA="dados_de_vendas.csv"
-PLANILHA="$1"
+PLANILHA="dados_de_vendas.csv"
 
 # Formatos de Datas
     # + indica um output personalizado para date, ignorando o valor default 
@@ -59,7 +57,7 @@ relatorio() {               # Criação de relatório de vendas, data inicial e 
     && echo $DATA_HORA >> "relatorio-${DATA_FILES}.txt" \
     && cut -d ',' -f 5 backup*.csv | sed -n '2p' >> "relatorio-${DATA_FILES}.txt" 2> ${DESCARTE} \
     && cut -d ',' -f 5 backup*.csv | tail -n 1 >> "relatorio-${DATA_FILES}.txt" 2> ${DESCARTE} \
-    && cut -d ',' -f 2 backup*.csv | sort | uniq -c | wc -l | expr -1 >> "relatorio-${DATA_FILES}.txt" 2> ${DESCARTE} \
+    && cut -d ',' -f 2 backup*.csv | sed '1d' backup*.csv | sort | uniq -c | wc -l >> "relatorio-${DATA_FILES}.txt" 2> ${DESCARTE} \
     && sed '1d' backup*.csv | head -n 10 >> "relatorio-${DATA_FILES}.txt" \
     && echo >> "relatorio-${DATA_FILES}.txt" \
     && echo -e "${item4}\n"
