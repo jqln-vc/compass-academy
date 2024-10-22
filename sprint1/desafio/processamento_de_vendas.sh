@@ -9,15 +9,17 @@
 
 # Caminhos
 
-SELF_PATH="/workspaces/compass-academy/sprint1/desafio"
+#SELF_PATH="/workspaces/compass-academy/sprint1/desafio"
+SELF_PATH=$(pwd)
 ECOMMERCE="${SELF_PATH}/ecommerce"
 VENDAS="${ECOMMERCE}/vendas"
 BACKUP="${VENDAS}/backup"
-DESCARTE="${DESCARTE}"
+DESCARTE="/dev/null"
 
-# Prefixos e nomes de arquivos
+# Arquivos
 
-PLANILHA="dados_de_vendas.csv"
+#PLANILHA="dados_de_vendas.csv"
+PLANILHA="$1"
 
 # Formatos de Datas
     # + indica um output personalizado para date, ignorando o valor default 

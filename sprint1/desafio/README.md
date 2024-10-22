@@ -93,6 +93,11 @@ crontab -e
 sudo cron service start
 ```
 
+## PONTOS DE MELHORIA NO CÓDIGO
+
+* **Função de input para nome de arquivo e caminhos**  
+O script está dependente das variáveis de caminho e nome de arquivo declaradas no próprio código, isso prejudica a portabilidade e sua utilização em outros ambientes.
+
 ---
 
 ## REFERÊNCIAS
