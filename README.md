@@ -60,7 +60,7 @@ Ambos demarcaram uma fase de ruptura em minha vida, a partir do qual venho me de
 
 ### Sprints
 
-* Sprint 1: Linux, Git & GitHub [֍]()
+* Sprint 1: Linux, Git & GitHub [֍](/sprint1)
 
 ### Registros do Percurso
 

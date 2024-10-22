@@ -22,6 +22,8 @@ Por meio de outros cursos complementares que fiz, aprendi que saber lidar com o 
 
 No repositório [bash-playground](https://github.com/jqln-vc/bash-playground), comecei a compilar minhas práticas a partir de referências diversas.
 
+---
+
 | | | |
 |:---|---|---:|
 |**GIT & GITHUB**|**NOTAS DE ESTUDO**|[![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white )](https://wool-papaya-d4a.notion.site/Git-1210d30eb94d80b296fafde3fbc00d20)|
