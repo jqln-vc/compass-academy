@@ -5,9 +5,9 @@
 |![Banner](/assets/banner-sprint1-desafio.png)|
 ||
 
-Para embasar algumas motivações no desenlvovimento do desafio, quando oportuno, serão trazidas referências da literatura; citações indicadas na seção [REFERÊNCIAS](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#refer%C3%AAncias), e publicações indicadas na seção [BIBLIOGRAFIA](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/README.md#bibliografia) do diretório `sprint1`.  
+Para embasar algumas motivações no desenlvovimento do desafio, quando oportuno, serão trazidas referências da literatura; citações indicadas na seção [REFERÊNCIAS](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#refer%C3%AAncias), e publicações indicadas na seção [BIBLIOGRAFIA](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/README.md#bibliografia) no diretório `sprint1`.  
 
-## PREPARAÇÃO
+## PREPARAÇÃO DO AMBIENTE ECOMMERCE
 
 Em ambiente Linux Ubuntu, foi realizado o download do arquivo `dados_de_vendas.csv` na pasta `/home`, a criação da pasta `ecommerce` e envio do arquivo para lá.
 
@@ -33,6 +33,7 @@ sudo mkdir -p "${repo_dir}/ecommerce"
 sudo mv dados_de_vendas.csv ${repo_dir}/ecommerce
 ```
 
+### BÔNUS: preparacao_ecommerce.sh
 Complementarmente, foi feita a automatização do procedimento acima no script `preparacao_ecommerce.sh`.
 
 | |
@@ -40,47 +41,52 @@ Complementarmente, foi feita a automatização do procedimento acima no script `
 |![Função de Preparaçao](../evidencias/3-ecommercefunc.png)|
 | |
 
-## COMENTÁRIOS DE SCRIPTS
+#### FLUXO DA LÓGICA UTILIZADA
 
-Os scripts foram desenvolvidos priorizando a modularização dos processos em funções, adotando boas práticas de documentação, legibilidade, reusabilidade e tratamento de erros.
-
-### Cabeçalho e Documentação
-
-> Para a organização e legibilidade do código, quebre ações em seções. [^X] 27
-
-### Controle de Fluxo
-
-Para os controles de fluxo, foi priorizada a escrita simplificada, sem a utilização explícita de `if` e `then`, para otimizar a legilibilidade do código.
-
-IMAGEM DE IFS
-
-> *[...] para situações de teste e checagem de ações simples, usar **&&** e **||** pode ser muito conveniente e não desviará a atenção do fluxo de lógica principal.*[^X] 7
-
-O encadeamento lógico de comandos com `&&` assegura a **atomicidade** das execuções, e a utilização de quebras de linha com `\` é uma adoção inspirada em estilos utilizados atualmente pela comunidade.
-
-### Tratativas de Erro
-
-IMAGEM DE STERR
-
-> *Mensagens de erro devem ir para STDERR, como echo "Algo ruim aconteceu" 1>&2.* [^] 132
-
-Nos comandos que poderiam gerar erros potenciais, foi feita a trativa com a abordagem a seguir:
-
-```bash
-DESCARTE="/dev/null"
-2> $DESCARTE
+```mermaid
+graph LR
+    A(/ecommerce) --> B{existe ?}
+    B -- não --> C[mkdir ecommerce]
+    B -- sim --> D[echo ...sucesso!]
+    C --> D
+    E(?/dados_de_vendas) -- find | mv --> F[ecommerce/]
+    D --> E
+    F --> G[echo ...sucesso!]
 ```
 
-### Agendamento de Rotina
+## PROCESSAMENTO DE VENDAS
+A seguir serão comentadas as funções do script `processamento_de_vendas.sh`.
 
-O agendamento da rotina de processamento foi feito por meio do programa `crontab`, com a configuração do arquivo feita com o editor de texto Nano.
+### FUNÇÃO vendas_backup
+
+#### FLUXO DA LÓGICA UTILIZADA
+
+```mermaid
+graph LR
+    A[cd ecommerce] --> B(./vendas/backup)
+    B --> C{existe ?}
+    C -- não --> D[mkdir -p ./vendas/backup]
+    B -- sim --> E[echo ...sucesso!]
+    D --> E
+    E --> F[cp dados_de_vendas ./vendas]
+    F --> G[cp dados_de_vendas ./vendas/backup]
+    G --> I[mv ./vendas/dados]
+
+```
+
+## AGENDAMENTO DE ROTINAS: CRONTAB
+
+O agendamento da rotina de execução do script de processamento foi feito por meio do programa `crontab`, com a configuração do arquivo feita com o editor de texto Nano.
 
 | |
 |---|
 |![CronTab](../evidencias/4-crontab.png)|
 | |
 
-Antes, foi necessário fazer a instalação do programa e alterar o horário do sistema, que estava com o fuso UTC. Abaixo os comandos utilizados no terminal para esta etapa.
+> [!NOTE]
+> O script foi executado nos dias 22, 24, 25 e 26 de outubro. No dia 23, não foi possível executá-lo por motivos de força maior (desatenção ao estar em horário de reunião), portanto, o agendamento abrange os dias necessários para geração dos 4 relatórios.
+
+Antes de utilizar o programa, foi necessário fazer sua instalação e alterar o horário do sistema, que estava com o fuso UTC. Abaixo os comandos utilizados no terminal para esta etapa.
 
 ```bash
 # Configuração do fuso horário do sistema
@@ -91,6 +97,37 @@ crontab -e
 
 # Ativação do programa
 sudo cron service start
+```
+
+## METODOLOGIA UTILIZADA
+
+Os scripts foram desenvolvidos priorizando a modularização dos processos em funções, adotando boas práticas de documentação, legibilidade, reusabilidade e tratamento de erros.
+
+### CABEÇALHO E SECCIONAMENTO
+
+> Para a organização e legibilidade do código, quebre ações em seções. [^X] 27
+
+### CONTROLE DE FLUXO
+
+Para os controles de fluxo, foi priorizada a escrita simplificada, sem a utilização explícita de `if` e `then`, para otimizar a legilibilidade do código.
+
+IMAGEM DE IFS
+
+> *[...] para situações de teste e checagem de ações simples, usar **&&** e **||** pode ser muito conveniente e não desviará a atenção do fluxo de lógica principal.*[^X] 7
+
+Ademais, o encadeamento lógico de comandos com `&&` assegura a **atomicidade** das execuções, ou seja, ou todos os comandos de determinado bloco lógico são executados em conjunto, ou nenhum será. Já a utilização de quebras de linha com `\` é uma adoção inspirada em estilos utilizados atualmente pela comunidade.
+
+### TRATATIVAS DE ERRO
+
+IMAGEM DE STERR
+
+> *Mensagens de erro devem ir para STDERR, como echo "Algo ruim aconteceu" 1>&2.* [^] 132
+
+Nos comandos que poderiam gerar erros potenciais, foi feita a trativa com a abordagem a seguir:
+
+```bash
+DESCARTE="/dev/null"
+2> $DESCARTE
 ```
 
 ## PONTOS DE MELHORIA NO CÓDIGO
