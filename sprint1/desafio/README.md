@@ -41,7 +41,7 @@ Complementarmente, foi feita a automatização do procedimento acima no script `
 |![Função de Preparaçao](../evidencias/3-ecommercefunc.png)|
 | |
 
-#### FLUXO DA LÓGICA UTILIZADA
+#### FLUXO DE LÓGICA UTILIZADO
 
 ```mermaid
 graph LR
@@ -57,28 +57,28 @@ A seguir serão comentadas as funções do script `processamento_de_vendas.sh`.
 
 ### FUNÇÃO vendas_backup
 
-#### FLUXO DA LÓGICA UTILIZADA
+#### FLUXO DE LÓGICA UTILIZADO
 
 ```mermaid
 graph LR
-    A((ecommerce)) --> B(./vendas/backup)
+    A((/ecommerce)) --> B(./vendas/backup)
     B --> C{existe ?}
     C -- não --> D[mkdir -p ./vendas/backup]
     B -- sim --> E(copiar e renomear dados_de_vendas)
-    D --> E
+    D -- && --> E
     E -- cp --> F[para /vendas]
-    F -- cp --> G[para /backup/dados-DATA]
-    G -- mv --> I[dados-$DATA para backup-dados-DATA]
+    E -- cp --> G[para /backup/dados-DATA]
+    E -- mv --> I[dados-$DATA para backup-dados-DATA]
 ```
 ### FUNÇÃO relatorio
 
-#### FLUXO DA LÓGICA UTILIZADA
+#### FLUXO DE LÓGICA UTILIZADO
 
 ```mermaid
 graph LR
-    A((backup)) --touch--> B(relatório)
+    A((/backup)) --touch--> B(relatório)
     B -- echo --> C[DATAHORA >> relatório]
-    C --> D
+    C -- && --> D
     D(backup-dados) -- cut | sed --> E[1ª data >> relatório]
     D -- cut | tail --> F[última data >> relatório]
     D -- cut | sed | sort | uniq | wc --> G[qtd itens diferentes >> relatório]
@@ -86,21 +86,23 @@ graph LR
 ```
 ### FUNÇÃO compressao
 
-#### FLUXO DA LÓGICA UTILIZADA
+#### FLUXO DE LÓGICA UTILIZADO
 
 ```mermaid
 graph LR
-    A((backup))--> B(backup-dados)
+    A((/backup))--> B(backup-dados)
     B -- zip --> C[compressão de backup-dados]
 
 ```
 ### FUNÇÃO limpeza_arquivos
 
-#### FLUXO DA LÓGICA UTILIZADA
+#### FLUXO DE LÓGICA UTILIZADO
 
 ```mermaid
 graph LR
-    
+    A((/backup))-- rm --> B(backup-dados)
+    C((/vendas))-- rm --> D(dados)
+    A -- && --> C
  
 ```
 ## AGENDAMENTO DE ROTINAS: CRONTAB
