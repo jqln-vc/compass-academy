@@ -10,6 +10,8 @@
 
 | | | |
 |:---|---|---:|
+|NOME|---|Jaqueline Villagra Costa|
+|IDADE|---|31 anos|
 |CIDADE|---|Carapicuíba / SP|
 |CURSANDO|---|Bacharelado em Ciência de Dados (3°sem) - UNIVESP|
 |GRADUADA|---|Bacharelado em Letras - Habilitação em Português e Japonês (2021) - USP|
@@ -32,10 +34,7 @@ Coordenação de rotinas de squad responsável pela documentação de processos,
 
     Acho que me tornei confortável com ideias codificadas em escrita muito antes de conseguir o mesmo oralmente. Buscar mensagens transmitidas em padrões desconhecidos se tornou um hobby desde cedo.  
 
-    Aprender novas línguas é expandir meu mundo ao incorporar outros, longínquos e perpétuos.  
-    Novas maneiras de perceber e (re)criar a realidade, a minha e a dos outros, com explorações semânticas e permutações morfossintáticas, codificando ideias e sensações.  
-    Das belas artes da escrita, saberes antepassados desenlaçam oferendas transmitidas a mim pela minha mão que traça no papel, formas há muito tempo já traçadas repetidamente, formas que tomam vida e que moldam minha própria autoexpressão.  
-    Ao aprender a produzir novos sons me reconecto com meu corpo e exploro novos espaços de mim mesma outrora inacessados.  
+    Aprender novas línguas é expandir meu mundo ao incorporar outros, muitas vezes tão distantes de mim: novas maneiras de perceber e (re)criar a realidade, explorando permutações infinitas a partir do finito; ao ensinar minha mão a traçar novas escritas e meu trato vocal a produzir novos sons, fortaleço minha propiocepção e me reconecto com meu corpo.  
     [![Duolingo](https://img.shields.io/badge/Duolingo-%234DC730.svg?style=for-the-badge&logo=Duolingo&logoColor=white)](https://www.duolingo.com/profile/niiin3)
 
 
@@ -45,10 +44,8 @@ Ambos demarcaram uma fase de ruptura em minha vida, a partir do qual venho me de
 
 * **Genética & Bioinformática**  
 
-## IDEIAS QUE ME TRANSFORMARAM
+## LEITURAS RECENTES QUE ME TRANSFORMARAM
 
-* **Siddharta** - Herman Hesse [֍](https://en.wikipedia.org/wiki/Siddhartha_(novel))
-* **Speaker For The Dead** - Orson Scott Card [֍](https://pt.wikipedia.org/wiki/Speaker_for_the_Dead)
 * **Scattered Minds** - Gabor Maté [֍](https://www.amazon.com.br/Scattered-Minds-Origins-Attention-Disorder/dp/1785042211)
 * **The Selfish Gene** - Richard Dawkins [֍](https://en.wikipedia.org/wiki/The_Selfish_Gene)
 * **Material Ecology** - Neri Oxman [֍](https://www.media.mit.edu/publications/material-ecology/)
