@@ -9,6 +9,7 @@
 
 # Caminhos
 
+#SELF_PATH=$(pwd)
 SELF_PATH="/workspaces/compass-academy/sprint1/desafio"
 ECOMMERCE="${SELF_PATH}/ecommerce"
 VENDAS="${ECOMMERCE}/vendas"
@@ -39,11 +40,9 @@ vendas_backup() {           # Criação de diretório vendas e backup, criação
     item2="Copiado dados_de_vendas.csv para vendas e vendas/backup, renomeado com data atual ${DATA_FILES}"
     item3="Renomeado dados-AAAAMMDD.csv em vendas/backup para backup-dados-AAAAMMDD.csv"
     cp "${ECOMMERCE}/${PLANILHA}" "${VENDAS}" \
-    && cp "${ECOMMERCE}/${PLANILHA}" "${BACKUP}" \
+    && cp "${ECOMMERCE}/${PLANILHA}" "${BACKUP}/dados-${DATA_FILES}.csv" \
     && echo $item2 \
-    && mv "${BACKUP}/dados_de_vendas.csv" "${BACKUP}/dados-${DATA_FILES}.csv" 2> ${DESCARTE} \
-    && cd ${BACKUP} \
-    && mv "dados-${DATA_FILES}.csv" "backup-dados-${DATA_FILES}.csv" \
+    && mv "${BACKUP}/dados-${DATA_FILES}.csv" "${BACKUP}/backup-dados-${DATA_FILES}.csv" 2> ${DESCARTE} \
     && echo -e "${item3}\nBackup concluído com sucesso!\n"
 
 }
