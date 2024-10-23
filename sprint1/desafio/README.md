@@ -47,11 +47,9 @@ Complementarmente, foi feita a automatização do procedimento acima no script `
 graph LR
     A(/ecommerce) --> B{existe ?}
     B -- não --> C[mkdir ecommerce]
-    B -- sim --> D[echo ...sucesso!]
+    B -- sim --> D(?/dados_de_vendas)
     C --> D
-    E(?/dados_de_vendas) -- find | mv --> F[ecommerce/]
-    D --> E
-    F --> G[echo ...sucesso!]
+    D -- find | mv --> E[ecommerce/]
 ```
 
 ## PROCESSAMENTO DE VENDAS
@@ -63,17 +61,48 @@ A seguir serão comentadas as funções do script `processamento_de_vendas.sh`.
 
 ```mermaid
 graph LR
-    A[cd ecommerce] --> B(./vendas/backup)
+    A((ecommerce)) --> B(./vendas/backup)
     B --> C{existe ?}
     C -- não --> D[mkdir -p ./vendas/backup]
-    B -- sim --> E[echo ...sucesso!]
+    B -- sim --> E(copiar e renomear dados_de_vendas)
     D --> E
-    E --> F[cp dados_de_vendas ./vendas]
-    F --> G[cp dados_de_vendas ./vendas/backup]
-    G --> I[mv ./vendas/dados]
+    E -- cp --> F[para /vendas]
+    F -- cp --> G[para /backup/dados-DATA]
+    G -- mv --> I[dados-$DATA para backup-dados-DATA]
+```
+### FUNÇÃO relatorio
+
+#### FLUXO DA LÓGICA UTILIZADA
+
+```mermaid
+graph LR
+    A((backup)) --touch--> B(relatório)
+    B -- echo --> C[DATAHORA >> relatório]
+    C --> D
+    D(backup-dados) -- cut | sed --> E[1ª data >> relatório]
+    D -- cut | tail --> F[última data >> relatório]
+    D -- cut | sed | sort | uniq | wc --> G[qtd itens diferentes >> relatório]
+    D -- sed | heac --> H[10 itens >> relatório]    
+```
+### FUNÇÃO compressao
+
+#### FLUXO DA LÓGICA UTILIZADA
+
+```mermaid
+graph LR
+    A((backup))--> B(backup-dados)
+    B -- zip --> C[compressão de backup-dados]
 
 ```
+### FUNÇÃO limpeza_arquivos
 
+#### FLUXO DA LÓGICA UTILIZADA
+
+```mermaid
+graph LR
+    
+ 
+```
 ## AGENDAMENTO DE ROTINAS: CRONTAB
 
 O agendamento da rotina de execução do script de processamento foi feito por meio do programa `crontab`, com a configuração do arquivo feita com o editor de texto Nano.
@@ -98,6 +127,11 @@ crontab -e
 # Ativação do programa
 sudo cron service start
 ```
+
+## GERAÇÃO DE DATASET PARA RELATÓRIOS SUBSQUENTES
+Segue abaixo o prompt utilizado com o modelo Claude 3.5 Sonnet para gerar linhas adicionais, buscando manter a sequência de ids e ordem cronológica, produtos dentro da mesma temática e repetições ocasionais de itens, para testar a função `relatorio` nestas situações.
+
+![AI-Dataset](../evidencias/5-geracao-dataset.png)
 
 ## METODOLOGIA UTILIZADA
 
