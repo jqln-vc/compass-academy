@@ -4,7 +4,7 @@
 # Data: Out/2024
 # processamento_de_vendas.sh: Script para processamento de relatórios de vendas,
 # com funções de backup, compressão e geração de relatórios
-# -------------------------------------------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------------------------
 # Declaração de Variáveis
 
 # Caminhos
@@ -18,7 +18,7 @@ DESCARTE="/dev/null"
 
 # Arquivo
 
-PLANILHA="dados_de_vendas.csv"
+DATASET="dados_de_vendas.csv"
 
 # Formatos de Datas
     # + indica um output personalizado para date, ignorando o valor default 
@@ -26,71 +26,79 @@ PLANILHA="dados_de_vendas.csv"
 DATA_FILES=$(date +"%Y%m%d")
 DATA_HORA=$(date +"%Y/%m/%d %H:%M")
 
+# Etapas
 
-#-------------------------------------------------------------------------------------------------------------------------
+ITEM1="Criação dos diretórios vendas e backup concluída."
+ITEM2="Cópias de dados_de_vendas.csv concluída. Renomeação com data atual ${DATA_FILES} concluída."
+ITEM3="Renomeação de dados-AAAAMMDD.csv para backup-dados-AAAAMMDD.csv concluída."
+ITEM4="Criação de relatório de hoje ${DATA_HORA} concluída."
+ITEM5="Compressão de arquivos de backup concluída."
+ITEM6="Remoção de arquivos processados concluída."
+ITEM7="Processamento de vendas concluído com sucesso!"
+
+# ----------------------------------------------------------------------------------------------------------------------------
 # Funções
 
-vendas_backup() {           # Criação de diretório vendas e backup, criação de cópia de segurança da planilha do dia
+vendas_backup() {       # Criação de diretório vendas e backup, criação de cópia de segurança da planilha do dia
     echo "Iniciando backup..."
-        
-    item1="Diretórios vendas e vendas/backup criados"
-    cd ${ECOMMERCE}
-    [[ ! -d $BACKUP ]] && mkdir -p $BACKUP && echo $item1 || echo $item1
+         
+    [[ ! -d $BACKUP ]] && mkdir -p ${BACKUP} && echo ${ITEM1} || echo ${ITEM1}
 
-    item2="Copiado dados_de_vendas.csv para vendas e vendas/backup, renomeado com data atual ${DATA_FILES}"
-    item3="Renomeado dados-AAAAMMDD.csv em vendas/backup para backup-dados-AAAAMMDD.csv"
-    cp "${ECOMMERCE}/${PLANILHA}" "${VENDAS}" \
-    && cp "${ECOMMERCE}/${PLANILHA}" "${BACKUP}/dados-${DATA_FILES}.csv" \
-    && echo $item2 \
+    cp "${ECOMMERCE}/${DATASET}" "${VENDAS}" \
+    && cp "${ECOMMERCE}/${DATASET}" "${BACKUP}/dados-${DATA_FILES}.csv" \
+    && echo ${ITEM2} \
     && mv "${BACKUP}/dados-${DATA_FILES}.csv" "${BACKUP}/backup-dados-${DATA_FILES}.csv" 2> ${DESCARTE} \
-    && echo -e "${item3}\nBackup concluído com sucesso!\n"
+    && echo -e "${ITEM3}\nBackup concluído com sucesso!\n"
 
 }
 
-relatorio() {               # Criação de relatório de vendas, data inicial e final, quantidade de vendas, amostra
+relatorio() {       # Criação de relatório: data/hora atuais, data de venda inicial e final, qtd de itens distintos, amostra
     echo "Iniciando criação de relatório..."
 
-    item4="Relatório de hoje ${DATA_HORA} criado com sucesso!"
-    cd ${BACKUP}
-    touch "relatorio-${DATA_FILES}.txt" \
+    cd ${BACKUP} \
+    && touch "relatorio-${DATA_FILES}.txt" \
     && echo $DATA_HORA >> "relatorio-${DATA_FILES}.txt" \
     && cut -d ',' -f 5 backup*.csv | sed -n '2p' >> "relatorio-${DATA_FILES}.txt" 2> ${DESCARTE} \
     && cut -d ',' -f 5 backup*.csv | tail -n 1 >> "relatorio-${DATA_FILES}.txt" 2> ${DESCARTE} \
-    && cut -d ',' -f 2 backup*.csv | sed '1d' backup*.csv | sort | uniq -c | wc -l >> "relatorio-${DATA_FILES}.txt" 2> ${DESCARTE} \
+    && cut -d ',' -f 2 backup*.csv | sed '1d' | sort | uniq -c | wc -l >> "relatorio-${DATA_FILES}.txt" 2> ${DESCARTE} \
     && sed '1d' backup*.csv | head -n 10 >> "relatorio-${DATA_FILES}.txt" \
     && echo >> "relatorio-${DATA_FILES}.txt" \
-    && echo -e "${item4}\n"
+    && echo -e "${ITEM4}\n"
 
 }    
 
-compressao() {              # Compressão de arquivos de backup
-    echo "Iniciando compressão de arquivos de backup..."
-    cd ${BACKUP}
+compressao() {      # Compressão de arquivos de backup
     
-    zip "backup-dados-${DATA_FILES}.zip" "backup-dados-${DATA_FILES}.csv" \
-    && echo -e "Compressão concluída com sucesso!\n"
+    echo "Iniciando compressão de arquivos de backup..."
+
+    cd ${BACKUP} \
+    && zip "backup-dados-${DATA_FILES}.zip" "backup-dados-${DATA_FILES}.csv" \
+    && echo -e "${ITEM5}\n"
 }
 
 limpeza_arquivos() {        # Remoção de dados de vendas e backup já processados
-    echo "Removendo arquivos csv de dados de vendas e backup já processados"
+    
+    echo "Iniciando limpeza de arquivos..."
 
     rm -f ${BACKUP}/backup*.csv \
-    && rm -f "${VENDAS}/dados_de_vendas.csv"
+    && rm -f ${VENDAS}/dados*.csv \
+    && echo -e "${ITEM6}\n"
+} 
 
-    echo -e "Planilha de vendas de hoje e backup removidos com sucesso!\n"
-}
-
-# -------------------------------------------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------------------------
 # Execução
 
-main () {           # Pipeline de execução do script
+main () {       # Pipeline de execução do script
 
     echo -e "Iniciando script ${0}\n"
 
     vendas_backup \
     && relatorio \
     && compressao \
-    && limpeza_arquivos
+    && limpeza_arquivos \
+    && echo -e "${ITEM7}\n"
+
+    exit 0
 }
 
 
