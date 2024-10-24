@@ -9,8 +9,7 @@
 #
 # Caminhos
 
-#SELF_PATH=$(pwd)
-SELF_PATH="/workspaces/compass-academy/sprint1/desafio"
+SELF_PATH=$(pwd)
 BACKUP="${SELF_PATH}/ecommerce/vendas/backup"
 DESCARTE="/dev/null"
 
