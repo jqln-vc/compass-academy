@@ -3,8 +3,11 @@
 | |
 |---|
 |![Banner](assets/banner.png)|
+| |
 
 ---
+
+
 
 ## DADOS PESSOAIS
 
