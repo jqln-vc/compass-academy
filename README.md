@@ -7,7 +7,10 @@
 
 ---
 
-
+| |
+|---|
+|![Profile Pic](assets/profile-pic.jpg)|
+| |
 
 ## DADOS PESSOAIS
 
@@ -40,14 +43,13 @@ Coordenação de rotinas de squad responsável pela documentação de processos,
     Aprender novas línguas é expandir meu mundo ao incorporar outros, muitas vezes tão distantes de mim: novas maneiras de perceber e (re)criar a realidade, explorando permutações infinitas a partir do finito; ao ensinar minha mão a traçar novas escritas e meu trato vocal a produzir novos sons, fortaleço minha propiocepção e me reconecto com meu corpo.  
     [![Duolingo](https://img.shields.io/badge/Duolingo-%234DC730.svg?style=for-the-badge&logo=Duolingo&logoColor=white)](https://www.duolingo.com/profile/niiin3)
 
-
 * **Yoga & Vipassana**  
 Logo antes da pandemia, me iniciei como praticante (ainda não muito disciplinada) da meditação [Vipassana](https://www.dhamma.org/pt-BR/about/vipassana), e há algum tempo antes disso já buscava incorporar Yoga em minha vida, não somente as posturas físicas mas a filosofia e os antigos saberes dos sutras.  
 Ambos demarcaram uma fase de ruptura em minha vida, a partir do qual venho me desenlaçando de hábitos improdutivos e fortalecendo novos modos de agir (ou não agir).  
 
 * **Genética & Bioinformática**  
 
-## LEITURAS QUE ME TRANSFORMARAM RECENTEMENTE
+## LEITURAS RECENTES QUE ME TRANSFORMARAM
 
 * **Scattered Minds** - Gabor Maté [֍](https://www.amazon.com.br/Scattered-Minds-Origins-Attention-Disorder/dp/1785042211)
 * **The Selfish Gene** - Richard Dawkins [֍](https://en.wikipedia.org/wiki/The_Selfish_Gene)

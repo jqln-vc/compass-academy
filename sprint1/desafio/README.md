@@ -34,6 +34,7 @@ sudo mv dados_de_vendas.csv ${repo_dir}/ecommerce
 ```
 
 ### BÔNUS: preparacao_ecommerce.sh
+
 Complementarmente, foi feita a automatização do procedimento acima no script `preparacao_ecommerce.sh`.
 
 | |
@@ -53,6 +54,7 @@ graph LR
 ```
 
 ## PROCESSAMENTO DE VENDAS
+
 A seguir serão comentadas as funções do script `processamento_de_vendas.sh`.
 
 ### FUNÇÃO vendas_backup
@@ -70,6 +72,7 @@ graph LR
     E -- cp --> G[para /backup/dados-DATA]
     E -- mv --> I[dados-$DATA para backup-dados-DATA]
 ```
+
 ### FUNÇÃO relatorio
 
 #### FLUXO DE LÓGICA UTILIZADO
@@ -84,6 +87,7 @@ graph LR
     D -- cut | sed | sort | uniq | wc --> G[qtd itens diferentes >> relatório]
     D -- sed | heac --> H[10 itens >> relatório]    
 ```
+
 ### FUNÇÃO compressao
 
 #### FLUXO DE LÓGICA UTILIZADO
@@ -94,6 +98,7 @@ graph LR
     B -- zip --> C[compressão de backup-dados]
 
 ```
+
 ### FUNÇÃO limpeza_arquivos
 
 #### FLUXO DE LÓGICA UTILIZADO
@@ -105,6 +110,7 @@ graph LR
     A -- && --> C
  
 ```
+
 ## AGENDAMENTO DE ROTINAS: CRONTAB
 
 O agendamento da rotina de execução do script de processamento foi feito por meio do programa `crontab`, com a configuração do arquivo feita com o editor de texto Nano.
@@ -130,10 +136,23 @@ crontab -e
 sudo cron service start
 ```
 
+### EXECUÇÃO DE CRON JOB
+
+---
+
+![AI-Dataset](../evidencias/15-execucao-cron.gif)
+
+---
+
 ## GERAÇÃO DE DATASET PARA RELATÓRIOS SUBSQUENTES
+
 Segue abaixo o prompt utilizado com o modelo Claude 3.5 Sonnet para gerar linhas adicionais, buscando manter a sequência de ids e ordem cronológica, produtos dentro da mesma temática e repetições ocasionais de itens, para testar a função `relatorio` nestas situações.
 
+---
+
 ![AI-Dataset](../evidencias/5-geracao-dataset.png)
+
+---
 
 ## METODOLOGIA UTILIZADA
 

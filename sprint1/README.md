@@ -12,13 +12,11 @@
 |**LINUX**|**NOTAS DE ESTUDO**|[![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white )](https://wool-papaya-d4a.notion.site/Linux-Bash-11f0d30eb94d80e88db7df6abc848b61)|
 | | | |
 
-Apesar de ter o Ubuntu instalado em meu PC pessoal, para tentar me habituar ao sistema por coerção, antes da sprint, eu tinha pouca familiaridade com o terminal. E confesso que uma certa curiosidade tingida de desconforto. Não o utilizava para nada além de instalações e atualizações de pacotes.  
+Apesar de ter o Ubuntu instalado em meu PC pessoal, para tentar me habituar ao sistema por coerção, antes da sprint, eu tinha pouca familiaridade e um certo desconforto com o terminal. Não o utilizava para nada além de instalações e atualizações de pacotes.  
 
-Hoje, após experienciar o poder dos scripts e desmistificar o uso do terminal (não é tão difícil quanto parece!), sinto prazer em utilizá-lo, e tenho confiança em escrever rotinas mais básicas.  
+Hoje, após experienciar o poder dos scripts e desmistificar o uso do terminal (não é tão difícil quanto parece!), sinto prazer em utilizá-lo, e tenho confiança em escrever rotinas mais básicas, me localizar no Linux, debuggar meus scripts ou buscar referências para a solução de problemas.
 
 Tenho interesse em continuar me aprofundando em Bash e melhorar meus códigos e habilidades com a linha de comando, interiorizando boas práticas e praticando com a automação de processos.  
-
-Por meio de outros cursos complementares que fiz, aprendi que saber lidar com o terminal é essencial para uma utilização eficiente de muitos serviços de nuvem, nos quais o Linux se faz obíquo. Portanto, também procuro utilizar o AWS CLI em estudos pessoais para me ambientar e reforçar esse hábito.
 
 No repositório [bash-playground](https://github.com/jqln-vc/bash-playground), comecei a compilar minhas práticas a partir de referências diversas.
 
