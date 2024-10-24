@@ -150,7 +150,10 @@ Segue abaixo o prompt utilizado com o modelo Claude 3.5 Sonnet para gerar linhas
 
 ---
 
-![AI-Dataset](../evidencias/5-geracao-dataset.png)
+| |
+|---|
+|![AI-Dataset](../evidencias/5-geracao-dataset.png)|
+| |
 
 ---
 
