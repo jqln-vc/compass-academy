@@ -1,0 +1,15 @@
+2024/10/24 15:27
+01/04/2023
+30/08/2023
+151
+89,aspirador de pó,3,299.99,01/04/2023
+90,liquidificador,5,89.90,02/04/2023
+91,torradeira,4,59.99,03/04/2023
+92,cafeteira,6,129.00,04/04/2023
+93,ferro de passar,2,79.90,05/04/2023
+94,ventilador de teto,3,199.00,06/04/2023
+95,ar condicionado portátil,1,999.00,07/04/2023
+96,umidificador de ar,4,149.90,08/04/2023
+97,purificador de água,2,399.00,09/04/2023
+98,máquina de lavar roupa,1,1299.00,10/04/2023
+
