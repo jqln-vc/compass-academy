@@ -44,7 +44,7 @@ Ambos demarcaram uma fase de ruptura em minha vida, a partir do qual venho me de
 
 * **Genética & Bioinformática**  
 
-## LEITURAS RECENTES QUE ME TRANSFORMARAM
+## LEITURAS QUE ME TRANSFORMARAM RECENTEMENTE
 
 * **Scattered Minds** - Gabor Maté [֍](https://www.amazon.com.br/Scattered-Minds-Origins-Attention-Disorder/dp/1785042211)
 * **The Selfish Gene** - Richard Dawkins [֍](https://en.wikipedia.org/wiki/The_Selfish_Gene)
