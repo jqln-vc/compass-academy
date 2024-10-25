@@ -7,10 +7,9 @@
 
 ## RELATOS DE APRENDIZADO
 
-| | | |
-|:---|---|---:|
-|**LINUX**|**NOTAS DE ESTUDO**|[![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white )](https://wool-papaya-d4a.notion.site/Linux-Bash-11f0d30eb94d80e88db7df6abc848b61)|
-| | | |
+### Linux
+
+[![Guide-01](https://img.shields.io/badge/Guia-Linux._Shell._Bash.-ED751A)](/guide/01_linux_shell_bash.md)
 
 Apesar de ter o Ubuntu instalado em meu PC pessoal, para tentar me habituar ao sistema por coerção, antes da sprint, eu tinha pouca familiaridade e um certo desconforto com o terminal. Não o utilizava para nada além de instalações e atualizações de pacotes.  
 
@@ -22,10 +21,9 @@ No repositório [bash-playground](https://github.com/jqln-vc/bash-playground), c
 
 ---
 
-| | | |
-|:---|---|---:|
-|**GIT & GITHUB**|**NOTAS DE ESTUDO**|[![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white )](https://wool-papaya-d4a.notion.site/Git-1210d30eb94d80b296fafde3fbc00d20)|
-| | | |
+### Git & GitHub
+
+[![Guide-02](https://img.shields.io/badge/Guia-Git-ED751A)](/guide/02_git.md)
 
 ## DESAFIO
 

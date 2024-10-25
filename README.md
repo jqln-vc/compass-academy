@@ -60,15 +60,7 @@ Ambos demarcaram uma fase de ruptura em minha vida, a partir do qual venho me de
 
 ## TRILHA DE APRENDIZADO
 
-### Sprints
+[![The Guide](https://img.shields.io/badge/O_Guia_do_Aprendiz_das_Nuvens-000000)](/guide)  
 
-* Sprint 1: Linux, Git & GitHub [֍](/sprint1)
-
-### Registros do Percurso
-
-| | |
-|:---|---:|
-|Daily Log|[![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white )](https://wool-papaya-d4a.notion.site/Daily-Log-11c0d30eb94d8085a21ac2e37db0b9a0)|
-Linux & Bash|[![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white )](https://wool-papaya-d4a.notion.site/Linux-Bash-11f0d30eb94d80e88db7df6abc848b61)|
-|Git|[![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white )](https://wool-papaya-d4a.notion.site/Git-1210d30eb94d80b296fafde3fbc00d20)|
-| | |
+[![Sprint 1](https://img.shields.io/badge/Sprint_1-Linux_Git_&_GitHub-ED751A)](/sprint1)  
+[![Sprint 2](https://img.shields.io/badge/Sprint_2-SQL_&_AWS_Partner-E42322)](/sprint2)
