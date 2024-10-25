@@ -71,7 +71,7 @@ Demonstração das aplicações de versionamento de código aplicadas no projeto
 
 | |
 |---|
-|![Certificado-Git](certificados/)|
+|![Certificado-Git](certificados/certificado-git.jpg)|
 ||
 
 ## CERTIFICADOS COMPLEMENTARES
