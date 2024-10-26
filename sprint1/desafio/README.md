@@ -42,7 +42,9 @@ Complementarmente, foi feita a automatização do procedimento acima no script `
 |![Função de Preparaçao](../evidencias/3-ecommercefunc.png)|
 | |
 
-#### FLUXO DE LÓGICA UTILIZADO
+#### FLUXO DE LÓGICA
+
+[//]: # (Caso não possua suporte para mermaid, sugiro abrir no site do GitHub para visuzalizar o grafo a seguir ou instalar extensão compatível)
 
 ```mermaid
 graph LR
@@ -59,7 +61,9 @@ A seguir serão comentadas as funções do script `processamento_de_vendas.sh`.
 
 ### FUNÇÃO vendas_backup
 
-#### FLUXO DE LÓGICA UTILIZADO
+#### FLUXO DE LÓGICA
+
+[//]: # (Caso não possua suporte para mermaid, sugiro abrir no site do GitHub para visuzalizar o grafo a seguir ou instalar extensão compatível)
 
 ```mermaid
 graph LR
@@ -75,7 +79,9 @@ graph LR
 
 ### FUNÇÃO relatorio
 
-#### FLUXO DE LÓGICA UTILIZADO
+#### FLUXO DE LÓGICA
+
+[//]: # (Caso não possua suporte para mermaid, sugiro abrir no site do GitHub para visuzalizar o grafo a seguir ou instalar extensão compatível)
 
 ```mermaid
 graph LR
@@ -90,7 +96,9 @@ graph LR
 
 ### FUNÇÃO compressao
 
-#### FLUXO DE LÓGICA UTILIZADO
+#### FLUXO DE LÓGICA
+
+[//]: # (Caso não possua suporte para mermaid, sugiro abrir no site do GitHub para visuzalizar o grafo a seguir ou instalar extensão compatível)
 
 ```mermaid
 graph LR
@@ -101,7 +109,9 @@ graph LR
 
 ### FUNÇÃO limpeza_arquivos
 
-#### FLUXO DE LÓGICA UTILIZADO
+#### FLUXO DE LÓGICA
+
+[//]: # (Caso não possua suporte para mermaid, sugiro abrir no site do GitHub para visuzalizar o grafo a seguir ou instalar extensão compatível)
 
 ```mermaid
 graph LR
@@ -163,7 +173,7 @@ Os scripts foram desenvolvidos priorizando a modularização dos processos em fu
 
 ### CABEÇALHO E SECCIONAMENTO
 
-> Para a organização e legibilidade do código, quebre ações em seções. [^X] 27
+> Para a organização e legibilidade do código, quebre ações em seções.[^1]
 
 ### CONTROLE DE FLUXO
 
@@ -171,7 +181,7 @@ Para os controles de fluxo, foi priorizada a escrita simplificada, sem a utiliza
 
 IMAGEM DE IFS
 
-> *[...] para situações de teste e checagem de ações simples, usar **&&** e **||** pode ser muito conveniente e não desviará a atenção do fluxo de lógica principal.*[^X] 7
+> *[...] para situações de teste e checagem de ações simples, usar **&&** e **||** pode ser muito conveniente e não desviará a atenção do fluxo de lógica principal.*[^2]
 
 Ademais, o encadeamento lógico de comandos com `&&` assegura a **atomicidade** das execuções, ou seja, ou todos os comandos de determinado bloco lógico são executados em conjunto, ou nenhum será. Já a utilização de quebras de linha com `\` é uma adoção inspirada em estilos utilizados atualmente pela comunidade.
 
@@ -179,7 +189,7 @@ Ademais, o encadeamento lógico de comandos com `&&` assegura a **atomicidade** 
 
 IMAGEM DE STERR
 
-> *Mensagens de erro devem ir para STDERR, como echo "Algo ruim aconteceu" 1>&2.* [^] 132
+> *Mensagens de erro devem ir para STDERR, como echo "Algo ruim aconteceu" 1>&2.*[^3]
 
 Nos comandos que poderiam gerar erros potenciais, foi feita a trativa com a abordagem a seguir:
 
@@ -188,14 +198,30 @@ DESCARTE="/dev/null"
 2> $DESCARTE
 ```
 
-## PONTOS DE MELHORIA NO CÓDIGO
+## MELHORIAS A FAZER
 
-* **Função de input para nome de arquivo e caminhos**  
-O script está dependente das variáveis de caminho e nome de arquivo declaradas no próprio código, isso prejudica a portabilidade e sua utilização em outros ambientes.
+- [x] **Remover dependência dos scripts ao caminho absoluto do ambiente virtual de execução**  
+Devido à execução do crontab a partir da raíz, inicialmente foram utilizados caminhos absolutos para contornar criações errôneas de pastas e arquivos durante os cron jobs.  
+Com uma alteração no agendamento no cron, foi possível adotar o caminho `SELF_PATH` partindo do diretório atual, assegurando assim a portabilidade do código.
+
+```bash
+    # agendamento no crontab
+    27 15 * * * 1-6 cd /workspaces/compass-academy/sprint1/desafio && ./processamento_de_vendas.sh
+
+    # declaração de variável global de caminho
+    SELF_PATH=$(pwd)
+```
+
+- [ ] **Adicionar função que recebe argumento `help` para printar instruções de utilização da funções do(s) script(s)**.
+
+- [ ] **Receber nome da planilha de vendas (ex. "dados_de_vendas.csv") como argumento na linha de comando.**
+
+- [ ] **Execução de funções separadamente a partir de chamada por argumento na linha de comando.**
 
 ---
 
 ## REFERÊNCIAS
 
-[^X] ALBING, VOSSEN, 2022, p. 7
-[^X] ALBING, VOSSEN, 2022, p. 27
+[^1]: ALBING, VOSSEN, 2022, p. 27  
+[^2]: Ibid., p. 7  
+[^3]: Ibid., p. 132

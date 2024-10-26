@@ -1,135 +1,65 @@
 id,produto,quantidade,preço,data
-241,trena,2,14.90,31/08/2023
-242,nível,1,29.90,01/09/2023
-243,furadeira,1,199.90,02/09/2023
-244,parafusadeira,1,149.90,03/09/2023
-245,jogo de brocas,2,39.90,04/09/2023
-246,serra tico-tico,1,179.90,05/09/2023
-247,lixadeira orbital,1,129.90,06/09/2023
-248,compressor de ar,1,299.90,07/09/2023
-249,escada doméstica,1,89.90,08/09/2023
-250,caixa de ferramentas,2,59.90,09/09/2023
-251,kit de jardinagem,1,79.90,10/09/2023
-252,regador,3,19.90,11/09/2023
-253,mangueira de jardim,2,39.90,12/09/2023
-254,tesoura de poda,2,29.90,13/09/2023
-255,luva de jardinagem,4,14.90,14/09/2023
-256,adubo,5,12.90,15/09/2023
-257,terra vegetal,3,9.90,16/09/2023
-258,vaso de planta,4,24.90,17/09/2023
-259,semente de flores,10,3.90,18/09/2023
-260,semente de hortaliças,10,3.90,19/09/2023
-261,inseticida para plantas,3,14.90,20/09/2023
-262,pulverizador,2,19.90,21/09/2023
-263,cortador de grama,1,399.90,22/09/2023
-264,aparador de grama,1,199.90,23/09/2023
-265,churrasqueira,1,199.90,24/09/2023
-266,kit para churrasco,2,79.90,25/09/2023
-267,carvão,3,14.90,26/09/2023
-268,acendedor de churrasqueira,4,9.90,27/09/2023
-269,grelha para churrasco,2,39.90,28/09/2023
-270,espeto para churrasco,6,19.90,29/09/2023
-271,cadeira de praia,4,49.90,30/09/2023
-272,guarda-sol,2,79.90,01/10/2023
-273,cooler,1,129.90,02/10/2023
-274,caixa térmica,1,89.90,03/10/2023
-275,barraca de camping,1,299.90,04/10/2023
-276,saco de dormir,2,99.90,05/10/2023
-277,colchão inflável,2,79.90,06/10/2023
-278,lanterna,3,29.90,07/10/2023
-279,canivete,2,39.90,08/10/2023
-280,bússola,1,24.90,09/10/2023
-281,mochila,2,89.90,10/10/2023
-282,garrafa de água,5,19.90,11/10/2023
-283,capa de chuva,4,24.90,12/10/2023
-284,guarda-chuva,3,29.90,13/10/2023
-285,óculos de sol,2,79.90,14/10/2023
-286,protetor solar,4,39.90,15/10/2023
-287,repelente de insetos,5,14.90,16/10/2023
-288,kit primeiros socorros,1,49.90,17/10/2023
-289,corda,2,19.90,18/10/2023
-290,fita adesiva,5,4.90,19/10/2023
-291,saco plástico,10,2.90,20/10/2023
-292,papel alumínio,6,5.90,21/10/2023
-293,filme plástico,6,4.90,22/10/2023
-294,papel toalha,8,3.90,23/10/2023
-295,guardanapo de papel,10,2.90,24/10/2023
-296,copo descartável,15,3.90,25/10/2023
-297,prato descartável,15,4.90,26/10/2023
-298,talher descartável,20,3.90,27/10/2023
-299,canudo,30,1.90,28/10/2023
-300,palito de dente,5,1.90,29/10/2023
-301,fósforo,10,1.90,30/10/2023
-302,isqueiro,5,3.90,31/10/2023
-303,vela,8,2.90,01/11/2023
-304,lâmpada,6,7.90,02/11/2023
-305,pilha,10,2.90,03/11/2023
-306,bateria,4,12.90,04/11/2023
-307,carregador de celular,3,29.90,05/11/2023
-308,cabo USB,5,14.90,06/11/2023
-309,pendrive,2,39.90,07/11/2023
-310,cartão de memória,1,49.90,08/11/2023
-311,mouse,2,29.90,09/11/2023
-312,teclado,1,49.90,10/11/2023
-313,webcam,1,79.90,11/11/2023
-314,headset,2,89.90,12/11/2023
-315,caixa de som bluetooth,1,99.90,13/11/2023
-316,fone de ouvido,3,39.90,14/11/2023
-317,carregador portátil,2,59.90,15/11/2023
-318,suporte para celular,4,19.90,16/11/2023
-319,película para celular,5,14.90,17/11/2023
-320,capa para celular,6,24.90,18/11/2023
-321,adaptador HDMI,3,29.90,19/11/2023
-322,cabo HDMI,2,39.90,20/11/2023
-323,roteador Wi-Fi,1,129.90,21/11/2023
-324,repetidor de sinal Wi-Fi,1,89.90,22/11/2023
-325,antena digital,1,59.90,23/11/2023
-326,conversor digital,1,79.90,24/11/2023
-327,controle remoto universal,2,29.90,25/11/2023
-328,suporte para TV,1,89.90,26/11/2023
-329,cabo coaxial,3,14.90,27/11/2023
-330,filtro de linha,2,39.90,28/11/2023
-331,nobreak,1,299.90,29/11/2023
-332,estabilizador,1,89.90,30/11/2023
-333,caderno,5,8.90,01/12/2023
-334,caneta,10,1.90,02/12/2023
-335,lápis,15,0.90,03/12/2023
-336,borracha,8,1.90,04/12/2023
-337,apontador,6,2.90,05/12/2023
-338,régua,4,3.90,06/12/2023
-339,tesoura,3,5.90,07/12/2023
-340,cola,5,3.90,08/12/2023
-341,grampeador,2,12.90,09/12/2023
-342,grampo,5,2.90,10/12/2023
-343,clipe,6,1.90,11/12/2023
-344,pasta,4,4.90,12/12/2023
-345,envelope,20,0.50,13/12/2023
-346,papel sulfite,3,19.90,14/12/2023
-347,post-it,5,5.90,15/12/2023
-348,marca-texto,4,3.90,16/12/2023
-349,corretivo,3,4.90,17/12/2023
-350,calculadora,2,19.90,18/12/2023
-351,agenda,1,29.90,19/12/2023
-352,calendário,2,14.90,20/12/2023
-353,quadro branco,1,59.90,21/12/2023
-354,pincel para quadro branco,4,3.90,22/12/2023
-355,apagador,2,5.90,23/12/2023
-356,porta-lápis,3,9.90,24/12/2023
-357,organizador de mesa,1,39.90,25/12/2023
-358,porta-cartões,2,14.90,26/12/2023
-359,porta-documentos,1,29.90,27/12/2023
-360,fichário,1,39.90,28/12/2023
-361,perfurador de papel,1,19.90,29/12/2023
-362,elástico,10,1.90,30/12/2023
-363,barbante,2,5.90,31/12/2023
-364,fita adesiva,4,3.90,01/01/2024
-365,etiqueta adesiva,5,4.90,02/01/2024
-366,papel de presente,3,5.90,03/01/2024
-367,saco de presente,6,2.90,04/01/2024
-368,laço de presente,10,1.90,05/01/2024
-369,cartão de presente,8,2.90,06/01/2024
-370,balão,20,0.50,07/01/2024
-371,vela de aniversário,12,1.90,08/01/2024
-372,toalha de mesa descartável,3,5.90,09/01/2024
-373,guardanapo decorado,5,3.90,10/01/2024
-374,bandeja descartável,4,4.90,11/01/2024
+375,forma de alumínio descartável,6,3.90,12/01/2024
+376,palito para churrasco,2,3.90,13/01/2024
+377,palito para petisco,4,2.90,14/01/2024
+378,faca descartável,30,0.20,15/01/2024
+379,garfo descartável,30,0.20,16/01/2024
+380,colher descartável,30,0.20,17/01/2024
+381,prato descartável,20,0.30,18/01/2024
+382,copo descartável,50,0.10,19/01/2024
+383,guardanapo,10,2.90,20/01/2024
+384,canudo,100,0.05,21/01/2024
+385,papel toalha,4,4.90,22/01/2024
+386,papel higiênico,16,14.90,23/01/2024
+387,lenço de papel,6,3.90,24/01/2024
+388,absorvente,2,9.90,25/01/2024
+389,fralda descartável,1,39.90,26/01/2024
+390,escova de dentes,3,5.90,27/01/2024
+391,creme dental,2,4.90,28/01/2024
+392,fio dental,1,7.90,29/01/2024
+393,enxaguante bucal,1,14.90,30/01/2024
+394,shampoo,1,12.90,31/01/2024
+395,condicionador,1,12.90,01/02/2024
+396,sabonete,5,2.90,02/02/2024
+397,desodorante,2,12.90,03/02/2024
+398,creme hidratante,1,19.90,04/02/2024
+399,protetor solar,1,39.90,05/02/2024
+400,algodão,1,5.90,06/02/2024
+401,cotonete,1,3.90,07/02/2024
+402,acetona,1,4.90,08/02/2024
+403,lixa de unha,3,1.90,09/02/2024
+404,esmalte,2,5.90,10/02/2024
+405,removedor de esmalte,1,6.90,11/02/2024
+406,escova de cabelo,1,14.90,12/02/2024
+407,pente,2,4.90,13/02/2024
+408,elástico de cabelo,20,0.50,14/02/2024
+409,presilha de cabelo,10,1.90,15/02/2024
+410,gel fixador,1,9.90,16/02/2024
+411,mousse de cabelo,1,14.90,17/02/2024
+412,cera depilatória,1,19.90,18/02/2024
+413,aparelho de barbear descartável,3,5.90,19/02/2024
+414,creme de barbear,1,12.90,20/02/2024
+415,loção pós-barba,1,19.90,21/02/2024
+416,talco,1,7.90,22/02/2024
+417,antitranspirante,2,14.90,23/02/2024
+418,sabonete líquido,1,9.90,24/02/2024
+419,esponja de banho,2,4.90,25/02/2024
+420,bucha vegetal,1,3.90,26/02/2024
+421,escova de banho,1,9.90,27/02/2024
+422,camiseta,2,29.90,28/02/2024
+423,cueca,3,19.90,29/02/2024
+424,meia,5,9.90,01/03/2024
+425,pijama,1,49.90,02/03/2024
+426,chinelo,2,24.90,03/03/2024
+427,boné,1,29.90,04/03/2024
+428,óculos de sol,1,79.90,05/03/2024
+429,guarda-chuva,1,29.90,06/03/2024
+430,cinto,1,39.90,07/03/2024
+431,carteira,1,59.90,08/03/2024
+432,bolsa,1,89.90,09/03/2024
+433,mochila,1,99.90,10/03/2024
+434,relógio de pulso,1,129.90,11/03/2024
+435,anel,1,49.90,12/03/2024
+436,colar,1,39.90,13/03/2024
+437,brinco,2,29.90,14/03/2024
+438,pulseira,1,24.90,15/03/2024

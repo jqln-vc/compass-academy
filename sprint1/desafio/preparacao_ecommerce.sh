@@ -15,12 +15,12 @@ DESCARTE="/dev/null"
 
 # Arquivo
 
-DATASET=${1}
+PLANILHA=${1}
 
 # Etapas
 
 ITEM1="Criação do diretório ecommerce concluída."
-ITEM2="Localização da planilha ${DATASET} e seu deslocamento para ecommerce concluídos."
+ITEM2="Localização da planilha ${PLANILHA} e seu deslocamento para ecommerce concluídos."
 ITEM3="Preparação do ambiente ecommerce concluída com sucesso!"
 
 # ----------------------------------------------------------------------------------------------------------
@@ -32,7 +32,7 @@ prep_env() {        # Criação de ambiente ecommerce, localização de planilha
 
     [[ ! -d ${ECOMMERCE} ]] && mkdir ecommerce && echo ${ITEM1} || echo ${ITEM1}
     
-    find ${SELF_PATH} -name ${DATASET} 2> ${DESCARTE} | xargs -I {} mv {} $ECOMMERCE/ 2> ${DESCARTE} \
+    find ${SELF_PATH} -name ${PLANILHA} 2> ${DESCARTE} | xargs -0 -I {} mv {} $ECOMMERCE/ 2> ${DESCARTE} \
     && echo -e "${ITEM2}\n" 
 
 }

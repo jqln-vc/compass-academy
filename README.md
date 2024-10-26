@@ -7,10 +7,10 @@
 
 ---
 
-| |
-|---|
-|![Profile Pic](assets/profile-pic.jpg)|
-| |
+| | |
+|:---|---:|
+|![Profile Pic](assets/profile-pic.jpg)|![Bom dia](assets/ola.gif)|
+| | |
 
 ## DADOS PESSOAIS
 
@@ -29,7 +29,7 @@
 Coleta e elaboração de *corpora* terminológicos, bem como análise lexical de compostos lúdicos e neologismos da área de Desenvolvimento Sustentável.  
 
 * **Integrante | [SemioCom](https://semio.cc/) - Grupo Experimental em Semiótica Computacional**  
-Breve participação no grupo com contribuição de códigos de desenvolvimento de alternativas de processamento de linguagem natural baseado em metodologias de análise semióticas.
+Breve participação no grupo com contribuição de ideias e códigos. Nesse período, buscávamos o desenvolvimento de alternativas de processamento de linguagem natural, em específico para análise de sentimento, baseadas em uma abordagem metodológica semiótica.
 
 * **Analista de Metainformação Sênior & Squad Leader | Omnilogic SA**  
 Coordenação de rotinas de squad responsável pela documentação de processos, padronização de metadados e processamentos em batch de dados, com uso de RegEx e SQL, auxiliando o squad de MLOps na otimização dos modelos de machine learning dos produtos voltados à área de e-commerce.  
@@ -43,18 +43,22 @@ Coordenação de rotinas de squad responsável pela documentação de processos,
     Aprender novas línguas é expandir meu mundo ao incorporar outros, muitas vezes tão distantes de mim: novas maneiras de perceber e (re)criar a realidade, explorando permutações infinitas a partir do finito; ao ensinar minha mão a traçar novas escritas e meu trato vocal a produzir novos sons, fortaleço minha propiocepção e me reconecto com meu corpo.  
     [![Duolingo](https://img.shields.io/badge/Duolingo-%234DC730.svg?style=for-the-badge&logo=Duolingo&logoColor=white)](https://www.duolingo.com/profile/niiin3)
 
-* **Yoga & Vipassana**  
-Logo antes da pandemia, me iniciei como praticante (ainda não muito disciplinada) da meditação [Vipassana](https://www.dhamma.org/pt-BR/about/vipassana), e há algum tempo antes disso já buscava incorporar Yoga em minha vida, não somente as posturas físicas mas a filosofia e os antigos saberes dos sutras.  
-Ambos demarcaram uma fase de ruptura em minha vida, a partir do qual venho me desenlaçando de hábitos improdutivos e fortalecendo novos modos de agir (ou não agir).  
+* **Cozinha, Yoga & Vipassana**  
+    Esses são os condutores, citados por ordem de adoção ao meu modo de viver, que impulsionam minha reorientação e a busca constante do equilíbrio de minha postura, meus hábitos e minhas ações.
 
 * **Genética & Bioinformática**  
+    Estive em um período sabático neste último ano, e pude me permitir o tempo de firmar meus fundamentos, explorar e me aprofundar no campo da Biologia, em especial da Genética. Assim como meu prazer por línguas e códigos, a transmissão de informações por DNA, RNA e aminoácidos me fascina.
 
-## LEITURAS RECENTES QUE ME TRANSFORMARAM
+    Passei o último semestre no laboratório, acolhida pelo Senai Bom Retiro - Biotecnologia, praticando cultivos e análises microbiológicas, e entendendo como analisar e manipular material genético.
+
+    Futuramente, após minha graduação e meu desenvolvimento na carreira de dados, pretendo me especializar na área de bioinformática e adicionar a tratativa de big data de genes e proteínas ao meu rol de habilidades.
+
+## IDEIAS QUE ME TRANSFORMARAM RECENTEMENTE
 
 * **Scattered Minds** - Gabor Maté [֍](https://www.amazon.com.br/Scattered-Minds-Origins-Attention-Disorder/dp/1785042211)
 * **The Selfish Gene** - Richard Dawkins [֍](https://en.wikipedia.org/wiki/The_Selfish_Gene)
 * **Material Ecology** - Neri Oxman [֍](https://www.media.mit.edu/publications/material-ecology/)
-* **Assembly Theory Explains and Quantifies Selection and Evolution** - Leroy Cronin, Sara Walker et al [֍](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10567559/)
+* **Assembly Theory Explains and Quantifies Selection and Evolution** - Leroy Cronin, Sara Imari Walker et al [֍](https://www.nature.com/articles/s41586-023-06600-9)
 
 ---
 

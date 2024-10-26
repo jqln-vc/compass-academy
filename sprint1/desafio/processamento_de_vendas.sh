@@ -17,18 +17,18 @@ DESCARTE="/dev/null"
 
 # Arquivo
 
-DATASET="dados_de_vendas.csv"
+PLANILHA="dados_de_vendas.csv"
 
 # Formatos de Datas
     # + indica um output personalizado para date, ignorando o valor default 
 
-DATA_FILES=$(date +"%Y%m%d")
+DATA=$(date +"%Y%m%d")
 DATA_HORA=$(date +"%Y/%m/%d %H:%M")
 
 # Etapas
 
 ITEM1="Criação dos diretórios vendas e backup concluída."
-ITEM2="Cópias de dados_de_vendas.csv concluída. Renomeação com data atual ${DATA_FILES} concluída."
+ITEM2="Cópias de dados_de_vendas.csv concluída. Renomeação com data atual ${DATA} concluída."
 ITEM3="Renomeação de dados-AAAAMMDD.csv para backup-dados-AAAAMMDD.csv concluída."
 ITEM4="Criação de relatório de hoje ${DATA_HORA} concluída."
 ITEM5="Compressão de arquivos de backup concluída."
@@ -43,10 +43,10 @@ vendas_backup() {       # Criação de diretório vendas e backup, criação de 
          
     [[ ! -d $BACKUP ]] && mkdir -p ${BACKUP} && echo ${ITEM1} || echo ${ITEM1}
 
-    cp "${ECOMMERCE}/${DATASET}" "${VENDAS}" \
-    && cp "${ECOMMERCE}/${DATASET}" "${BACKUP}/dados-${DATA_FILES}.csv" \
+    cp "${ECOMMERCE}/${PLANILHA}" "${VENDAS}" \
+    && cp "${ECOMMERCE}/${PLANILHA}" "${BACKUP}/dados-${DATA}.csv" \
     && echo ${ITEM2} \
-    && mv "${BACKUP}/dados-${DATA_FILES}.csv" "${BACKUP}/backup-dados-${DATA_FILES}.csv" 2> ${DESCARTE} \
+    && mv "${BACKUP}/dados-${DATA}.csv" "${BACKUP}/backup-dados-${DATA}.csv" 2> ${DESCARTE} \
     && echo -e "${ITEM3}\nBackup concluído com sucesso!\n"
 
 }
@@ -55,13 +55,13 @@ relatorio() {       # Criação de relatório: data/hora atuais, data de venda i
     echo "Iniciando criação de relatório..."
 
     cd ${BACKUP} \
-    && touch "relatorio-${DATA_FILES}.txt" \
-    && echo $DATA_HORA >> "relatorio-${DATA_FILES}.txt" \
-    && cut -d ',' -f 5 backup*.csv | sed -n '2p' >> "relatorio-${DATA_FILES}.txt" 2> ${DESCARTE} \
-    && cut -d ',' -f 5 backup*.csv | tail -n 1 >> "relatorio-${DATA_FILES}.txt" 2> ${DESCARTE} \
-    && cut -d ',' -f 2 backup*.csv | sed '1d' | sort | uniq -c | wc -l >> "relatorio-${DATA_FILES}.txt" 2> ${DESCARTE} \
-    && sed '1d' backup*.csv | head -n 10 >> "relatorio-${DATA_FILES}.txt" \
-    && echo >> "relatorio-${DATA_FILES}.txt" \
+    && touch "relatorio-${DATA}.txt" \
+    && echo $DATA_HORA >> "relatorio-${DATA}.txt" \
+    && cut -d ',' -f 5 backup*.csv | sed -n '2p' >> "relatorio-${DATA}.txt" 2> ${DESCARTE} \
+    && cut -d ',' -f 5 backup*.csv | tail -n 1 >> "relatorio-${DATA}.txt" 2> ${DESCARTE} \
+    && cut -d ',' -f 2 backup*.csv | sed '1d' | sort | uniq -c | wc -l >> "relatorio-${DATA}.txt" 2> ${DESCARTE} \
+    && sed '1d' backup*.csv | head -n 10 >> "relatorio-${DATA}.txt" \
+    && echo >> "relatorio-${DATA}.txt" \
     && echo -e "${ITEM4}\n"
 
 }    
@@ -71,7 +71,7 @@ compressao() {      # Compressão de arquivos de backup
     echo "Iniciando compressão de arquivos de backup..."
 
     cd ${BACKUP} \
-    && zip "backup-dados-${DATA_FILES}.zip" "backup-dados-${DATA_FILES}.csv" \
+    && zip "backup-dados-${DATA}.zip" "backup-dados-${DATA}.csv" \
     && echo -e "${ITEM5}\n"
 }
 
