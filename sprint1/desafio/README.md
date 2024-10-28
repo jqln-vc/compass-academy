@@ -11,8 +11,7 @@ Para embasar algumas motivações no desenlvovimento do desafio, quando oportuno
 
 Em ambiente Linux Ubuntu, foi realizado o download do arquivo `dados_de_vendas.csv` na pasta `/home`, a criação da pasta `ecommerce` e envio do arquivo para lá.
 
-> [!NOTE]
-> A pasta `ecommerce` foi criada diretamente no repositório da trilha de aprendizado, já trackeada pelo Git, na subpasta `desafio`. No momento da execução da preparação do print abaixo, já haviam sido criados alguns arquivos.
+> :exclamation: A pasta `ecommerce` foi criada diretamente no repositório da trilha de aprendizado, já trackeada pelo Git, na subpasta `desafio`. No momento da execução da preparação do print abaixo, já haviam sido criados alguns arquivos.
 
 | |
 |---|
@@ -81,10 +80,29 @@ A seguir serão comentadas as funções do script `processamento_de_vendas.sh`.
 
 ### FUNÇÃO vendas_backup
 
+A função cria as pastas `vendas` e `/vendas/backup` dentro da pasta `/ecommerce`. Após a criação, copia a planilha de vendas para essas pastas, renomeando aquela referente ao backup.
+
 | |
 |---|
 |![Vendas-Backup](../evidencias/8-vendas-backup.png)|
 | |
+
+Verificação da existência da pasta `/backup`, antes da criação e confirmação. Caso já exista, a confirmação de criação é enviada, sem nenhuma alteração.
+
+```bash
+    # ! -d: retorna True se o diretório não existir
+    [[ ! -d $BACKUP ]] && mkdir -p ${BACKUP} && echo ${ITEM1} || echo ${ITEM1}
+```
+
+A seguir o passo a passo solicitado a cópia da planilha dentro dos diretórios `/vendas` e `/vendas/backup`. Seguida da renomeação para o padrão `backup-dados-YYYYMMDD.csv`.
+
+```bash
+    cp "${ECOMMERCE}/${PLANILHA}" "${VENDAS}" \
+    && cp "${ECOMMERCE}/${PLANILHA}" "${BACKUP}/dados-${DATA}.csv" \
+    && echo ${ITEM2} \
+    && mv "${BACKUP}/dados-${DATA}.csv" "${BACKUP}/backup-dados-${DATA}.csv" 2> ${DESCARTE} \
+    && echo -e "${ITEM3}\nBackup concluído com sucesso!\n"
+```
 
 #### FLUXO DE LÓGICA
 
@@ -99,15 +117,67 @@ graph LR
     D -- && --> E
     E -- cp --> F[para /vendas]
     E -- cp --> G[para /backup/dados-DATA]
-    E -- mv --> I[dados-$DATA para backup-dados-DATA]
+    G -- mv --> I[dados-DATA para backup-dados-DATA]
 ```
 
 ### FUNÇÃO relatorio
+
+A função faz o processamento da planilha de vendas, extraindo alguns dados, e inserindo-os em um relatório em formato `txt`.
 
 | |
 |---|
 |![Relatorio](../evidencias/9-relatorio.png)|
 | |
+
+Na pasta `/backup`, o relatório é criado e identificado com a data atual, no formato `YYYYMMDD`.
+
+- **1ª inserção**: data e hora atual são inseridas no relatório, no formato `YYYY/MM/DD HH:MM`.
+
+```bash
+    # >  : direciona e insere, sobrescrevendo, um output ao local-alvo
+    # >> : direciona e adiciona um output ao local-alvo  
+    cd ${BACKUP} \
+    && touch "relatorio-${DATA}.txt" \
+    && echo ${DATA_HORA} >> "relatorio-${DATA}.txt" \
+```
+
+- **2ª inserção**: data da venda do 1º item
+
+```bash
+    # cut: corta a string em "campos" ou "seções"
+        # -d ',': indica o delimitador a considerar no corte
+        # - f 5: após cortado, indica o campo de interesse, neste caso, corresponde à 5ª coluna
+    # sed: edita um streaming de strings
+        # -n: indica quais linhas serão consideradas
+        # '2p': imprime a 2ª linha (p --> print)
+    cut -d ',' -f 5 backup*.csv | sed -n '2p' >> "relatorio-${DATA}.txt" 2> ${DESCARTE}
+```
+
+- **3ª inserção**: data da venda do último item
+
+```bash
+    # tail: retorna, por padrão, as 10 últimas linhas
+        # -n '1': retorna somente 1 linha, a última
+    cut -d ',' -f 5 backup*.csv | tail -n 1 >> "relatorio-${DATA}.txt" 2> ${DESCARTE}
+```
+
+- **4ª inserção**: contagem de itens distintos vendidos
+
+```bash
+    # cut: seleção da 2ª coluna
+    # sed '1d': deleta a 1ª linha, de colunas
+    # sort: ordena os itens (necessários pois uniq conta somente itens distintos adjacentes)
+    # uniq -c: contagem de itens distintos
+    cut -d ',' -f 2 backup*.csv | sed '1d' | sort | uniq -c | wc -l >> "relatorio-${DATA}.txt" 2> ${DESCARTE}
+```
+
+- **5ª inserção**: listagem dos 10 primeiros itens (desconsiderando a linha de colunas)
+
+```bash
+    sed '1d' backup*.csv | head -n 10 >> "relatorio-${DATA}.txt" \
+    && echo >> "relatorio-${DATA}.txt" \
+    && echo -e "${ITEM4}\n"
+```
 
 #### FLUXO DE LÓGICA
 
@@ -120,16 +190,25 @@ graph LR
     C -- && --> D
     D(backup-dados) -- cut | sed --> E[1ª data >> relatório]
     D -- cut | tail --> F[última data >> relatório]
-    D -- cut | sed | sort | uniq | wc --> G[qtd itens diferentes >> relatório]
+    D -- cut | sed | sort | uniq | wc --> G[qtd itens distintos >> relatório]
     D -- sed | heac --> H[10 itens >> relatório]    
 ```
 
 ### FUNÇÃO compressao
 
+A função é executada no diretório `/backup`, comprimindo o arquivo de backup do dia em um arquivo compactado `.zip`.
+
 | |
 |---|
 |![Compressão](../evidencias/10-compressao.png)|
 | |
+
+```bash
+    # A variável DATA contém a data atual do momento de execução, no formato YYYYMMDD
+    cd ${BACKUP} \
+    && zip "backup-dados-${DATA}.zip" "backup-dados-${DATA}.csv" \
+    && echo -e "${ITEM5}\n"
+```
 
 #### FLUXO DE LÓGICA
 
@@ -144,10 +223,19 @@ graph LR
 
 ### FUNÇÃO limpeza_arquivos
 
+A função faz a remoção dos arquivos `.csv` da pasta `/vendas` e `/backup`, após seu processamento em um relatório `.txt` e backup compactado em `.zip`.
+
 | |
 |---|
 |![Limpeza Arquivos](../evidencias/11-limpeza-arquivos.png)|
 | |
+
+```bash
+    # Uso de wildcard (*) para considerar arquivos com quaisquer datas no nome, e a extensão para garantir que não sejam removidos os arquivos compactados.
+    rm -f ${BACKUP}/backup*.csv \
+    && rm -f ${VENDAS}/dados*.csv \
+    && echo -e "${ITEM6}\n"
+```
 
 #### FLUXO DE LÓGICA
 
@@ -158,15 +246,28 @@ graph LR
     A((/backup))-- rm --> B(backup-dados)
     C((/vendas))-- rm --> D(dados)
     A -- && --> C
- 
 ```
 
-### FUNÇÃO consolidacao
+## CONSOLIDAÇÃO DO PROCESSAMENTO DE VENDAS
+
+O script `consolidador_de_processamento_de_vendas.sh` une todos os relatórios gerados, em ordem cronológica, em um único relatório final.
+
+### FUNÇÃO consolidacao 
+
+A função é executada dentro do diretório `/backup`, primeiramente localiza todos os arquivos de relatório que tenham o nome dentro do padrão `relatorio-YYYYMMDD.txt`, organiza os arquivos em ordem crescente, e copia seu conteúdo para um arquivo `relatório-final.txt`. 
+
+Para garantir que o próprio relatório final não fosse passado pelo pipeline (isso estava acontecendo), foi usado RegEx para garantir o padrão.
 
 | |
 |---|
 |![Consolidação](../evidencias/13-consolidador.png)|
 | |
+
+```bash
+    # grep -E: utiliza extended regex
+    # [0-9]{8}: aceita somente 8 dígitos
+    find . -name "relatorio*.txt" | grep -E 'relatorio-[0-9]{8}\.txt' | sort | xargs -0 -I {} cat {} >> relatorio-final.txt 2> ${DESCARTE}
+```
 
 #### FLUXO DE LÓGICA
 
@@ -182,8 +283,10 @@ graph LR
 
 | |
 |---|
-|![Execução Consolidação](../evidencias/.gif)|
+|![Execução Consolidação](../evidencias/16-execucao-consolidador.gif)|
 | |
+
+> :exclamation: O relatório gerado durante a gravação do vídeo foi mantido na pasta `backup`, porém não foi considerado na execução do script de consolidação.
 
 ## AGENDAMENTO DE ROTINAS: CRONTAB
 
@@ -228,6 +331,8 @@ Segue abaixo o prompt utilizado com o modelo Claude 3.5 Sonnet para gerar linhas
 |![AI-Dataset](../evidencias/5-geracao-dataset.png)|
 | |
 
+> ! O arquivo com os dados gerados foi mantido na pasta `/ecommerce`, nomeado `dados_adicionais.csv`.
+
 ---
 
 ## METODOLOGIA UTILIZADA
@@ -245,28 +350,39 @@ No cabeçalho, além da linha de chamada do interpretador ***bash***, encontram-
 |![Cabeçalho](../evidencias/6-cabecalho.png)|
 | |
 
-Seção inicial do script, com definição de variáveis globais, incorporando escolhas semânticas que otimizam a leitura e compreensão do código.
+Seção inicial do script, com definição de variáveis globais.
 
 | |
 |---|
 |![Variáveis](../evidencias/7-variaveis.png)|
 | |
 
+### VARIÁVEIS SEMÂNTICAS
+
+O exemplo acima, a seção de definição de variáveis globais, incorpora escolhas semânticas que otimizam a leitura e compreensão do código.
+
+> *Nomear é importante [...] reduzindo erros no código, e no futuro ao reler, debugar e aprimorar.*[^3]
+
 ### CONTROLE DE FLUXO
 
 Para os controles de fluxo, foi priorizada a escrita simplificada, sem a utilização explícita de `if` e `then`, para otimizar a legilibilidade do código.
 
-IMAGEM DE IFS
+> *[...] para situações de teste e checagem de ações simples, usar **&&** e **||** pode ser muito conveniente e não desviará a atenção do fluxo de lógica principal.*[^4]
 
-> *[...] para situações de teste e checagem de ações simples, usar **&&** e **||** pode ser muito conveniente e não desviará a atenção do fluxo de lógica principal.*[^3]
+| |
+|---|
+|![Pipeline](../evidencias/12-main.png)|
+| |
 
-Ademais, o encadeamento lógico de comandos com `&&` assegura a **atomicidade** das execuções, ou seja, ou todos os comandos de determinado bloco lógico são executados em conjunto, ou nenhum será. Já a utilização de quebras de linha com `\` é uma adoção inspirada em estilos utilizados atualmente pela comunidade.
+O encadeamento lógico de comandos foi utilizado com a técnica de ***piping***, utilizando o output de um comando para ser o input da função seguinte. Além disso, também foi aplicado com condicionais encadeadas `&&`, assegurando a **atomicidade** das execuções, ou seja, ou todos os comandos de determinado bloco lógico são executados em conjunto, ou nenhum será.
+
+Já a utilização de quebras de linha com `\` é uma adoção inspirada em estilos utilizados atualmente pela comunidade, também uma contribuição para legibilidade em linhas mais extensas.
 
 ### TRATATIVAS DE ERRO
 
-> *Mensagens de erro devem ir para STDERR, como echo "Algo ruim aconteceu" 1>&2.*[^4]
+> *Mensagens de erro devem ir para STDERR, como echo "Algo ruim aconteceu" 1>&2.*[^5]
 
-Nos comandos suscetíveis a gerar erros, foi feita a trativa com a abordagem a seguir:
+Nos comandos suscetíveis à geração de erros, foi feita a tratativa com a abordagem a seguir:
 
 ```bash
 DESCARTE="/dev/null"
@@ -300,5 +416,6 @@ Alteração já realizada no script `preparacao_ecommerce`.
 
 [^1]: BARRETT, 2022, p. 122
 [^2]: ALBING, VOSSEN, 2022, p. 27
-[^3]: Ibid., p. 7
-[^4]: Ibid., p. 132
+[^3]: Ibid., p.127
+[^4]: Ibid., p. 7
+[^5]: Ibid., p. 132

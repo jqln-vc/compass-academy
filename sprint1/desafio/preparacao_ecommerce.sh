@@ -46,7 +46,7 @@ main () {
     prep_env \
     && echo -e "${ITEM3}\n"
 
-    exit 0
+    return 0
 
 }
 

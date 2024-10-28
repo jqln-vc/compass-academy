@@ -58,38 +58,10 @@ Demonstração das aplicações de versionamento de código aplicadas no projeto
 
 ![Preparação](evidencias/2-commits.png)
 
-## CERTIFICADOS
-
-### Linux para Desenvolvedores (c/ Terminal, Shell, Apache e +)
-
-*Ministrado por Matheus Battisti @ Udemy*
-
-| |
-|---|
-|![Certificado-Linux](certificados/certificado-linux.jpg)|
-||
-
-### Git e GitHub do Básico ao Avançado (c/ Gist e GitHub Pages)
-
-*Ministrado por Matheus Battisti @ Udemy*
-
-| |
-|---|
-|![Certificado-Git](certificados/certificado-git.jpg)|
-||
 
 ## CERTIFICADOS COMPLEMENTARES
 
-Para absorver melhor o conteúdo desta sprint e me aprofundar em pontos de interesse, concluí em paralelo os cursos abaixo.
-
-### Git Going with Comparing, Branching and Merging
-
-*Ministrado por Jason Taylor e John Myers @ Udemy*
-
-| |
-|---|
-|![Certificado-Git](certificados/certificado-complementar-git.jpg)|
-||
+Para absorver melhor o conteúdo desta sprint e me aprofundar em pontos de interesse, concluí em paralelo os cursos abaixo, externos à Udemy.
 
 ### Linux and Bash for Data Engineering
 
@@ -97,7 +69,7 @@ Para absorver melhor o conteúdo desta sprint e me aprofundar em pontos de inter
 
 | |
 |---|
-|![Certificado-Comp-Bash](certificados/certificado-complementar-linux-bash.jpg)|
+|![Certificado-Comp-Bash](certificados/certificado-coursera-linux-bash.jpg)|
 ||
 
 ### Introduction to Bash Shell Scripting
@@ -106,16 +78,7 @@ Para absorver melhor o conteúdo desta sprint e me aprofundar em pontos de inter
 
 | |
 |---|
-|![Certificado-Comp-Bash](certificados/certificado-complementar-bash.jpg)|
-||
-
-### Shell Scripting: Discover How to Automate Command Line Tasks
-
-*Ministrado por Jason Cannon @ Udemy*
-
-| |
-|---|
-|![Certificado-Comp-Bash](certificados/)|
+|![Certificado-Comp-Bash](certificados/certificado-coursera-bash.jpg)|
 ||
 
 ## BIBLIOGRAFIA

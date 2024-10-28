@@ -97,7 +97,7 @@ main () {       # Pipeline de execução do script
     && limpeza_arquivos \
     && echo -e "${ITEM7}\n"
 
-    exit 0
+    return 0
 }
 
 
