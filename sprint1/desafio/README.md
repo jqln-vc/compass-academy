@@ -28,7 +28,6 @@ Abaixo os comandos para criação da pasta `ecommerce` e movimentação da plani
 
 ```bash
     # Uso de sudo para evitar quaisquer erros de permissão relacionados a outros (sub)diretórios.
-
     sudo mkdir -p "${repo_dir}/ecommerce"
     sudo mv dados_de_vendas.csv ${repo_dir}/ecommerce
 ```
