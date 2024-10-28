@@ -26,8 +26,8 @@ consolidacao() {            # Consolidação de relatórios em ordem cronológic
     echo "Consolidando relatórios de vendas..."
 
     cd "${BACKUP}"
-    find . -name "relatorio*.txt" | xargs cat >> relatorio-final.txt
-    echo -e "${ITEM1}\n"
+    find . -name "relatorio*.txt" | grep -E '[0-9]{8}' | sort | xargs -I {} cat {} >> relatorio-final.txt 2> ${DESCARTE} \
+    && echo -e "${ITEM1}\n"
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
