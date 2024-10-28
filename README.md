@@ -54,7 +54,7 @@ Coordenação de rotinas de squad responsável pela documentação de processos,
 
     Futuramente, após minha graduação e meu desenvolvimento na carreira de dados, pretendo me especializar na área de bioinformática e adicionar a tratativa de big data de genes e proteínas ao meu rol de habilidades.
 
-## IDEIAS QUE ME TRANSFORMARAM RECENTEMENTE
+## LEITURAS RECENTES QUE ME TRANSFORMARAM
 
 * **Scattered Minds** - Gabor Maté [֍](https://www.amazon.com.br/Scattered-Minds-Origins-Attention-Disorder/dp/1785042211)
 * **The Selfish Gene** - Richard Dawkins [֍](https://en.wikipedia.org/wiki/The_Selfish_Gene)
