@@ -28,6 +28,7 @@ Abaixo os comandos para criação da pasta `ecommerce` e movimentação da plani
 
 ```bash
     # Uso de sudo para evitar quaisquer erros de permissão relacionados a outros (sub)diretórios.
+
     sudo mkdir -p "${repo_dir}/ecommerce"
     sudo mv dados_de_vendas.csv ${repo_dir}/ecommerce
 ```
@@ -52,9 +53,8 @@ Localização da planilha a partir do repositório atual, o output é direcionad
 > *Ao combinar `find` e `xargs`, utilize `xargs -0` [...] para proteção contra caracteres especiais nas strings de input. [...] Normalmente, `xargs` espera que as strings de input sejam separadas por espaços em branco, como caracteres de nova linha. Este é um problema quando as strings de input contém espaços, como arquivos com espaços no nome.*[^1]
 
 ```bash
-    # Flag -0: muda os separadores de inputs, em vez de espaço, são utilizados valores null. Assim, um arquivo com espaço no nome não é tratado com 2 arquivos diferentes.
-
-    # Flag -I <string>: controla onde o input será inserido no próximo comando, <string> funciona como um placeholder.
+    # -0: muda os separadores de inputs, em vez de espaço, são utilizados valores null. Assim, um arquivo com espaço no nome não é tratado com 2 arquivos diferentes.
+    # -I {}: controla onde o input será inserido no próximo comando, {} funciona como um placeholder (poderia ser qualquer string).
 
     find ${SELF_PATH} -name ${PLANILHA} 2> ${DESCARTE} | xargs -0 -I {} mv {} $ECOMMERCE/ 2> ${DESCARTE} \
     && echo -e "${ITEM2}\n" 
@@ -89,7 +89,8 @@ A função cria as pastas `vendas` e `/vendas/backup` dentro da pasta `/ecommerc
 Verificação da existência da pasta `/backup`, antes da criação e confirmação. Caso já exista, a confirmação de criação é enviada, sem nenhuma alteração.
 
 ```bash
-    # ! -d: retorna True se o diretório não existir
+    # ! -d: retorna True se o diretório não existir.
+
     [[ ! -d $BACKUP ]] && mkdir -p ${BACKUP} && echo ${ITEM1} || echo ${ITEM1}
 ```
 
@@ -133,8 +134,9 @@ Na pasta `/backup`, o relatório é criado e identificado com a data atual, no f
 - **1ª inserção**: data e hora atual são inseridas no relatório, no formato `YYYY/MM/DD HH:MM`.
 
 ```bash
-    # >  : direciona e insere, sobrescrevendo, um output ao local-alvo
-    # >> : direciona e adiciona um output ao local-alvo  
+    # >  : direciona e insere, sobrescrevendo, um output ao local-alvo.
+    # >> : direciona e adiciona um output ao local-alvo.
+
     cd ${BACKUP} \
     && touch "relatorio-${DATA}.txt" \
     && echo ${DATA_HORA} >> "relatorio-${DATA}.txt" \
@@ -143,30 +145,33 @@ Na pasta `/backup`, o relatório é criado e identificado com a data atual, no f
 - **2ª inserção**: data da venda do 1º item
 
 ```bash
-    # cut: corta a string em "campos" ou "seções"
-        # -d ',': indica o delimitador a considerar no corte
-        # - f 5: após cortado, indica o campo de interesse, neste caso, corresponde à 5ª coluna
-    # sed: edita um streaming de strings
-        # -n: indica quais linhas serão consideradas
-        # '2p': imprime a 2ª linha (p --> print)
+    # cut: corta a string em "campos" ou "seções".
+        # -d ',': indica o delimitador a considerar no corte.
+        # - f 5: após cortado, indica o campo de interesse, neste caso, corresponde à 5ª coluna.
+    # sed: edita um streaming de strings.
+        # -n: indica quais linhas serão consideradas.
+        # '2p': imprime a 2ª linha (p --> print).
+
     cut -d ',' -f 5 backup*.csv | sed -n '2p' >> "relatorio-${DATA}.txt" 2> ${DESCARTE}
 ```
 
 - **3ª inserção**: data da venda do último item
 
 ```bash
-    # tail: retorna, por padrão, as 10 últimas linhas
-        # -n '1': retorna somente 1 linha, a última
+    # tail: retorna, por padrão, as 10 últimas linhas.
+        # -n '1': retorna somente 1 linha, a última.
+
     cut -d ',' -f 5 backup*.csv | tail -n 1 >> "relatorio-${DATA}.txt" 2> ${DESCARTE}
 ```
 
 - **4ª inserção**: contagem de itens distintos vendidos
 
 ```bash
-    # cut: seleção da 2ª coluna
-    # sed '1d': deleta a 1ª linha, de colunas
-    # sort: ordena os itens (necessários pois uniq conta somente itens distintos adjacentes)
-    # uniq -c: contagem de itens distintos
+    # cut: seleção da 2ª coluna.
+    # sed '1d': deleta a 1ª linha, de colunas.
+    # sort: ordena os itens (necessários pois uniq conta somente itens distintos adjacentes).
+    # uniq -c: contagem de itens distintos.
+
     cut -d ',' -f 2 backup*.csv | sed '1d' | sort | uniq -c | wc -l >> "relatorio-${DATA}.txt" 2> ${DESCARTE}
 ```
 
@@ -203,7 +208,8 @@ A função é executada no diretório `/backup`, comprimindo o arquivo de backup
 | |
 
 ```bash
-    # A variável DATA contém a data atual do momento de execução, no formato YYYYMMDD
+    # DATA: variável que contém a data atual do momento de execução, no formato YYYYMMDD.
+
     cd ${BACKUP} \
     && zip "backup-dados-${DATA}.zip" "backup-dados-${DATA}.csv" \
     && echo -e "${ITEM5}\n"
@@ -217,7 +223,6 @@ A função é executada no diretório `/backup`, comprimindo o arquivo de backup
 graph LR
     A((/backup))--> B(backup-dados)
     B -- zip --> C[compressão de backup-dados]
-
 ```
 
 ### FUNÇÃO limpeza_arquivos
@@ -231,6 +236,7 @@ A função faz a remoção dos arquivos `.csv` da pasta `/vendas` e `/backup`, a
 
 ```bash
     # Uso de wildcard (*) para considerar arquivos com quaisquer datas no nome, e a extensão para garantir que não sejam removidos os arquivos compactados.
+
     rm -f ${BACKUP}/backup*.csv \
     && rm -f ${VENDAS}/dados*.csv \
     && echo -e "${ITEM6}\n"
@@ -263,8 +269,9 @@ Para garantir que o próprio relatório final não fosse passado pelo pipeline (
 | |
 
 ```bash
-    # grep -E: utiliza extended regex
-    # [0-9]{8}: aceita somente 8 dígitos
+    # grep -E: utiliza extended regex.
+        # [0-9]{8}: aceita somente 8 dígitos.
+
     find . -name "relatorio*.txt" | grep -E 'relatorio-[0-9]{8}\.txt' | sort | xargs -0 -I {} cat {} >> relatorio-final.txt 2> ${DESCARTE}
 ```
 
@@ -301,13 +308,13 @@ O agendamento da rotina de execução do script de processamento foi feito por m
 Antes de utilizar o programa, foi necessário fazer sua instalação e alterar o horário do sistema, que estava com o fuso UTC. Abaixo os comandos utilizados no terminal para esta etapa.
 
 ```bash
-    # Configuração do fuso horário do sistema
+    # Configuração do fuso horário do sistema.
     sudo ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 
-    # Configuração dos agendamento, abre o editor de texto
+    # Configuração dos agendamentos, abre o editor de texto.
     crontab -e
 
-    # Ativação do programa
+    # Ativação do programa.
     sudo cron service start
 ```
 
@@ -384,8 +391,8 @@ Já a utilização de quebras de linha com `\` é uma adoção inspirada em esti
 Nos comandos suscetíveis à geração de erros, foi feita a tratativa com a abordagem a seguir:
 
 ```bash
-DESCARTE="/dev/null"
-2> $DESCARTE
+    DESCARTE="/dev/null"
+    2> $DESCARTE
 ```
 
 ## MELHORIAS A FAZER
@@ -395,10 +402,10 @@ Devido à execução do crontab a partir da raíz, inicialmente foram utilizados
 Com uma alteração no agendamento no cron, foi possível adotar o caminho `SELF_PATH` partindo do diretório atual, assegurando assim a portabilidade do código.
 
 ```bash
-    # agendamento no crontab
+    # Agendamento no crontab.
     27 15 * * * 1-6 cd /workspaces/compass-academy/sprint1/desafio && ./processamento_de_vendas.sh
 
-    # declaração de variável global de caminho
+    # Declaração de variável global de caminho.
     SELF_PATH=$(pwd)
 ```
 
