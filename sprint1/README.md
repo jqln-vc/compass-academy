@@ -17,7 +17,8 @@ Hoje, após experienciar o poder dos scripts e desmistificar o uso do terminal (
 
 Tenho interesse em continuar me aprofundando em Bash e melhorar meus códigos e habilidades com a linha de comando, interiorizando boas práticas e praticando com a automação de processos.  
 
-[![Bash-Playground](https://img.shields.io/badge/Bash_Playground-ED751A)](https://github.com/jqln-vc/bash-playground) : repositório pessoal, onde comecei a compilar minhas práticas a partir de referências diversas.
+[![Bash-Playground](https://img.shields.io/badge/Bash_Playground-E42322)](https://github.com/jqln-vc/bash-playground)  
+Repositório pessoal, onde comecei a compilar minhas práticas a partir de referências diversas.
 
 ---
 
