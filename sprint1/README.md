@@ -11,19 +11,25 @@
 
 [![Guide-01](https://img.shields.io/badge/Guia-Linux._Shell._Bash.-ED751A)](/guide/01_linux_shell_bash.md)
 
-Apesar de ter o Ubuntu instalado em meu PC pessoal, para tentar me habituar ao sistema por coerção, antes da sprint, eu tinha pouca familiaridade e um certo desconforto com o terminal. Não o utilizava para nada além de instalações e atualizações de pacotes.  
+Apesar de ter o Ubuntu instalado em meu PC pessoal, para tentar me habituar ao sistema por coerção, antes da sprint, eu tinha pouca familiaridade e um certo desconforto com o terminal.
 
 Hoje, após experienciar o poder dos scripts e desmistificar o uso do terminal (não é tão difícil quanto parece!), sinto prazer em utilizá-lo, e tenho confiança em escrever rotinas mais básicas, me localizar no Linux, debuggar meus scripts ou buscar referências para a solução de problemas.
 
 Tenho interesse em continuar me aprofundando em Bash e melhorar meus códigos e habilidades com a linha de comando, interiorizando boas práticas e praticando com a automação de processos.  
 
-No repositório [bash-playground](https://github.com/jqln-vc/bash-playground), comecei a compilar minhas práticas a partir de referências diversas.
+[![Bash-Playground](https://img.shields.io/badge/Bash_Playground-ED751A)](https://github.com/jqln-vc/bash-playground) : repositório pessoal, onde comecei a compilar minhas práticas a partir de referências diversas.
 
 ---
 
 ### Git & GitHub
 
 [![Guide-02](https://img.shields.io/badge/Guia-Git-ED751A)](/guide/02_git.md)
+
+Antes da sprint, já utilizava Git e GitHub na minha rotina pessoal, portanto conhecia comandos básicos de envio e recebimento de alterações entre o repositório local e o remoto.
+
+Agora tenho um entendimento mais aprofundado do versionamento com uso de ramificações, checkpoints e anotações semânticas, abordagens essenciais para o desenvolvimento em grupo.
+
+No entanto, sinto que ainda preciso melhorar minha organização com o uso dos meus commits, e adotar o uso de branches, merges e técnicas de comparação e resolução de conflitos entre versões para desenvolver minha confiança.
 
 ## DESAFIO
 
@@ -94,6 +100,15 @@ Para absorver melhor o conteúdo desta sprint e me aprofundar em pontos de inter
 |![Certificado-Comp-Bash](certificados/certificado-complementar-linux-bash.jpg)|
 ||
 
+### Introduction to Bash Shell Scripting
+
+*Ministrado por Kerri-Leigh Grady @ Coursera Project Network*
+
+| |
+|---|
+|![Certificado-Comp-Bash](certificados/certificado-complementar-bash.jpg)|
+||
+
 ### Shell Scripting: Discover How to Automate Command Line Tasks
 
 *Ministrado por Jason Cannon @ Udemy*
@@ -105,6 +120,6 @@ Para absorver melhor o conteúdo desta sprint e me aprofundar em pontos de inter
 
 ## BIBLIOGRAFIA
 
-* ALBING, Carl; VOSSEN, JP. **Bash Idioms: Write Powerful, Flexible, Readable Shell Scripts**. Sebastopol: O’Reilly, 2022.
-* ALBING, Carl; VOSSEN, JP. **Bash Cookbook: Solutions and Examples for Bash Users**. Sebastopol: O’Reilly, 2018.
-* BARRETT, Daniel. **Efficient Linux at the Command Line.** Sebastopol: O’Reilly, 2022.
+ALBING, Carl; VOSSEN, JP. **Bash Idioms: Write Powerful, Flexible, Readable Shell Scripts**. Sebastopol: O’Reilly, 2022.
+
+BARRETT, Daniel. **Efficient Linux at the Command Line.** Sebastopol: O’Reilly, 2022.

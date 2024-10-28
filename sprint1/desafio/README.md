@@ -22,15 +22,16 @@ Em ambiente Linux Ubuntu, foi realizado o download do arquivo `dados_de_vendas.c
 Como o caminho completo até para a criação da pasta `ecommerce` é longo, e ele seria utilizado algumas vezes, foi criada uma variável para facilitar o processo.
 
 ```bash
-export repo_dir="/workspaces/compass-academy/sprint1/desafio"
+    export repo_dir="/workspaces/compass-academy/sprint1/desafio"
 ```
 
 Abaixo os comandos para criação da pasta `ecommerce` e movimentação da planilha para lá.
 
 ```bash
-# uso de sudo para evitar quaisquer erros de permissão relacionados a outros (sub)diretórios
-sudo mkdir -p "${repo_dir}/ecommerce"
-sudo mv dados_de_vendas.csv ${repo_dir}/ecommerce
+    # Uso de sudo para evitar quaisquer erros de permissão relacionados a outros (sub)diretórios.
+
+    sudo mkdir -p "${repo_dir}/ecommerce"
+    sudo mv dados_de_vendas.csv ${repo_dir}/ecommerce
 ```
 
 ### BÔNUS: preparacao_ecommerce.sh
@@ -42,9 +43,28 @@ Complementarmente, foi feita a automatização do procedimento acima no script `
 |![Função de Preparaçao](../evidencias/3-ecommercefunc.png)|
 | |
 
+Confirmação de existência da pasta /ecommerce, antes da sua criação, caso a pasta já exista, a mensagem de confirmação é printada.
+
+```bash
+    [[ ! -d ${ECOMMERCE} ]] && mkdir ecommerce && echo ${ITEM1} || echo ${ITEM1}
+```
+
+Localização da planilha a partir do repositório atual, o output é direcionado com `xargs` para o deslocamento do arquivo para `/ecommerce` com `mv`.
+
+> *Ao combinar `find` e `xargs`, utilize `xargs -0` [...] para proteção contra caracteres especiais nas strings de input. [...] Normalmente, `xargs` espera que as strings de input sejam separadas por espaços em branco, como caracteres de nova linha. Este é um problema quando as strings de input contém espaços, como arquivos com espaços no nome.*[^1]
+
+```bash
+    # Flag -0: muda os separadores de inputs, em vez de espaço, são utilizados valores null. Assim, um arquivo com espaço no nome não é tratado com 2 arquivos diferentes.
+
+    # Flag -I <string>: controla onde o input será inserido no próximo comando, <string> funciona como um placeholder.
+
+    find ${SELF_PATH} -name ${PLANILHA} 2> ${DESCARTE} | xargs -0 -I {} mv {} $ECOMMERCE/ 2> ${DESCARTE} \
+    && echo -e "${ITEM2}\n" 
+```
+
 #### FLUXO DE LÓGICA
 
-[//]: # (Caso não possua suporte para mermaid, sugiro abrir no site do GitHub para visuzalizar o grafo a seguir ou instalar extensão compatível)
+[//]: # (Caso não possua suporte para mermaid, sugiro abrir no site do GitHub para visualizar o grafo a seguir ou instalar extensão compatível)
 
 ```mermaid
 graph LR
@@ -61,9 +81,14 @@ A seguir serão comentadas as funções do script `processamento_de_vendas.sh`.
 
 ### FUNÇÃO vendas_backup
 
+| |
+|---|
+|![Vendas-Backup](../evidencias/8-vendas-backup.png)|
+| |
+
 #### FLUXO DE LÓGICA
 
-[//]: # (Caso não possua suporte para mermaid, sugiro abrir no site do GitHub para visuzalizar o grafo a seguir ou instalar extensão compatível)
+[//]: # (Caso não possua suporte para mermaid, sugiro abrir no site do GitHub para visualizar o grafo a seguir ou instalar extensão compatível)
 
 ```mermaid
 graph LR
@@ -79,9 +104,14 @@ graph LR
 
 ### FUNÇÃO relatorio
 
+| |
+|---|
+|![Relatorio](../evidencias/9-relatorio.png)|
+| |
+
 #### FLUXO DE LÓGICA
 
-[//]: # (Caso não possua suporte para mermaid, sugiro abrir no site do GitHub para visuzalizar o grafo a seguir ou instalar extensão compatível)
+[//]: # (Caso não possua suporte para mermaid, sugiro abrir no site do GitHub para visualizar o grafo a seguir ou instalar extensão compatível)
 
 ```mermaid
 graph LR
@@ -96,9 +126,14 @@ graph LR
 
 ### FUNÇÃO compressao
 
+| |
+|---|
+|![Compressão](../evidencias/10-compressao.png)|
+| |
+
 #### FLUXO DE LÓGICA
 
-[//]: # (Caso não possua suporte para mermaid, sugiro abrir no site do GitHub para visuzalizar o grafo a seguir ou instalar extensão compatível)
+[//]: # (Caso não possua suporte para mermaid, sugiro abrir no site do GitHub para visualizar o grafo a seguir ou instalar extensão compatível)
 
 ```mermaid
 graph LR
@@ -109,9 +144,14 @@ graph LR
 
 ### FUNÇÃO limpeza_arquivos
 
+| |
+|---|
+|![Limpeza Arquivos](../evidencias/11-limpeza-arquivos.png)|
+| |
+
 #### FLUXO DE LÓGICA
 
-[//]: # (Caso não possua suporte para mermaid, sugiro abrir no site do GitHub para visuzalizar o grafo a seguir ou instalar extensão compatível)
+[//]: # (Caso não possua suporte para mermaid, sugiro abrir no site do GitHub para visualizar o grafo a seguir ou instalar extensão compatível)
 
 ```mermaid
 graph LR
@@ -120,6 +160,30 @@ graph LR
     A -- && --> C
  
 ```
+
+### FUNÇÃO consolidacao
+
+| |
+|---|
+|![Consolidação](../evidencias/13-consolidador.png)|
+| |
+
+#### FLUXO DE LÓGICA
+
+[//]: # (Caso não possua suporte para mermaid, sugiro abrir no site do GitHub para visualizar o grafo a seguir ou instalar extensão compatível)
+
+```mermaid
+graph LR
+    A((/backup))-- find --> B(relatorio*.txt)
+    B-- xargs cat --> C(relatorio-final.txt)
+```
+
+#### EXECUÇÃO
+
+| |
+|---|
+|![Execução Consolidação](../evidencias/.gif)|
+| |
 
 ## AGENDAMENTO DE ROTINAS: CRONTAB
 
@@ -130,20 +194,19 @@ O agendamento da rotina de execução do script de processamento foi feito por m
 |![CronTab](../evidencias/4-crontab.png)|
 | |
 
-> [!NOTE]
-> O script foi executado nos dias 22, 24, 25 e 26 de outubro. No dia 23, não foi possível executá-lo por motivos de força maior (desatenção ao estar em horário de reunião), portanto, o agendamento abrange os dias necessários para geração dos 4 relatórios.
+> :exclamation: O script foi executado nos dias 22, 24, 25 e 26 de outubro. No dia 23, não foi possível executá-lo por motivos de força maior (desatenção ao estar em horário de reunião), portanto, o agendamento abrange os dias necessários para geração dos 4 relatórios.
 
 Antes de utilizar o programa, foi necessário fazer sua instalação e alterar o horário do sistema, que estava com o fuso UTC. Abaixo os comandos utilizados no terminal para esta etapa.
 
 ```bash
-# Configuração do fuso horário do sistema
-sudo ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
+    # Configuração do fuso horário do sistema
+    sudo ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 
-# Configuração dos agendamento, abre o editor de texto
-crontab -e
+    # Configuração dos agendamento, abre o editor de texto
+    crontab -e
 
-# Ativação do programa
-sudo cron service start
+    # Ativação do programa
+    sudo cron service start
 ```
 
 ### EXECUÇÃO DE CRON JOB
@@ -173,7 +236,21 @@ Os scripts foram desenvolvidos priorizando a modularização dos processos em fu
 
 ### CABEÇALHO E SECCIONAMENTO
 
-> Para a organização e legibilidade do código, quebre ações em seções.[^1]
+> *Para a organização e legibilidade do código, quebre ações em seções*.[^2]
+
+No cabeçalho, além da linha de chamada do interpretador ***bash***, encontram-se informações de identificação, autoria e data, e descrição sobre a utilidade do script.
+
+| |
+|---|
+|![Cabeçalho](../evidencias/6-cabecalho.png)|
+| |
+
+Seção inicial do script, com definição de variáveis globais, incorporando escolhas semânticas que otimizam a leitura e compreensão do código.
+
+| |
+|---|
+|![Variáveis](../evidencias/7-variaveis.png)|
+| |
 
 ### CONTROLE DE FLUXO
 
@@ -181,17 +258,15 @@ Para os controles de fluxo, foi priorizada a escrita simplificada, sem a utiliza
 
 IMAGEM DE IFS
 
-> *[...] para situações de teste e checagem de ações simples, usar **&&** e **||** pode ser muito conveniente e não desviará a atenção do fluxo de lógica principal.*[^2]
+> *[...] para situações de teste e checagem de ações simples, usar **&&** e **||** pode ser muito conveniente e não desviará a atenção do fluxo de lógica principal.*[^3]
 
 Ademais, o encadeamento lógico de comandos com `&&` assegura a **atomicidade** das execuções, ou seja, ou todos os comandos de determinado bloco lógico são executados em conjunto, ou nenhum será. Já a utilização de quebras de linha com `\` é uma adoção inspirada em estilos utilizados atualmente pela comunidade.
 
 ### TRATATIVAS DE ERRO
 
-IMAGEM DE STERR
+> *Mensagens de erro devem ir para STDERR, como echo "Algo ruim aconteceu" 1>&2.*[^4]
 
-> *Mensagens de erro devem ir para STDERR, como echo "Algo ruim aconteceu" 1>&2.*[^3]
-
-Nos comandos que poderiam gerar erros potenciais, foi feita a trativa com a abordagem a seguir:
+Nos comandos suscetíveis a gerar erros, foi feita a trativa com a abordagem a seguir:
 
 ```bash
 DESCARTE="/dev/null"
@@ -215,6 +290,7 @@ Com uma alteração no agendamento no cron, foi possível adotar o caminho `SELF
 - [ ] **Adicionar função que recebe argumento `help` para printar instruções de utilização da funções do(s) script(s)**.
 
 - [ ] **Receber nome da planilha de vendas (ex. "dados_de_vendas.csv") como argumento na linha de comando.**
+Alteração já realizada no script `preparacao_ecommerce`.
 
 - [ ] **Execução de funções separadamente a partir de chamada por argumento na linha de comando.**
 
@@ -222,6 +298,7 @@ Com uma alteração no agendamento no cron, foi possível adotar o caminho `SELF
 
 ## REFERÊNCIAS
 
-[^1]: ALBING, VOSSEN, 2022, p. 27  
-[^2]: Ibid., p. 7  
-[^3]: Ibid., p. 132
+[^1]: BARRETT, 2022, p. 122
+[^2]: ALBING, VOSSEN, 2022, p. 27
+[^3]: Ibid., p. 7
+[^4]: Ibid., p. 132

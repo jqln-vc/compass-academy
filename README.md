@@ -40,7 +40,8 @@ Coordenação de rotinas de squad responsável pela documentação de processos,
 
     Acho que me tornei confortável com ideias codificadas em escrita muito antes de conseguir o mesmo oralmente. Buscar mensagens transmitidas em padrões desconhecidos se tornou um hobby desde cedo.  
 
-    Aprender novas línguas é expandir meu mundo ao incorporar outros, muitas vezes tão distantes de mim: novas maneiras de perceber e (re)criar a realidade, explorando permutações infinitas a partir do finito; ao ensinar minha mão a traçar novas escritas e meu trato vocal a produzir novos sons, fortaleço minha propiocepção e me reconecto com meu corpo.  
+    Aprender novas línguas é expandir meu mundo ao incorporar outros: novas maneiras de perceber e (re)criar a realidade, explorando permutações infinitas a partir do finito; ao ensinar minha mão a traçar novas escritas e meu trato vocal a produzir novos sons, fortaleço minha propiocepção e me reconecto com meu corpo.  
+
     [![Duolingo](https://img.shields.io/badge/Duolingo-%234DC730.svg?style=for-the-badge&logo=Duolingo&logoColor=white)](https://www.duolingo.com/profile/niiin3)
 
 * **Cozinha, Yoga & Vipassana**  
@@ -64,7 +65,7 @@ Coordenação de rotinas de squad responsável pela documentação de processos,
 
 ## TRILHA DE APRENDIZADO
 
-[![The Guide](https://img.shields.io/badge/O_Guia_do_Aprendiz_das_Nuvens-000000)](/guide)  
+[![The Guide](https://img.shields.io/badge/O_Guia_da_Aprendiz_das_Nuvens-000000)](/guide)  
 
 [![Sprint 1](https://img.shields.io/badge/Sprint_1-Linux_Git_&_GitHub-ED751A)](/sprint1)  
 [![Sprint 2](https://img.shields.io/badge/Sprint_2-SQL_&_AWS_Partner-E42322)](/sprint2)
