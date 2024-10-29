@@ -5,8 +5,6 @@
 |![Banner](/assets/banner-sprint1-desafio.png)|
 ||
 
-Para embasar algumas motivações no desenvolvimento do desafio, quando oportuno, serão trazidas referências da literatura; citações indicadas na seção [REFERÊNCIAS](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#refer%C3%AAncias), e publicações indicadas na seção [BIBLIOGRAFIA](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/README.md#bibliografia) no diretório `sprint1`.  
-
 ## SEÇÕES
 
 -  **Preparação do Ambiente Ecommerce** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#prepara%C3%A7%C3%A3o-do-ambiente-ecommerce)
@@ -40,6 +38,8 @@ Para embasar algumas motivações no desenvolvimento do desafio, quando oportuno
 
 ## PREPARAÇÃO DO AMBIENTE ECOMMERCE
 
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#se%C3%A7%C3%B5es)
+
 Em ambiente Linux Ubuntu, foi realizado o download do arquivo `dados_de_vendas.csv` na pasta `/home`, a criação da pasta `ecommerce` e envio do arquivo para lá.
 
 > :exclamation: A pasta `ecommerce` foi criada diretamente no repositório da trilha de aprendizado, já trackeada pelo Git, na subpasta `desafio`. No momento da execução da preparação do print abaixo, já haviam sido criados alguns arquivos.
@@ -65,6 +65,8 @@ Abaixo os comandos para criação da pasta `ecommerce` e movimentação da plani
 ```
 
 ### BÔNUS: preparacao_ecommerce.sh
+
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#se%C3%A7%C3%B5es)
 
 Complementarmente, foi feita a automatização do procedimento acima no script `preparacao_ecommerce.sh`.
 
@@ -93,6 +95,8 @@ Localização da planilha a partir do repositório atual, o output é direcionad
 
 #### FLUXO DE LÓGICA
 
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#se%C3%A7%C3%B5es)
+
 [//]: # (Caso não possua suporte para mermaid, sugiro abrir no site do GitHub para visualizar o grafo a seguir ou instalar extensão compatível)
 
 ```mermaid
@@ -106,9 +110,13 @@ graph LR
 
 ## PROCESSAMENTO DE VENDAS
 
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#se%C3%A7%C3%B5es)
+
 A seguir serão comentadas as funções do script `processamento_de_vendas.sh`.
 
 ### FUNÇÃO vendas_backup
+
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#se%C3%A7%C3%B5es)
 
 A função cria as pastas `vendas` e `/vendas/backup` dentro da pasta `/ecommerce`. Após a criação, copia a planilha de vendas para essas pastas, renomeando aquela referente ao backup.
 
@@ -137,6 +145,8 @@ A seguir o passo a passo solicitado a cópia da planilha dentro dos diretórios 
 
 #### FLUXO DE LÓGICA
 
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#se%C3%A7%C3%B5es)
+
 [//]: # (Caso não possua suporte para mermaid, sugiro abrir no site do GitHub para visualizar o grafo a seguir ou instalar extensão compatível)
 
 ```mermaid
@@ -152,6 +162,8 @@ graph LR
 ```
 
 ### FUNÇÃO relatorio
+
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#se%C3%A7%C3%B5es)
 
 A função faz o processamento da planilha de vendas, extraindo alguns dados, e inserindo-os em um relatório em formato `txt`.
 
@@ -216,6 +228,8 @@ Na pasta `/backup`, o relatório é criado e identificado com a data atual, no f
 
 #### FLUXO DE LÓGICA
 
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#se%C3%A7%C3%B5es)
+
 [//]: # (Caso não possua suporte para mermaid, sugiro abrir no site do GitHub para visualizar o grafo a seguir ou instalar extensão compatível)
 
 ```mermaid
@@ -230,6 +244,8 @@ graph LR
 ```
 
 ### FUNÇÃO compressao
+
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#se%C3%A7%C3%B5es)
 
 A função é executada no diretório `/backup`, comprimindo o arquivo de backup do dia em um arquivo compactado `.zip`.
 
@@ -248,6 +264,8 @@ A função é executada no diretório `/backup`, comprimindo o arquivo de backup
 
 #### FLUXO DE LÓGICA
 
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#se%C3%A7%C3%B5es)
+
 [//]: # (Caso não possua suporte para mermaid, sugiro abrir no site do GitHub para visualizar o grafo a seguir ou instalar extensão compatível)
 
 ```mermaid
@@ -257,6 +275,8 @@ graph LR
 ```
 
 ### FUNÇÃO limpeza_arquivos
+
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#se%C3%A7%C3%B5es)
 
 A função faz a remoção dos arquivos `.csv` da pasta `/vendas` e `/backup`, após seu processamento em um relatório `.txt` e backup compactado em `.zip`.
 
@@ -275,6 +295,8 @@ A função faz a remoção dos arquivos `.csv` da pasta `/vendas` e `/backup`, a
 
 #### FLUXO DE LÓGICA
 
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#se%C3%A7%C3%B5es)
+
 [//]: # (Caso não possua suporte para mermaid, sugiro abrir no site do GitHub para visualizar o grafo a seguir ou instalar extensão compatível)
 
 ```mermaid
@@ -286,9 +308,13 @@ graph LR
 
 ## CONSOLIDAÇÃO DO PROCESSAMENTO DE VENDAS
 
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#se%C3%A7%C3%B5es)
+
 O script `consolidador_de_processamento_de_vendas.sh` une todos os relatórios gerados, em ordem cronológica, em um único relatório final.
 
-### FUNÇÃO consolidacao 
+### FUNÇÃO consolidacao
+
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#se%C3%A7%C3%B5es)
 
 A função é executada dentro do diretório `/backup`, primeiramente localiza todos os arquivos de relatório que tenham o nome dentro do padrão `relatorio-YYYYMMDD.txt`, organiza os arquivos em ordem crescente, e copia seu conteúdo para um arquivo `relatório-final.txt`. 
 
@@ -308,6 +334,8 @@ Para garantir que o próprio relatório final não fosse passado pelo pipeline (
 
 #### FLUXO DE LÓGICA
 
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#se%C3%A7%C3%B5es)
+
 [//]: # (Caso não possua suporte para mermaid, sugiro abrir no site do GitHub para visualizar o grafo a seguir ou instalar extensão compatível)
 
 ```mermaid
@@ -318,6 +346,8 @@ graph LR
 
 #### EXECUÇÃO
 
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#se%C3%A7%C3%B5es)
+
 | |
 |---|
 |![Execução Consolidação](../evidencias/16-execucao-consolidador.gif)|
@@ -326,6 +356,8 @@ graph LR
 > :exclamation: O relatório gerado durante a gravação do vídeo foi mantido na pasta `backup`, porém não foi considerado na execução do script de consolidação.
 
 ## AGENDAMENTO DE ROTINAS: CRONTAB
+
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#se%C3%A7%C3%B5es)
 
 O agendamento da rotina de execução do script de processamento foi feito por meio do programa `crontab`, com a configuração do arquivo feita com o editor de texto Nano.
 
@@ -351,6 +383,8 @@ Antes de utilizar o programa, foi necessário fazer sua instalação e alterar o
 
 ### EXECUÇÃO DE CRON JOB
 
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#se%C3%A7%C3%B5es)
+
 ---
 
 ![AI-Dataset](../evidencias/15-execucao-cron.gif)
@@ -358,6 +392,8 @@ Antes de utilizar o programa, foi necessário fazer sua instalação e alterar o
 ---
 
 ## GERAÇÃO DE DATASET PARA RELATÓRIOS SUBSQUENTES
+
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#se%C3%A7%C3%B5es)
 
 Segue abaixo o prompt utilizado com o modelo Claude 3.5 Sonnet para gerar linhas adicionais, buscando manter a sequência de ids e ordem cronológica, produtos dentro da mesma temática e repetições ocasionais de itens, para testar a função `relatorio` nestas situações.
 
@@ -374,9 +410,13 @@ Segue abaixo o prompt utilizado com o modelo Claude 3.5 Sonnet para gerar linhas
 
 ## METODOLOGIA UTILIZADA
 
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#se%C3%A7%C3%B5es)
+
 Os scripts foram desenvolvidos priorizando a modularização dos processos em funções, adotando boas práticas de documentação, legibilidade, reusabilidade e tratamento de erros.
 
 ### CABEÇALHO E SECCIONAMENTO
+
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#se%C3%A7%C3%B5es)
 
 > *Para a organização e legibilidade do código, quebre ações em seções*.[^2]
 
@@ -396,11 +436,15 @@ Seção inicial do script, com definição de variáveis globais.
 
 ### VARIÁVEIS SEMÂNTICAS
 
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#se%C3%A7%C3%B5es)
+
 O exemplo acima, a seção de definição de variáveis globais, incorpora escolhas semânticas que otimizam a leitura e compreensão do código.
 
 > *Nomear é importante [...] reduzindo erros no código, e no futuro ao reler, debugar e aprimorar.*[^3]
 
 ### CONTROLE DE FLUXO
+
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#se%C3%A7%C3%B5es)
 
 Para os controles de fluxo, foi priorizada a escrita simplificada, sem a utilização explícita de `if` e `then`, para otimizar a legilibilidade do código.
 
@@ -417,6 +461,8 @@ Já a utilização de quebras de linha com `\` é uma adoção inspirada em esti
 
 ### TRATATIVAS DE ERRO
 
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#se%C3%A7%C3%B5es)
+
 > *Mensagens de erro devem ir para STDERR, como echo "Algo ruim aconteceu" 1>&2.*[^5]
 
 Nos comandos suscetíveis à geração de erros, foi feita a tratativa com a abordagem a seguir:
@@ -427,6 +473,8 @@ Nos comandos suscetíveis à geração de erros, foi feita a tratativa com a abo
 ```
 
 ## MELHORIAS A IMPLEMENTAR
+
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#se%C3%A7%C3%B5es)
 
 - [x] **Remover dependência dos scripts ao caminho absoluto do ambiente virtual de execução**  
 Devido à execução do crontab a partir da raíz, inicialmente foram utilizados caminhos absolutos para contornar criações errôneas de pastas e arquivos durante os cron jobs.  
@@ -451,7 +499,9 @@ Alteração já realizada no script `preparacao_ecommerce`.
 
 ## REFERÊNCIAS
 
-Publicações indicadas na seção [BIBLIOGRAFIA](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/README.md#bibliografia), localizada no diretório `sprint1`.  
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#se%C3%A7%C3%B5es)
+
+Publicações indicadas na seção [Bibliografia](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/README.md#bibliografia), localizada no diretório `sprint1`.  
 
 [^1]: BARRETT, 2022, p. 122
 [^2]: ALBING, VOSSEN, 2022, p. 27
