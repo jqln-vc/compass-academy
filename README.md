@@ -38,7 +38,7 @@ Coordenação de rotinas de squad responsável pela documentação de processos,
 
 * **Línguas & Códigos**  
 
-    Acho que me tornei confortável com ideias codificadas em escrita muito antes de conseguir o mesmo oralmente. Buscar mensagens transmitidas em padrões desconhecidos se tornou um hobby desde cedo.  
+    Acho que me tornei confortável com ideias codificadas em escrita muito antes de conseguir o mesmo oralmente. Buscar mensagens transmitidas em padrões desconhecidos se tornou um hobby desde criança.  
 
     Aprender novas línguas é expandir meu mundo ao incorporar outros: novas maneiras de perceber e (re)criar a realidade, explorando permutações infinitas a partir do finito; ao ensinar minha mão a traçar novas escritas e meu trato vocal a produzir novos sons, fortaleço minha propiocepção e me reconecto com meu corpo.  
 
