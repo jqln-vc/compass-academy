@@ -5,7 +5,38 @@
 |![Banner](/assets/banner-sprint1-desafio.png)|
 ||
 
-Para embasar algumas motivações no desenlvovimento do desafio, quando oportuno, serão trazidas referências da literatura; citações indicadas na seção [REFERÊNCIAS](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#refer%C3%AAncias), e publicações indicadas na seção [BIBLIOGRAFIA](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/README.md#bibliografia) no diretório `sprint1`.  
+Para embasar algumas motivações no desenvolvimento do desafio, quando oportuno, serão trazidas referências da literatura; citações indicadas na seção [REFERÊNCIAS](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#refer%C3%AAncias), e publicações indicadas na seção [BIBLIOGRAFIA](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/README.md#bibliografia) no diretório `sprint1`.  
+
+## SEÇÕES
+
+-  **Preparação do Ambiente Ecommerce**  
+    - Bônus: preparacao_ecommerce.sh  
+        - Fluxo de Lógica  
+- **Processamento de Vendas**
+    - Função: vendas_backup
+        - Fluxo de Lógica
+    - Função: relatorio
+        - Fluxo de Lógica
+    - Função: compressao
+        - Fluxo de Lógica
+    - Função: limpeza_arquivos
+        - Fluxo de Lógica
+- **Consolidação do Processamento de Vendas**
+    - Função: consolidacao
+        - Fluxo de Lógica
+        - Execução
+- **Agendamento de Rotinas: crontab**
+    - Execução de Cron Job
+- **Geração de Dataset para Relatório Subsequentes**
+- **Metologia Utilizada**
+    - Cabeçalho e Seccionamento
+    - Variáveis Semânticas
+    - Controle de Fluxo
+    - Tratativas de Erro
+- **Melhorias a Implementar**
+- **Referências**
+
+---
 
 ## PREPARAÇÃO DO AMBIENTE ECOMMERCE
 
@@ -395,7 +426,7 @@ Nos comandos suscetíveis à geração de erros, foi feita a tratativa com a abo
     2> $DESCARTE
 ```
 
-## MELHORIAS A FAZER
+## MELHORIAS A IMPLEMENTAR
 
 - [x] **Remover dependência dos scripts ao caminho absoluto do ambiente virtual de execução**  
 Devido à execução do crontab a partir da raíz, inicialmente foram utilizados caminhos absolutos para contornar criações errôneas de pastas e arquivos durante os cron jobs.  
