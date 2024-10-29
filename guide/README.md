@@ -5,7 +5,7 @@
 |![Banner](../assets/banner-guide.png)|
 | |
 
-***Em construção***
+***(Em construção)***
 
 |---|Rotinas de Terminal|---|
 |:---:|:---:|:---:|
