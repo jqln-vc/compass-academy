@@ -93,7 +93,7 @@ Localização da planilha a partir do repositório atual, o output é direcionad
     && echo -e "${ITEM2}\n" 
 ```
 
-#### FLUXO DE LÓGICA
+#### FLUXO DE LÓGICA: PREPARAÇÃO DE ECOMMERCE
 
 *Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#se%C3%A7%C3%B5es)
 
@@ -143,7 +143,7 @@ A seguir o passo a passo solicitado a cópia da planilha dentro dos diretórios 
     && echo -e "${ITEM3}\nBackup concluído com sucesso!\n"
 ```
 
-#### FLUXO DE LÓGICA
+#### FLUXO DE LÓGICA: CRIAÇÃO DE PASTAS VENDAS E BACKUP
 
 *Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#se%C3%A7%C3%B5es)
 
@@ -226,7 +226,7 @@ Na pasta `/backup`, o relatório é criado e identificado com a data atual, no f
     && echo -e "${ITEM4}\n"
 ```
 
-#### FLUXO DE LÓGICA
+#### FLUXO DE LÓGICA: GERAÇÃO DE RELATÓRIO
 
 *Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#se%C3%A7%C3%B5es)
 
@@ -262,7 +262,7 @@ A função é executada no diretório `/backup`, comprimindo o arquivo de backup
     && echo -e "${ITEM5}\n"
 ```
 
-#### FLUXO DE LÓGICA
+#### FLUXO DE LÓGICA: COMPRESSÃO DE ARQUIVO DE BACKUP
 
 *Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#se%C3%A7%C3%B5es)
 
@@ -293,7 +293,7 @@ A função faz a remoção dos arquivos `.csv` da pasta `/vendas` e `/backup`, a
     && echo -e "${ITEM6}\n"
 ```
 
-#### FLUXO DE LÓGICA
+#### FLUXO DE LÓGICA: LIMPEZA DE ARQUIVOS PROCESSADOS
 
 *Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#se%C3%A7%C3%B5es)
 
@@ -332,7 +332,7 @@ Para garantir que o próprio relatório final não fosse passado pelo pipeline (
     find . -name "relatorio*.txt" | grep -E 'relatorio-[0-9]{8}\.txt' | sort | xargs -0 -I {} cat {} >> relatorio-final.txt 2> ${DESCARTE}
 ```
 
-#### FLUXO DE LÓGICA
+#### FLUXO DE LÓGICA: CONSOLIDAÇÃO DE RELATÓRIOS
 
 *Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#se%C3%A7%C3%B5es)
 
