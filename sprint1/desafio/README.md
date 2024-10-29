@@ -353,7 +353,7 @@ graph LR
 |![Execução Consolidação](../evidencias/16-execucao-consolidador.gif)|
 | |
 
-> :exclamation: O relatório gerado durante a gravação do vídeo foi mantido na pasta `backup`, porém não foi considerado na execução do script de consolidação.
+> :exclamation: O relatório `relatorio-20241027.txt` gerado durante a gravação do vídeo (assim como seu backup compactado) foi mantido na pasta `backup`, porém não foi considerado na execução do script de consolidação.
 
 ## AGENDAMENTO DE ROTINAS: CRONTAB
 
