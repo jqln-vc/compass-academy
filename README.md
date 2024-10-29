@@ -57,7 +57,7 @@ Coordenação de rotinas de squad responsável pela documentação de processos,
 ## LEITURAS RECENTES QUE ME TRANSFORMARAM
 
 * **Scattered Minds** - Gabor Maté [֍](https://www.amazon.com.br/Scattered-Minds-Origins-Attention-Disorder/dp/1785042211)
-* **The Selfish Gene** - Richard Dawkins [֍](https://en.wikipedia.org/wiki/The_Selfish_Gene)
+* **The Selfish Gene** - Richard Dawkins [֍](https://www.amazon.com/Selfish-Gene-Anniversary-Introduction/dp/0199291152)
 * **Material Ecology** - Neri Oxman [֍](https://www.media.mit.edu/publications/material-ecology/)
 * **Assembly Theory Explains and Quantifies Selection and Evolution** - Leroy Cronin, Sara Imari Walker et al [֍](https://www.nature.com/articles/s41586-023-06600-9)
 
