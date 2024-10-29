@@ -9,32 +9,32 @@ Para embasar algumas motivações no desenvolvimento do desafio, quando oportuno
 
 ## SEÇÕES
 
--  **Preparação do Ambiente Ecommerce**  
-    - Bônus: preparacao_ecommerce.sh  
-        - Fluxo de Lógica  
-- **Processamento de Vendas**
-    - Função: vendas_backup
-        - Fluxo de Lógica
-    - Função: relatorio
-        - Fluxo de Lógica
-    - Função: compressao
-        - Fluxo de Lógica
-    - Função: limpeza_arquivos
-        - Fluxo de Lógica
-- **Consolidação do Processamento de Vendas**
-    - Função: consolidacao
-        - Fluxo de Lógica
-        - Execução
-- **Agendamento de Rotinas: crontab**
-    - Execução de Cron Job
-- **Geração de Dataset para Relatório Subsequentes**
-- **Metologia Utilizada**
-    - Cabeçalho e Seccionamento
-    - Variáveis Semânticas
-    - Controle de Fluxo
-    - Tratativas de Erro
-- **Melhorias a Implementar**
-- **Referências**
+-  **Preparação do Ambiente Ecommerce** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#prepara%C3%A7%C3%A3o-do-ambiente-ecommerce)
+    - Bônus: preparacao_ecommerce.sh [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#b%C3%B4nus-preparacao_ecommercesh)
+        - Fluxo de Lógica [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#fluxo-de-l%C3%B3gica)
+- **Processamento de Vendas** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#processamento-de-vendas)
+    - Função: vendas_backup [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#fun%C3%A7%C3%A3o-vendas_backup)
+        - Fluxo de Lógica [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#fluxo-de-l%C3%B3gica-1)
+    - Função: relatorio [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#fun%C3%A7%C3%A3o-relatorio)
+        - Fluxo de Lógica [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#fluxo-de-l%C3%B3gica-2)
+    - Função: compressao [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#fun%C3%A7%C3%A3o-compressao)
+        - Fluxo de Lógica [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#fluxo-de-l%C3%B3gica-3)
+    - Função: limpeza_arquivos [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#fun%C3%A7%C3%A3o-limpeza_arquivos)
+        - Fluxo de Lógica [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#fluxo-de-l%C3%B3gica-4)
+- **Consolidação do Processamento de Vendas** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#consolida%C3%A7%C3%A3o-do-processamento-de-vendas)
+    - Função: consolidacao [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#fun%C3%A7%C3%A3o-consolidacao)
+        - Fluxo de Lógica [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#fluxo-de-l%C3%B3gica-5)
+        - Execução [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#execu%C3%A7%C3%A3o)
+- **Agendamento de Rotinas: crontab** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#agendamento-de-rotinas-crontab)
+    - Execução de Cron Job [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#execu%C3%A7%C3%A3o-de-cron-job)
+- **Geração de Dataset para Relatório Subsequentes** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#gera%C3%A7%C3%A3o-de-dataset-para-relat%C3%B3rios-subsquentes)
+- **Metologia Utilizada** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#metodologia-utilizada)
+    - Cabeçalho e Seccionamento [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#cabe%C3%A7alho-e-seccionamento)
+    - Variáveis Semânticas [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#vari%C3%A1veis-sem%C3%A2nticas)
+    - Controle de Fluxo [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#controle-de-fluxo)
+    - Tratativas de Erro [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#tratativas-de-erro)
+- **Melhorias a Implementar** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#melhorias-a-implementar)
+- **Referências** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/desafio/README.md#refer%C3%AAncias)
 
 ---
 
@@ -450,6 +450,8 @@ Alteração já realizada no script `preparacao_ecommerce`.
 ---
 
 ## REFERÊNCIAS
+
+Publicações indicadas na seção [BIBLIOGRAFIA](https://github.com/jqln-vc/compass-academy/blob/main/sprint1/README.md#bibliografia), localizada no diretório `sprint1`.  
 
 [^1]: BARRETT, 2022, p. 122
 [^2]: ALBING, VOSSEN, 2022, p. 27
