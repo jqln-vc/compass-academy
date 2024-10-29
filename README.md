@@ -19,7 +19,7 @@
 |NOME|---|Jaqueline Villagra Costa|
 |IDADE|---|31 anos|
 |CIDADE|---|Carapicuíba / SP|
-|CURSANDO|---|Bacharelado em Ciência de Dados (3°sem) - UNIVESP|
+|CURSANDO|---|Bacharelado em Ciência de Dados (3° sem) - UNIVESP|
 |GRADUADA|---|Bacharelado em Letras - Habilitação em Português e Japonês (2021) - USP|
 ||||
 
