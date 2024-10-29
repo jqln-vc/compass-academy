@@ -7,9 +7,9 @@
 
 ## RELATOS DE APRENDIZADO
 
-### Linux
+### Linux & Shell Scripting
 
-[![Guide-01](https://img.shields.io/badge/Guia-Linux._Shell._Bash.-ED751A)](/guide/01_linux_shell_bash.md)
+[![Guide-01](https://img.shields.io/badge/Guia-Linux._Shell._Bash.-ED751A)](/guide/linux_shell_bash.md)
 
 Apesar de ter o Ubuntu instalado em meu PC pessoal, para tentar me habituar ao sistema por coerção, antes da sprint, eu tinha pouca familiaridade e um certo desconforto com o terminal.
 
@@ -24,7 +24,7 @@ Repositório pessoal, onde comecei a compilar minhas práticas a partir de refer
 
 ### Git & GitHub
 
-[![Guide-02](https://img.shields.io/badge/Guia-Git-ED751A)](/guide/02_git.md)
+[![Guide-02](https://img.shields.io/badge/Guia-Git-ED751A)](/guide/git.md)
 
 Antes da sprint, já utilizava Git e GitHub na minha rotina pessoal, portanto conhecia comandos básicos de envio e recebimento de alterações entre o repositório local e o remoto.
 
