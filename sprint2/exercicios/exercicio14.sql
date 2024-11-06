@@ -10,4 +10,4 @@ SELECT estado,
 FROM tbvendas
 WHERE status = 'Concluído'
 GROUP BY estado
-ORDER BY gastomedio DESC
+ORDER BY gastomedio DESC;

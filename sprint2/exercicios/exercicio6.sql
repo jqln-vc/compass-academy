@@ -11,4 +11,4 @@ JOIN livro
     ON autor.codautor = livro.autor
 GROUP BY autor.codautor
 ORDER BY quantidade_publicacoes DESC
-LIMIT 1
+LIMIT 1;

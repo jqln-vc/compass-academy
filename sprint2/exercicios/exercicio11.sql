@@ -11,4 +11,4 @@ FROM tbvendas
 WHERE status = 'Concluído'
 GROUP BY cdcli
 ORDER BY gasto DESC
-LIMIT 1
+LIMIT 1;

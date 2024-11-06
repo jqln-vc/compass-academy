@@ -21,4 +21,4 @@ WITH vendas_vendedor AS (
 SELECT cdvdd,
        nmvdd
 FROM vendas_vendedor
-LIMIT 1
+LIMIT 1;

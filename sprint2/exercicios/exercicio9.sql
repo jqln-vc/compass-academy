@@ -20,4 +20,4 @@ WITH mais_vendido AS (
 SELECT cdpro,
        nmpro
 FROM mais_vendido
-LIMIT 1
+LIMIT 1;

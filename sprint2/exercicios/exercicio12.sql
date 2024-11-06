@@ -11,9 +11,9 @@ SELECT dependente.cddep AS cddep,
        SUM(vendas.qtd * vendas.vrunt) AS valor_total_vendas
 FROM tbvendas AS vendas
 LEFT JOIN tbdependente AS dependente
-    ON dependente.cdvdd = vendas.cdvdd
+    ON vendas.cdvdd = dependente.cdvdd
 WHERE vendas.status = 'Concluído'
 GROUP BY dependente.cdvdd
 HAVING valor_total_vendas > 0
 ORDER BY valor_total_vendas 
-LIMIT 1
+LIMIT 1;

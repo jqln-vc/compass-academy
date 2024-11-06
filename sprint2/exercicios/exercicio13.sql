@@ -13,4 +13,4 @@ WHERE nmcanalvendas IN ('Ecommerce', 'Matriz')
     AND status = 'Concluído'
 GROUP BY cdpro, nmpro, nmcanalvendas
 ORDER BY quantidade_vendas
-LIMIT 10
+LIMIT 10;

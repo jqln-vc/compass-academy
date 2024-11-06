@@ -8,4 +8,4 @@ SELECT titulo,
        valor
 FROM livro
 ORDER BY valor DESC
-LIMIT 10
+LIMIT 10;

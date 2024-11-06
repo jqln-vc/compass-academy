@@ -15,4 +15,4 @@ WITH qtd_publicacoes AS (
 SELECT nome
 FROM qtd_publicacoes
 WHERE quantidade = 0
-ORDER BY nome
+ORDER BY nome;

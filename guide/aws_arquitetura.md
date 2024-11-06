@@ -73,6 +73,10 @@ https://aws.amazon.com/about-aws/global-infrastructure/
 
 ### Zonas de Disponibilidade (*AZ - Availability Zones*)
 
+An Availability Zone is a single data center or a group of data centers within a Region. 
+
+Availability Zones are located tens of miles apart from each other. This helps them to provide interconnectivity to support the services and applications that run within a Region.
+
 ### Pontos de Presença (*PoP - Points of Presence*)
 
 ## Categorias de Serviços
@@ -141,6 +145,14 @@ Estrutura conceitual utilizada para compreender os processos e o desenvolvimento
 https://aws.amazon.com/compliance/shared-responsibility-model/
 - Segurança DA Nuvem
 - Segurança NA Nuvem
+
+## Estratégias de Migração
+
+- Refactoring changing how an application is architected and developed, typically by using cloud-native features
+
+- Repurchasing involves replacing an existing application with a cloud-based version, such as software found in AWS Marketplace.
+- Rehosting involves moving an application to the cloud with little to no modifications to the application itself. It is also known as “lift and shift.”
+- Replatforming involves selectively optimizing aspects of an application to achieve benefits in the cloud without changing the core architecture of the application. It is also known as “lift, tinker, and shift.”
 
 ## Referências
 

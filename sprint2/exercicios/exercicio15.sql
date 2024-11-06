@@ -6,4 +6,4 @@
 SELECT cdven
 FROM tbvendas
 WHERE deletado = 1
-ORDER BY cdven
+ORDER BY cdven;

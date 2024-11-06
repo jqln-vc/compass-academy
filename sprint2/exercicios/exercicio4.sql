@@ -12,4 +12,4 @@ FROM autor
 LEFT JOIN livro
     ON autor.codautor = livro.autor
 GROUP BY autor.nome
-ORDER BY autor.nome
+ORDER BY autor.nome;

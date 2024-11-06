@@ -14,4 +14,4 @@ JOIN editora
 JOIN endereco
     ON editora.endereco = endereco.codendereco
 GROUP BY editora.nome
-ORDER BY quantidade DESC
+ORDER BY quantidade DESC;

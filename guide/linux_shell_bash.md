@@ -23,9 +23,27 @@
 
 ## Manipulação de Strings
 
-### grep
+### sed | *stream editor*
 
-### sed
+Trata texto como um *stream* de dados, processando linha a linha, sem carregar o arquivo todo em memória. Tornando-o altamente eficiente ao trabalhar com arquivos grandes. É não-interativo, pois as edições não são manuais, pelo contrário, comandos são fornecidos para tratar automaticamente todos os dados conforme passam pelo fluxo.
+
+#### Opções na linha de comando
+
+`-n` impede o padrão default de impressão
+
+```bash
+    # imprime a 3ª linha
+    sed -n '3p' file.txt 
+```
+
+`-e` adicionar múltiplos comandos
+
+```bash
+    # sed [options] sed-command [input-file]
+    sed -e 'command1' -e 'command2' input-file
+```
+
+### grep
 
 ### awk
 
@@ -38,3 +56,12 @@ ALBING, Carl; VOSSEN, JP. **Bash Cookbook: Solutions and Examples for Bash Users
 ALBING, Carl; VOSSEN, JP. **Bash Idioms: Write Powerful, Flexible, Readable Shell Scripts**. Sebastopol: O’Reilly, 2022.
 
 BARRETT, Daniel. **Efficient Linux at the Command Line.** Sebastopol: O’Reilly, 2022.
+
+### CheatSheets
+
+https://gist.github.com/ssstonebraker/6140154
+
+https://au-bio-bootcamp.github.io/cheatsheet_sed.pdf
+
+https://quickref.me/sed.html
+
