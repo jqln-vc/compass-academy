@@ -40,24 +40,24 @@ A partir dessas observações, foi construído o diagrama conceitual para fundam
 erDiagram
     CLIENTE ||--|{ LOCACAO : aluga
     CLIENTE {
-        cliente_id
-        nome
-        cidade
-        estado
-        int pais_id FK
+        int id
+        varchar nome
+        varchar cidade
+        varchar estado
+        varchar pais
     }
     VENDEDOR ||--o{ LOCACAO : vende
     VENDEDOR {
-        int id PK
+        int id
         varchar nome
         smallint sexo
-        int estado_id FK
+        varchar estado
     }
     LOCACAO {
-        int id PK
-        int cliente_id FK
-        int vendedor_id FK
-        int carro_id FK
+        int id
+        int cliente_id
+        int vendedor_id
+        int carro_id
         date data_locacao
         time hora_locacao
         int qtd_diaria
@@ -68,37 +68,13 @@ erDiagram
     }
     CARRO ||--o{ LOCACAO : alugado
     CARRO {
-        int id PK
+        int id
         varchar classi
-        int marca_id FK
+        varchar marca
         varchar modelo
         int ano
-    }
-    CARRO o{--|| COMBUSTIVEL : abastecido
-    COMBUSTIVEL {
-        int id PK
-        varchar tipo
-    }
-    CARRO |{--|| MARCA : fabricado
-    MARCA {
-        int id PK
-        varchar nome
-    }
-    ESTADO ||--|{ VENDEDOR : origem
-    ESTADO {
-        int id PK
-        varchar nome
-    }
-    ESTADO ||--|{ CLIENTE : reside
-    CIDADE ||--|{ CLIENTE : reside
-    CIDADE {
-        int id PK
-        varchar nome
-    }
-    PAIS ||--|{ CLIENTE : reside
-    PAIS {
-        int id PK
-        varchar nome
+        int combustivel_id
+        varchar tipo_combustivel
     }
 ```
 
