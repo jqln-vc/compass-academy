@@ -80,6 +80,8 @@ As I have already pointed out, duplicate data is costly, both in terms of disk s
 
 ## Modelagem Dimensional
 
+> *Modelos dimensionais usam um processo chamado **desnormalização**, no qual você inclui cópias redundantes dos dados em diversas tabelas. Isso reduz o número de tabelas. Quando você realiza uma busca no banco de dados, não há necessidade de fazer joins entre tantas tabelas, tornando a busca muito mais rápida. [...] No entanto, significa que as cópias redundantes de dados precisam ser mantidas em sincronia para assegurar a integridade dos dados [...]* (SERRA, 2024, p. 109)
+
 - Relatórios básicos
 - OLAP
 

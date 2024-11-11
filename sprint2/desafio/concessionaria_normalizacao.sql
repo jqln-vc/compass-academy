@@ -23,6 +23,10 @@ DROP TABLE IF EXISTS pais;
 
 PRAGMA foreign_keys = ON;
 
+-- SELECT * FROM tb_locacao;
+-- SELECT idCarro, vlrDiaria FROM tb_locacao tl ;
+-- SELECT idCarro, idLocacao, kmCarro FROM tb_locacao ORDER BY idCarro ASC, kmCarro DESC;
+
 ----------------------------------------------------------------------------------------------------------------
 
 --------------------------------- Criação da Tabela Normalizada: Locação ---------------------------------------
@@ -116,11 +120,11 @@ CREATE TABLE pais (
 	nome VARCHAR(40) UNIQUE DEFAULT 'Brasil' NOT NULL
 );
 
-----------------------------------------------------------------------------------------------------------------
----------------------------------- INSERÇÃO DE DADOS NAS TABELAS NORMALIZADAS ----------------------------------
-----------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+---------------------------------- INSERÇÃO DE DADOS NAS TABELAS NORMALIZADAS ---------------------------------
+---------------------------------------------------------------------------------------------------------------
 
---------------------------------- Ingestão de Valores na Tabela: Estado ----------------------------------------
+--------------------------------- Ingestão de Valores na Tabela: Estado ---------------------------------------
 
 INSERT OR IGNORE INTO estado (nome)
 SELECT DISTINCT estadoCliente
@@ -224,11 +228,27 @@ SELECT DISTINCT idLocacao,
                 SUBSTR(dataEntrega, 1, 4) || '-' || 
                 SUBSTR(dataEntrega, 5, 2) || '-' || 
                 SUBSTR(dataEntrega, 7, 2) AS dataEntrega, 
-        		printf('%02d:%02d', 
+        		PRINTF('%02d:%02d', 
                		CAST(SUBSTR(horaEntrega, 1, INSTR(horaEntrega, ':') - 1) AS INTEGER),
                		CAST(SUBSTR(horaEntrega, INSTR(horaEntrega, ':') + 1) AS INTEGER)
     				) AS horaEntrega,
 		        kmCarro
 FROM tb_locacao
 ORDER BY idLocacao ASC;
-  
+
+-- SELECT * FROM tb_locacao;
+-- DROP TABLE tb_locacao;
+
+----------------------------------------------------------------------------------------------------------------
+---------------------------------- ANÁLISE DE TABELAS E RELAÇÕES NORMALIZADAS ----------------------------------
+----------------------------------------------------------------------------------------------------------------
+
+-- SELECT * FROM locacao;
+-- SELECT * FROM cliente;
+-- SELECT * FROM vendedor;
+-- SELECT * FROM cidade;
+-- SELECT * FROM estado;
+-- SELECT * FROM pais;
+-- SELECT * FROM carro;
+-- SELECT * FROM marca;
+-- SELECT * FROM combustivel;
