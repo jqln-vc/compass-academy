@@ -309,19 +309,12 @@ JOIN data_dim dtent
 	ON loc.data_entrega = dtent.'data'
 ORDER BY 1 ASC;
 
--- DROP TABLE locacao;
--- DROP TABLE cliente;
--- DROP TABLE vendedor;
--- DROP TABLE cidade;
--- DROP TABLE estado;
--- DROP TABLE pais;
--- DROP TABLE carro;
--- DROP TABLE marca;
--- DROP TABLE combustivel; 
-
 ----------------------------------------------------------------------------------------------------------------
 -------------------------------------- ANÁLISE DE TABELAS FATO E DIMENSÃO --------------------------------------
 ----------------------------------------------------------------------------------------------------------------
 
-SELECT * FROM locacao_fact;
+-- SELECT * FROM locacao_fact;
+-- SELECT * FROM data_dim;
 -- SELECT * FROM carro_dim;
+-- SELECT * FROM cliente_dim;
+-- SELECT * FROM vendedor_dim;

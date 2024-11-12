@@ -237,7 +237,7 @@ FROM tb_locacao
 ORDER BY idLocacao ASC;
 
 -- SELECT * FROM tb_locacao;
--- DROP TABLE tb_locacao;
+DROP TABLE tb_locacao;
 
 ----------------------------------------------------------------------------------------------------------------
 ---------------------------------- ANÁLISE DE TABELAS E RELAÇÕES NORMALIZADAS ----------------------------------

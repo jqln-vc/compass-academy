@@ -29,7 +29,8 @@
     - Dimensão Data: Tipo Role-Playing [֍]()
   - Star Schema [֍]()
   - Snowflake Schema [֍]()
-  - Cube Slicing: Exemplo de Análise Multidimensional [֍]()
+  - Cubos: Camada de Análise Multidimensional [֍]()
+- **Futuras Melhorias no Projeto**
 - **Considerações Finais** [֍]()
 - **Referências** [֍]()
 
@@ -230,7 +231,7 @@ O processo de **normalização** de dados é característico de sistemas OLTP, *
 
 Os objetivos buscados com a **normalização** são (CODD, 1971, p. 1):
 
-1. *Liberar a coleção de relações de dependências indesejáveis de inserção, atualização e deleção;*
+1. *liberar a coleção de relações de dependências indesejáveis de inserção, atualização e deleção;*
 2. *minimizar a necessidade de reestruturação da coleção de relações conforme novos tipos de dados são introduzidos e, com isso, aumentando o tempo de vida das aplicações;*
 3. *tornar o modelo relacional mais informativo para os usuários;*
 4. *tornar a coleção de relações neutra em relação às estatísticas de queries, visto que estas estão sujeitas a mudanças com o passar do tempo.*
@@ -269,7 +270,7 @@ flowchart LR
     DM1@{ shape: cyl, label: "CUBO\nMarketing"}
     DM2@{ shape: cyl, label: "CUBO\nFinanceiro"}
     DM3@{ shape: cyl, label: "CUBO\nManutenção"}
-    BD1 & BD2 & BD3 == EXTRAÇÃO ==> DW1
+    BD1 & BD2 & BD3 == EXTRAÇÃO + CARREGAMENTO ==> DW1
     DW1 == TRANSFORMAÇÃO #1 ==> DW2
     DW2 == TRANSFORMAÇÃO #2 ==> DW3
     DW3 --o DW4
@@ -283,20 +284,28 @@ flowchart LR
     T2 -.-oT3
 ```
 
-1. **Staging Layer**
+1. **Staging Layer**  
+   Esta é uma camada *ad hoc*, um espaço temporário onde os dados são extraídos dos sistemas-fonte e carregados rapidamente, sem nenhuma transformação, de forma a não gerar sobrecarga na origem da ingestão. Após a transformação e armazenamento na camada CIF (a seguir), estes dados são deletados e a camada esvaziada.
+
+   A adoção desta camada caracteriza a adoção de ingestão ELT, em que o carregamento inicial dos dados é feito sem nenhum tipo de transformação.
+
 2. **CIF: Corporate Information Factory**  
    Uma adoção do conceito de Inmon de *Fábrica de Informação Corporativa*, aqui os dados provenientes das diversas franquias são integrados, consolidados e preservados.
 
    > *[...] onde todos os dados são centralizados e armazenados no nível atômico (o mais granular possível) na terceira forma normal. Pode-se considerar como um data warehouse empresarial que é uma fonte única da verdade.* (SERRA, 2024, p. 114)
 
-3. **Core & Access Layer**
-   Considerando o fato de que um sistema OLAP busca a otimização para análise trazida com a modelagem dimensional
-   
-4. **Serving Layer**
+   A partir desta camada, pode-se realizar um processo de ETL reverso, realimentando os bancos dos sistemas-fonte e aprimorando as capacidades analíticas no lado operacional, respondendo necessidades imediatas integrando informações das demais franquias.
 
-> The CIF is off-limits to end users, who access data through the data marts or cubes.
-One drawback is that this means the data is permanently duplicated up to three times
-for the CIF, the data mart, and the cube. (p. 116)
+3. **Core & Access Layer**  
+   Considerando o fato de que um sistema OLAP busca a otimização para análise trazida com a modelagem dimensional, optou-se por manter esta camada fisicamente, sem a utilização de views.  
+   Esta escolha é um tanto trivial visto que, ainda que tivesse a aparência de um star schema, as análises ainda estariam consumindo de uma camada normalizada ao utilizar views, logo, não não se beneficiariam da modelagem dimensional.
+
+4. **Serving Layer**  
+   Na camada de distribuição serão utilizados os cubos por meio de views, os quais irão consumir os dados da camada CIF, em star schema, logo, se beneficiando da otimização para OLAP.
+
+   > *A CIF está fora de limites aos usuários finais, que acessam os dados por meio de data marts ou cubos. Uma desvantagem é que isto implica que os dados são duplicados permanentemente até 3 vezes, para o CIF, o data mart e o cubo.* (SERRA, 2024, p. 116)
+
+   A utilização de views nesta camada traz diversos benefícios, além de solucionar o problema de duplicação acima, mantendo somente 2 duplicações no data warehouse, a camada de cubos com views também proporciona a aplicação de privacidade e restrições de acesso aos dados, visto que pode-se selecionar e filtrar somente os dados necessários para cada tipo de usuário final.
 
 ## PROCESSO DE NORMALIZAÇÃO
 
@@ -304,29 +313,76 @@ for the CIF, the data mart, and the cube. (p. 116)
 
 > *A inconsistência nos dados, a dificuldade em codificar o controle na inserção de dados, e gerenciamento de erros [...] são riscos reais, assim como empobrecimento em performance e a incapacidade de evolução do modelo. Esses riscos têm uma alta probabilidade de ocorrer se não aderimos às formas normais.* (FAROULT, p.5)
 
-### 1NF
+### 1ª FORMA NORMAL
 
 *Voltar para **Seções*** [֍]()
 
 - assegurar atomicidade de atributos: separação de atributos multivalorados
 - caracterização de chaves-primárias: localizar (ou criar, quando necessário) o atributo que identifica uma linha como única.
 
-### 2NF
+Para o projeto da `Concessionária`, não foi preciso realizar nenhuma tratativa de multivaloração. Nesta etapa, foram identificadas as entidades já claramente existentes, as quais continham chaves-primárias que as caracterizam. A seguir a relação dessas entidades:
+
+|||
+|:---:|:---:|
+|**Entidade**|**Chave-Primária**|
+|Locação|*idLocacao*|
+|Carro|*idCarro*|
+|Combustível|*idcombustivel*|
+|Cliente|*idCliente*|
+|Vendedor|*idVendedor*|
+
+### 2ª FORMA NORMAL
 
 *Voltar para **Seções*** [֍]()
 
-> *To remove dependencies on a part of the key, we must create tables (such ascar_model).The keys of those new tables will each be a part of the key for our original table (in ourexample, make, model, version, and style). Then we must move all the attributes thatdepend on those new keys to the new tables, and retain only make, model, version, andstyle in the original table. We may have to repeat this process, since the engine and itscharacteristics will not depend on the style. Once we have completed the removal ofattributes that depend on only a part of the key, our tables are insecond normal form (2NF).* (FAROULT, p. 9)
+Para obter a 2ª forma normal, foram identificados os atributos que não possuem dependência total da chave-primária da entidade. Isso ocorre nos casos de `Marca`, `Combustível`, `Estado` e `País`; a seguir uma exemplificação a partir de `marcaCarro` :
 
-> There are two issues with the storage ofredundant data. First, redundant data increases the odds of encountering contra-dictory information because of input errors (and it makes correction more time-consuming). Second, redundant data is an obvious storage waste. [...] Besidesthe mere cost of storage, sometimes—more importantly—there is also the issueof recovery. [...] a database that is twice as big as necessarywill take twice the time to restore than would otherwise be needed. (FAROULT, p. 9)
+```sql
+    SELECT idCarro,
+           classiCarro,
+           modeloCarro,
+           marcaCarro
+    FROM tb_locacao tl ;
+```
 
+![Normalização Marca](../evidencias/17-normalizacao-marca.png)
 
-### 3NF
+> *Para remover dependências de parte da chave, precisamos criar tabelas (tal qual car_model). Cada uma das chaves dessas novas tabelas serão parte da chave para nossa tabela original [...] Então devemos mover todos os atributos que dependem dessas novas chaves para as novas tabelas [...] Assim que finalizarmos a remoção dos atributos que dependem de somente parte da chave, nossas tabelas estarão na 2ª forma normal (2NF).* (FAROULT, p. 9)
+
+Acima nota-se que `marcaCarro` possui dependência parcial de `modeloCarro`. Contudo, nota-se que o ideal seria manter somente a dependência total aparente manifestada pelo atributo `classiCarro`, o qual parece inferir todos os demais valores dos atributos da entidade `Carro`: `modeloCarro`, `marcaCarro`, etc.
+
+> ❗ **Isso não foi feito por falta de confirmações de que essa chave-natural seria sempre única, porém com mais informações sobre a regra de negócio da `Concessionária`, seria uma futura implementação.**
+
+Considerou-se também que uma das finalidades desse processo é a eliminação de redundâncias:
+
+> *Dados duplicados são custosos, tanto em termos de espaço em disco quanto capacidade de processamento, mas também introduzem um grande aumento de possibilidade dos dados se tornarem corrompidos. A corrupção acontece quando uma instância de um valor é modificada, mas a modificação simultânea (e idêntica) do mesmo dado mantido em outra parte do banco de dados falha em ocorrer.* (FAROULT, p.10)
+
+Bem como a otimização da performance de queries:
+
+> *Se você deseja visualizar uma lista selecionada de modelos de carro disponíveis, uma tabela desnormalizada irá requerer uma aplicação de SELECT DISTINCT em todos os carros disponíveis [...] isso não só significa escanear muito mais linhas do que teríamos que fazer com uma tabela `car_model` separada, mas também significa ter que ordenar todas essas linhas para eliminar duplicações.* (FAROULT, p. 9)
+
+Portanto, com esse objetivo em mente, os atributos referentes à `cidade` do cliente e `estado` do vendedor, mesmo dependentes da chave-primária destas entidades, foram removidos para suas respectivas tabelas. Abaixo as entidades já identificadas na 1NF, as novas entidades e suas respectivas novas chaves-primárias:
+
+|||
+|:---:|:---:|
+|**Entidade**|**Chave-Primária**|
+|Locação|*idLocacao*|
+|Carro|*idCarro*|
+|Combustível|*idcombustivel*|
+|Cliente|*idCliente*|
+|Vendedor|*idVendedor*|
+|Marca|*marca_id*|
+|Cidade|*cidade_id*|
+|Estado|*estado_id*|
+|País|*pais_id*|
+
+### 3ª FORMA NORMAL
 
 *Voltar para **Seções*** [֍]()
 
-> 3NF is reached when we cannotinfer the value of an attribute from any attribute other than those in the unique key. FAROULT, p. 9
->
-> duplicate data is costly, both in terms of disk spaceand processing power, but it also introduces a much-increased possibility of databecoming corrupt. Corruption happens when one instance of a data value ismodified, but the same data held in another part of the database fails to be simul-taneously (and identically) modified. (FAROULT, p.10)
+Com frequência, após a obtenção da 2ª forma normal, é possível já se ter chegado também à 3ª forma normal. No entanto, não foi o caso, aqui são retomadas as observações não-triviais de `vlrDiaria` e `kmCarro` identificadas na seção [Compreensão Inicial dos Dados]().
+
+> *A 3NF é alcançada quando não podemos inferir o valor de um atributo por nenhum outro atributo que não seja pertencente à chave única.* (FAROULT, p. 9)
 
 ### CONCESSIONÁRIA: BANCO RELACIONAL NORMALIZADO
 
@@ -411,15 +467,15 @@ O projeto atual para a `Concessionária` lida com uma única fonte de dados, no 
 
 A regra de negócio identificada pelas transações de locação no projeto `Concessionária` indica que cada fato é demarcado por uma data de início, `data_locacao`, e uma data de finalização, `data_entrega`. Essa característica implica na implementação de uma tabela-fato do tipo **snapshot acumulativo**:
 
-> *Uma linha em uma tabela-fato de snapshot acumulativo sumariza os eventos mensurados que ocorrem em etapas previsíveis entre o início e o fim de um processo. [...] Existe uma chave-estrangeira de data na tabela-fato para cada etapa crítica do processo. Uma linha individual [...] é inicialmente inserida quando a transação é criada. Conforme o progresso do pipeline ocorre, a linha do fato acumulativo é revisitada e atualizada.* (KIMBALL, ROSS, p. 44)
+> *Uma linha em uma tabela-fato de snapshot acumulativo sumariza os eventos mensurados que ocorrem em etapas previsíveis entre o início e o fim de um processo. [...] Existe uma chave-estrangeira de data na tabela-fato para cada etapa crítica do processo. Uma linha individual [...] é inicialmente inserida quando a transação é criada. Conforme o progresso do pipeline ocorre, a linha do fato acumulativo é revisitada e atualizada.* (KIMBALL, ROSS, 2013, p. 44)
 
-In addition to the date
-foreign keys associated with each critical process step, accumulating snapshot fact
-tables contain foreign keys for other dimensions and optionally contain degenerate dimensions. (KIMBALL, ROSS, p. 44)
+Verifica-se que as surrogate-keys referentes à dimensão de data foram geradas a partir do formato da data em `YYYYMMDD` convertido no tipo `INTEGER`.
 
-> Typically, the dateassociated with a series of measures (a row) in the fact table will not be stored as a datecolumn in the fact table, but as a system-generated number that will reference a row inthedate_dimension table in which the date will bedeclinedunder all possible forms. (p. 265)
+> *Tipicamente, a data associada a uma série de métricas (uma linha) na tabela-fato não será armazenada como uma coluna do tipo data, mas como um número gerado pelo sistema que irá referenciar uma linha na tabela dimensão data, a qual será declinada em todas as formas possíveis.* (FAROULT, p. 265)
 
 ![Tabela Fato Locação](../evidencias/14-tabela-fato.png)
+
+A seguir, a demonstração da tabela-dimensão `data_dim`.
 
 #### DIMENSÃO DATA: TIPO ROLE-PLAYING
 
@@ -446,6 +502,8 @@ A partir das tabelas já normalizadas, foi executado o script de modelagem dimen
 
 ![Star Schema Execução](../evidencias/2-star-schema-execucao.gif)
 
+Visto que não existiam tabelas-dimensão suficientes, o diagrama não contempla as 5 pontas da estrela. 😢
+
 ![Star Schema](../evidencias/5-star-schema.png)
 
 ### SNOWFLAKE SCHEMA
@@ -454,7 +512,7 @@ A partir das tabelas já normalizadas, foi executado o script de modelagem dimen
 
 - cada dimensão de uma hierarquia representadas em **uma tabela dimensional**
 - um ou mais níveis de distância da **tabela fato** ao longo de cada hierarquia
-- menor quantidade de joins necessários
+- maior quantidade de joins necessários
 - relações complexas entre chave-primária->chave-estrangeira
 - menor armazenamento necessário para dados dimensionais (menor duplicação)
 - tabela dimensão "normalizada" (menor duplicação)
@@ -463,20 +521,28 @@ A partir das tabelas já normalizadas, foi executado o script de modelagem dimen
 
 ![Snowflake Schema](../evidencias/12-snowflake-schema.png)
 
-### CUBE SLICING: EXEMPLO DE ANÁLISE MULTIDIMENSIONAL
+### CUBOS: CAMADA DE ANÁLISE MULTIDIMENSIONAL
 
 *Voltar para **Seções*** [֍]()
 
-Com a query abaixo, é demonstrado visualmente o conceito de análise multidimensional por cubos, a qual ocorre na etapa de distribuição e consumo dos dados em um sistema OLAP.
+Com a query abaixo, implementada na view `locacoes_dia_semana`, é demonstrado visualmente o conceito de análise multidimensional por cubos, a qual ocorre na etapa de distribuição e consumo dos dados em um sistema OLAP.
 
 > *Um banco de dados OLAP é tipicamente composto de um ou mais cubos. Em um cubo OLAP, os dados são pré-agregados [...] isto é, já foram sumarizados e agrupados por certas dimensões [...] Criar um cubo OLAP geralmente involve a utilização de um modelo multidimensional, o qual utiliza-se de um schema em star ou snowflake para representar os dados.* (SERRA, 2024, p. 92)
 
 ```sql
+    CREATE VIEW locacoes_dia_semana (
+        carro_key,
+        modelo,
+        dia_semana,
+        dias_locado,
+        lucro_total
+    )
+    AS
     SELECT loc.carro_key,
-	   car.modelo,
-	   dt.dia_semana,
-	   SUM(loc.qtd_diaria) AS dias_locado,
-	   SUM(loc.valor_total) AS lucro_total
+        car.modelo,
+        dt.dia_semana,
+        SUM(loc.qtd_diaria) AS dias_locado,
+        SUM(loc.valor_total) AS lucro_total
     FROM locacao_fact loc
     JOIN carro_dim car
         ON loc.carro_key = car.carro_key 
@@ -484,23 +550,42 @@ Com a query abaixo, é demonstrado visualmente o conceito de análise multidimen
         ON loc.data_locacao_key = dt.data_key
     GROUP BY loc.carro_key, dt.dia_semana
     ORDER BY 1 ASC;
+
+    SELECT * FROM locacoes_dias_semana;
 ```
 
 ![Análise Cubo](../evidencias/15-analise-cubo.png)
 
 Na metodologia adotada para o projeto `Concessionária`, em vista do escopo estreito dos dados tratados, optou-se por não utilizar uma camada de ***data marts***, utilizando a distribuição dos dados diretamente por meio de cubos.
 
-Os benefícios advindos da adoção de cubos é mais do que suficiente para o projeto (SERRA, 2024, p. 118):
+> *A view também pode ser utilizada em cubos. [...] Usar views simplifica o gerenciamento de variações rápidas e proporciona controle total de quaisquer joins enviados à fonte da qual o cubo consome os dados.* (SERRA, 2024, p. 119)
 
-- proporciona uma camada semântica;
-- lida com diversos usuários concorrentes;
-- obtém melhor performance com dados agregados;
-- evita a necessidade de lidar com joins e relacionamentos;
-- pode conter hierarquias e KPIs;
-- integra segurança ao nível da tupla/linha, a qual aumenta a privacidade de dados ao restringir acesso de usuário a linhas;específicas;
+Os benefícios advindos da adoção de cubos são mais do que suficientes para o projeto (SERRA, 2024, p. 118):
+
+- *proporciona uma camada semântica;*
+- *lida com diversos usuários concorrentes;*
+- *obtém melhor performance com dados agregados;*
+- *evita a necessidade de lidar com joins e relacionamentos;*
+- *pode conter hierarquias e KPIs;*
+- *integra segurança ao nível da tupla/linha, a qual aumenta a privacidade de dados ao restringir acesso de usuário a linhas;específicas;*
 - entre outros.
 
-> *A view também pode ser utilizada em cubos. [...] Usar views simplifica o gerenciamento de variações rápidas e proporciona controle total de quaisquer joins enviados à fonte da qual o cubo consome os dados.* (SERRA, 2024, p. 119)
+No script `concessionaria_cubos.sql`, além da view bidimensional para kilometragem denominada `base_veiculos`, foram implementados como exemplo 3 análises multidimensionais, os quais responderiam às seguintes análises:
+
+- `lucro_locacao_veiculos` : **locação x carro x data**  
+  Análise de quantidade de dias locados e lucro total de modelos de veículos, por dia da semana de locaçao.
+- `lucro_vendedores` | **vendedor x locação x carro x data**   
+  Análise de lucro total de vendedores, por modelo de veículo e dia da semana de locação.
+- `gasto_veiculo_clientes` | **cliente x locação x carro x data**  
+  Análise de quantidade de dias locados e gasto total de clientes, por modelo de preferência e dia da semana da locação.
+
+## FUTURAS MELHORIAS NO PROJETO
+
+*Voltar para **Seções*** [֍]()
+
+- Tratativa de atributo `model`: remover valores referentes ao atributo `marca`.
+- Tratativa de atributo `marca`: padronizar de valores, por exemplo, "VW" para "Volkswagen".
+- Normalização da entidade `Carro`: após confirmação de unicidade da chave-natural `classi`, manter todos os demais atributos como chaves-estrangeiras, criando então uma nova tabela para `modelo`.
 
 ## CONSIDERAÇÕES FINAIS
 
@@ -508,9 +593,11 @@ Os benefícios advindos da adoção de cubos é mais do que suficiente para o pr
 
 Para o projeto de normalização e modelagem dimensional da `Concessionária` foi levado em conta uma utilização a médio prazo, com a possível integração de outras franquias no projeto, e a utilização de um data warehouse para a integração e consolidação dos dados para análise otimizada do negócio em sua totalidade.
 
-A normalização seria, inicialmente, aplicada diretamente nos sistemas OLTP de cada franquia. Sem prejuízo de uma nova etapa de normalização no processo de extração e ingestão desses sistemas-fontes no data warehouse, a qual serviria como ***single source of truth*** e um backup potencial para os sistemas-fonte OLTP.
+A normalização seria, inicialmente, aplicada diretamente nos sistemas OLTP de cada franquia. Contudo, ocorreria uma nova etapa de normalização no processo de extração e ingestão desses bancos de dados no data warehouse, em uma camada CIF que serviria como ***single source of truth***, também servindo como fonte de backup e integração de dados para os sistemas-fonte OLTP, por meio de ETL Reverso.
 
-A metodologia adotada foi uma hibridização dos modelos de Inmon e Kimball, adaptada às necessidades atuais do projeto. No entanto, conforme este torna-se mais complexo, existe a possibilidade de agregar novas camadas sem prejuízo à arquitetura atual.
+Após isso, a modelagem dimensional ocorreria em outra camada Core, onde seria armazenada em star schema e alimentaria a distribuição de cubos, implementados em views, aos usuários finais.
+
+A metodologia adotada para o design do data warehouse foi uma hibridização dos modelos de Inmon e Kimball, adaptada às necessidades atuais do projeto. No entanto, conforme este torna-se mais complexo, existe a possibilidade de agregar novas camadas sem prejuízo à arquitetura atual.
 
 ---
 

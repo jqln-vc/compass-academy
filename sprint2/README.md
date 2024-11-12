@@ -16,6 +16,8 @@ Tinha familiaridade anterior com SQL e experiência em utilizar DQL para tarefas
 
 Foi uma experiência enriquecedora, sinto que consegui compreender e entrelaçar diversos conceitos que ainda estavam vagos no meu entendimento, como Data Warehouse e Modelagem de Dados, tanto em sistemas OLTP quanto OLAP. Também pude trabalhar com DDL, algo que ainda não havia feito.
 
+Porém ainda sinto que preciso praticar mais o processo de normalização, sinto dificuldade em distinguir entre as 3 formas normais, e só consegui localizar uma oportunidade de melhoria no último dia, após ter me familiarizado melhor com o banco.
+
 ---
 
 ### AWS Partner: Sales Accreditation
@@ -62,12 +64,25 @@ No entanto, ainda não conhecia o programa de partnership e relações comerciai
 - [Modelagem Dimensional - Star Schema](./desafio/concessionaria_star_schema.sql)
 
 - **Bônus:** [Modelagem Dimensional - Snowflake Schema](./desafio/concessionaria_snowflake_schema.sql)
-- **Bônus:** [Modelagem Dimensional - Cubos]()
+  
+- **Bônus:** [Modelagem Dimensional - Cubos](./desafio/concessionaria_cubos.sql)
 
 ## EVIDÊNCIAS
 
 Na pasta `evidencias`, encontram-se prints referentes a momentos de execução do código, exemplificando abordagens adotadas para a conclusão do desafio.  
 No passo a passo explicativo, encontrado na pasta `desafio`, serão comentados outros prints de pontos específicos.
+
+### NORMALIZAÇÃO
+
+![Normalização](./evidencias/4-concessionaria_normalizado.png)
+
+### MODELAGEM STAR SCHEMA
+
+![Star Schema](./evidencias/5-star-schema.png)
+
+### MODELAGEM SNOWFLAKE SCHEMA
+
+![Star Schema](./evidencias/12-snowflake-schema.png)
 
 ## CERTIFICADOS AWS SKILL BUILDER
 
@@ -96,10 +111,23 @@ Para absorver melhor o conteúdo desta sprint e me aprofundar em pontos de inter
 |![Certificado-Comp-](certificados/certificado-comp-security-fundamentals.jpg)|
 ||
 
+### AWS Compute Services Overview
+
+| |
+|---|
+|![Certificado-Comp-](certificados/certificado-comp-compute-services.jpg)|
+||
+
+### AWS Getting Started With CloudFormation
+
+| |
+|---|
+|![Certificado-Comp-](certificados/certificado-comp-cloudformation.jpg)|
+||
+
 ## BIBLIOGRAFIA
 
 - CODD, F. Edgar. **Further Normalization of the Database Relational Model**. San Jose: IBM Research Laboratory, 1971. Disponível em: <[forum.thethirdmanifesto.com](https://forum.thethirdmanifesto.com/wp-content/uploads/asgarosforum/987737/00-efc-further-normalization.pdf)>.  
-- EAGAR, Gareth. **Data Engineering with AWS**. Birmingham: Packt, 2021.
 - FAROULT, Stephane; ROBSON, Peter. **The Art of SQL**. Sebastopol: O'Reilly, 2006.  
 - KIMBALL, Ralph; ROSS, Margy. **The Data Warehouse Toolkit: The Definitive Guide to Dimensional Modeling**, 3 ed. Indianapolis: Wiley, 2013.  
 - SERRA, James. **Deciphering Data Architectures: Choosing Betweeen a Modern Warehouse, Data Fabric, Data Lakehouse, and Data Mesh**. Sebastopol: O'Reilly, 2024.
