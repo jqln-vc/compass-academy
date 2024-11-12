@@ -22,7 +22,7 @@ Porém ainda sinto que preciso praticar mais o processo de normalização, sinto
 
 ### AWS Partner: Sales Accreditation
 
-[![AWS Arquitetura](https://img.shields.io/badge/Guia-Arquitetura_AWS-ED751A)](/guide/aws_arquitetura.md)
+[![AWS Fundamentos](https://img.shields.io/badge/Guia-Fundamentos_AWS-ED751A)](/guide/aws_fundamentos.md)
 
 Tenho estudado e me preparado para o exame CLF-C02 da AWS há alguns meses, então já tinha familiaridade com a maioria dos conceitos abordados.
 
