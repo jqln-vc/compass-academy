@@ -7,7 +7,7 @@
 
 ## SEÇÕES
 
-- **Compreensão Inicial dos Dados** [֍]()
+- **Compreensão Inicial dos Dados** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#compreens%C3%A3o-inicial-dos-dados)
   - Diagrama Conceitual [֍]()
     - Tratamento de Dados [֍]()
     - Data de Locação e Data de Entrega [֍]()
@@ -36,7 +36,7 @@
 
 ## COMPREENSÃO INICIAL DOS DADOS
 
-*Voltar para **Seções*** [֍]()
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#se%C3%A7%C3%B5es)
 
 Antes de iniciar qualquer processamento, é preciso compreender não somente os dados a serem tratados, mas também qual seu contexto de utilização, a finalidade das transformações a serem feitas, bem como uma projeção de necessidades de negócio futuras.
 
