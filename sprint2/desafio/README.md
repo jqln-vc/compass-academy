@@ -8,31 +8,31 @@
 ## SEÇÕES
 
 - **Compreensão Inicial dos Dados** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#compreens%C3%A3o-inicial-dos-dados)
-  - Diagrama Conceitual [֍]()
-    - Tratamento de Dados [֍]()
-    - Data de Locação e Data de Entrega [֍]()
-    - Hora de Locação e Hora de Entrega [֍]()
-  - Bônus Investigativo [֍]()
-- **Contextualização: Sistemas OLTP x OLAP** [֍]()
-  - Sistemas-Fonte: Normalização [֍]()
-  - Data Warehouse: Modelagem Dimensional [֍]()
-- **Metodologia Adotada: Híbrido de Inmon e Kimball** [֍]() 
-- **Processo de Normalização** [֍]()
-  - 1NF [֍]()
-  - 2NF [֍]()
-  - 3NF [֍]()
-  - Concessionária: Banco Relacional Normalizado [֍]()
-    - Obtendo a Kilometragem Atual: Exemplo de Implementação com View [֍]()
-- **Processo de Modelagem Dimensional** [֍]()
-  - Surrogate Keys: Chaves Substitutas [֍]()
-  - Tabela-Fato Locação: Tipo Snapshot Acumulativo [֍]()
-    - Dimensão Data: Tipo Role-Playing [֍]()
-  - Star Schema [֍]()
-  - Snowflake Schema [֍]()
-  - Cubos: Camada de Análise Multidimensional [֍]()
-- **Futuras Melhorias no Projeto**
-- **Considerações Finais** [֍]()
-- **Referências** [֍]()
+  - Diagrama Conceitual [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#diagrama-conceitual)
+    - Tratamento de Dados [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#tratamento-de-dados)
+    - Data de Locação e Data de Entrega [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#data-de-loca%C3%A7%C3%A3o-e-data-de-entrega)
+    - Hora de Locação e Hora de Entrega [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#hora-de-loca%C3%A7%C3%A3o-e-hora-de-entrega)
+  - Bônus Investigativo [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#b%C3%B4nus-investigativo-%EF%B8%8F)
+- **Contextualização: Sistemas OLTP x OLAP** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#contextualiza%C3%A7%C3%A3o-sistemas-oltp-x-olap)
+  - Sistemas-Fonte: Normalização [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#sistemas-fonte-normaliza%C3%A7%C3%A3o)
+  - Data Warehouse: Modelagem Dimensional [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#data-warehouse-modelagem-dimensional)
+- **Metodologia Adotada: Híbrido de Inmon e Kimball** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#metodologia-adotada-h%C3%ADbrido-de-kimball-e-inmon) 
+- **Processo de Normalização** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#processo-de-normaliza%C3%A7%C3%A3o)
+  - 1ª Formal Normal [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#1%C2%AA-forma-normal)
+  - 2ª Forma Normal [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#2%C2%AA-forma-normal)
+  - 3ª Forma Normal [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#3%C2%AA-forma-normal)
+  - Concessionária: Banco Relacional Normalizado [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#concession%C3%A1ria-banco-relacional-normalizado)
+    - Obtendo a Kilometragem Atual: Exemplo de Implementação com View [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#obtendo-a-kilometragem-atual-exemplo-de-implementa%C3%A7%C3%A3o-com-view)
+- **Processo de Modelagem Dimensional** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#processo-de-modelagem-dimensional)
+  - Surrogate Keys: Chaves Substitutas [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#surrogate-keys-chaves-substitutas)
+  - Tabela-Fato Locação: Tipo Snapshot Acumulativo [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#tabela-fato-loca%C3%A7%C3%A3o-tipo-snapshot-acumulativo)
+    - Dimensão Data: Tipo Role-Playing [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#dimens%C3%A3o-data-tipo-role-playing)
+  - Star Schema [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#star-schema)
+  - Snowflake Schema [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#snowflake-schema)
+  - Cubos: Camada de Análise Multidimensional [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#cubos-camada-de-an%C3%A1lise-multidimensional)
+- **Futuras Melhorias no Projeto** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#futuras-melhorias-no-projeto)
+- **Considerações Finais** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#considera%C3%A7%C3%B5es-finais)
+- **Referências** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#refer%C3%AAncias)
 
 ## COMPREENSÃO INICIAL DOS DADOS
 
@@ -61,7 +61,7 @@ Por meio de explorações iniciais, foi possível identificar algumas relações
 
 ![Km dos Carros](../evidencias/9-kmcarro.png)
 
-> ❗ Na seção [***Obtendo A Kilometragem Atual: Exemplo Com View***](), será mostrada uma maneira de obter os valores de kilometragem para cada veículo, de modo a facilitar a análise operacional sem comprometer a **normalização** do banco relacional.
+> ❗ Na seção [***Obtendo A Kilometragem Atual: Exemplo Com View***](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#obtendo-a-kilometragem-atual-exemplo-de-implementa%C3%A7%C3%A3o-com-view), será mostrada uma maneira de obter os valores de kilometragem para cada veículo, de modo a facilitar a análise operacional sem comprometer a **normalização** do banco relacional.
 
 **2. Em um único caso, o dado `vlrDiaria` apresentou variação para o mesmo `idCarro`, logo, também não poderia ser inferido por essa entidade, e foi associado ao `idLocacao`.**
 
@@ -86,7 +86,7 @@ A partir dessas observações, foi construído o diagrama conceitual para fundam
 
 ### DIAGRAMA CONCEITUAL
 
-*Voltar para **Seções*** [֍]()
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#se%C3%A7%C3%B5es)
 
 [//]: # (Caso não possua suporte para mermaid, sugiro abrir no site do GitHub para visualizar o diagrama a seguir ou instalar extensão compatível)
 
@@ -134,7 +134,7 @@ erDiagram
 
 ### TRATAMENTO DE DADOS
 
-*Voltar para **Seções*** [֍]()
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#se%C3%A7%C3%B5es)
 
 Analisando o formato das datas e horas, nota-se uma inconsistência que prejudica o reconhecimento e manipulação dos tipos de dados corretamente. Em SQLite, os formatos de datas e horas devem ser `YYYY-MM-DD` e `HH:MM`, respectivamente.
 
@@ -153,7 +153,7 @@ Abaixo, já é possível notar um problema gerado pela não adequação dos valo
 
 #### DATA DE LOCAÇÃO E DATA DE ENTREGA
 
-*Voltar para **Seções*** [֍]()
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#se%C3%A7%C3%B5es)
 
 Durante a população das tabelas normalizadas já criadas, foi utilizada a tratativa abaixo para cada atributo de data, na qual são selecionados ano, mês e dia com a função `SUBSTR` , separados por `-` por meio do operador de concatenação `||`.
 
@@ -196,7 +196,7 @@ Para a tratativa dos dados de hora, foi necessário assegurar que a porção das
 
 ### BÔNUS INVESTIGATIVO 🕵🏽‍♀️
 
-*Voltar para **Seções*** [֍]()
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#se%C3%A7%C3%B5es)
 
 Durante a análise do atributo `kmCarro`, foi notada uma inconsistência nas transações, na qual um dos ids apresenta uma data de locação posterior à data de entrega. Veja mais abaixo:
 
@@ -221,11 +221,11 @@ Suspeito? No mínimo. Necessário manter as observações e coletar mais indíci
 
 ## CONTEXTUALIZAÇÃO: SISTEMAS OLTP X OLAP
 
-*Voltar para **Seções*** [֍]()
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#se%C3%A7%C3%B5es)
 
 ### SISTEMAS-FONTE: NORMALIZAÇÃO
 
-*Voltar para **Seções*** [֍]()
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#se%C3%A7%C3%B5es)
 
 O processo de **normalização** de dados é característico de sistemas OLTP, *Online Transaction Processing*, nos quais ocorrem transações em tempo real e demandam a utilização do banco de dados para processos CRUD: criação, leitura, atualização e deleção. É um sistema com intuito operacional e está atrelado às aplicações do negócio.
 
@@ -244,11 +244,13 @@ Considerando sua aplicação, em geral, tomaram-se as decisões para as formas n
 
 ### DATA WAREHOUSE: MODELAGEM DIMENSIONAL
 
-*Voltar para **Seções*** [֍]()
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#se%C3%A7%C3%B5es)
 
 O processo de **modelagem dimensional** é característico de sistemas OLAP, *Online Analytical Processing*, nos quais o foco principal é a consolidação de diversos bancos de dados provenientes de sistemas-fonte diferentes, buscando uma visão histórica do negócio para análises mais complexas e suporte à tomada de decisões.
 
 ## METODOLOGIA ADOTADA: HÍBRIDO DE KIMBALL E INMON
+
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#se%C3%A7%C3%B5es)
 
 Abaixo uma hibridização das metodologias de Inmon e Kimball, a qual serviu de inspiração para a arquitetura planejada para o projeto `Concessionária` (SERRA, 2024, p. 118):
 
@@ -309,13 +311,13 @@ flowchart LR
 
 ## PROCESSO DE NORMALIZAÇÃO
 
-*Voltar para **Seções*** [֍]()
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#se%C3%A7%C3%B5es)
 
 > *A inconsistência nos dados, a dificuldade em codificar o controle na inserção de dados, e gerenciamento de erros [...] são riscos reais, assim como empobrecimento em performance e a incapacidade de evolução do modelo. Esses riscos têm uma alta probabilidade de ocorrer se não aderimos às formas normais.* (FAROULT, p.5)
 
 ### 1ª FORMA NORMAL
 
-*Voltar para **Seções*** [֍]()
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#se%C3%A7%C3%B5es)
 
 - assegurar atomicidade de atributos: separação de atributos multivalorados
 - caracterização de chaves-primárias: localizar (ou criar, quando necessário) o atributo que identifica uma linha como única.
@@ -333,7 +335,7 @@ Para o projeto da `Concessionária`, não foi preciso realizar nenhuma tratativa
 
 ### 2ª FORMA NORMAL
 
-*Voltar para **Seções*** [֍]()
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#se%C3%A7%C3%B5es)
 
 Para obter a 2ª forma normal, foram identificados os atributos que não possuem dependência total da chave-primária da entidade. Isso ocorre nos casos de `Marca`, `Combustível`, `Estado` e `País`; a seguir uma exemplificação a partir de `marcaCarro` :
 
@@ -378,15 +380,15 @@ Portanto, com esse objetivo em mente, os atributos referentes à `cidade` do cli
 
 ### 3ª FORMA NORMAL
 
-*Voltar para **Seções*** [֍]()
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#se%C3%A7%C3%B5es)
 
-Com frequência, após a obtenção da 2ª forma normal, é possível já se ter chegado também à 3ª forma normal. No entanto, não foi o caso, aqui são retomadas as observações não-triviais de `vlrDiaria` e `kmCarro` identificadas na seção [Compreensão Inicial dos Dados]().
+Com frequência, após a obtenção da 2ª forma normal, é possível já se ter chegado também à 3ª forma normal. No entanto, não foi o caso, aqui são retomadas as observações não-triviais de `vlrDiaria` e `kmCarro` identificadas na seção [Compreensão Inicial dos Dados](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#compreens%C3%A3o-inicial-dos-dados).
 
 > *A 3NF é alcançada quando não podemos inferir o valor de um atributo por nenhum outro atributo que não seja pertencente à chave única.* (FAROULT, p. 9)
 
 ### CONCESSIONÁRIA: BANCO RELACIONAL NORMALIZADO
 
-*Voltar para **Seções*** [֍]()
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#se%C3%A7%C3%B5es)
 
 A seguir, a execução do script de normalização:
 
@@ -396,7 +398,7 @@ A seguir, a execução do script de normalização:
 
 #### OBTENDO A KILOMETRAGEM ATUAL: EXEMPLO DE IMPLEMENTAÇÃO COM VIEW
 
-*Voltar para **Seções*** [֍]()
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#se%C3%A7%C3%B5es)
 
 Uma objeção dos utilizadores do banco de dados, com a remoção da relação de km com o id dos veículos após a normalização, pode ser a não trivialidade no acesso do valor atual de kilometragem para cada veículo da base.
 
@@ -431,7 +433,7 @@ A partir da criação da view `kilometragem` , pode-se analisar o portfolio de v
 
 ## PROCESSO DE MODELAGEM DIMENSIONAL
 
-*Voltar para **Seções*** [֍]()
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#se%C3%A7%C3%B5es)
 
 > *Modelos dimensionais usam um processo chamado **desnormalização**, no qual você inclui cópias redundantes dos dados em diversas tabelas. Isso reduz o número de tabelas. Quando você realiza uma busca no banco de dados, não há necessidade de fazer joins entre tantas tabelas, tornando a busca muito mais rápida. [...] No entanto, significa que as cópias redundantes de dados precisam ser mantidas em sincronia para assegurar a integridade dos dados [...]* (SERRA, 2024, p. 109)
 
@@ -445,7 +447,7 @@ A **tabela-fato** contém os fatos, os quais no caso da `Concessionária` são c
 
 ### SURROGATE KEYS: CHAVES SUBSTITUTAS
 
-*Voltar para **Seções*** [֍]()
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#se%C3%A7%C3%B5es)
 
 Pensando no contexto de data warehouse, os dados extraídos são provenientes de diversos sistemas-fonte, cada um com seu schema e sequência de ids de chaves primárias. Durante o processo de consolidação desses dados, a boa prática é criar **chaves substitutas**, ***surrogate keys***, que servirão de chaves primárias e manterão a sequência e unicidade no data warehouse.
 
@@ -463,7 +465,7 @@ O projeto atual para a `Concessionária` lida com uma única fonte de dados, no 
 
 ### TABELA-FATO LOCAÇÃO: TIPO SNAPSHOT ACUMULATIVO
 
-*Voltar para **Seções*** [֍]()
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#se%C3%A7%C3%B5es)
 
 A regra de negócio identificada pelas transações de locação no projeto `Concessionária` indica que cada fato é demarcado por uma data de início, `data_locacao`, e uma data de finalização, `data_entrega`. Essa característica implica na implementação de uma tabela-fato do tipo **snapshot acumulativo**:
 
@@ -479,7 +481,7 @@ A seguir, a demonstração da tabela-dimensão `data_dim`.
 
 #### DIMENSÃO DATA: TIPO ROLE-PLAYING
 
-*Voltar para **Seções*** [֍]()
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#se%C3%A7%C3%B5es)
 
 Uma dimensão do tipo **role-playing** é aquela referenciada mais de uma vez por um fato. Nas tabelas de tipo **snapshot acumulativo** é comum acontecer com a dimensão de tempo, referenciada ao demarcar início e fim das etapas temporais de um fato.
 
@@ -489,7 +491,7 @@ No diagrama, a existência de uma dimensão **role-playing** é caracterizada po
 
 ### STAR SCHEMA
 
-*Voltar para **Seções*** [֍]()
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#se%C3%A7%C3%B5es)
 
 - todas as dimensões de uma hierarquia representadas em **uma tabela dimensional**
 - um único nível de distância da **tabela fato**
@@ -508,7 +510,7 @@ Visto que não existiam tabelas-dimensão suficientes, o diagrama não contempla
 
 ### SNOWFLAKE SCHEMA
 
-*Voltar para **Seções*** [֍]()
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#se%C3%A7%C3%B5es)
 
 - cada dimensão de uma hierarquia representadas em **uma tabela dimensional**
 - um ou mais níveis de distância da **tabela fato** ao longo de cada hierarquia
@@ -523,7 +525,7 @@ Visto que não existiam tabelas-dimensão suficientes, o diagrama não contempla
 
 ### CUBOS: CAMADA DE ANÁLISE MULTIDIMENSIONAL
 
-*Voltar para **Seções*** [֍]()
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#se%C3%A7%C3%B5es)
 
 Com a query abaixo, implementada na view `locacoes_dia_semana`, é demonstrado visualmente o conceito de análise multidimensional por cubos, a qual ocorre na etapa de distribuição e consumo dos dados em um sistema OLAP.
 
@@ -581,7 +583,7 @@ No script `concessionaria_cubos.sql`, além da view bidimensional para kilometra
 
 ## FUTURAS MELHORIAS NO PROJETO
 
-*Voltar para **Seções*** [֍]()
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#se%C3%A7%C3%B5es)
 
 - Tratativa de atributo `model`: remover valores referentes ao atributo `marca`.
 - Tratativa de atributo `marca`: padronizar de valores, por exemplo, "VW" para "Volkswagen".
@@ -589,7 +591,7 @@ No script `concessionaria_cubos.sql`, além da view bidimensional para kilometra
 
 ## CONSIDERAÇÕES FINAIS
 
-*Voltar para **Seções*** [֍]()
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#se%C3%A7%C3%B5es)
 
 Para o projeto de normalização e modelagem dimensional da `Concessionária` foi levado em conta uma utilização a médio prazo, com a possível integração de outras franquias no projeto, e a utilização de um data warehouse para a integração e consolidação dos dados para análise otimizada do negócio em sua totalidade.
 
@@ -603,6 +605,6 @@ A metodologia adotada para o design do data warehouse foi uma hibridização dos
 
 ## REFERÊNCIAS
 
-*Voltar para **Seções*** [֍]()
+*Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#se%C3%A7%C3%B5es)
 
 *Publicações indicadas na seção [Bibliografia](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/README.md#bibliografia), localizada no diretório `sprint2`.*
