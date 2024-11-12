@@ -229,7 +229,7 @@ Suspeito? No mínimo. Necessário manter as observações e coletar mais indíci
 
 O processo de **normalização** de dados é característico de sistemas OLTP, *Online Transaction Processing*, nos quais ocorrem transações em tempo real e demandam a utilização do banco de dados para processos CRUD: criação, leitura, atualização e deleção. É um sistema com intuito operacional e está atrelado às aplicações do negócio.
 
-Os objetivos buscados com a **normalização** são (CODD, 1971, p. 1):
+Os objetivos buscados com a **normalização** são[^1]:
 
 1. *liberar a coleção de relações de dependências indesejáveis de inserção, atualização e deleção;*
 2. *minimizar a necessidade de reestruturação da coleção de relações conforme novos tipos de dados são introduzidos e, com isso, aumentando o tempo de vida das aplicações;*
@@ -252,7 +252,7 @@ O processo de **modelagem dimensional** é característico de sistemas OLAP, *On
 
 *Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#se%C3%A7%C3%B5es)
 
-Abaixo uma hibridização das metodologias de Inmon e Kimball, a qual serviu de inspiração para a arquitetura planejada para o projeto `Concessionária` (SERRA, 2024, p. 118):
+Abaixo uma hibridização das metodologias de Inmon e Kimball, a qual serviu de inspiração para a arquitetura planejada para o projeto `Concessionária`[^2]:
 
 ![Modelo Híbrido](../../assets/guide-data-modeling-hybrid.png)
 
@@ -294,7 +294,7 @@ flowchart LR
 2. **CIF: Corporate Information Factory**  
    Uma adoção do conceito de Inmon de *Fábrica de Informação Corporativa*, aqui os dados provenientes das diversas franquias são integrados, consolidados e preservados.
 
-   > *[...] onde todos os dados são centralizados e armazenados no nível atômico (o mais granular possível) na terceira forma normal. Pode-se considerar como um data warehouse empresarial que é uma fonte única da verdade.* (SERRA, 2024, p. 114)
+   > *[...] onde todos os dados são centralizados e armazenados no nível atômico (o mais granular possível) na terceira forma normal. Pode-se considerar como um data warehouse empresarial que é uma fonte única da verdade.*[^3]
 
    A partir desta camada, pode-se realizar um processo de ETL reverso, realimentando os bancos dos sistemas-fonte e aprimorando as capacidades analíticas no lado operacional, respondendo necessidades imediatas integrando informações das demais franquias.
 
@@ -305,7 +305,7 @@ flowchart LR
 4. **Serving Layer**  
    Na camada de distribuição serão utilizados os cubos por meio de views, os quais irão consumir os dados da camada CIF, em star schema, logo, se beneficiando da otimização para OLAP.
 
-   > *A CIF está fora de limites aos usuários finais, que acessam os dados por meio de data marts ou cubos. Uma desvantagem é que isto implica que os dados são duplicados permanentemente até 3 vezes, para o CIF, o data mart e o cubo.* (SERRA, 2024, p. 116)
+   > *A CIF está fora de limites aos usuários finais, que acessam os dados por meio de data marts ou cubos. Uma desvantagem é que isto implica que os dados são duplicados permanentemente até 3 vezes, para o CIF, o data mart e o cubo.*[^4]
 
    A utilização de views nesta camada traz diversos benefícios, além de solucionar o problema de duplicação acima, mantendo somente 2 duplicações no data warehouse, a camada de cubos com views também proporciona a aplicação de privacidade e restrições de acesso aos dados, visto que pode-se selecionar e filtrar somente os dados necessários para cada tipo de usuário final.
 
@@ -313,7 +313,7 @@ flowchart LR
 
 *Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#se%C3%A7%C3%B5es)
 
-> *A inconsistência nos dados, a dificuldade em codificar o controle na inserção de dados, e gerenciamento de erros [...] são riscos reais, assim como empobrecimento em performance e a incapacidade de evolução do modelo. Esses riscos têm uma alta probabilidade de ocorrer se não aderimos às formas normais.* (FAROULT, p.5)
+> *A inconsistência nos dados, a dificuldade em codificar o controle na inserção de dados, e gerenciamento de erros [...] são riscos reais, assim como empobrecimento em performance e a incapacidade de evolução do modelo. Esses riscos têm uma alta probabilidade de ocorrer se não aderimos às formas normais.*[^5]
 
 ### 1ª FORMA NORMAL
 
@@ -349,7 +349,7 @@ Para obter a 2ª forma normal, foram identificados os atributos que não possuem
 
 ![Normalização Marca](../evidencias/17-normalizacao-marca.png)
 
-> *Para remover dependências de parte da chave, precisamos criar tabelas (tal qual car_model). Cada uma das chaves dessas novas tabelas serão parte da chave para nossa tabela original [...] Então devemos mover todos os atributos que dependem dessas novas chaves para as novas tabelas [...] Assim que finalizarmos a remoção dos atributos que dependem de somente parte da chave, nossas tabelas estarão na 2ª forma normal (2NF).* (FAROULT, p. 9)
+> *Para remover dependências de parte da chave, precisamos criar tabelas (tal qual car_model). Cada uma das chaves dessas novas tabelas serão parte da chave para nossa tabela original [...] Então devemos mover todos os atributos que dependem dessas novas chaves para as novas tabelas [...] Assim que finalizarmos a remoção dos atributos que dependem de somente parte da chave, nossas tabelas estarão na 2ª forma normal (2NF).*[^6]
 
 Acima nota-se que `marcaCarro` possui dependência parcial de `modeloCarro`. Contudo, nota-se que o ideal seria manter somente a dependência total aparente manifestada pelo atributo `classiCarro`, o qual parece inferir todos os demais valores dos atributos da entidade `Carro`: `modeloCarro`, `marcaCarro`, etc.
 
@@ -357,11 +357,11 @@ Acima nota-se que `marcaCarro` possui dependência parcial de `modeloCarro`. Con
 
 Considerou-se também que uma das finalidades desse processo é a eliminação de redundâncias:
 
-> *Dados duplicados são custosos, tanto em termos de espaço em disco quanto capacidade de processamento, mas também introduzem um grande aumento de possibilidade dos dados se tornarem corrompidos. A corrupção acontece quando uma instância de um valor é modificada, mas a modificação simultânea (e idêntica) do mesmo dado mantido em outra parte do banco de dados falha em ocorrer.* (FAROULT, p.10)
+> *Dados duplicados são custosos, tanto em termos de espaço em disco quanto capacidade de processamento, mas também introduzem um grande aumento de possibilidade dos dados se tornarem corrompidos. A corrupção acontece quando uma instância de um valor é modificada, mas a modificação simultânea (e idêntica) do mesmo dado mantido em outra parte do banco de dados falha em ocorrer.*[^7]
 
 Bem como a otimização da performance de queries:
 
-> *Se você deseja visualizar uma lista selecionada de modelos de carro disponíveis, uma tabela desnormalizada irá requerer uma aplicação de SELECT DISTINCT em todos os carros disponíveis [...] isso não só significa escanear muito mais linhas do que teríamos que fazer com uma tabela `car_model` separada, mas também significa ter que ordenar todas essas linhas para eliminar duplicações.* (FAROULT, p. 9)
+> *Se você deseja visualizar uma lista selecionada de modelos de carro disponíveis, uma tabela desnormalizada irá requerer uma aplicação de SELECT DISTINCT em todos os carros disponíveis [...] isso não só significa escanear muito mais linhas do que teríamos que fazer com uma tabela `car_model` separada, mas também significa ter que ordenar todas essas linhas para eliminar duplicações.*[^8]
 
 Portanto, com esse objetivo em mente, os atributos referentes à `cidade` do cliente e `estado` do vendedor, mesmo dependentes da chave-primária destas entidades, foram removidos para suas respectivas tabelas. Abaixo as entidades já identificadas na 1NF, as novas entidades e suas respectivas novas chaves-primárias:
 
@@ -384,7 +384,7 @@ Portanto, com esse objetivo em mente, os atributos referentes à `cidade` do cli
 
 Com frequência, após a obtenção da 2ª forma normal, é possível já se ter chegado também à 3ª forma normal. No entanto, não foi o caso, aqui são retomadas as observações não-triviais de `vlrDiaria` e `kmCarro` identificadas na seção [Compreensão Inicial dos Dados](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#compreens%C3%A3o-inicial-dos-dados).
 
-> *A 3NF é alcançada quando não podemos inferir o valor de um atributo por nenhum outro atributo que não seja pertencente à chave única.* (FAROULT, p. 9)
+> *A 3NF é alcançada quando não podemos inferir o valor de um atributo por nenhum outro atributo que não seja pertencente à chave única.*[^9]
 
 ### CONCESSIONÁRIA: BANCO RELACIONAL NORMALIZADO
 
@@ -435,7 +435,7 @@ A partir da criação da view `kilometragem` , pode-se analisar o portfolio de v
 
 *Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#se%C3%A7%C3%B5es)
 
-> *Modelos dimensionais usam um processo chamado **desnormalização**, no qual você inclui cópias redundantes dos dados em diversas tabelas. Isso reduz o número de tabelas. Quando você realiza uma busca no banco de dados, não há necessidade de fazer joins entre tantas tabelas, tornando a busca muito mais rápida. [...] No entanto, significa que as cópias redundantes de dados precisam ser mantidas em sincronia para assegurar a integridade dos dados [...]* (SERRA, 2024, p. 109)
+> *Modelos dimensionais usam um processo chamado **desnormalização**, no qual você inclui cópias redundantes dos dados em diversas tabelas. Isso reduz o número de tabelas. Quando você realiza uma busca no banco de dados, não há necessidade de fazer joins entre tantas tabelas, tornando a busca muito mais rápida. [...] No entanto, significa que as cópias redundantes de dados precisam ser mantidas em sincronia para assegurar a integridade dos dados [...]*[^10]
 
 Um **fato** é caracterizado por:
 
@@ -451,7 +451,7 @@ A **tabela-fato** contém os fatos, os quais no caso da `Concessionária` são c
 
 Pensando no contexto de data warehouse, os dados extraídos são provenientes de diversos sistemas-fonte, cada um com seu schema e sequência de ids de chaves primárias. Durante o processo de consolidação desses dados, a boa prática é criar **chaves substitutas**, ***surrogate keys***, que servirão de chaves primárias e manterão a sequência e unicidade no data warehouse.
 
-As principais motivações para substituição das chaves naturais originárias são (SERRA, 2024, p.107):
+As principais motivações para substituição das chaves naturais originárias são[^11]:
 
 - *podem ser mais longas e complexas do que chaves substitutas e, logo, mais complicadas para lidar;*
 - *geralmente contêm informação sensível, o que pode resultar em questões de privacidade;*
@@ -469,11 +469,11 @@ O projeto atual para a `Concessionária` lida com uma única fonte de dados, no 
 
 A regra de negócio identificada pelas transações de locação no projeto `Concessionária` indica que cada fato é demarcado por uma data de início, `data_locacao`, e uma data de finalização, `data_entrega`. Essa característica implica na implementação de uma tabela-fato do tipo **snapshot acumulativo**:
 
-> *Uma linha em uma tabela-fato de snapshot acumulativo sumariza os eventos mensurados que ocorrem em etapas previsíveis entre o início e o fim de um processo. [...] Existe uma chave-estrangeira de data na tabela-fato para cada etapa crítica do processo. Uma linha individual [...] é inicialmente inserida quando a transação é criada. Conforme o progresso do pipeline ocorre, a linha do fato acumulativo é revisitada e atualizada.* (KIMBALL, ROSS, 2013, p. 44)
+> *Uma linha em uma tabela-fato de snapshot acumulativo sumariza os eventos mensurados que ocorrem em etapas previsíveis entre o início e o fim de um processo. [...] Existe uma chave-estrangeira de data na tabela-fato para cada etapa crítica do processo. Uma linha individual [...] é inicialmente inserida quando a transação é criada. Conforme o progresso do pipeline ocorre, a linha do fato acumulativo é revisitada e atualizada.*[^12]
 
 Verifica-se que as surrogate-keys referentes à dimensão de data foram geradas a partir do formato da data em `YYYYMMDD` convertido no tipo `INTEGER`.
 
-> *Tipicamente, a data associada a uma série de métricas (uma linha) na tabela-fato não será armazenada como uma coluna do tipo data, mas como um número gerado pelo sistema que irá referenciar uma linha na tabela dimensão data, a qual será declinada em todas as formas possíveis.* (FAROULT, p. 265)
+> *Tipicamente, a data associada a uma série de métricas (uma linha) na tabela-fato não será armazenada como uma coluna do tipo data, mas como um número gerado pelo sistema que irá referenciar uma linha na tabela dimensão data, a qual será declinada em todas as formas possíveis.*[^13]
 
 ![Tabela Fato Locação](../evidencias/14-tabela-fato.png)
 
@@ -529,7 +529,7 @@ Visto que não existiam tabelas-dimensão suficientes, o diagrama não contempla
 
 Com a query abaixo, implementada na view `locacoes_dia_semana`, é demonstrado visualmente o conceito de análise multidimensional por cubos, a qual ocorre na etapa de distribuição e consumo dos dados em um sistema OLAP.
 
-> *Um banco de dados OLAP é tipicamente composto de um ou mais cubos. Em um cubo OLAP, os dados são pré-agregados [...] isto é, já foram sumarizados e agrupados por certas dimensões [...] Criar um cubo OLAP geralmente involve a utilização de um modelo multidimensional, o qual utiliza-se de um schema em star ou snowflake para representar os dados.* (SERRA, 2024, p. 92)
+> *Um banco de dados OLAP é tipicamente composto de um ou mais cubos. Em um cubo OLAP, os dados são pré-agregados [...] isto é, já foram sumarizados e agrupados por certas dimensões [...] Criar um cubo OLAP geralmente involve a utilização de um modelo multidimensional, o qual utiliza-se de um schema em star ou snowflake para representar os dados.*[^14]
 
 ```sql
     CREATE VIEW locacoes_dia_semana (
@@ -560,9 +560,9 @@ Com a query abaixo, implementada na view `locacoes_dia_semana`, é demonstrado v
 
 Na metodologia adotada para o projeto `Concessionária`, em vista do escopo estreito dos dados tratados, optou-se por não utilizar uma camada de ***data marts***, utilizando a distribuição dos dados diretamente por meio de cubos.
 
-> *A view também pode ser utilizada em cubos. [...] Usar views simplifica o gerenciamento de variações rápidas e proporciona controle total de quaisquer joins enviados à fonte da qual o cubo consome os dados.* (SERRA, 2024, p. 119)
+> *A view também pode ser utilizada em cubos. [...] Usar views simplifica o gerenciamento de variações rápidas e proporciona controle total de quaisquer joins enviados à fonte da qual o cubo consome os dados.*[^15]
 
-Os benefícios advindos da adoção de cubos são mais do que suficientes para o projeto (SERRA, 2024, p. 118):
+Os benefícios advindos da adoção de cubos são mais do que suficientes para o projeto[^16]:
 
 - *proporciona uma camada semântica;*
 - *lida com diversos usuários concorrentes;*
@@ -576,7 +576,7 @@ No script `concessionaria_cubos.sql`, além da view bidimensional para kilometra
 
 - `lucro_locacao_veiculos` : **locação x carro x data**  
   Análise de quantidade de dias locados e lucro total de modelos de veículos, por dia da semana de locaçao.
-- `lucro_vendedores` | **vendedor x locação x carro x data**   
+- `lucro_vendedores` | **vendedor x locação x carro x data**  
   Análise de lucro total de vendedores, por modelo de veículo e dia da semana de locação.
 - `gasto_veiculo_clientes` | **cliente x locação x carro x data**  
   Análise de quantidade de dias locados e gasto total de clientes, por modelo de preferência e dia da semana da locação.
@@ -608,3 +608,20 @@ A metodologia adotada para o design do data warehouse foi uma hibridização dos
 *Voltar para **Seções*** [֍](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/desafio/README.md#se%C3%A7%C3%B5es)
 
 *Publicações indicadas na seção [Bibliografia](https://github.com/jqln-vc/compass-academy/blob/main/sprint2/README.md#bibliografia), localizada no diretório `sprint2`.*
+
+[^1]: CODD, 1971, p. 1
+[^2]: SERRA, 2024, p. 118
+[^3]: Ibid., p. 114
+[^4]: Ibid., p. 116
+[^5]: FAROULT, 2006, p. 5
+[^6]: Ibid., p. 9
+[^7]: Ibid., p. 10
+[^8]: Ibid., p. 9
+[^9]: Ibid., p. 9
+[^10]: SERRA, 2024, p. 109
+[^11]: Ibid., p. 107
+[^12]: KIMBALL, ROSS; 2013, p. 44
+[^13]: FAROULT, 2006, p. 265
+[^14]: SERRA, 2024, p. 92
+[^15]: Ibid., p. 119
+[^16]: Ibid., p. 118
