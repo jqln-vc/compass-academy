@@ -59,13 +59,13 @@ No entanto, ainda não conhecia o programa de partnership e relações comerciai
 
 ## DESAFIO
 
-- [Normalização](./desafio/concessionaria_normalizacao.sql)
+- [Normalização](./desafio/concessionaria_normalizacao.sql): normalização de tabelas até a 3ª forma normal, otimizada para sistemas OLTP, de acordo com as diretrizes e motivações de Codd. Este processo também foi contextualizado no projeto de data warehouse, aplicado na camada CIF (*Corporate Information Factory*) que serve de repositório consolidado de informações do negócio, bem como fonte de retroalimentação dos sistemas-fonte por meio de ETL Reverso.
 
-- [Modelagem Dimensional - Star Schema](./desafio/concessionaria_star_schema.sql)
+- [Modelagem Dimensional - Star Schema](./desafio/concessionaria_star_schema.sql): modelagem dimensional em star schema, otimizando o banco de dados para sistemas OLAP e implementando tabela-fato de tipo snapshot acumulativo, contextualizando o processo a partir de um design de data warehouse híbrido, inspirados nas metodologias de Kimball e Inmon.
 
-- **Bônus:** [Modelagem Dimensional - Snowflake Schema](./desafio/concessionaria_snowflake_schema.sql)
+- **Bônus:** [Modelagem Dimensional - Snowflake Schema](./desafio/concessionaria_snowflake_schema.sql): exemplificação alternativa de modelagem dimensional em snowflake schema, com a normalização de hierarquias dimensionais.
   
-- **Bônus:** [Modelagem Dimensional - Cubos](./desafio/concessionaria_cubos.sql)
+- **Bônus:** [Modelagem Dimensional - Cubos](./desafio/concessionaria_cubos.sql): implementação de cubos por meio de views para exemplificar a aplicação do projeto, bem como alguns outros tipos de análise bidimensionais ("planos"), contextualizando o processo na etapa de distribuição da arquitetura de data warehouse planejada, com motivações inspiradas nas metodologias de Kimball e Inmon.
 
 ## EVIDÊNCIAS
 
