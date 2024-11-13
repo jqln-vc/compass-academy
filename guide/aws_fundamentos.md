@@ -13,47 +13,43 @@
 - Elasticidade
 - Agilidade
 - Otimização de Custos
+  - A larga escala da computação em nuvem, resultando em o uso agregado de uma imensa quantidade de clientes, resulta em diminuição de preços.
 - Otimização de Performance
-
-How does the scale of cloud computing help you to save costs?
-The aggregated cloud usage from a large number of customers results in lower pay-as-you-go prices.
-
-
-
-
 
 ### Níveis de Abstração
 https://aws.amazon.com/blogs/architecture/compute-abstractions-on-aws-a-visual-story/
 
-- Máquinas Físicas
+- **Máquinas Físicas**
   - investimento pesado
-  - vive por anos in loco
+  - vive por anos *in loco*
 
-- Máquinas Virtuais
+- **Máquinas Virtuais**
   - recursos elásticos
   - provisionamento rápido
 
-- Contêineres
+- **Contêineres**
   - independente de plataformas
   - deploys mais rápidos e objetivos
 
-- Serverless (*sem servidor*)
+- **Serverless (*"Sem Servidor"*)**
   - event-driven
   - pagamento por utilização
 
-### Modos de Deploy (*implantação*)
+### Modos de Deploy (*Implantação*)
 
-- Cloud
-Run all parts of the application in the cloud.
-Migrate existing applications to the cloud.
-Design and build new applications in the cloud.
-- On Premises
-On-premises deployment is also known as a private cloud deployment. In this model, resources are deployed on premises by using virtualization and resource management tools.
-- Híbrido
-Connect cloud-based resources to on-premises infrastructure.
-Integrate cloud-based resources with legacy IT applications.
-In a hybrid deployment, cloud-based resources are connected to on-premises infrastructure. You might want to use this approach in a number of situations. For example, you have legacy applications that are better maintained on premises, or government regulations require your business to keep certain records on premises.
+- **Cloud**
+  - Execução de todas as partes da aplicação em nuvem.
+  - Migração de aplicações existentes para a nuvem.
+  - Design e desenvolvimento de novas aplicações em nuvem.
 
+- **On Premises**
+  - Também denominado **implantação de nuvem privada**.
+  - Recursos implantados no local, através de virtualização e ferramentas de gerenciamento de recursos.
+
+- **Híbrido**
+  - Conexão de recursos de nuvem à infraestrutura *on-premise*.
+  - Integração de recursos de nuvem a aplicações de TI legadas (*legacy*).
+  - Recomendado em casos que a manutenção *on-premises* de aplicações legadas, ou a existência de regulamentos governamentais que requerem que certos registros/dados sejam mantidos *on-premises*.
 
 ### Soluções em Cloud
 
@@ -64,18 +60,27 @@ In a hybrid deployment, cloud-based resources are connected to on-premises infra
   - EC2
 
 ## Infraestrutura Global
+
 https://aws.amazon.com/about-aws/global-infrastructure/
+
 - Alta disponibilidade
 - Redundância
 - Durabilidade
 
 ### Regiões
 
+Fatores na escolha entre Regiões:
+
+- **Compliance**: requirimentos legais ou questões relacionadas à governança dos dados, os dados não saem de uma Região sem autorização.
+- **Latência**: proximidade dos usuários finais.
+- **Disponibilidade de Recursos**: nem todos os recursos estão disponíveis em todas as Regiões.
+- **Preço**: devido às taxas locais, os preços variam de Região para Região.
+
 ### Zonas de Disponibilidade (*AZ - Availability Zones*)
 
-An Availability Zone is a single data center or a group of data centers within a Region. 
-
-Availability Zones are located tens of miles apart from each other. This helps them to provide interconnectivity to support the services and applications that run within a Region.
+- Composta de 1 ou mais data centers dentro de uma Região.
+- São localizadas há dezenas de milhas de distância uma das outras. Contribuindo com a interconectividade para prover recursos aos serviçoes e aplicações dentro de uma Região.
+  - Medida de distância ideal para garantir latência otimizada e, ao mesmo tempo, garantir a disponibilidade em casos de catástrofes físicas/naturais.
 
 ### Pontos de Presença (*PoP - Points of Presence*)
 
@@ -86,7 +91,6 @@ https://aws.amazon.com/free/database/
 https://aws.amazon.com/security/
 https://aws.amazon.com/products/management-and-governance/
 https://aws.amazon.com/products/networking/
-
 
 - Computação
 - Armazenamento
@@ -108,9 +112,9 @@ https://aws.amazon.com/products/networking/
 ## Aplicações Monoliticas X Microsserviços
 https://aws.amazon.com/microservices/
 
-Microservices are minimal-function services that are deployed separately but can interact together to achieve a broader use case. These applications then become more straightforward to build and maintain because they are smaller and more manageable. 
+Microsserviços são serviços com funções mínimas, implementados separada e independentemente, mas que podem interagir em conjunto para alcançar uma funcionalidade maior. Essas aplicações são mais simples de desenvolver e manter pois são menores e mais gerenciáveis.
 
-### Desvantagens de Estruturas Monolíticas
+### Desvantagens das Estruturas Monolíticas
 
 - difíceis de escalar
 - não lidam bem com falhas em componentes
@@ -120,26 +124,28 @@ Microservices are minimal-function services that are deployed separately but can
 ## AWS Cloud Value Framework
 https://docs.aws.amazon.com/pdfs/whitepapers/latest/overview-aws-cloud-adoption-framework/overview-aws-cloud-adoption-framework.pdf
 
-Estrutura conceitual utilizada para compreender os processos e o desenvolvimento de empresas com a adoção de serviços de Cloud. Utiliza os 4 pilares de valor:
+Estrutura conceitual utilizada para compreender os processos e o desenvolvimento de empresas com a adoção de serviços de Cloud. Utiliza os pilares de valor:
 
-- Redução de Custos
+- **Redução de Custos**
   - benefício de impacto mais rápido
   - eliminação de custos de manutenção e reparo de recursos
   - redução de custos de implantação
   - tende a diminuir progressivamente conforme o tempo de adoção se estende
-- Produtividade dos Colaboradores
+- **Produtividade dos Colaboradores**
   - redução ou eliminação de administração de recursos de hardware e software
   - aumento nas atividades de maior valor agregado para a empresa
-- Resiliência Operacional
+- **Resiliência Operacional**
   - melhoria nos SLAs
   - diminuição de impactos resultantes de falhas de sistema
   - melhoria em segurança
   - aumento na disponibilidade de serviços
   - redução na latência
-- Agilidade nos Negócios
+- **Agilidade nos Negócios**
   - redução no tempo e erros de deploy
   - aumento da criatividade (*"fail fast and cheaply, learn and improve faster"*)
   - diminuição no tempo de resposta às mudanças no mercado
+- **Sustentabilidade**
+  - Minimização do impacto ambiental das operações
 
 ## Modelo de Responsabilidade Compartilhada
 https://aws.amazon.com/compliance/shared-responsibility-model/
@@ -148,11 +154,12 @@ https://aws.amazon.com/compliance/shared-responsibility-model/
 
 ## Estratégias de Migração
 
-- Refactoring changing how an application is architected and developed, typically by using cloud-native features
+- **Refactoring**: alteração de como uma aplicação é planejada e desenvolvida, tipicamente utilizando recursos nativos de cloud.
+- **Repurchasing**: substituição de uma aplicação existente por outra baseada em nuvem, tal como os softwares encontrados no AWS Marketplace.
+- **Rehosting**: deslocamento de uma aplicação para a nuvem com pouca ou nenhuma modificação na aplicação. Também conhecida como *lift and shift*.
+- **Replatforming**: otimização seletiva de aspectos de uma aplicação para alcançar benefícios na nuvem, sem modificar o cerne da arquitetura da aplicação. Também conhecida como *lift, tinker and shift*.
 
-- Repurchasing involves replacing an existing application with a cloud-based version, such as software found in AWS Marketplace.
-- Rehosting involves moving an application to the cloud with little to no modifications to the application itself. It is also known as “lift and shift.”
-- Replatforming involves selectively optimizing aspects of an application to achieve benefits in the cloud without changing the core architecture of the application. It is also known as “lift, tinker, and shift.”
+---
 
 ## Referências
 

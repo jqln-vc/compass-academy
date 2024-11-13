@@ -11,6 +11,11 @@
 
 Sua orientação de uso é *"write once, read many"*, ou seja, o trabalho de aplicação da estrutura é complexo e demorado, porém é feito somente uma vez, sua utilização é orientada para consumo analítico frequente.
 
+- ideal para dados estruturados
+- otimizado para rápida performance de queries complexas
+- ideal para análisar dados históricos
+- melhoria na qualidade dos dados, por meio de processos de limpeza e integração
+- melhoria na tomada de decições ao consolidar múltiplas fontes em um único local.
 
 ## Estrutura Relacional
 

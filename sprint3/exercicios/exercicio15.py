@@ -5,7 +5,7 @@ Inclusão de métodos para ligar/desligar a luz.
 """
 
 
-class Lampada:
+class Lampada(object):
     """Classe Lâmpada, possui função de ligar e desligar.
 
     Métodos:
