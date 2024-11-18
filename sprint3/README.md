@@ -15,7 +15,7 @@
 
 ## EXERCÍCIOS
 
-Todos os códigos dos exercícios foram implementados seguindo as recomendações de estilo do PEP8, indicado na seção [Bibliografia](#bibliografia), a partir de validação no [*CodeWOF: Python 3 Style Checker*](https://www.codewof.co.nz/style/python3/) online. 
+Todos os códigos dos exercícios foram implementados seguindo as recomendações de estilo do PEP8, indicado na seção [Bibliografia](#bibliografia), a partir de validação no [*CodeWOF: Python 3 Style Checker*](https://www.codewof.co.nz/style/python3/) online.
 
 Na pasta `evidencias`, estão localizadas as imagens com a validação de cada exercício.
 

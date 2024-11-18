@@ -2,7 +2,7 @@
 
 ||
 |---|
-|![Banner](../assets/banner-guide03.png)|
+|![Banner](../assets/banner-aws-fundamentos.png)|
 ||
 
 ## Conceitos de Cloud e AWS
@@ -33,7 +33,11 @@ https://aws.amazon.com/blogs/architecture/compute-abstractions-on-aws-a-visual-s
 
 - **Serverless (*"Sem Servidor"*)**
   - event-driven
-  - pagamento por utilização
+  - pagamento por utilização/computação: You only pay for the compute time that you consume. There is also no need to over-provision capacity for things like compute and storage.
+  - The developer doesn't have to provision or maintain any servers. There is no software or runtime to install, maintain, or administer.
+  - Flexible scaling - The application can be scaled automatically or by adjusting its capacity through toggling the units of consumption, such as throughput or memory, rather than units of individual servers.
+  - High availability - Serverless applications have built-in availability and fault tolerance. The developer doesn't need to architect for these capabilities because the services running the application provide them by default.
+  - Serverless applications do not require you to provision or manage any servers. These applications have built-in service integrations, so you can focus on building your application instead of configuring it. Serverless technologies eliminate infrastructure management tasks like capacity provisioning and patching, so you can focus on writing code that serves your customers. These technologies feature automatic scaling, built-in high availability, and a pay-for-use billing model to increase agility and optimize costs.
 
 ### Modos de Deploy (*Implantação*)
 
