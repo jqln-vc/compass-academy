@@ -106,6 +106,83 @@ The Parallel state can be used to create parallel branches of activity in your s
 
 The Map state can be used to run a set of steps for each element of an input array. While the Parallel state invokes multiple branches of steps using the same input, a Map state will invoke the same steps for multiple entries of an array in the state input.
 
+### SEGURANÇA
+
+Access to AWS Step Functions requires credentials that AWS can use to authenticate your  requests. These credentials should be setup using AWS Identity and Access Management (IAM). Along with the credentials, you will also need permissions to create or access the Step Functions resources.
+
+- `AWSStepFunctionsConsoleFullAccess`
+  An access policy with the below permissions providing a user/role/etc access to the AWS Step Functions console. For a full console experience, in addition to this policy, a user may need iam:PassRole permission on other IAM roles that can be assumed by the service. 
+
+    ````json
+        "states:*"
+        "iam:ListRoles"
+        "iam:PassRole"
+        "lambda:ListFunctions"
+    ````
+
+- `AWSStepFunctionsFullAccess`
+  An access policy with the below permissions  providing a user/role/etc access to the AWS Step Functions API. 
+
+    ```json
+        "states:*"
+    ```
+
+- `AWSStepFunctionsReadOnlyAccess`
+  An access policy with the below permissions providing a user/role/etc read only access to the AWS Step Functions service. 
+
+  ```json
+    "states:ListStateMachines"
+    "states:ListActivities"
+    "states:DescribeStateMachine"
+    "states:DescribeStateMachineForExecution"
+    "states:ListExecutions"
+    "states:DescribeExecution"
+    "states:GetExecutionHistory"
+    "states:DescribeActivity"
+  ```
+
+You can also create a custom based Step Functions role/policy depending on your Step Functions requirements and the level of permissions the user needs.
+
+AWS Step Functions can invoke code and access AWS resources. In order for AWS Step Functions to invoke AWS resources, and maintain security, you need to grant Step Functions access to those resources by using an IAM role.
+
+You can create a role using the IAM console by choosing the Roles section and the Create Role option. Choose Step Functions under AWS service, give a name to the role and create the role. By default, the lambda:InvokeFunction permission is attached in this process. You can add more services to this role by choosing the Attach Policies option listed when the Step Functions role is selected in the IAM console.
+
+### TIPOS DE WORKFLOWS: STANDARD & EXPRESS
+
+When you create a state machine, you can select either a Standard (default) or Express Workflow. In both cases, you define your state machine using the Amazon States Language. Your state machine workflow runs will behave differently depending on which option you select. You cannot change the workflow type after you have created your state machine.
+
+- Standard Workflows are ideal for long-running, durable, and auditable workflows.
+- Express Workflows are ideal for high-volume, event-processing workloads such as IoT data ingestion, streaming data processing and transformation, and mobile application backends.
+  - There are two types of Express Workflows, asynchronous and synchronous.
+
+||||
+|:---|:---:|:---:|
+|---|STANDARD WORKFLOW|EXPRESS WORKFLOW|
+|**Duração Máxima**|1 ano|5 minutos|
+|**Taxa de Início de Execução**|Mais de 2k por segundo| Mais de 100k por segundo|
+|**Taxa de Início de Transição**|Mais de 4k por segundo por conta|Quase ilimitada|
+|**Preço**|Cobrado por transição de estado. Uma transição é caracterizada a cada etapa concluída da execução|Cobrado por quantidade de execuções, duração da execução e consumo de memória.|
+|**Histórico de Execuções**|Workflow runs can be listed and described with Step Functions APIs, and visually debugged through the console. They can also be inspected in CloudWatch Logs by turning on logging on your state machine.|Workflow run history is not recorded within AWS Step Functions.Workflow runs can be inspected and visualized by configuring logging to Amazon CloudWatch Logs for your state machine.|
+|**Semântica de Execuções**|*Exactly-once*|Asynchronous: *At-least-once* / Synchronous: *At-most-once*|
+|**Integração de Serviços**|Suporte para integração de todos os serviços e padrões.|Suporte para integração de todos os serviços. Não suporta padrões *Job-run (.sync)* ou *Callback (.waitForTaskToken)*|
+|**Step Functions Activities**|Possui suporte.|Não possui suporte.|
+||||
+
+#### EXPRESS WORKFLOW: SÍNCRONO VS ASSÍNCRONO
+
+- **Síncrono**
+  - Start a workflow, wait until it completes, and then return the result.
+  - Can be used to orchestrate microservices; you can develop applications without the need to develop additional code to handle errors, retries, or initiate parallel tasks.
+  - Can be invoked from Amazon API Gateway, AWS Lambda, or by using the StartSyncExecution API call.
+- **Assíncrono**
+  - Return confirmation that the workflow has started, but do not wait for the workflow to complete.
+  - Can be used when you don't require immediate response output, such as messaging services or data processing that other services don't depend on.
+  - Can be started in response to an event by a nested workflow in Step Functions, or by using the StartExecution API Call.
+
+### WORKFLOW STUDIO
+
+Workflow Studio for AWS Step Functions is a low-code visual workflow designer for Step Functions. With Workflow Studio, you can create serverless workflows by orchestrating AWS services. You can create and manage workflows using the Workflow Studio, which can be accessed through the AWS Step Functions console.
+
 ## AMAZON STATES LANGUAGE
 
 The Amazon States Language is a JSON-based, structured language used to define your state machine. Using Amazon States Language, you create workflows. Workflows are a collection of states that can do work (Task states), determine which states to transition to next (Choice states), or stop an activity with an error (Fail states), and so on. The Step Functions console provides a graphical representation of that state machine to help visualize your application logic.
@@ -166,7 +243,7 @@ The Amazon States Language is a JSON-based, structured language used to define y
 
 ### TRANSIÇÕES | *TRANSITIONS*
 
-Transitions link states together, defining the control flow for the state machine. When a state machine is invoked, the system begins with the state referenced in the top-level "StartAt" field. This field is a string value that must match the name of one of the states exactly. It is case sensitive. 
+Transitions link states together, defining the control flow for the state machine. When a state machine is invoked, the system begins with the state referenced in the top-level "StartAt" field. This field is a string value that must match the name of one of the states exactly. It is case sensitive.
 
 All non-terminal states must have a Next field, except for the Choice state. After initiating a state, AWS Step Functions uses the value of the Next field to determine the next state. Next fields also specify state names as strings, and must match the name of a state specified in the state machine description exactly.
 
@@ -195,7 +272,7 @@ States can have multiple incoming transitions from other states. The process rep
 - `InputPath` (Opcional)
   This is a path that selects a portion of the state's input to be passed to the state's task for processing. If omitted, it has the value $, which designates the entire input.
 
-- End (Obrigatória)
+- `End` (Obrigatória)
   This designates this state as a terminal state and ends the activity if set to true. There can be any number of terminal states per state machine. Next and End can only be used once each in a state.
 
 ### SUPORTE ÀS EXPRESSÕES DE CAMINHO JSON
@@ -215,7 +292,14 @@ The Amazon States Language provides several intrinsic functions to allow basic o
 - `States.Format`
   This intrinsic function takes one or more arguments. The value of the first must be a string, which may include zero or more instances of the character sequence.
 
-- ``
+- `States.StringToJson`
+  This intrinsic function takes a single argument, whose value must be a string. The interpreter applies a JSON parser to the value and returns its parsed JSON form.
+
+- `States.JsonToString`
+  This intrinsic function takes a single argument, which must be a path. The interpreter returns a string, which is a JSON text representing the data identified by the path.
+
+- `States.Array`
+  This intrinsic function takes zero or more arguments. The interpreter returns a JSON array containing the values of the arguments, in the order provided.
 
 ## REFERÊNCIAS
 
