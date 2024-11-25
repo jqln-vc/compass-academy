@@ -1,9 +1,9 @@
-"""
-Actors ETL Pipeline: Script para processamento de dados do arquivo 'actors.csv'.
+"""Actors ETL Pipeline: Script para processamento de dados do arquivo 'actors.csv'.
+
 Autoria: Jaqueline Costa
 Data: Nov / 2024
 """
-#########################################################################################
+#######################################################################################
 #
 # VARIÁVEIS GLOBAIS
 #
@@ -21,7 +21,7 @@ OUTPUT3 = r'etl-etapa3.txt'
 OUTPUT4 = r'etl-etapa4.txt'
 OUTPUT5 = r'etl-etapa5.txt'
 
-#########################################################################################
+#######################################################################################
 #
 # FUNÇÕES
 #
@@ -29,16 +29,16 @@ OUTPUT5 = r'etl-etapa5.txt'
 # Função: Parser de CSV
 
 def parser_csv(linha: str) -> list[str]:
-    """
-        Parser CSV: trata uma linha de um arquivo CSV, 
-        identificando e tratando valores com vírgulas.
-        
+
+    """ Parser CSV: parser de linhas de um arquivo CSV. 
+        Identifica e trata valores com vírgulas.
+
         Args:
             linha (str): uma string correspondente a uma linha do arquivo CSV.
-        
+
         Returns:
             list[str]: uma lista de strings com os valores de cada campo da linha.
-            
+
         É necessário utilizar esta função dentro de um loop, invocando a função
         a cada linha do arquivo.
     """
@@ -49,61 +49,61 @@ def parser_csv(linha: str) -> list[str]:
 
     for caractere in linha:
         if caractere == '"': 
-            aspas_duplas = not aspas_duplas  # Indicador de aspas duplas (se True, ignora vírgulas)
-            # coluna_atual += caractere
+            aspas_duplas = not aspas_duplas  # se True, ignora vírgulas
             continue
-        elif caractere == ',' and not aspas_duplas:  # Confere se vírgula está fora de aspas duplas
+        elif caractere == ',' and not aspas_duplas:  # Se vírgula está fora de aspas duplas
             linha_processada.append(coluna_atual.strip())  # Adiciona uma coluna da linha
             coluna_atual = ""
         else:
             coluna_atual += caractere  # Acumulador de caracteres de uma coluna
 
     linha_processada.append(coluna_atual.strip())  # Adiciona a última coluna
-    
+
     return linha_processada
+
 
 # Função: Extração de Dados
 
 def extracao_dados(arquivo: str, 
                    parser: callable, 
                    schema: bool = True) -> tuple[list, list[list[str]]]:
-    """
-        Extração de Dados: lê um arquivo, faz o tratamento com um parser
-        e retorna os dados, com o schema de colunas em uma lista separada.
-        
-        Args:
-            arquivo (str): caminho do arquivo de entrada.
-            parser (callable): função de parser para processar cada linha.
-            schema (bool, optional): indica se o arquivo possui schema de colunas.
-               - True (default): 1ª linha tratada como schema.
-               - False: 1ª linha tratada como dados.
 
-        Returns:
-            Se schema=True:
-            
-                tuple[list, list[list[str]]]: uma tupla contendo
-                    - lista com o schema de colunas
-                    - lista de listas, cada qual contendo uma linha do arquivo
-                    separada em colunas (strings).
-                    
-            Se schema=False:
-            
-                list[list[str]]: uma lista contendo
-                    - listas, cada qual contendo uma linha do arquivo
-                    separada em colunas (strings).            
+    """Extração de Dados: leitura, tratamento e retorno de dados e schema.
+
+    Args:
+        arquivo (str): caminho do arquivo de entrada.
+        parser (callable): função de parser para processar cada linha.
+        schema (bool, optional): indica se o arquivo possui schema de colunas.
+            - True (default): 1ª linha tratada como schema.
+            - False: 1ª linha tratada como dados.
+
+    Returns:
+        Se schema=True:
+
+            tuple[list, list[list[str]]]: uma tupla contendo
+                - lista com o schema de colunas
+                - lista de listas, cada qual contendo uma linha do arquivo
+                separada em colunas (strings).
+
+        Se schema=False:
+
+            list[list[str]]: uma lista contendo
+                - listas, cada qual contendo uma linha do arquivo
+                separada em colunas (strings).            
     """
-    
+
     with open(arquivo, 'r', encoding='utf-8') as arquivo:
         dados = [parser(linha) for linha in arquivo.read().splitlines()]
-    
+
     return (dados.pop(0), dados) if schema else dados
+
 
 # Função: Conversor de Tipos
 
 def conversor_tipos(dados: list[list[str]], tipos: tuple[callable]) -> list[tuple]:
     """
         Conversor de Tipos: converte os tipos de dados de uma lista de listas de strings.
-        
+
         Args:
             dados (list[list[str]]): lista de listas de strings.
             tipos (tuple[callable]): tupla de funções de conversão.
@@ -123,6 +123,7 @@ def conversor_tipos(dados: list[list[str]], tipos: tuple[callable]) -> list[tupl
         raise ValueError("A quantidade de tipos deve ser equivalente às colunas.")
     else:
         return [tuple(tipo(coluna) for tipo, coluna in zip(tipos, linha)) for linha in dados]
+
 
 # Função: Maior Valor de uma Coluna
 
@@ -150,6 +151,7 @@ def max_coluna(dados: list[tuple], coluna: int) -> tuple:
     else:
         return max(dados, key=lambda linha: linha[coluna])
 
+
 # Função: Média de uma Coluna
 
 def media_coluna(dados: list[tuple], coluna: int) -> tuple[int, float]:
@@ -175,6 +177,7 @@ def media_coluna(dados: list[tuple], coluna: int) -> tuple[int, float]:
         raise ValueError("Coluna inválida.")
     else:
         return (coluna, sum(linha[coluna] for linha in dados) / len(dados))
+
 
 # Função: Frequência de Coluna
 
@@ -204,9 +207,10 @@ def frequencia_coluna(dados: list[tuple], coluna: int) -> dict:
         for linha in dados:
             valor = linha[coluna]
             contagem[valor] = contagem.get(valor, 0) + 1
-        
+
         contagem_ordenada = dict(sorted(contagem.items(), key=lambda item: (-item[1], item[0])))
         return contagem_ordenada
+
 
 # Função: Coluna Decrescente
 
@@ -233,6 +237,7 @@ def coluna_decrescente(dados: list[tuple], coluna: int) -> list[tuple]:
         raise ValueError("Coluna inválida.")
     else:
         return sorted(dados, key=lambda linha: linha[coluna], reverse=True)
+
 
 # Função: Escrever Dados
 
@@ -282,17 +287,17 @@ def escrever_dados(
     )
 
     with open(arquivo_saida, 'w', encoding='utf-8') as arquivo:
-        
+
         # Garantindo que dados_processados é iterável
         if isinstance(dados_processados, tuple) and not isinstance(dados_processados[0], tuple):
             dados_processados = [dados_processados]
-            
+
         dados_processados = (
             dados_processados.items() 
             if isinstance(dados_processados, dict) 
             else dados_processados
         )
-        
+
         for index, linha in enumerate(dados_processados):
             if padrao_saida and padrao_params:
                 # Acessando o valor dos indexes passados como parâmetros para o padrão de saída
@@ -304,20 +309,20 @@ def escrever_dados(
                 )
             else:
                 linha_formatada = f"{index + 1} - {str(linha)}"
-        
+
             arquivo.write(linha_formatada + "\n")
 
     print(f"Dados escritos em {arquivo_saida}")
 
 
-#########################################################################################
+#######################################################################################
 #
 # EXTRAÇÃO DE DADOS
 #
 
 colunas, actors = extracao_dados(INPUT_ACTORS, parser_csv)
 
-#########################################################################################
+#######################################################################################
 #
 # TRATAMENTO DE DADOS
 #
@@ -331,7 +336,7 @@ tipos = (str,       # Actor
 
 actors = conversor_tipos(actors, tipos)
 
-#########################################################################################
+#######################################################################################
 #
 # PROCESSAMENTO DOS DADOS E OUTPUT DE ANÁLISES
 #
@@ -367,7 +372,13 @@ escrever_dados(OUTPUT3, actors, max_coluna, (3,), padrao_saida_output3, (0, 3))
 # adicionando um resultado por linha.
 
 padrao_saida_output4 = '{0} - O filme {1} aparece {2} vez(es) no dataset'
-escrever_dados(OUTPUT4, actors, frequencia_coluna, (4, ), padrao_saida_output4, (0, 1), indexacao=True)
+escrever_dados(OUTPUT4, 
+               actors, 
+               frequencia_coluna, 
+               (4, ), 
+               padrao_saida_output4, 
+               (0, 1), 
+               indexacao=True)
 
 # Etapa 5: 
 # Apresentar a lista dos atores ordenada pela receita bruta de bilheteria 

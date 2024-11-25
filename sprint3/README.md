@@ -7,11 +7,11 @@
 
 ## RELATOS DE APRENDIZADO
 
-### Python & ETL
+### Python
 
 [![Python](https://img.shields.io/badge/Guia-Python-ED751A)](/guide/python.md)  
 
-Eu já possuía certa familiaridade com Python, portanto, me dediquei a avançar em conteúdos mais avançados da linguagem, buscando implementar boas práticas de modularização, robustez, legibilidade e documentação nos meus códigos.
+Eu já possuía certa familiaridade com Python, portanto, me dediquei a avançar em conteúdos mais avançados da linguagem, buscando implementar boas práticas de modularização, robustez, legibilidade e documentação nos meus códigos. Estou assimilando *type hinting* em meus códigos, tentando ser clara e concisa, implementando *docstrings* e internalizando o conceito DRY (*Don't Repeat Yoursefl*).
 
 Pretendo continuar desenvolvendo minhas habilidades ao longo da trilha do programa, atualmente estou me aprofundando no paradigma funcional, e em seguida quero me dedicar à orientação a objetos.
 
@@ -20,7 +20,7 @@ Pretendo continuar desenvolvendo minhas habilidades ao longo da trilha do progra
 [![AWS Fundamentos](https://img.shields.io/badge/Guia-AWS_Fundamentos-ED751A)](/guide/aws_fundamentos.md)  
 [![AWS Orchestration](https://img.shields.io/badge/Guia-AWS_Orchestration-ED751A)](/guide/aws_orchestration.md)  
 
-Já tinha familiaridade com o conteúdo deste curso, portanto, me dediquei a avançar nos estudos para o **Cloud Practitioner** (CLF-C02) e, concomitantemente, estou consumindo cursos preparatórios para o **AI Practitioner** (AIF-CO1) e o  **Solutions Architect Associate** (SAA-C03).
+Já tinha familiaridade com o conteúdo deste curso, portanto, me dediquei a avançar nos estudos para o **Cloud Practitioner** (CLF-C02) e, concomitantemente, estou consumindo cursos preparatórios para o **AI Practitioner** (AIF-CO1) e o  **Solutions Architect Associate** (SAA-C03). Estou me aprofundando nos conceitos técnicos dos serviços, nestas semanas estudei segurança, orquestração e iniciei armazenamento.
 
 > ❗ *Optei por realizar os cursos da AWS no Skill Builder em inglês, pois me sinto mais segura em consumir os conteúdos na língua original. E, se possível, também pretendo realizar o exame do certificado CLF-C02 em inglês.*
 
@@ -100,7 +100,19 @@ O propósito desse PEP é documentar as semânticas e convenções associadas co
 > *Uma **docstring** é uma string literal que ocorre como primeira declaração em um módulo, função, classe ou definição de método. Essa **docstring** torna-se o atributo especial `__doc__` daquele objeto.
 > Todos os módulos devem, normalmente, conter docstrings, e todas as funções e classes exportadas por um módulo também devem conter docstrings. Métodos públicos (incluindo o construtor `__init__`) também deve conter docstrings.* (VAN ROSSUM; GOODGER, 2001)
 
-![Docstring Exemplo](./evidencias/)
+A seguir um exemplo de docstrings no início do script do Exercício 11, e dentro das funções. Bem como a utilização de *type hinting*, uma boa prática de manutenção e documentação do código:
+
+![Docstring Exemplo](./evidencias/59-docstrings-type-hinting.png)
+
+### Exercício ETL: Modularização de Script em Seções e Funções
+
+A seguir a adoção de modularização do processo em funções especializadas para lidar com cada etapa do pipeline ETL:
+
+![Modularização: Funções ETL](./evidencias/57-etl-modularizacao-funcoes.png)
+
+E a seção de execução das funções e consumo dos dados já tratados, demonstrando a reutilização de código e aplicação do conceito DRY:
+
+![DRY: Execução de Função Reutilizadas](./evidencias/58-etl-execucao-funcoes.png)
 
 ## CERTIFICADOS AWS SKILL BUILDER
 
