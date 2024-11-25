@@ -10,7 +10,8 @@ Data: Nov / 2024
 
 # Arquivo dos Dados Input
 
-INPUT_ACTORS = r'./actors.csv'
+# INPUT_ACTORS = r'./actors.csv'
+INPUT_ACTORS = r'actors.csv'
 
 # Arquivos de Dados de Output por Etapa
 
@@ -282,7 +283,7 @@ def escrever_dados(
 
     with open(arquivo_saida, 'w', encoding='utf-8') as arquivo:
         
-        # Ensure dados_processados is iterable
+        # Garantindo que dados_processados é iterável
         if isinstance(dados_processados, tuple) and not isinstance(dados_processados[0], tuple):
             dados_processados = [dados_processados]
             
