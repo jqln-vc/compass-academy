@@ -68,4 +68,4 @@ Coordenação de rotinas de squad responsável pela documentação de processos,
 [![The Guide](https://img.shields.io/badge/O_Guia_da_Aprendiz_das_Nuvens-000000)](/guide)  
 [![Sprint 1](https://img.shields.io/badge/Sprint_1-Linux_Git_&_GitHub-ED751A)](/sprint1)  
 [![Sprint 2](https://img.shields.io/badge/Sprint_2-SQL_&_AWS_Partner-E42322)](/sprint2)  
-[![Sprint 3](https://img.shields.io/badge/Sprint_3-Python_&_AWS_Partner-FDCA00)](/sprint3)  
+[![Sprint 3](https://img.shields.io/badge/Sprint_3-Python_&_AWS_Partner-FDCA00)](/sprint3)
