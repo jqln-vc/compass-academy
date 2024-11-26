@@ -150,7 +150,7 @@ Para absorver melhor o conteúdo desta sprint e me aprofundar em pontos de inter
 
 ## BIBLIOGRAFIA
 
-SCHWABISH, Jonathan. **Better Data Visualizations: A Guide for Scholars, Researchers, and Wonks**. New York: Columbia University Press, 2021.  
+FAROULT, Stephane; ROBSON, Peter. **The Art of SQL**. Sebastopol: O'Reilly, 2006.
 
 VAN ROSSUM, Guido; WARSAW, Barry; COGHLAN, Alyssa. **PEP 8 – Style Guide for Python Code**. Última atualização: 2013. Disponível em: <[peps.python.org/pep-0008/](https://peps.python.org/pep-0008/)>.  
 

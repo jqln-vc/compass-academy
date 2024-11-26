@@ -7,13 +7,52 @@
 
 ## SEÇÕES
 
+* Introdução ao Dataset: Google Play Store [֍]()
+  * Contexto dos Dados [֍]()
+  * Tamanho do Dataset [֍]()
+  * Tipos dos Dados [֍]()
+  * Padrões de Valores nas Colunas [֍]()
+    * Valores Distintos: Category & Genres [֍]()
+    * Valores Distintos: Reviews [֍]()
+    * Valores Distintos: Size [֍]()
+    * Valores Distintos: Installs [֍]()
+    * Valores Distintos: Price [֍]()
+    * Valores Distintos: Last Updated [֍]()
+* Tratamento de Dados [֍]()
+  * Caracterização de Duplicações e Valores Desconhecidos [֍]()
+  * Linhas 10472: Deslocamento de Valores [֍]()
+  * Conversão de Tipos [֍]()
+    * RegEx: Expressões Regulares [֍]()
+  * Conversão: Coluna Reviews [֍]()
+  * Conversão: Coluna Size [֍]()
+  * Conversão: Coluna Installs [֍]()
+  * Conversão: Coluna Price [֍]()
+  * Conversão: Coluna Last Updated [֍]()
+* Estatística Descritiva & Visualização de Dados [֍]()
+  * Top 5 Apps: Nº de Instalações | Bar Plot [֍]()
+    * Visualização Alternativa: Instalações por Categorias e Gêneros | Barra Horizontal [֍]()
+  * Distribuição de Frequências de Categorias | Pie Plot [֍]()
+    * Visualização Alternativa: Distribuição de Categorias | Barra Horizontal [֍]()
+  * App Mais Caro [֍]()
+  * Quantidade de Apps com Classificação 'Mature 17+' [֍]()
+    * Visualização Alternativa: Classificação Etária | Bar Plot [֍]()
+  * Top 10 Apps: Nº de Reviews [֍]()
+  * Apps 5 Estrelas: Distribuição por Gênero e Nº de Avaliações | Bubble Chart [֍]()
+  * Pior App: Quantidade de Estrelas e Avaliações | Line Plot [֍]()
+* Considerações Finais [֍]()
+* Referências [֍]()
+
 ## INTRODUÇÃO AO DATASET: GOOGLE PLAY STORE
+
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
 
 Para este projeto, foram realizados os tratamentos iniciais e primeiras análises de um dataset da Google Play Store. Porém, antes de começar qualquer tratamento nos dados, e análises subsequentes, é importante a familiarização com o dataset e com a finalidade do projeto.
 
 Para a manipulação do dataset foi utilizada a biblioteca Pandas e, para a plotagem dos gráficos, a biblioteca Matplotlib.
 
 ### CONTEXTO DOS DADOS
+
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
 
 Ao importar o arquivo `csv` com a biblioteca Pandas, ele assume o tipo `DataFrame`, o qual contém diversos métodos de manipulação de dados. A seguir, uma amostra com as 5 primeiras linhas do dataset utilizando `head()`, o qual assume o valor 5 por *default* porém pode receber outros valores como parâmetro.  
 
@@ -27,6 +66,8 @@ O dataset fornece informações referentes a categorias e gêneros de aplicativo
 
 ### TAMANHO DO DATASET
 
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
+
 O tamanho do dataset, descrito pelo seu "formato" em linhas (*rows*) e colunas (*columns*), pode ser acessado pelo atributo `shape`. Obtém-se o valor de `10841` linhas e `13` colunas:
 
 ```python
@@ -38,6 +79,8 @@ O tamanho do dataset, descrito pelo seu "formato" em linhas (*rows*) e colunas (
 É importante ter uma noção não só da quantidade de atributos nas colunas, mas também da quantidade de linhas com que se está lidando, principalmente ao começar a fazer os recortes de filtros, entendendo se a quantidade de linhas retornadas é condizente com o total do dataset.
 
 ### TIPOS DOS DADOS
+
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
 
 Com o método `ìnfo()` é possível visualizar o schema da tabela: além das colunas e respectivos tipos, quantidade de linhas, também é obtida a quantidade de valores nulos em cada coluna.
 
@@ -53,9 +96,13 @@ Portanto, antes de qualquer análise dessas colunas, será necessário tratá-la
 
 ### PADRÕES DE VALORES NAS COLUNAS
 
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
+
 A seguir, serão analisados os valores distintos de algumas colunas de interesse para as primeiras análises, utilizando os métodos `nunique()` e `unique()` para obter quantidade e amostra desses valores respectivamente.
 
 #### VALORES DISTINTOS: CATEGORY & GENRES
+
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
 
 ```python
     # Amostra de valores distintos da coluna Category
@@ -90,6 +137,8 @@ Abaixo serão priorizadas as visualizações dos padrões das demais colunas num
 
 #### VALORES DISTINTOS: REVIEWS
 
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
+
 Os valores de `Reviews` serão convertidos para `int`:
 
 ```python
@@ -101,6 +150,8 @@ Os valores de `Reviews` serão convertidos para `int`:
 ![Valores Distintos: Reviews](../evidencias/35-unique-reviews.png)
 
 #### VALORES DISTINTOS: SIZE
+
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
 
 Os valores de `Size` serão convertidos para `float`. Para o tratamento, será necessário adotar uma única medida de grandeza, convertendo os valores em kilobytes para megabytes, e verificar se existem outros casos fora desse padrão:
 
@@ -114,6 +165,8 @@ Os valores de `Size` serão convertidos para `float`. Para o tratamento, será n
 
 #### VALORES DISTINTOS: INSTALLS
 
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
+
 Os valores de `Installs` serão convertidos para `int`. Para o tratamento, será necessário remover as vírgulas e o `+` ao final dos valores. Além disso, posteriormente, a coluna será renomeada para refletir a semântica de que os valores são referentes ao "mínimo de instalações".
 
 ```python
@@ -125,6 +178,8 @@ Os valores de `Installs` serão convertidos para `int`. Para o tratamento, será
 ![Valores Distintos: Installs](../evidencias/37-unique-installs.png)
 
 #### VALORES DISTINTOS: PRICE
+
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
 
 Os valores de `Price` serão convertidos para `float`. Para o tratamento, será necessário remover os símbolos `$`.
 
@@ -138,6 +193,8 @@ Os valores de `Price` serão convertidos para `float`. Para o tratamento, será 
 
 #### VALORES DISTINTOS: LAST UPDATED
 
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
+
 Os valores de `Last Updated` serão convertidos para `datetime`. Não será necessário nenhum tipo de tratamento, pois os dados já estão em um formato adequado para a conversão.
 
 ```python
@@ -150,11 +207,41 @@ Os valores de `Last Updated` serão convertidos para `datetime`. Não será nece
 
 ## TRATAMENTO DE DADOS
 
-### IDENTIFICAÇÃO E CARACTERIZAÇÃO DE DUPLICAÇÕES
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
 
-> *The question of null values is probably the thorniest issue of the relational theory. [...] The problem is that “notknown” may encompass quite a number of different cases. Let’s consider a list of famouswriters, each with a birth date and a death date. A null birth date would unambiguouslymean “unknown.” But what does a null death date mean? Alive? We don’t know whenthis author died? We don’t know whether this author is alive or not? [...] I don’t find it unusual to have null values for, to put it in Rumsfeldese, “knownunknowns,” attributes that are known to exist and have some value we don’t know atone point in time, for various reasons. For the rest, speculating leads nowhere.* (FAROULT, ROBSON; 2006, p. 14)
+### CARACTERIZAÇÃO DE DUPLICAÇÕES E VALORES DESCONHECIDOS
+
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
+
+Com relação à caracterização de duplicações, inicialmente, quando o dataset ainda não havia sido explorado, a remoção de duplicações foi cautelosa, considerando valores iguais em todas as colunas, ou seja, considerando a linha como um todo.
+
+```python
+    df.drop_duplicates(inplace=True)
+```
+
+No entanto, ao gerar as visualizações, visto que nenhum delas abarcava séries temporais de mudança de versões, foi feito um novo tratamento de remoção de duplicações, considerando a coluna `App` :
+
+```python
+    df.drop_duplicates(subset=['App'], inplace=True, keep='last')
+```
+
+Com relação à tratativa de valores nulos, com exceção de um valor referente ao caso de [deslocamento da linha 10472](), não foi necessário tratar para as análises realizadas, visto que os valores nulos foram excluídos das agregações numéricas.
+
+Porém, no caso de valores variáveis e, portanto, desconhecidos da coluna `Size`, valorados como `Varies with device` foi necessária uma tratativa, visto que a coluna deveria ser numérica. Para essa abordagem foi considerada a seguinte discussão semântica:
+
+> *A questão de valores nulos é provavelmente a mais espinhosa da teoria relacional. [...] O problema é que "não conhecido" pode abarcar um grande número de casos diferentes. Consideremos uma lista de escritores famosos, cada qual com uma data de nascimento e uma de falecimento. Uma data de nascimento "null" certamente significaria "desconhecido". Mas o que significa uma data de falecimento "null"? Vivo? Não se sabe quando morreu? Não se sabe se este autor está vivo ou morto?* [^1]
+
+O valor `Varies with device`, apesar de indefinido, é conhecido só não determinado, é variável, por isso possui uma semântica particular.
+
+> *Não acho incomum manter valores nulos para [...] "desconhecidos conhecidos", atributos que sabemos existirem mas não temos o valor no momento, por diversas razões. Para os demais casos, especulações não levam a lugar nenhum.* [^2]
+
+Nesse caso, foi preferível não substituí-lo por nenhum valor que mascarasse essa semântica, e ou resultasse em "especulações", por exemplo ao utilizar a mediana da coluna. Logo, foi valorado com um número negativo, que seria utilizado somente para esse fim.
 
 ### LINHA 10472: DESLOCAMENTO DE VALORES
+
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
+
+A seguir o tratamento feito para a realocação de valores da linha `10472` :
 
 ```python
     # Obtendo os valores atuais da linha 10472
@@ -174,27 +261,42 @@ Os valores de `Last Updated` serão convertidos para `datetime`. Não será nece
 
 ### CONVERSÃO DE TIPOS
 
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
+
 Antes da conversão dos tipos em cada coluna, após uma análise superficial com a relação de valores únicos, foi realizada uma análise mais aprofundada considerando os padrões esperados para cada coluna.
 
 Para tanto, foram utilizados padrões em expressões regulares, para localizar valores alfabéticos, numéricos, sufixos, caracteres especiais, etc, em colunas em que não deveriam aparecer.
 
 #### REGEX: EXPRESSÕES REGULARES
 
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
+
 Aplicando uma conversão temporária para `string` com `.str`, utiliza-se o método `contains()` com padrões RegEx, para identificar valores na coluna que contenham o padrão indicado.
 
 Para os casos em que era necessário a extração de padrões específicos das colunas, desprezando símbolos e/ou valores desnecessários, foi utilizado o método `extract()` que utiliza um padrão RegEx para capturar strings. O parâmetro `expand` retorna:
 
-- `True` o DataFrame completo
-- `False` somente o Array com a coluna
+* `True` o DataFrame completo
+* `False` somente o Array com a coluna
 
 A seguir a descrição detalhada de alguns padrões utilizados:
 
-- `[a-zA-Z]+` um ou mais caracteres alfabéticos, incluindo minúsculas e maiúsculas
-- `^[0-9]+\.?[0-9]*[^Mk]$` um ou mais valores numéricos, com ou sem decimal, que não terminem em M ou k
-- `^[0-9]+\.?[0-9]*k$` um ou mais valores numéricos, com ou sem decimal, que terminem k
-- `^[^0-9].*$` ao menos um caractere não-numérico
+* `[a-zA-Z]+` um ou mais caracteres alfabéticos, incluindo minúsculas e maiúsculas
+  * `[a-zA-Z]` cada colchete representa um caractere, dentro dos colchetes colocamos os caracteres ou símbolos aceitos
+  * `+` um ou mais caracteres (indicados anteriormente)
+* `^[0-9]+\.?[0-9]*[^Mk]$` um ou mais valores numéricos, com ou sem decimal, que não terminem em M ou k
+  * `^` indica o início de uma string
+  * `[0-9]+` um ou mais caracteres numéricos
+  * `\.` o ponto é um caractere "wildcard", representa qualquer valor, então, quando queremos encontrar um ponto é preciso escapar sua função original com `\`
+  * `?` zero ou um do valor anterior (significa: opcional)
+  * `*` zero ou mais do valor anterior
+  * `[^]` o acento circunflexo dentro de colchetes representa uma negação
+  * `$` fim da string
+* `^[0-9]+\.?[0-9]*k$` um ou mais valores numéricos, com ou sem decimal, que terminem k
+* `^[^0-9].*$` ao menos um caractere não-numérico
 
 ### CONVERSÃO: COLUNA REVIEWS
+
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
 
 Após a confirmação com RegEx, de que a coluna não continha nenhum valor não-numérico, foi feita a conversão para `int` .
 
@@ -204,12 +306,11 @@ Após a confirmação com RegEx, de que a coluna não continha nenhum valor não
 
     # Conversão da coluna para integer
     df['Reviews'] = df['Reviews'].astype(int)
-    df.info()
 ```
 
-![Conversão: Reviews](../evidencias/51-conversao-reviews.png)
-
 ### CONVERSÃO: COLUNA SIZE
+
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
 
 Para a conversão da coluna `Size`, foi optado pelo tipo `float` e todos os valores em *megabytes*, sendo necessária a conversão daqueles em *kilobytes*. Antes disso, é necessário confirmar que existe somente esses sufixos de tamanho, pois poderiam também existir valores em *gigabytes*, por exemplo.
 
@@ -230,11 +331,11 @@ A seguir, foi criada uma **máscara booleana** (*boolean mask*) para identificar
 A seguir, a máscara é aplicada na coluna `Size` para capturar somente os valores em *kilobytes* e realizar a conversão para *megabytes* dividindo por `1000` :
 
 ```python
-    df.loc[kilobytes_mask, 'Size'] = (                    # Atualizando a coluna com as modificações a seguir
-        df.loc[kilobytes_mask, 'Size']                    # Selecionando somente os valores True em 'kilobytes_mask'
-        .str.extract(r'([0-9]+\.?[0-9]*)', expand=False)  # Extraindo somente a parte numérica
-        .astype(float)                                    # Convertendo para float
-        .div(1000)                                        # Convertendo para megabytes
+    df.loc[kilobytes_mask, 'Size'] = (                    # Atualização da coluna com as modificações
+        df.loc[kilobytes_mask, 'Size']                    # Seleção dos valores True em 'kilobytes_mask'
+        .str.extract(r'([0-9]+\.?[0-9]*)', expand=False)  # Extração da parte numérica
+        .astype(float)                                    # Conversão para float
+        .div(1000)                                        # Conversão para megabytes
     )
 ```
 
@@ -244,11 +345,10 @@ A extração dos valores numéricos das colunas remanescentes em *megabytes* foi
     # Localizando valores em megabytes e salvando em uma variável boolean mask
     megabytes_mask = df['Size'].str.contains(r'^[0-9]+\.?[0-9]*M$', regex=True, na=False)
 
-    # Conversão para float
-    df.loc[megabytes_mask, 'Size'] = (                    # Atualizando a coluna com as modificações a seguir
-        df.loc[megabytes_mask, 'Size']                    # Selecionando somente os valores True em 'megabytes_mask'
-        .str.extract(r'([0-9]+\.?[0-9]*)', expand=False)  # Extraindo somente a parte numérica
-        .astype(float)                                    # Convertendo para float
+    df.loc[megabytes_mask, 'Size'] = (                    # Atualização da coluna com as modificações
+        df.loc[megabytes_mask, 'Size']                    # Seleção de valores True em 'megabytes_mask'
+        .str.extract(r'([0-9]+\.?[0-9]*)', expand=False)  # Extração da parte numérica
+        .astype(float)                                    # Conversão para float
     )
 ```
 
@@ -271,12 +371,11 @@ Após isso, foi possível a conversão total da coluna para `float` :
 
 ```python
     df['Size'] = df['Size'].astype(float)
-    df.info()
 ```
 
-![Conversão: Size](../evidencias/53-conversao-size.png)
-
 ### CONVERSÃO: COLUNA INSTALLS
+
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
 
 Para a coluna `Installs`, foram removidas as vírgulas e desconsiderados os caracteres finais `+` antes da conversão para `int` . Esta é uma coluna que deverá ser renomeada posteriormente para refletir a semântica perdida com a remoção de `+`.
 
@@ -291,12 +390,11 @@ Com isso, é realizada a conversão:
 
 ```python
     df['Installs'] = df['Installs'].astype(int)
-    df.info()
 ```
 
-![Conversão: Installs](../evidencias/54-conversao-installs.png)
-
 ### CONVERSÃO: COLUNA PRICE
+
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
 
 Para a coluna `Price`, foi desprezado o caractere `$` e realizada a conversão para `float` :
 
@@ -305,31 +403,37 @@ Para a coluna `Price`, foi desprezado o caractere `$` e realizada a conversão p
     df['Price'] = df['Price'].str.extract(r'([0-9]+\.?[0-9]*)', expand=False)
 
     df['Price'] = df['Price'].astype(float)
-    df.info()
 ```
 
-![Conversão: Price](../evidencias/55-conversao-price.png)
-
 ### CONVERSÃO: COLUNA LAST UPDATED
+
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
 
 A coluna `Last Updated` foi convertida para `datetime`, como já estava em um formato reconhecido, não foi necessário realizar nenhum tratamento adicional:
 
 ```python
     df['Last Updated'] = pd.to_datetime(df['Last Updated'])
-    df.info()
 ```
 
-![Conversão: Last Updated](../evidencias/56-conversao-last-updated.png)
+Abaixo o dataframe, com as colunas e seus respectivos tipos, após a finalização das conversões:
+
+![Conversão: Final](../evidencias/56-conversao-last-updated.png)
 
 ## ESTATÍSTICA DESCRITIVA & VISUALIZAÇÃO DE DADOS
 
-- Mostrar os dados
-- Reduzir as desordenações
-- Integrar gráficos e textos
-- Evitar o "gráfico espaguete"
-- Começar com o cinza
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
+
+Nesta etapa, os valores das colunas são agrupados, agregados, ordenados, calculados e/ou reduzidos com funções como:
+
+* `min()` : valor mínimo
+* `max()` : valor máximo
+* `groupby()` : agrupamento de agregações por coluna
+* `count()` e `value_counts()` : contagem de linhas
+* `sum()` : soma
 
 ### TOP 5 APPS: Nº DE INSTALAÇÕES | *BAR PLOT*
+
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
 
 Antes de plotar o **gráfico de barras (*bar plot*)** solicitado para a análise, foi verificada a quantidade de apps com o valor máximo de instalações do dataset:
 
@@ -346,7 +450,9 @@ Com um gráfico de 5 barras, não é possível visualizar a quantidade total nem
 
 ![Bar Plot: Top 5 Instalações](../evidencias/27-grafico-bar-top5-installs.png)
 
-#### VISUALIZAÇÃO ALTERNATIVA: HORIZONTAL BAR PLOT
+#### VISUALIZAÇÃO ALTERNATIVA: INSTALAÇÕES POR CATEGORIAS E GÊNEROS | BARRA HORIZONTAL
+
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
 
 Uma alternativa para compreender melhor quais as tendências que norteiam um alto número de instalações é entender visualizar quais as `Categorias` e os `Gêneros` mais baixados, e para isso será utilizado um **gráfico de barras horizontal (*horizontal bar plot*)**.
 
@@ -354,23 +460,55 @@ Uma alternativa para compreender melhor quais as tendências que norteiam um alt
 
 ![Gráfico: Instalações por Gênero](../evidencias/30-grafico-hbar-installs-por-genero.png)
 
-### DISTRIBUIÇÃO DE FREQUÊNCIA DE CATEGORIAS | *PIE PLOT*
+Em um gráfico de barras, principalmente um com grande quantidade de categorias como os exemplos acima, a ordenação é muito importante para a legibilidade.
+
+> *Independentemente de posicionarmos as barras vertical ou horizontalmente, é preciso prestar atenção à ordem na qual as barras são arranjadas. Comumente vejo gráficos de barras em que as barras são arranjadas arbitrariamente or por algum critério não significativo ao contexto da figura. [...] Em geral, as figuras resultantes tornam-se mais confusas e menos intuitivas do que figuras com barras ordenadas por tamanho.* [^3]
+
+### DISTRIBUIÇÃO DE FREQUÊNCIAS DE CATEGORIAS | *PIE PLOT*
+
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
 
 Devido ao grande número de categorias diferentes na coluna `Category`, o  **gráfico de pizza (*pie plot*)** solicitado para esta análise não apresenta uma boa visualização da relação de valores entre as diversas categorias, e a legibilidade também fica comprometida.
 
 ![Gráfico Pie: Frequência de Categorias](../evidencias/40-grafico-pie-categorias.png)
 
-#### VISUALIZAÇÃO ALTERNATIVA: HORIZONTAL BAR PLOT
+> *A visão arquetipal para tais visualizações é o gráfico de pizza, onipresente em qualquer apresentação de negociós e muito caluniada entre cientistas de dados [...] visualizar proporções pode ser desafiador, em particular quando o todo está repartido em diversas partes diferentes [...]* [^4]
+
+#### VISUALIZAÇÃO ALTERNATIVA: DISTRIBUIÇÃO DE CATEGORIAS | BARRA HORIZONTAL
+
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
+
+Como alternativa, foi proposta uma visualização em barras horizontais, deste modo, fica mais fácil tanto a leitura das categorias quanto a relação entre os valores.
+
+> *Gráficos de pizza enfatizam que as partes individuais compõem um todo e evidenciam frações simples. No entanto, as partes individuais são mais facilmente comparadas em barras lado a lado. [...] Quando visualizamos uma grande quantidade de proporções ou mudanças em um conjunto de proporções através de condições, os gráficos de pizza tendem a ser ineficientes em relação ao espaço e frequentemente obscurecem os relacionamentos.* [^5]
 
 ![Gráfico Horizontal Bar: Categorias](../evidencias/41-grafico-hbar-categorias.png)
 
+Foi optado manter o eixo-Y invertido, pois assim os valores maiores (supostamente mais interessantes) ficam mais próximos das legendas do eixo-X.
+
 ### APP MAIS CARO
+
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
+
+Para visualizar o app mais caro, foi utilizado o método `nlargest()` na coluna `Price`:
 
 ```python
     df.nlargest(1, 'Price')
 ```
 
+![App Mais Caro](../evidencias/42-app-mais-caro.png)
+
+Complementarmente, foram plotados os 10 aplicativos mais caros para visualizar como o app acima se relaciona com os demais:
+
+![Top Apps Mais Caros](../evidencias/43-top10-apps-mais-caros.png)
+
+Com isso, nota-se que existe uma tendência de preços e nomes similares, caracterizando um nicho de mercado para aplicativos de luxo e ostentação.
+
 ### QUANTIDADE DE APPS COM CLASSIFICAÇÃO 'MATURE 17+'
+
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
+
+Para a contagem de linhas com a classificação `Mature 17+` foram selecionadas as linhas na coluna `Content Rating`, em seguida, feita a contagem dos valores:
 
 ```python
     df[df['Content Rating'] == 'Mature 17+']['Content Rating'].value_counts()
@@ -380,13 +518,33 @@ Devido ao grande número de categorias diferentes na coluna `Category`, o  **gr�
 
 #### VISUALIZAÇÃO ALTERNATIVA: CLASSIFICAÇÃO ETÁRIA | BAR PLOT
 
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
+
+Complementarmente, foram plotadas as contagens das demais classificações para uma análise comparativa:
+
 ![Gráfico: Classificação Etária](../evidencias/45-grafico-bar-apps-classificacao-etaria.png)
+
+Nota-se que a maior parte dos aplicativos visa um público geral, o que pode ser um mercado menos arriscado. No entanto, o nicho de aplicativos para maiores também pode ser promissor por não ser tão concorrido.
 
 ### TOP 10 APPS: Nº DE REVIEWS
 
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
+
+A seguir a listagem, em ordem decrescente, dos aplicativos com maior número da coluna `Reviews` :
+
+![Top 10 Apps Reviews](../evidencias/61-listagem-top10-reviews.png)
+
+Complementarmente, a listagem acima foi plotada para facilitar a visualização de uma análise comparativa:
+
 ![Gráfico: Top 10 Quantidade de Reviews](../evidencias/46-grafico-bar-top10apps-reviews.png)
 
+Nota-se que os apps com maior número de avaliações são aqueles utilizados no cotidiano: redes sociais, ferramentas de manutenção do smartphone e jogos populares.
+
 ### APPS 5 ESTRELAS: DISTRIBUIÇÃO POR GÊNERO E Nº DE AVALIAÇÕES
+
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
+
+Como análise adicional, foi realizado um agrupamento por gênero dos apps avaliados com 5 estrelas na coluna `Rating`, relacionando o número de aplicativos com o total de avaliações em `Reviews`:
 
 ```python
     # Agrupando os dados por 'Genre', agregando pela quantidade de 'Apps' e a soma de 'Reviews'
@@ -403,93 +561,52 @@ Devido ao grande número de categorias diferentes na coluna `Category`, o  **gr�
 
 > ❗ *Não é a lista completa, algumas linhas não couberam.*
 
-#### RELACIONAMENTOS X-Y | *BUBBLE SCATTER PLOT*
+Para uma visualização de relacionamento entre 3 variáveis, foi escolhido o gráfico de bolha, ou *bubble scatter plot*, uma variação do gráfico de dispersão.
 
-> ***Gráficos de dispersão, ou scatter plots**, [...] representam a visualização arquetipal quando queremos mostrar uma variável quantitativa em relação a outra. Se temos três variáveis quantitativas, podemos mapear uma delas no tamanho do ponto, criando uma variante do gráfico de dispersão chamada **gráfico de bolha (bubble chart)***. (WILKER, 2019, p. 41)
+> ***Gráficos de dispersão, ou scatter plots**, [...] representam a visualização arquetipal quando queremos mostrar uma variável quantitativa em relação a outra. Se temos três variáveis quantitativas, podemos mapear uma delas no tamanho do ponto, criando uma variante do gráfico de dispersão chamada **gráfico de bolha (bubble chart)***. [^6]
 
 ![Gráfico Bubble: 5 Estrelas X Gênero X Reviews](../evidencias/47-grafico-bubble-5stars-genre-reviews.png)
 
 ### PIOR APP: QUANTIDADE DE ESTRELAS
 
-### QUANTIDADES
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
 
-> 8The most common approach to visualizing amounts (i.e., numerical values shown for
-some set of categories) is using bars, either vertically or horizontally arranged (Chap‐
-ter 6).* (WILKER, 2019, p. 37)
+Por fim, foi localizado o app com a pior avaliação. Para isso foram realizadas 2 seleções cruzadas:
 
-#### BAR PLOT
+* lista de apps com menor nº de estrelas em `Rating`
+* o app com maior nº de avaliações em `Reviews`
 
-> *To save horizontal space, we could place the bars closer together and rotate the labels
-(Figure 6-2). However, I am not a big proponent of rotated labels. I find the resulting
-plots awkward and difficult to read. And, in my experience, whenever the labels are
-too long to place horizontally, they also don’t look good rotated.* (WILKER, 2019, p. 46)
+```python
+    # Selecionando os aplicativos piores avaliados
+    uma_estrela = df[df['Rating'] == df['Rating'].min()]
 
-> *The better solution for long labels is usually to swap the x and y axes, so that the bars
-run horizontally (Figure 6-3). After swapping the axes, we obtain a compact figure in
-which all visual elements, including all text, are horizontally oriented. As a result, the
-figure is much easier to read [...]. (WILKER, 2019, p. 47)
+    # Filtrando para obter o aplicativo com a maior quantidade de avaliações
+    pior_avaliado = uma_estrela[uma_estrela['Reviews'] == uma_estrela['Reviews'].max()]
+```
 
-> * Regardless of whether we place bars vertically or horizontally, we need to pay atten‐
-tion to the order in which the bars are arranged. I often see bar plots where the bars
-are arranged arbitrarily or by some criterion that is not meaningful in the context of
-the figure. Some plotting programs arrange bars by default in alphabetical order of
-the labels, and other similarly arbitrary arrangements are possible (Figure 6-4). In
-general, the resulting figures are more confusing and less intuitive than figures where
-bars are arranged in order of their size.* (WILKER, 2019, p. 48)
+Após isso, foi selecionada a visualização de ponto e linha para a relação entre as 3 variáveis:
 
-##### STACKED BAR PLOT
-
-> *Stacking is useful when the sum of the amounts repre‐
-sented by the individual stacked bars is in itself a meaningful amount.* (WILKER, 2019, p. 52)
-
-> *Figure 6-10 differs from the previous bar plots I have shown in that there is no
-explicit y axis. I have instead shown the actual numerical values that each bar repre‐
-sents. Whenever a plot is meant to display only a small number of different values, it
-makes sense to add the actual numbers to the plot. This substantially increases the
-amount of information conveyed by the plot without adding much visual noise, and
-it removes the need for an explicit y axis.* (WILKER, 2019, p. 53)
-
-#### DOT PLOT
-
-> * If we had used bars
-instead of dots (Figure 6-12), we’d have made a much less compelling figure. Because
-the bars are so long in this figure, and they all have nearly the same length, the eye is
-drawn to the middle of the bars rather than to their endpoints, and the figure fails to
-convey its message.* (WILKER, 2019, p. 54)
-
-> *Regardless of whether we use bars or dots, however, we need to pay attention to the ordering of the data values. In Figures 6-11 and 6-12, the countries are ordered in
-descending order of life expectancy. If we instead ordered them alphabetically, we’d
-end up with a disordered cloud of points that is confusing and fails to convey a clear
-message (Figure 6-13)*. (WILKER, 2019, p. 55)
-
-
-### PROPORÇÕES
-
-> *Proportions can be visualized as pie charts, side-by-side bars, or stacked bars (Chap‐
-ter 10). As for amounts, when we visualize proportions with bars, the bars can be
-arranged either vertically or horizontally. Pie charts emphasize that the individual
-parts add up to a whole and highlight simple fractions. However, the individual pieces are more easily compared in side-by-side bars. Stacked bars look awkward for a single
-set of proportions, but can be useful when comparing multiple sets of proportions. When visualizing multiple sets of proportions or changes in proportions across con‐
-ditions, pie charts tend to be space-inefficient and often obscure relationships. Grou‐
-ped bars work well as long as the number of conditions compared is moderate, and
-stacked bars can work for large numbers of conditions. Stacked densities (Chap‐
-ter 10) are appropriate when the proportions change along a continuous variable.*  (WILKER, 2019, p. 39)
-
-> *We often want to show how some group, entity, or amount breaks down into individ‐
-ual pieces that each represent a proportion of the whole. Common examples include
-the proportions of men and women in a group of people, the percentages of people
-voting for different political parties in an election, or the market shares of companies.
-The archetypal such visualization is the pie chart, omnipresent in any business pre‐
-sentation and much maligned among data scientists. As we will see, visualizing pro‐
-portions can be challenging, in particular when the whole is broken into many
-different pieces or when we want to see changes in proportions over time or across
-conditions. *  (WILKER, 2019, p. 93)
-
-> *In general, pie charts work well when the goal is to emphasize simple fractions, such
-as one-half, one-third, or one-quarter. They also work well when we have very small
-datasets.*  (WILKER, 2019, p. 96)
-
+![Pior App](../evidencias/60-piores-apps-grafico-linha.png)
 
 ## CONSIDERAÇÕES FINAIS
 
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
+
+Após as primeiras análises do mercado de aplicativos, considerando a Google Play Store, é possível identificar algumas oportunidades de nichos com baixa concorrência, ou então, quais categorias são mais interessantes para os usuários.
+
+Posteriormente, seria interessante continuar as análises explorando relações entre diversas variáveis, buscando lacunas de fornecimento de soluções para usuários ou entendendo fraquezas nos produtos atuais, aliando uma subsequente pesquisa de análise de sentimentos e tratamento dos textos das avaliações.
+
+Além disso, seria interessente também entender se a precificação é um impedimento para a adoção e fidelização dos usuários, sendo possível identificar se seria mais oportuno um aplicativo grátis com propagandas ou calcular uma faixa de valor ideal, que estivesse de acordo com a aceitação do mercado.
+
+Desse modo, seria possível desenvolver um produto com base nas necessidades de usuários e má performance de aplicativos já utilizados por uma boa parcela da população.
+
 ## REFERÊNCIAS
+
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
+
+[^1]: FAROULT, ROBSON; 2006, p. 14
+[^2]: Ibid.
+[^3]: WILKER, 2019, p. 48
+[^4]: Ibid., p. 93
+[^5]: Ibid., p. 39
+[^6]: Ibid., p. 41
