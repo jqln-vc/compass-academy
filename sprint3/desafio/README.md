@@ -584,9 +584,11 @@ Por fim, foi localizado o app com a pior avaliação. Para isso foram realizadas
     pior_avaliado = uma_estrela[uma_estrela['Reviews'] == uma_estrela['Reviews'].max()]
 ```
 
+![Pior App](../evidencias/62-pior-app.png)
+
 Após isso, foi selecionada a visualização de ponto e linha para a relação entre as 3 variáveis:
 
-![Pior App](../evidencias/60-piores-apps-grafico-linha.png)
+![Gráfico Linha: Pior App](../evidencias/60-piores-apps-grafico-linha.png)
 
 ## CONSIDERAÇÕES FINAIS
 
