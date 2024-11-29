@@ -59,6 +59,10 @@ Para absorver melhor o conteúdo desta sprint e me aprofundar em pontos de inter
 
 ## BIBLIOGRAFIA
 
+NADAREISHVILI, Irakli et al. **Microservice Architecture: Aligning Principles, Practices and Culture**. Sebastopol: O'Reilly, 2016.
+
+RICE, Liz. **Container Security: Fundamental Technology Concepts That Protect Containerized Applications**. Sebastolpol: O'Reilly, 2020.
+
 VAN ROSSUM, Guido; WARSAW, Barry; COGHLAN, Alyssa. **PEP 8 – Style Guide for Python Code**. Última atualização: 2013. Disponível em: <[peps.python.org/pep-0008/](https://peps.python.org/pep-0008/)>.  
 
 VAN ROSSUM, Guido; GOODGER, David. **PEP 257 – Docstring Conventions**. Última atualização: 2001. Disponível em: <[peps.python.org/pep-0257/](https://peps.python.org/pep-0257/)>.
