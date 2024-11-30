@@ -34,6 +34,10 @@ Na pasta `evidencias`, estão localizadas as imagens com a validação de cada e
 
 ## DESAFIO
 
+- **Carguru: Imagem e Contêiner**
+- **Reutilização de Contêiners**
+- **Mascarar Dados: Imagem e Contêiner**
+
 ## EVIDÊNCIAS
 
 Na pasta `evidencias`, encontram-se prints referentes a momentos de execução do código, exemplificando abordagens adotadas para a conclusão do desafio.  
