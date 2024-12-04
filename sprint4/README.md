@@ -34,6 +34,10 @@ Na pasta `evidencias`, estão localizadas as imagens com a validação de cada e
 
 ## DESAFIO
 
+- **Carguru: Imagem e Contêiner**
+- **Reutilização de Contêiners**
+- **Mascarar Dados: Imagem e Contêiner**
+
 ## EVIDÊNCIAS
 
 Na pasta `evidencias`, encontram-se prints referentes a momentos de execução do código, exemplificando abordagens adotadas para a conclusão do desafio.  
@@ -58,6 +62,10 @@ Para absorver melhor o conteúdo desta sprint e me aprofundar em pontos de inter
 ||
 
 ## BIBLIOGRAFIA
+
+NADAREISHVILI, Irakli et al. **Microservice Architecture: Aligning Principles, Practices and Culture**. Sebastopol: O'Reilly, 2016.
+
+RICE, Liz. **Container Security: Fundamental Technology Concepts That Protect Containerized Applications**. Sebastolpol: O'Reilly, 2020.
 
 VAN ROSSUM, Guido; WARSAW, Barry; COGHLAN, Alyssa. **PEP 8 – Style Guide for Python Code**. Última atualização: 2013. Disponível em: <[peps.python.org/pep-0008/](https://peps.python.org/pep-0008/)>.  
 
