@@ -151,6 +151,46 @@ Estrutura conceitual utilizada para compreender os processos e o desenvolvimento
 - **Sustentabilidade**
   - Minimização do impacto ambiental das operações
 
+## CAF: Cloud Adoption Framework
+
+Auxiliar no desenvolvimento e implementação de um plano abrangente para a adoção de serviços e migração para a nuvem, utilizando os serviços AWS de forma otimizada e adaptada às necessidades específicas de cada negócio, por meio de boas práticas e aprendizados adquiridos com experiências de outros clientes.
+
+- Identificar e priorizar oportunidades de transformação
+- Avaliar e melhorar o preparo para a nuvem
+- Evoluir iterativamente o percurso de adoção
+- Acelerar os retornos e valores agregados ao negócio
+
+### Possíveis problemas no percurso de adoção
+
+- Piloto emperrado: o projeto de adoção não traz grandes resultados e valor agregado no início, isso pode causar uma perda do *momentum* na adoção, perdendo credibilidade para escalar para outros projetos.
+- Congestionamento na nuvem: iniciativas de adoção ficam paradas em longas filas de prioridade, devido à densidade de processos de governança, falta de automação, blueprints e diretrizes que são necessários para utilizar a nuvem de uma maneira segura, escalável e confiável.
+- Benefícios não conquistados: limitação dos benefícios potenciais e alcançados. Por exemplo, se as organizações tratarem a nuvem como só mais um *data center*, sem tirar vantagem de automações e otimizações, podem não conseguir reduzir custos ou melhorar a agilidade de processos de forma significativa.
+- Caos na nuvem: se as lideranças não forem coerentes e concisas, priovendo orientação e perspectiva geral, partes diferentes da organização podem adotar a nuvem de formas diferentes. Isso pode resultar em uma proliferação descontrolada de abordagens e ferramentas/serviços, trazendo riscos potenciais à segurança, resiliência, custos e conformidades legais.
+
+### Componentes
+
+
+- **Desempenho do Negócio | *Business Outcomes***: resultados-chave alcançados com a adoção da nuvem
+    - Redução de riscos de negócio
+    - Melhoria em ESG (Environmental, Social, and Corporate Governance)
+    - Aumento nos lucros
+    - Melhoria da eficiência operacional
+- **Domínios de Transformação | *Transformation Domains***: aplicações de mudanças organizacionais para uma aceleração nos resultados da adoção, representação uma sequência onde transformação tecnológica possibilita a transformação nos processos, que possibilita a transformação organizacional, que resulta na transformação de produtos.
+    - Tecnologia: *como utilizar a nuvem para migrar e modernizar infraestruturas legadas, aplicações e plataformas de análise de dados.*
+    - Processos: *digitalização, automação e otimização de operações de negócio. Pode incluir a utilização de novas plataformas de dados e análises, e machine learning; melhorando a eficiência operacional, reduzindo custos e melhorando a experiência dos clientes internos e externos.*
+    - Organização: *reimaginação do modelo operacional, como os times de negócio e de tecnologia alinham seus esforços conjuntos para criar valor ao cliente e alcançar os objetivos estratégicos. Ao organizar os times em torno de produtos e fluxo de valores, utilizando métodos ágeis para iterar e evoluir rapidamente, irá auxiliar no redirecionamento para o foco em responsividade e atenção ao cliente.*
+    - Produto: *reimaginação do modelo de negócio ao criar novas propostas de valor (produtos e serviços) e lucratividade. Assim, suprindo novas necessidades de clients, e estendendo o negócio para novos segmentos do mercado.*
+- **Perspectivas | *Perspectives***: foundational capabilities that functionally related stakeholders own or manage in their cloud transformation journey. They help organizations identify gaps in skills and processes and assess the kind of impact that cloud transformation can have on a functional role and business.
+    - Business: assegura que seus investimentos na nuvem acelerem suas metas de transformação digital e resultados de negócio. Stakeholders: Chief executive officer (CEO), chief financial officer (CFO), chief operations officer (COO), chief information officer (CIO), and chief technology officer (CTO).
+    - Pessoas: serve como uma ponte entre a tecnologia e o negócio, acelerando a jornada à nuvem, auxiliando a organização a evoluir para uma cultura de crescimento e aprendizados contínuos, onde a mudança se torna parte do negócio. Além da cultura, o foco é a estrutura organizacional, liderança e força de trabalho. Stakeholders: CIO, COO, CTO, cloud director, and cross-functional and enterprise-wide leaders.
+    - Governança: auxilia no alinhamento das iniciativas de adoção da nuvem, enquanto que maximiza os benefícios organizacionais e minimiza os riscos decorrentes das mudanças. Stakeholders: Chief transformation officer, CIO, CTO, CFO, chief data officer (CDO), and chief risk officer (CRO).
+    - Plataforma: auxilia em acelerar a entrega de produtos e serviços, por meio de plataformas de nuvem em nível organizacional, escaláveis e híbridas. Stakeholders: CTO, technology leaders, architects, and engineers.
+    - Segurança: auxilia no alcance de confidencialidade, integridade, e disponibilidade de dados e serviços. Stakeholders: Chief information security officer (CISO), chief compliance officer (CCO), internal audit leaders, and security architects and engineers.
+    - Operações:   assegura que seus serviços na nuvem são entregues em um nível a altura das necessidades dos stakeholders. Ao automatizar e otimizar operações, é possível escalar ao mesmo tempo que melhora a confiabilidade de suas entregas. Stakeholders: Infrastructure and operations leaders, site reliability engineers, and information technology service managers.
+- **Capacidades Fundamentais | *Foundational Capabilities***
+- **Fases de Transformação na Nuvem | *Cloud Transformation Phases***
+
+
 ## Modelo de Responsabilidade Compartilhada
 https://aws.amazon.com/compliance/shared-responsibility-model/
 - Segurança DA Nuvem
