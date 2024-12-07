@@ -58,3 +58,20 @@ cycle as the application running in the container. Running multiple
 applications within the same container makes it difficult to manage, and you
 might end up with a container in which one of the processes has crashed or
 is unresponsive. (JAUSOVEC, SCHOLLp. 249)
+
+
+## REUTILIZAÇÃO DE CONTÊINERES
+
+```bash
+    docker start <container_id_or_name>
+```
+
+## CARGURU
+
+![Execução Carguru](../evidencias/desafio/4-carguru-docker-run.gif)
+
+## MASCARADOR DE DADOS
+
+![Execução Mascarador](../evidencias/desafio/3-mascarador-docker-run.gif)
+
+## REFERÊNCIAS
