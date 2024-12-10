@@ -7,23 +7,26 @@
 
 ## SEÇÕES
 
-* Docker & Princípios de Arquitetura de Microsserviços [֍]()
-* Criação de Imagens [֍]()
-  * Dockerfile: Carguru [֍]()
-  * Dockerfile: Mascarador [֍]()
-  * Instrução FROM: PyPy
-  * Instruções WORKDIR & COPY [֍]()
-  * Instruções RUN: Useradd, Chown & User [֍]()
-  * Instrução RUN: Chmod [֍]()
-  * Instrução CMD: Execução dos Scripts [֍]()
-* Comandos de Execução: Imagem & Contêiner [֍]()
-  * Execução: Carguru [֍]()
-  * Execução: Mascarador [֍]()
-* Reutilização de Contêineres [֍]()
-* Considerações Finais [֍]()
-* Referências [֍]()
+* Docker & Princípios de Arquitetura de Microsserviços [֍](#docker--princ%C3%ADpios-de-arquitetura-de-microsservi%C3%A7os)
+* Criação de Imagens [֍](#cria%C3%A7%C3%A3o-de-imagens)
+  * Dockerfile: Carguru [֍](#dockerfile-carguru)
+  * Dockerfile: Mascarador [֍](#dockerfile-mascarador)
+  * Instrução FROM: PyPy [֍](#instru%C3%A7%C3%A3o-from-pypy)
+  * Instruções WORKDIR & COPY [֍](#instru%C3%A7%C3%B5es-workdir--copy)
+  * Instruções RUN: Useradd, Chown & User [֍](#instru%C3%A7%C3%B5es-run-useradd-chown--user)
+  * Instrução RUN: Chmod [֍](#instru%C3%A7%C3%A3o-run-chmod)
+  * Instrução CMD: Execução dos Scripts [֍](#instru%C3%A7%C3%A3o-cmd-execu%C3%A7%C3%A3o-dos-scripts)
+* Desenvolvimento do Script: Mascarador [֍](#desenvolvimento-do-script-mascarador)
+* Comandos de Execução: Imagem & Contêiner [֍](#comandos-de-execu%C3%A7%C3%A3o-imagem--cont%C3%AAiner)
+  * Execução: Carguru [֍](#execu%C3%A7%C3%A3o-carguru)
+  * Execução: Mascarador [֍](#execu%C3%A7%C3%A3o-mascarador)
+* Reutilização de Contêineres [֍](#reutiliza%C3%A7%C3%A3o-de-cont%C3%AAineres)
+* Considerações Finais [֍](#considera%C3%A7%C3%B5es-finais)
+* Referências [֍](#refer%C3%AAncias)
 
 ## DOCKER & PRINCÍPIOS DE ARQUITETURA DE MICROSSERVIÇOS
+
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
 
 Para a conteineirização dos projetos `carguru` e `mascarador`, primeiramente, é necessário contextualizar tais projetos no contexto de **Arquitetura de Microsserviços** para, só então, ser possível fundamentar as escolhas durante o desenvolvimento, buscando adequação a boas práticas e diretrizes de segurança na nuvem.
 
@@ -55,11 +58,15 @@ A ideia principal da **Arquitetura de Microsserviços*** é a separação de tod
 
 ## CRIAÇÃO DE IMAGENS
 
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
+
 Para ambos projetos, tanto o `carguru` quanto o `mascarador`, foram utilizadas abordagens de criação de imagens Docker similares, com modificações somente referentes ao nome de diretórios, usuários e scripts.
 
 Portanto, será apresentada a seguir a estrutura utilizada para cada projeto, com comentários específicos mais adiante.
 
 ### DOCKERFILE: CARGURU
+
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
 
 ```docker
     FROM pypy:3-slim
@@ -81,6 +88,8 @@ Portanto, será apresentada a seguir a estrutura utilizada para cada projeto, co
 
 ### DOCKERFILE: MASCARADOR
 
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
+
 ```docker
     FROM pypy:3-slim
 
@@ -101,6 +110,8 @@ Portanto, será apresentada a seguir a estrutura utilizada para cada projeto, co
 
 ### INSTRUÇÃO FROM: PYPY
 
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
+
 Foi utilizada a imagem oficial `PyPy`, um interpretador de `Python` mais ágil e eficiente para desenvolvimento, pois compila em tempo de execução. E a utilização da versão da ***slim*** torna a imagem ainda mais leve, ao utilizar recursos básicos porém suficientes para cada projeto.
 
 >❗ Após o build das imagens, estas ficaram com tamanho abaixo de 300 Mb.
@@ -113,6 +124,8 @@ Foi utilizada a imagem oficial `PyPy`, um interpretador de `Python` mais ágil e
 Para maiores informações, acessar a [página oficial](https://hub.docker.com/_/pypy) da imagem no Docker Hub.
 
 ### INSTRUÇÕES WORKDIR & COPY
+
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
 
 Neste processo, é criado o diretório de trabalho do contêiner com `WORKDIR`, o qual receberá todos os arquivos da aplicação, que serão copiados em `COPY`.
 
@@ -128,6 +141,8 @@ Portanto, é interessante criar 2 processos de `COPY`: o primeiro, logo após a 
 Essa boa prática não foi necessária para os projetos `carguru` e `mascarador`, visto que ambos contêm somente um arquivo de script.
 
 ### INSTRUÇÕES RUN: USERADD, CHOWN & USER
+
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
 
 Como boa prática de segurança, ao serem criados usuários específicos para a aplicação, dispensa-se o uso de usuário `root`, assim os contêineres são executados com acesso limitado ao *host*. Abaixo alguns fatores considerados:
 
@@ -165,6 +180,8 @@ Em seguida, é mantida a execução do contêiner a partir do usuário da aplica
 
 ### INSTRUÇÃO RUN: CHMOD
 
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
+
 Após fornecimento de permissões e propriedades ao usuário da aplicação, é utilizado o comando `chmod +x` para habilitar a execução de todos os arquivos `.py` .
 
 ```docker
@@ -173,6 +190,8 @@ Após fornecimento de permissões e propriedades ao usuário da aplicação, é 
 
 ### INSTRUÇÃO CMD: EXECUÇÃO DOS SCRIPTS
 
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
+
 Por fim, a sequência de comandos que executa a aplicação.
 
 ```docker
@@ -180,6 +199,8 @@ Por fim, a sequência de comandos que executa a aplicação.
 ```
 
 ## DESENVOLVIMENTO DO SCRIPT: MASCARADOR
+
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
 
 - **Adequação ao PEP-8 e PEP-257**
 
@@ -200,6 +221,8 @@ Ao executar o contêiner, se este não é feito no modo interativo, ocorre o err
 Para tanto, foi utilizado o fluxo de `try` & `except` para a captura desse erro, caso o contêiner não seja executado interativamente.
 
 ## COMANDOS DE EXECUÇÃO: IMAGEM & CONTÊINER
+
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
 
 A seguir os comandos utilizados no terminal para execuções de rotina de conteinerização com Docker:
 
@@ -239,9 +262,13 @@ O comando `ps` faz a listagem dos contêineres criados, e o uso da flag `-a` inc
 
 ### EXECUÇÃO: CARGURU
 
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
+
 ![Execução Carguru](../evidencias/desafio/4-carguru-docker-run.gif)
 
 ### EXECUÇÃO: MASCARADOR
+
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
 
 Apesar de o projeto e o script terem sido nomeados como `mascarador`, durante a execução abaixo, a criação do contêiner foi feita com o nome solicitado, `mascarar-dados`, mantendo o padrão de inclusão do sufixo `-app` já utilizado para a aplicação `carguru`.
 
@@ -250,6 +277,8 @@ Apesar de o projeto e o script terem sido nomeados como `mascarador`, durante a 
 > ❗ Para contornar o lançamento do erro `EOFError`, a execução do contêiner deve ser feita de forma interativa com a flag `-it` .
 
 ## REUTILIZAÇÃO DE CONTÊINERES
+
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
 
 Sobre a reutilização de contêineres parados com `docker stop` ou que concluíram sua execução, pode-se reiniciá-los com `docker start`. Porém, antes do detalhamento dos comandos, serão retomadas as boas práticas reforçadas pelo Docker:
 
@@ -283,9 +312,13 @@ A seguir uma demonstração de reinicialização de um contêiner parado manualm
 
 ## CONSIDERAÇÕES FINAIS
 
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
+
 Por fim, é possível concluir que a adoção da conteinerização em uma arquitetura de microsserviços torna os projetos mais resilientes, eficientes, flexíveis e seguros. No entanto, para que esses benefícios sejam obtidos, não basta simplesmente passar a utilizar contêineres no projeto, é necessário adequar-se à mudança cultural e cognitiva de como pensar e agir durante o processo de desenvolvimento e produção, pois sem isso, a arquitetura criada pode se tornar complexa demais e causar efeitos contrários.
 
 ## REFERÊNCIAS
+
+*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
 
 [^1]: NADAREISHVILI et al, 2016, p. 45
 
