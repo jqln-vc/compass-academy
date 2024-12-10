@@ -7,23 +7,51 @@
 
 ## SEÇÕES
 
+* Docker & Princípios de Arquitetura de Microsserviços [֍]()
+* Criação de Imagens [֍]()
+  * Dockerfile: Carguru [֍]()
+  * Dockerfile: Mascarador [֍]()
+  * Instrução FROM: PyPy
+  * Instruções WORKDIR & COPY [֍]()
+  * Instruções RUN: Useradd, Chown & User [֍]()
+  * Instrução RUN: Chmod [֍]()
+  * Instrução CMD: Execução dos Scripts [֍]()
+* Comandos de Execução: Imagem & Contêiner [֍]()
+  * Execução: Carguru [֍]()
+  * Execução: Mascarador [֍]()
+* Reutilização de Contêineres [֍]()
+* Considerações Finais [֍]()
+* Referências [֍]()
+
 ## DOCKER & PRINCÍPIOS DE ARQUITETURA DE MICROSSERVIÇOS
+
+Para a conteineirização dos projetos `carguru` e `mascarador`, primeiramente, é necessário contextualizar tais projetos no contexto de **Arquitetura de Microsserviços** para, só então, ser possível fundamentar as escolhas durante o desenvolvimento, buscando adequação a boas práticas e diretrizes de segurança na nuvem.
 
 - **Imutabilidade**
 
-> *Cockcroft diz que o princípio da imutabilidade é usado na Netflix para assegurar que grupos autoescaláveis de instâncias de serviços são **stateless** e idênticas, o que permite ao sistema da Netflix uma "escalabilidade horizontal". O "Macaco do Caos", um membro do Exército Símio, remove instâncias regularmente para reforçar o princípio de serviços **stateless**. Outra técnica relacionada é o uso de **"Red/Black pushes"**. Ainda que cada componente lançado seja imutável, uma nova versão de um serviço é introduzida em paralelo à versão antiga, em novas instâncias, e então o tráfego é redirecionado das antigas para as novas. Após a espera de que tudo correu bem, as instâncias antigas são derrubadas.* (NADAREISHVILI et al, 2016, p. 45)
+Cada contêiner deve ser uma instância de uma imagem, ou seja, é um reflexo do ambiente criado pelo template `Dockerfile`; tudo que for necessário para sua execução é configurado no template da imagem, assim, o ambiente da aplicação se torna previsível e monitorável.
+
+Similar aos princípios de programação funcional, o contêiner é um ambiente sem persistência de estado, quaisquer necessidades de armazenamento de dados devem ser direcionadas a volumes ou bancos de dados externos ao ambiente do contêiner.
+
+> *Cockcroft diz que o princípio da imutabilidade é usado na Netflix para assegurar que grupos autoescaláveis de instâncias de serviços são **stateless** e idênticas, o que permite ao sistema da Netflix uma "escalabilidade horizontal". O "Macaco do Caos", um membro do Exército Símio, remove instâncias regularmente para reforçar o princípio de serviços **stateless**. Outra técnica relacionada é o uso de **"Red/Black pushes"**. Ainda que cada componente lançado seja imutável, uma nova versão de um serviço é introduzida em paralelo à versão antiga, em novas instâncias, e então o tráfego é redirecionado das antigas para as novas. Após a espera de que tudo correu bem, as instâncias antigas são derrubadas.* [^1]
 
 - **Desenvolva do Zero**
 
-> *Parte da filosofia Unix é criar uma coleção de ferramentas poderosas que sejam previsíveis e consistentes por um longo período de tempo. [...] É melhor desenvolver um novo componente de um microsserviço do que tentar utilizar um componente existente que já esteja em produção e mudá-lo para executar novas tarefas.* (NADAREISHVILI et al, 2016, p. 47)
+Como cada contêiner é um reflexo da configuração de uma imagem, a cada nova versão de uma aplicação é preferível a execução de um novo contêiner, com ambiente "limpo", sem risco de herdar resquícios do ambiente de uma aplicação antiga.
+
+> *Parte da filosofia Unix é criar uma coleção de ferramentas poderosas que sejam previsíveis e consistentes por um longo período de tempo. [...] É melhor desenvolver um novo componente de um microsserviço do que tentar utilizar um componente existente que já esteja em produção e mudá-lo para executar novas tarefas.* [^2]
 
 - **Não hesite em descartar**
 
-> *Ao longo do tempo, componentes que tinham uma função importante podem não ser mais necessários. Você pode ter aplicado o princípio **desenvolva do zero** e substuído este componente com um que executa melhor a tarefa. [...] O importante é estar disposto a descartar um componente quando não é mais útil para sua proposta inicial.* (NADAREISHVILI et al, 2016, p. 48)
+Este princípio é uma consequência dos anteriores, ao manter um ambiente ***stateless***, unicamente dependente do template de configuração do `Dockerfile`, o descarte de componentes torna-se indolor e seguro, assim também tornando o projeto mais resiliente a mudanças.
+
+> *Ao longo do tempo, componentes que tinham uma função importante podem não ser mais necessários. Você pode ter aplicado o princípio **desenvolva do zero** e substuído este componente com um que executa melhor a tarefa. [...] O importante é estar disposto a descartar um componente quando não é mais útil para sua proposta inicial.* [^3]
 
 - **Uma Aplicação por Contêiner**
 
-> *Sempre rode uma única aplicação dentro de um contêiner. Contêineres foram desenvolvidos para conter uma única aplicação, tendo o mesmo ciclo de vida que a aplicação que roda ali. Rodar múltiplas aplicações em um mesmo contêiner torna o gerenciamento difícil, e você pode acabar com um contêiner em que um dos processos falhou ou está irresponsivo.* (SCHOLL, SWANSON, JAUSOVEC, 2019, p. 249)
+A ideia principal da **Arquitetura de Microsserviços*** é a separação de todo um projeto em componentes isolados, especializados em uma única função. Desse modo, os processos de CI/CD são otimizados e simplificados. Para os projetos atuais, `carguru` e `mascarador`, cada script é uma função, representando um componente de uma arquitetura maior.
+
+> *Sempre rode uma única aplicação dentro de um contêiner. Contêineres foram desenvolvidos para conter uma única aplicação, tendo o mesmo ciclo de vida que a aplicação que roda ali. Rodar múltiplas aplicações em um mesmo contêiner torna o gerenciamento difícil, e você pode acabar com um contêiner em que um dos processos falhou ou está irresponsivo.* [^4]
 
 ## CRIAÇÃO DE IMAGENS
 
@@ -137,13 +165,27 @@ Em seguida, é mantida a execução do contêiner a partir do usuário da aplica
 
 ### INSTRUÇÃO RUN: CHMOD
 
+Após fornecimento de permissões e propriedades ao usuário da aplicação, é utilizado o comando `chmod +x` para habilitar a execução de todos os arquivos `.py` .
+
+```docker
+    RUN chmod +x *.py
+```
+
 ### INSTRUÇÃO CMD: EXECUÇÃO DOS SCRIPTS
+
+Por fim, a sequência de comandos que executa a aplicação.
+
+```docker
+    CMD [ "pypy3", "app.py" ]
+```
 
 ## DESENVOLVIMENTO DO SCRIPT: MASCARADOR
 
 - **Adequação ao PEP-8 e PEP-257**
 
-O script está em conformidade com as sugestões de estilo do PEP-8 e das utilizações de ***docstrings*** para documentação.
+O script está em conformidade com as sugestões de estilo do PEP-8 e das utilizações de ***docstrings*** do PEP-257 para documentação.
+
+![Validação PEP](../evidencias/desafio/1-pep-mascarador.png)
 
 - **Modularização do Script**
 
@@ -153,27 +195,65 @@ Para manter a modularidade, todo o código incluindo a importação da bibliotec
 
 - **Captura de Erro: EOFError - End Of File Error**
 
-Ao executar o contêiner, se este não é feito no modo interativo, ocorre o erro EOFError. Este é lançado quando uma das funções `input()` ou `raw_input()` chega numa condição de fim de arquivo (EOF) sem ter lido nenhum dado durante a execução.
+Ao executar o contêiner, se este não é feito no modo interativo, ocorre o erro `EOFError`. Este é lançado quando uma das funções `input()` ou `raw_input()` chega numa condição de fim de arquivo (EOF) sem ter lido nenhum dado durante a execução.
 
-Para tanto, foi utilizado o fluxo de `try` / `except` para a captura desse erro, caso o contêiner não seja executado interativamente.
+Para tanto, foi utilizado o fluxo de `try` & `except` para a captura desse erro, caso o contêiner não seja executado interativamente.
 
 ## COMANDOS DE EXECUÇÃO: IMAGEM & CONTÊINER
+
+A seguir os comandos utilizados no terminal para execuções de rotina de conteinerização com Docker:
+
+- **Criação da Imagem com Dockerfile**
+
+O comando `build` gera uma imagem a partir de um template `Dockerfile`. Abaixo, o `build` é feito a partir do diretório atual.
+
+A flag `-t` possibilita a inserção de uma tag, que é uma boa prática, para indicar nome e versão da imagem.
+
+```bash
+    docker build . -t <imagem:versao>
+```
+
+- **Visualização de Imagens**
+
+O comando `images` faz a listagem das imagens criadas.
+
+```bash
+    docker images -a
+```
+
+- **Instanciação de Contêiner**
+
+Para instanciar um contêiner a partir de uma imagem, utiliza-se o comando `run`. O uso da flag `-it` permite a execução com interatividade no terminal, e `--name` possibilita a nomeação do contêiner.
+
+```bash
+    docker run -it --name <container> <imagem:versao>
+```
+
+- **Visualização de Contêineres**
+
+O comando `ps` faz a listagem dos contêineres criados, e o uso da flag `-a` inclui contêineres parados.
+
+```bash
+    docker ps -a
+```
 
 ### EXECUÇÃO: CARGURU
 
 ![Execução Carguru](../evidencias/desafio/4-carguru-docker-run.gif)
 
-### EXECUÇÃO: MASCARADOR DE DADOS
+### EXECUÇÃO: MASCARADOR
+
+Apesar de o projeto e o script terem sido nomeados como `mascarador`, durante a execução abaixo, a criação do contêiner foi feita com o nome solicitado, `mascarar-dados`, mantendo o padrão de inclusão do sufixo `-app` já utilizado para a aplicação `carguru`.
 
 ![Execução Mascarador](../evidencias/desafio/3-mascarador-docker-run.gif)
 
-> ❗ Para contornar o lançamento do erro `EOFError`, a execução do contêiner é feita de forma interativa com a flag `-it` .
+> ❗ Para contornar o lançamento do erro `EOFError`, a execução do contêiner deve ser feita de forma interativa com a flag `-it` .
 
 ## REUTILIZAÇÃO DE CONTÊINERES
 
 Sobre a reutilização de contêineres parados com `docker stop` ou que concluíram sua execução, pode-se reiniciá-los com `docker start`. Porém, antes do detalhamento dos comandos, serão retomadas as boas práticas reforçadas pelo Docker:
 
-> *Sua filosofia arquitetural é centralizada em contêineres atômicos ou descartáveis. Durante o deploy, todo o ambiente em execução da aplicação antiga é descartado juntamente com ela. [...] Isso significa que aplicações não correm o risco de depender de artefatos deixados por uma versão anterior. Significa que mudanças efêmeras de debugging são menos prováveis de persistirem em versões futuras que as herdarem pelo sistema de arquivos local. [...] Isso resulta em aplicações mais escaláveis e também mais confiáveis.* (KANE, MATTHIAS, 2023, p. 23)
+> *Sua filosofia arquitetural é centralizada em contêineres atômicos ou descartáveis. Durante o deploy, todo o ambiente em execução da aplicação antiga é descartado juntamente com ela. [...] Isso significa que aplicações não correm o risco de depender de artefatos deixados por uma versão anterior. Significa que mudanças efêmeras de debugging são menos prováveis de persistirem em versões futuras que as herdarem pelo sistema de arquivos local. [...] Isso resulta em aplicações mais escaláveis e também mais confiáveis.* [^5]
 
 Suponha-se um ambiente de desenvolvimento (e testes), em que o desenvolvedor utiliza um contêiner para trabalhar em uma aplicação em sua máquina local. Ao fim do expediente, é possível pausar o contêiner em utilização para sua retomada posterior:
 
@@ -195,6 +275,26 @@ Contudo, se o contexto não é o exemplificado acima, o ideal seria instanciar u
 
 Um dos motivos, o qual afeta diretamente a robustez da engenharia de software e dos processos de DevOps, é a garantia do controle e monitoramento sobre o ambiente e as alterações em andamento.
 
-> *O contêiner é instanciado de sua imagem, e então o conteúdo do contêiner não deve mudar. Quaisquer executáveis ou dependências que o código-fonte precise deve ser incluído naquela imagem. Isso foi discutido anteriormente com relação à detecção de vulnerabilidades: você não pode monitorar vulnerabilidades em um código que não tenha sido incluído na imagem, portanto, você deve ter certeza que tudo que você deseja monitorar tenha sido incluído.* (RICE, 2020, p. 155)
+> *O contêiner é instanciado de sua imagem, e então o conteúdo do contêiner não deve mudar. Quaisquer executáveis ou dependências que o código-fonte precise deve ser incluído naquela imagem. Isso foi discutido anteriormente com relação à detecção de vulnerabilidades: você não pode monitorar vulnerabilidades em um código que não tenha sido incluído na imagem, portanto, você deve ter certeza que tudo que você deseja monitorar tenha sido incluído.* [^6]
+
+A seguir uma demonstração de reinicialização de um contêiner parado manualmente a partir da imagem utilizada para a aplicação `mascarador`. Como a aplicação precisa de interação com o usuário, o contêiner é reinicializado com a flag `-i` .
+
+![Exemplificação de Reinicialização de Contêiner]()
+
+## CONSIDERAÇÕES FINAIS
+
+Por fim, é possível concluir que a adoção da conteinerização em uma arquitetura de microsserviços torna os projetos mais resilientes, eficientes, flexíveis e seguros. No entanto, para que esses benefícios sejam obtidos, não basta simplesmente passar a utilizar contêineres no projeto, é necessário adequar-se à mudança cultural e cognitiva de como pensar e agir durante o processo de desenvolvimento e produção, pois sem isso, a arquitetura criada pode se tornar complexa demais e causar efeitos contrários.
 
 ## REFERÊNCIAS
+
+[^1]: NADAREISHVILI et al, 2016, p. 45
+
+[^2]: Ibid., p. 47
+
+[^3]: Ibid., p. 48
+
+[^4]: SCHOLL, SWANSON, JAUSOVEC, 2019, p. 249
+
+[^5]: KANE, MATTHIAS, 2023, p. 23
+
+[^6]: RICE, 2020, p. 155

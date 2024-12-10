@@ -18,7 +18,8 @@ def mascarador() -> None:
 
     while True:
         try:
-            texto = input("Digite um texto para codificar - [Enter] para sair: ")
+            texto = input("Digite um texto para codificar - \
+                [Enter] para sair: ")
 
             if texto == "":
                 break
@@ -30,7 +31,8 @@ def mascarador() -> None:
 
         except EOFError as e:
             print(f"{e}: \
-                Não foi fornecido nenhum input durante a execução do programa.")
+                Não foi fornecido nenhum input \
+                    durante a execução do programa.")
 
 
 if __name__ == '__main__':

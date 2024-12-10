@@ -7,14 +7,20 @@
 
 ## RELATOS DE APRENDIZADO
 
-### Contêineres & Docker
+### Arquitetura de Microsserviços, Contêineres & Docker
 
-[![Containeres](https://img.shields.io/badge/Guia-Containeres-ED751A)](/guide/containeres.md)  
+[![Containeres](https://img.shields.io/badge/Guia-Containeres-ED751A)](/guide/containeres.md)
+
+Achei muito interessante a transformação na forma de pensar e desenvolver aplicações ao considerarmos uma estrutura baseada em componentes. Entendo que é extremamente importante absorver tais práticas, pois é fundamental para o ambiente de Cloud Computing.
+
+Sinto que comecei a entender os princípios e fundamentos da Arquitetura de Microsserviços, porém ainda preciso praticar mais a elaboração de imagens no dia a dia para adquirir confiança. Gostaria também de praticar a orquestração de contêineres com Kubernetes, o que não foi possível com as atividades propostas nesta sprint, portanto tenho intenção de estudar no meu tempo livre.
 
 ### AWS Partner: Technical
 
 [![AWS Fundamentos](https://img.shields.io/badge/Guia-AWS_Fundamentos-ED751A)](/guide/aws_fundamentos.md)  
-[![AWS Orchestration](https://img.shields.io/badge/Guia-AWS_Orchestration-ED751A)](/guide/aws_orchestration.md)  
+[![AWS Orchestration](https://img.shields.io/badge/Guia-AWS_Orchestration-ED751A)](/guide/aws_orchestration.md)
+
+Me sinto cada vez mais confiante com os fundamentos da AWS, e o curso de Technical Essentials foi ótimo para reforçar conceitos. Ainda tenho dificuldades com o domínio de Networking, e durante a sprint busquei estudar conceitos gerais de redes para entender melhor como se interrelacionam os serviços da AWS.
 
 ---
 
@@ -41,12 +47,24 @@ Na pasta `evidencias`, estão localizadas as imagens com a validação de cada e
   - [mascarador.py](./desafio/mascarador/mascarador.py): script de criptografia de dados com SHA-1.
   - [Dockerfile](./desafio/mascarador/Dockerfile): template para imagem do contêiner Docker.
 - **Reutilização de Contêineres**
-  - [Seção ֍](): Documentação sobre reutilização de contêineres no contexto de desenvolvimento de software e arquitetura de microsserviços.
+  - [Seção: Reutilização de Contêineres](): Documentação sobre reutilização de contêineres no contexto de desenvolvimento de software e arquitetura de microsserviços.
 
 ## EVIDÊNCIAS
 
 Na pasta `evidencias`, encontram-se prints referentes a momentos de execução do código, exemplificando abordagens adotadas para a conclusão do desafio.  
 No passo a passo explicativo, encontrado na pasta `desafio`, serão comentados outros prints de pontos específicos.
+
+### Build de Imagens com Dockerfile
+
+![Imagens Docker]()
+
+### Instanciação e Execução de Contêineres
+
+![Contêineres Docker]()
+
+### Sequência de Comandos para Reutilização de Contêiner
+
+![Reutilização de Contêiner]()
 
 ## CERTIFICADOS AWS SKILL BUILDER
 
@@ -54,17 +72,46 @@ No passo a passo explicativo, encontrado na pasta `desafio`, serão comentados o
 
 | |
 |---|
-|![Certificado](certificados/certificado-aws-accred-technical.jpg)|
+|![Certificado](./certificados/certificado-aws-accred-technical.jpg)|
 ||
 
-## CERTIFICADOS COMPLEMENTARES
-
-Para absorver melhor o conteúdo desta sprint e me aprofundar em pontos de interesse, concluí em paralelo os cursos abaixo, externos à Udemy.
+### AWS Technical Essentials
 
 | |
 |---|
-|![Certificado](certificados/)|
+|![Certificado](./certificados/certificado-comp-aws-technical-essentials.jpg)|
 ||
+
+## BÔNUS: ARQUITETANDO-SE EM MICRO-SER-VIVO
+
+```markdown
+ 
+    instanciação da imagem
+    cuidadosamente elaborada
+    por um ego já atualizado
+    existência projetada
+    novas versões me multiplicam
+    me inutilizam e me derrubam
+    recomposição de um ego do passado
+
+    eu não tenho estado
+    eu não tenho estado
+    eu sei que eu não tenho estado
+    (me perdoe)
+    e já logo não mais saberei
+
+    pois numa próxima execução
+    estarei isolada
+    sem persistência de dados
+    sem persistência de ideias
+    sem persistência de mim
+    contida num espaço designado
+    espero partilhar a hospedagem
+    desta resistência efêmera
+    e mesmo sem estado
+    persistir por um momento
+    ao seu lado
+```
 
 ## BIBLIOGRAFIA
 
