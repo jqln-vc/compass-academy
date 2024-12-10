@@ -80,7 +80,7 @@ Na pasta `evidencias`, estão localizadas as imagens com a validação de cada e
   - [mascarador.py](./desafio/mascarador/mascarador.py): script de criptografia de dados com SHA-1.
   - [Dockerfile](./desafio/mascarador/Dockerfile): template para imagem do contêiner Docker.
 - **Reutilização de Contêineres**
-  - [Seção: Reutilização de Contêineres](): Documentação sobre reutilização de contêineres no contexto de desenvolvimento de software e arquitetura de microsserviços.
+  - [Seção: Reutilização de Contêineres](./desafio/README.md#reutilização-de-contêineres): Documentação sobre reutilização de contêineres no contexto de desenvolvimento de software e arquitetura de microsserviços.
 
 ## EVIDÊNCIAS
 
