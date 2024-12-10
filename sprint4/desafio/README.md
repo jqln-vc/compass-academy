@@ -244,6 +244,8 @@ O comando `images` faz a listagem das imagens criadas.
     docker images -a
 ```
 
+![Docker Images](../evidencias/desafio/9-docker-images.png)
+
 - **Instanciação de Contêiner**
 
 Para instanciar um contêiner a partir de uma imagem, utiliza-se o comando `run`. O uso da flag `-it` permite a execução com interatividade no terminal, e `--name` possibilita a nomeação do contêiner.
@@ -260,15 +262,37 @@ O comando `ps` faz a listagem dos contêineres criados, e o uso da flag `-a` inc
     docker ps -a
 ```
 
+![Docker Ps](../evidencias/desafio/8-docker-containers.png)
+
 ### EXECUÇÃO: CARGURU
 
 *Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
+
+* **Build de Imagem**
+
+![Build Carguru](../evidencias/desafio/6-build-carguru.png)
+
+* **Run do Contêiner**
+
+![Run Contêiner](../evidencias/desafio/11-run-carguru.png)
+
+* **Execução de Comandos**
 
 ![Execução Carguru](../evidencias/desafio/4-carguru-docker-run.gif)
 
 ### EXECUÇÃO: MASCARADOR
 
 *Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
+
+* **Build de Imagem**
+
+![Build Mascarador](../evidencias/desafio/7-build-mascarador.png)
+
+* **Run do Contêiner**
+
+![Run Mascarador](../evidencias/desafio/12-run-mascarar-dados.png)
+
+* **Execução de Comandos**
 
 Apesar de o projeto e o script terem sido nomeados como `mascarador`, durante a execução abaixo, a criação do contêiner foi feita com o nome solicitado, `mascarar-dados`, mantendo o padrão de inclusão do sufixo `-app` já utilizado para a aplicação `carguru`.
 
@@ -308,7 +332,7 @@ Um dos motivos, o qual afeta diretamente a robustez da engenharia de software e 
 
 A seguir uma demonstração de reinicialização de um contêiner parado manualmente a partir da imagem utilizada para a aplicação `mascarador`. Como a aplicação precisa de interação com o usuário, o contêiner é reinicializado com a flag `-i` .
 
-![Exemplificação de Reinicialização de Contêiner]()
+![Exemplificação de Reinicialização de Contêiner](../evidencias/desafio/10-reutilizacao.gif)
 
 ## CONSIDERAÇÕES FINAIS
 

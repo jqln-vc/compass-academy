@@ -22,6 +22,39 @@ Sinto que comecei a entender os princípios e fundamentos da Arquitetura de Micr
 
 Me sinto cada vez mais confiante com os fundamentos da AWS, e o curso de Technical Essentials foi ótimo para reforçar conceitos. Ainda tenho dificuldades com o domínio de Networking, e durante a sprint busquei estudar conceitos gerais de redes para entender melhor como se interrelacionam os serviços da AWS.
 
+### Bônus: Assimilação Versificada
+
+```html
+    arquitetando-se em micro-ser-vivo
+    ---------------------------------
+
+    instanciação da imagem
+    cuidadosamente elaborada
+    por um ego já atualizado
+    existência projetada
+    novas versões me multiplicam
+    me inutilizam e me derrubam
+    mera recomposição de um ego do passado
+
+    eu não tenho estado
+    eu não tenho estado
+    eu sei que eu não tenho estado
+    (me perdoe)
+    e logo já não mais saberei
+
+    pois numa próxima execução
+    estarei isolada
+    sem persistência de dados
+    sem persistência de ideias
+    sem persistência de mim
+    contida num espaço designado
+    espero partilhar a hospedagem
+    desta resistência efêmera
+    e mesmo sem estado
+    persistir por um momento
+    ao seu lado
+```
+
 ---
 
 ## EXERCÍCIOS
@@ -81,37 +114,6 @@ No passo a passo explicativo, encontrado na pasta `desafio`, serão comentados o
 |---|
 |![Certificado](./certificados/certificado-comp-aws-technical-essentials.jpg)|
 ||
-
-## BÔNUS: ARQUITETANDO-SE EM MICRO-SER-VIVO
-
-```markdown
- 
-    instanciação da imagem
-    cuidadosamente elaborada
-    por um ego já atualizado
-    existência projetada
-    novas versões me multiplicam
-    me inutilizam e me derrubam
-    recomposição de um ego do passado
-
-    eu não tenho estado
-    eu não tenho estado
-    eu sei que eu não tenho estado
-    (me perdoe)
-    e já logo não mais saberei
-
-    pois numa próxima execução
-    estarei isolada
-    sem persistência de dados
-    sem persistência de ideias
-    sem persistência de mim
-    contida num espaço designado
-    espero partilhar a hospedagem
-    desta resistência efêmera
-    e mesmo sem estado
-    persistir por um momento
-    ao seu lado
-```
 
 ## BIBLIOGRAFIA
 
