@@ -89,15 +89,15 @@ No passo a passo explicativo, encontrado na pasta `desafio`, serão comentados o
 
 ### Build de Imagens com Dockerfile
 
-![Imagens Docker]()
+![Imagens Docker](./evidencias/desafio/9-docker-images.png)
 
 ### Instanciação e Execução de Contêineres
 
-![Contêineres Docker]()
+![Contêineres Docker](./evidencias/desafio/8-docker-containers.png)
 
 ### Sequência de Comandos para Reutilização de Contêiner
 
-![Reutilização de Contêiner]()
+![Reutilização de Contêiner](./evidencias/desafio/10-reutilizacao.gif)
 
 ## CERTIFICADOS AWS SKILL BUILDER
 
