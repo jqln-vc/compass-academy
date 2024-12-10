@@ -306,7 +306,7 @@ Apesar de o projeto e o script terem sido nomeados como `mascarador`, durante a 
 
 ## REUTILIZAÇÃO DE CONTÊINERES
 
-*Voltar para **Seções*** [֍](#se%C3%A7%C3%B5es)
+*Voltar para **Seções*** [֍](#seções)
 
 Sobre a reutilização de contêineres parados com `docker stop` ou que concluíram sua execução, pode-se reiniciá-los com `docker start`. Porém, antes do detalhamento dos comandos, serão retomadas as boas práticas reforçadas pelo Docker:
 
