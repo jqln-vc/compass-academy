@@ -218,7 +218,11 @@ Para manter a modularidade, todo o código incluindo a importação da bibliotec
 
 Ao executar o contêiner, se este não é feito no modo interativo, ocorre o erro `EOFError`. Este é lançado quando uma das funções `input()` ou `raw_input()` chega numa condição de fim de arquivo (EOF) sem ter lido nenhum dado durante a execução.
 
-Para tanto, foi utilizado o fluxo de `try` & `except` para a captura desse erro, caso o contêiner não seja executado interativamente.
+- **Captura de Erro: UnicodeEncodeError**
+
+Durante algumas execuções com teste de strings variadas como input, em alguns casos foram lançados erros de codificação `UnicodeEncodeError`.
+
+Para tratativa de ambos, foi utilizado o fluxo de `try` & `except`.
 
 ## COMANDOS DE EXECUÇÃO: IMAGEM & CONTÊINER
 
