@@ -19,7 +19,7 @@ def mascarador() -> None:
     while True:
         try:
             texto = input("Digite um texto para codificar - \
-                [Enter] para sair: ")
+                    [Enter] para sair: ")
 
             if texto == "":
                 break
@@ -29,11 +29,15 @@ def mascarador() -> None:
                 print(f"Texto codificado em SHA-1: \
                 {h.sha1(code_texto).hexdigest()}")
 
-        except EOFError as e:
-            print(f"{e}: \
+        except EOFError as eof:
+            print(f"{eof}: \
                 Não foi fornecido nenhum input \
                     durante a execução do programa.")
+        except UnicodeEncodeError as ue:
+            print(f"{ue}: \
+            Ocorreu algum problema na codificação de caracteres.")
 
 
 if __name__ == '__main__':
     mascarador()
+
