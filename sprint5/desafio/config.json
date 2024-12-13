@@ -1,0 +1,7 @@
+{
+    "bucketName": "compass-s5",
+    "region": "us-east-1",
+    "versioning": true,
+    "encryption": true,
+    "blockPublicAccess": false
+}
