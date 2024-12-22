@@ -37,6 +37,18 @@ Na pasta `evidencias/exercicios`, estão localizadas as imagens com a validaçã
 
 ## DESAFIO
 
+Integração de pipeline de tratamento e análise de dados com um bucket no AWS S3. O dataset utilizado para análise é disponilibilizado pela ANCINE, referente aos. Maiores informações no [site]().
+
+* **[/dados_raw](./desafio/dados_raw/)**: diretório com os arquivos CSV originais, emitidos anualmente.
+* **[etl.py](./desafio/etl.py)**: script de execução do pipeline do desafio. Responsável pelas etapas:
+  * **[dataset.csv](./desafio/dataset.csv)**: arquivo consolidado a partir da concatenação dos arquivos CSV em `dados_raw`.
+  * Criação do bucket, upload e download de arquivos gerados durante a execução.
+  * Chamada e execução do script `analise.py`.
+  * **[output_log.txt](./desafio/output_log.txt)**: arquivo de log de execução.
+* **[analise.py](./desafio/analise.py)**: script de análise do dataset, utilizando a biblioteca Pandas. Exporta a análise final no formato CSV.
+  * **[analise.csv](./desafio/analise.csv)**: arquivo exportado pelo script acima.
+* **[analise_polars.py](./desafio/analise_polars.py)**: versão alternativa do script de análise utilizando a biblioteca Polars.
+
 ## EVIDÊNCIAS
 
 Na pasta `evidencias`, encontram-se prints referentes a momentos de execução, exemplificando abordagens adotadas para o desenvolvimento dos exercícios e do desafio.  
@@ -52,7 +64,7 @@ Criação de instância EC2 para teste, tanto no console quanto a partir de scri
 
 #### EXECUÇÃO COM SCRIPT PYTHON E BOTO3
 
-![Execução EC2 Boto]()
+![Execução EC2 Boto](./evidencias/exercicios/3-ec2-instance-script.gif)
 
 ### AWS LAB S3 BUCKET: HOSPEDAGEM DE SITE ESTÁTICO
 
@@ -64,6 +76,10 @@ Criação de instância EC2 para teste, tanto no console quanto a partir de scri
 
 ![Execução Hospedagem Boto]()
 
+### DESAFIO: ESTRUTURA FINAL DO BUCKET
+
+![Bucket Desafio](./evidencias/desafio/3-bucket-conteudo.png)
+
 ## CERTIFICADOS AWS SKILL BUILDER
 
 ### AWS Curso-Padrão de Preparação para o Exame: CLF-C02 - Português
@@ -71,6 +87,13 @@ Criação de instância EC2 para teste, tanto no console quanto a partir de scri
 | |
 |---|
 |![Certificado](./certificados/cert-curso-prep-clf02.png) |
+||
+
+### AWS Cloud Quest: Cloud Practitioner
+
+| |
+|---|
+|[![Badge](./certificados/badge-cloud-quest.png)](https://www.credly.com/badges/65109749-29ad-4465-bcdb-81f979186ea4/public_url) |
 ||
 
 ## CERTIFICADOS COMPLEMENTARES
@@ -82,6 +105,13 @@ Para absorver melhor o conteúdo desta sprint e me aprofundar em pontos de inter
 | |
 |---|
 |![Certificado](certificados/cert-comp-fundamentals-ml-ai.png)|
+||
+
+### AWS Introduction to the AWS Cloud Adoption Framework (CAF)
+
+| |
+|---|
+|![Certificado](certificados/cert-comp-aws-caf.png)|
 ||
 
 ## BIBLIOGRAFIA

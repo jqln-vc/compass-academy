@@ -1,0 +1,84 @@
+[21-12-2024 21:41:05] Início da sequência de execução
+[21-12-2024 21:41:05] Criação do bucket no S3: compass-sprint5-desafio-ancine-2
+[21-12-2024 21:41:06] Upload de dados originais do diretorio: ./dados_raw
+[21-12-2024 21:41:06] Upload de dataset: ./dados_raw/obras-nao-pub-brasileiras-2015.csv
+[21-12-2024 21:41:07] Upload de dataset: ./dados_raw/obras-nao-pub-brasileiras-2018.csv
+[21-12-2024 21:41:07] Upload de dataset: ./dados_raw/obras-nao-pub-brasileiras-2003.csv
+[21-12-2024 21:41:08] Upload de dataset: ./dados_raw/obras-nao-pub-brasileiras-2017.csv
+[21-12-2024 21:41:08] Upload de dataset: ./dados_raw/obras-nao-pub-brasileiras-2024.csv
+[21-12-2024 21:41:09] Upload de dataset: ./dados_raw/obras-nao-pub-brasileiras-2006.csv
+[21-12-2024 21:41:09] Upload de dataset: ./dados_raw/obras-nao-pub-brasileiras-2013.csv
+[21-12-2024 21:41:10] Upload de dataset: ./dados_raw/obras-nao-pub-brasileiras-2014.csv
+[21-12-2024 21:41:10] Upload de dataset: ./dados_raw/obras-nao-pub-brasileiras-2022.csv
+[21-12-2024 21:41:11] Upload de dataset: ./dados_raw/obras-nao-pub-brasileiras-2007.csv
+[21-12-2024 21:41:11] Upload de dataset: ./dados_raw/obras-nao-pub-brasileiras-2012.csv
+[21-12-2024 21:41:11] Upload de dataset: ./dados_raw/obras-nao-pub-brasileiras-2016.csv
+[21-12-2024 21:41:12] Upload de dataset: ./dados_raw/obras-nao-pub-brasileiras-2021.csv
+[21-12-2024 21:41:12] Upload de dataset: ./dados_raw/obras-nao-pub-brasileiras-2023.csv
+[21-12-2024 21:41:13] Upload de dataset: ./dados_raw/obras-nao-pub-brasileiras-2011.csv
+[21-12-2024 21:41:13] Upload de dataset: ./dados_raw/obras-nao-pub-brasileiras-2004.csv
+[21-12-2024 21:41:14] Upload de dataset: ./dados_raw/obras-nao-pub-brasileiras-2008.csv
+[21-12-2024 21:41:14] Upload de dataset: ./dados_raw/obras-nao-pub-brasileiras-2009.csv
+[21-12-2024 21:41:15] Upload de dataset: ./dados_raw/obras-nao-pub-brasileiras-2019.csv
+[21-12-2024 21:41:15] Upload de dataset: ./dados_raw/obras-nao-pub-brasileiras-2005.csv
+[21-12-2024 21:41:16] Upload de dataset: ./dados_raw/obras-nao-pub-brasileiras-2020.csv
+[21-12-2024 21:41:16] Upload de dataset: ./dados_raw/obras-nao-pub-brasileiras-2010.csv
+[21-12-2024 21:41:16] Upload de dataset: ./dados_raw/obras-nao-pub-brasileiras-2002.csv
+[21-12-2024 21:41:17] Concatenação de dados originais em um único dataset
+[21-12-2024 21:41:17] Processando: ./dados_raw/obras-nao-pub-brasileiras-2015.csv
+[21-12-2024 21:41:17] Arquivo ./dados_raw/obras-nao-pub-brasileiras-2015.csv processado com sucesso
+[21-12-2024 21:41:17] Processando: ./dados_raw/obras-nao-pub-brasileiras-2018.csv
+[21-12-2024 21:41:17] Arquivo ./dados_raw/obras-nao-pub-brasileiras-2018.csv processado com sucesso
+[21-12-2024 21:41:17] Processando: ./dados_raw/obras-nao-pub-brasileiras-2003.csv
+[21-12-2024 21:41:17] Arquivo ./dados_raw/obras-nao-pub-brasileiras-2003.csv processado com sucesso
+[21-12-2024 21:41:17] Processando: ./dados_raw/obras-nao-pub-brasileiras-2017.csv
+[21-12-2024 21:41:17] Arquivo ./dados_raw/obras-nao-pub-brasileiras-2017.csv processado com sucesso
+[21-12-2024 21:41:17] Processando: ./dados_raw/obras-nao-pub-brasileiras-2024.csv
+[21-12-2024 21:41:17] Arquivo ./dados_raw/obras-nao-pub-brasileiras-2024.csv processado com sucesso
+[21-12-2024 21:41:17] Processando: ./dados_raw/obras-nao-pub-brasileiras-2006.csv
+[21-12-2024 21:41:17] Arquivo ./dados_raw/obras-nao-pub-brasileiras-2006.csv processado com sucesso
+[21-12-2024 21:41:17] Processando: ./dados_raw/obras-nao-pub-brasileiras-2013.csv
+[21-12-2024 21:41:17] Arquivo ./dados_raw/obras-nao-pub-brasileiras-2013.csv processado com sucesso
+[21-12-2024 21:41:17] Processando: ./dados_raw/obras-nao-pub-brasileiras-2014.csv
+[21-12-2024 21:41:17] Arquivo ./dados_raw/obras-nao-pub-brasileiras-2014.csv processado com sucesso
+[21-12-2024 21:41:17] Processando: ./dados_raw/obras-nao-pub-brasileiras-2022.csv
+[21-12-2024 21:41:17] Arquivo ./dados_raw/obras-nao-pub-brasileiras-2022.csv processado com sucesso
+[21-12-2024 21:41:17] Processando: ./dados_raw/obras-nao-pub-brasileiras-2007.csv
+[21-12-2024 21:41:17] Arquivo ./dados_raw/obras-nao-pub-brasileiras-2007.csv processado com sucesso
+[21-12-2024 21:41:17] Processando: ./dados_raw/obras-nao-pub-brasileiras-2012.csv
+[21-12-2024 21:41:17] Arquivo ./dados_raw/obras-nao-pub-brasileiras-2012.csv processado com sucesso
+[21-12-2024 21:41:17] Processando: ./dados_raw/obras-nao-pub-brasileiras-2016.csv
+[21-12-2024 21:41:17] Arquivo ./dados_raw/obras-nao-pub-brasileiras-2016.csv processado com sucesso
+[21-12-2024 21:41:17] Processando: ./dados_raw/obras-nao-pub-brasileiras-2021.csv
+[21-12-2024 21:41:17] Arquivo ./dados_raw/obras-nao-pub-brasileiras-2021.csv processado com sucesso
+[21-12-2024 21:41:17] Processando: ./dados_raw/obras-nao-pub-brasileiras-2023.csv
+[21-12-2024 21:41:17] Arquivo ./dados_raw/obras-nao-pub-brasileiras-2023.csv processado com sucesso
+[21-12-2024 21:41:17] Processando: ./dados_raw/obras-nao-pub-brasileiras-2011.csv
+[21-12-2024 21:41:17] Arquivo ./dados_raw/obras-nao-pub-brasileiras-2011.csv processado com sucesso
+[21-12-2024 21:41:17] Processando: ./dados_raw/obras-nao-pub-brasileiras-2004.csv
+[21-12-2024 21:41:17] Arquivo ./dados_raw/obras-nao-pub-brasileiras-2004.csv processado com sucesso
+[21-12-2024 21:41:17] Processando: ./dados_raw/obras-nao-pub-brasileiras-2008.csv
+[21-12-2024 21:41:17] Arquivo ./dados_raw/obras-nao-pub-brasileiras-2008.csv processado com sucesso
+[21-12-2024 21:41:17] Processando: ./dados_raw/obras-nao-pub-brasileiras-2009.csv
+[21-12-2024 21:41:17] Arquivo ./dados_raw/obras-nao-pub-brasileiras-2009.csv processado com sucesso
+[21-12-2024 21:41:17] Processando: ./dados_raw/obras-nao-pub-brasileiras-2019.csv
+[21-12-2024 21:41:17] Arquivo ./dados_raw/obras-nao-pub-brasileiras-2019.csv processado com sucesso
+[21-12-2024 21:41:17] Processando: ./dados_raw/obras-nao-pub-brasileiras-2005.csv
+[21-12-2024 21:41:17] Arquivo ./dados_raw/obras-nao-pub-brasileiras-2005.csv processado com sucesso
+[21-12-2024 21:41:17] Processando: ./dados_raw/obras-nao-pub-brasileiras-2020.csv
+[21-12-2024 21:41:17] Arquivo ./dados_raw/obras-nao-pub-brasileiras-2020.csv processado com sucesso
+[21-12-2024 21:41:17] Processando: ./dados_raw/obras-nao-pub-brasileiras-2010.csv
+[21-12-2024 21:41:17] Arquivo ./dados_raw/obras-nao-pub-brasileiras-2010.csv processado com sucesso
+[21-12-2024 21:41:17] Processando: ./dados_raw/obras-nao-pub-brasileiras-2002.csv
+[21-12-2024 21:41:17] Arquivo ./dados_raw/obras-nao-pub-brasileiras-2002.csv processado com sucesso
+[21-12-2024 21:41:18] 23 arquivos concatenados em dataset.csv
+[21-12-2024 21:41:18] Quantidade de linhas no arquivo final: 56608
+[21-12-2024 21:41:18] Upload do dataset concatenado no bucket
+[21-12-2024 21:41:21] Deleção do dataset concatenado após upload no bucket
+[21-12-2024 21:41:21] Download do dataset para etapa de análise
+[21-12-2024 21:41:33] Início do script de análise do dataset
+[21-12-2024 21:41:34] Análise concluída, veja uma prévia:
+  Tipo da Obra       Subtipo da Obra                             Segmento de Destinação  Qtd de Filmes
+0       Ficção  Erótico/Pornográfica  Comunicação Eletrônica De Massa Por Assinatura...            158
+[21-12-2024 21:41:34] Upload do arquivo de análise para o bucket
+[21-12-2024 21:41:34] Fim da sequência de execução
