@@ -22,7 +22,7 @@ Busquei explorar algumas formas de integração, utilizando o modo `client` e `r
 
 ### Polars
 
-Comecei a estudar, mas não tive tempo de aplicar a versão em Polars na minha análise. No entanto, me empolguei MUITO com a biblioteca ao aprender e ver o quão ágil ela pode ser: uma das colegas do programa só conseguiu tratar o dataset dela (de +- 6.5 M de linhas) com Polars. Essa demonstração do poder da biblioteca me motiva a continuar estudando, pois me parece uma ferramenta essencial para big data.
+Comecei a estudar, mas não tive tempo de aplicar a versão em Polars na minha análise. No entanto, me empolguei muito com a biblioteca ao aprender e ver o quão ágil ela pode ser: uma das colegas do programa só conseguiu tratar o dataset dela (de +- 6.5 M de linhas) com Polars. Essa demonstração do poder da biblioteca me motiva a continuar estudando, pois me parece uma ferramenta essencial para big data.
 
 ---
 
