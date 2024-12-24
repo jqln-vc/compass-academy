@@ -1,4 +1,5 @@
 """Sprint 5 - Desafio Dados Gov: análise de dados integrada ao AWS S3.
+
 Autoria: Jaqueline Costa
 Data: Dez/24
 
@@ -6,9 +7,9 @@ analise.py: script de manipulação e análise de dados, é executado a partir
 do script etl.py, recebendo o dataset consolidado após concatenação de
 datasets anuais.
 
-Os datasets utilizados foram disponibilizados pela ANCINE, referem-se à 
-produção audiovisual não-publicitária com registro CPB (Certificado de 
-Produto Brasileiro), em período anual. 
+Os datasets utilizados foram disponibilizados pela ANCINE, referem-se à
+produção audiovisual não-publicitária com registro CPB (Certificado de
+Produto Brasileiro), em período anual.
 """
 
 ##############################################################################
@@ -62,7 +63,7 @@ df['Segmento de Destinação'] = df['Segmento de Destinação'].str.title()
 
 # Conversão da coluna para datetime
 df['Data de Emissão do CPB'] = pd.to_datetime(
-    df['Data de Emissão do CPB'], 
+    df['Data de Emissão do CPB'],
     dayfirst=True,  # Indica o padrão original DD/MM/YYYY
     errors='coerce')
 
@@ -78,8 +79,8 @@ df['Duração Total (Minutos)'] = df['Duração Total (Minutos)'].str\
 # Condicionais de intervalo de tempo
 # Dois operadores lógicos AND
 # Condicional de exclusão de seriados e curta metragens
-df = df[(df['Data de Emissão do CPB'].dt.year >= 2020) & 
-        (df['Data de Emissão do CPB'].dt.year <= 2022) & 
+df = df[(df['Data de Emissão do CPB'].dt.year >= 2020) &
+        (df['Data de Emissão do CPB'].dt.year <= 2022) &
         (df['Organização Temporal'] == 'NÃO SERIADA') &
         (df['Duração Total (Minutos)'] >= 60)]
 

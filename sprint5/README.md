@@ -12,7 +12,17 @@
 [![AWS Fundamentos](https://img.shields.io/badge/Guia-AWS_Fundamentos-ED751A)](/guide/aws_fundamentos.md)  
 [![AWS Storage](https://img.shields.io/badge/Guia-AWS_Storage-ED751A)](/guide/aws_storage.md)
 
+Até então, eu tinha estudado muito de aspectos teóricos dos serviços de cloud da AWS. E esta sprint me possibilitou uma experiência de aprendizado na prática, que faltava para entender a relação entre alguns serviços e recursos aplicados nos estudos de caso verossimilhantes.
+
 ### Boto3 API
+
+Procurei me dedicar ao desenvolvimento com o Boto, pois considero essencial adquirir familiaridade com a API, visto que um dos conceitos principais da arquitetura de microsserviços e segurança é a automatização de processos.
+
+Busquei explorar algumas formas de integração, utilizando o modo `client` e `resource`, e praticar o desenvolvimento de scripts ao automatizar a criação de uma instância EC2, além da integração com o S3 realizada no desafio. Espero continuar desenvolvendo essa habilidade ao longo da trilha.
+
+### Polars
+
+Comecei a estudar, mas não tive tempo de aplicar a versão em Polars na minha análise. No entanto, me empolguei MUITO com a biblioteca ao aprender e ver o quão ágil ela pode ser: uma das colegas do programa só conseguiu tratar o dataset dela (de +- 6.5 M de linhas) com Polars. Essa demonstração do poder da biblioteca me motiva a continuar estudando, pois me parece uma ferramenta essencial para big data.
 
 ---
 
@@ -28,7 +38,9 @@ Na pasta `evidencias/exercicios`, estão localizadas as imagens com a validaçã
     * `Name` : compass-sprint5
     * `Project` : Programa de Bolsas
     * `CostCenter` : Data & Analytics
-* **hospedagem_s3.py** : criação de bucket com configuração para hospedagem de website estático e upload de arquivos da aplicação.
+* **Hospedagem S3** : criação e hospedagem de website em bucket S3 por meio do console.
+  * **/bucket-app** : contém os arquivos HTML de index e erro do app de teste.
+  * **/dados** : contém o arquivo CSV do app de teste.
   * Conteúdo do bucket:
     * `index.html`
     * `404.html`
@@ -37,17 +49,18 @@ Na pasta `evidencias/exercicios`, estão localizadas as imagens com a validaçã
 
 ## DESAFIO
 
-Integração de pipeline de tratamento e análise de dados com um bucket no AWS S3. O dataset utilizado para análise é disponilibilizado pela ANCINE, referente aos. Maiores informações no [site]().
+Integração de pipeline de tratamento e análise de dados com um bucket no AWS S3. O dataset utilizado para análise é disponilibilizado pela ANCINE, referente aos certificados emitidos anualmente para obras audiovisuais não publicitárias. Maiores informações no [site](https://dados.gov.br/dados/conjuntos-dados/crt-obras-nao-publicitarias-registradas).
+
+A seguir uma descrição dos componentes do desafio:
 
 * **[/dados_raw](./desafio/dados_raw/)**: diretório com os arquivos CSV originais, emitidos anualmente.
 * **[etl.py](./desafio/etl.py)**: script de execução do pipeline do desafio. Responsável pelas etapas:
-  * **[dataset.csv](./desafio/dataset.csv)**: arquivo consolidado a partir da concatenação dos arquivos CSV em `dados_raw`.
+  * **[dataset.csv](./desafio/dataset.csv)**: arquivo consolidado a partir da concatenação dos arquivos CSV em `dados_raw`, é exportado pelo script acima.
   * Criação do bucket, upload e download de arquivos gerados durante a execução.
   * Chamada e execução do script `analise.py`.
   * **[output_log.txt](./desafio/output_log.txt)**: arquivo de log de execução.
 * **[analise.py](./desafio/analise.py)**: script de análise do dataset, utilizando a biblioteca Pandas. Exporta a análise final no formato CSV.
-  * **[analise.csv](./desafio/analise.csv)**: arquivo exportado pelo script acima.
-* **[analise_polars.py](./desafio/analise_polars.py)**: versão alternativa do script de análise utilizando a biblioteca Polars.
+  * **[analise.csv](./desafio/analise.csv)**: arquivo com a análise final, é exportado pelo script acima.
 
 ## EVIDÊNCIAS
 
@@ -68,13 +81,11 @@ Criação de instância EC2 para teste, tanto no console quanto a partir de scri
 
 ### AWS LAB S3 BUCKET: HOSPEDAGEM DE SITE ESTÁTICO
 
+Hospedagem de site estático em um bucket, utilizando o AWS S3.
+
 #### EXECUÇÃO NO MANAGEMENT CONSOLE
 
 ![Execução Hospedagem Console](./evidencias/exercicios/2-lab-hospedagem.gif)
-
-#### EXECUÇÃO COM SCRIPT PYTHON E BOTO3
-
-![Execução Hospedagem Boto]()
 
 ### DESAFIO: ESTRUTURA FINAL DO BUCKET
 
@@ -107,14 +118,10 @@ Para absorver melhor o conteúdo desta sprint e me aprofundar em pontos de inter
 |![Certificado](certificados/cert-comp-fundamentals-ml-ai.png)|
 ||
 
-### AWS Introduction to the AWS Cloud Adoption Framework (CAF)
-
-| |
-|---|
-|![Certificado](certificados/cert-comp-aws-caf.png)|
-||
-
 ## BIBLIOGRAFIA
+
+
+AMAZON WEB SERVICES. **Boto Documentation**. Última atualização: 2024. Disponível em: <[boto3.amazonaws.com/v1/documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)>.
 
 AMAZON WEB SERVICES. **Simple Storage Service: User Guide**. Última atualização: 2024. Disponível em: <[docs.aws.amazon.com/pdfs/AmazonS3](https://docs.aws.amazon.com/pdfs/AmazonS3/latest/userguide/s3-userguide.pdf)>.
 

@@ -1,3 +1,14 @@
+"""
+Sprint 5 - Exercício Lab AWS: criação de instância EC2.
+
+Autoria: Jaqueline Costa
+Data: Dez/24
+
+instancia_ec2.py: script para criação de instância EC2 com configuração
+específica.
+"""
+
+
 import boto3
 import os
 
@@ -19,7 +30,7 @@ client = boto3.client(
     aws_session_token=aws_session_token
 )
 
-instance = ec2.create_instances(
+instancia = ec2.create_instances(
     MinCount=1,
     MaxCount=1,
     InstanceType='t2.micro',
@@ -44,27 +55,26 @@ instance = ec2.create_instances(
             ]
         }
     ],
-    
 )
 
 
 # Capturando o id da instância EC2 criada | instance é uma lista
-instance_id = instance[0].id
+id_instancia = instancia[0].id
 
 # Obtendo os detalhes da instância criada
-response = client.describe_instances(InstanceIds=[instance_id])
+resposta = client.describe_instances(InstanceIds=[id_instancia])
 
 # Acessando os detalhes da instância
-instance_details = response['Reservations'][0]['Instances'][0]
+config_instancia = resposta['Reservations'][0]['Instances'][0]
 
 # # Extraindo dados relevantes
-instance_state = instance_details['State']['Name']
-instance_type = instance_details['InstanceType']
+estado_instancia = config_instancia['State']['Name']
+tipo_instancia = config_instancia['InstanceType']
 
-tags = instance_details.get('Tags', [])
+tags = config_instancia.get('Tags', [])
 tags_dict = {tag['Key']: tag['Value'] for tag in tags}
 
-print(f"""Instância criada com o ID: {instance_id}
-      Estado da instância: {instance_state}
-      Tipo da instância: {instance_type}
+print(f"""Instância criada com o ID: {id_instancia}
+      Estado da instância: {estado_instancia}
+      Tipo da instância: {tipo_instancia}
       Tags da instância: {tags_dict}""")

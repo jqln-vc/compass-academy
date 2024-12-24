@@ -1,7 +1,7 @@
 """Sprint 5 - Desafio Dados Gov: análise de dados integrada ao AWS S3.
+
 Autoria: Jaqueline Costa
 Data: Dez/24
-
 etl.py: script com pipeline de extração/consolidação de dados,
 execução de script de análise e integração com uploads para um bucket S3.
 
@@ -28,19 +28,20 @@ import boto3
 # CLASSES E FUNÇÕES
 #
 
-def concatenador_csv(caminho_arquivos: str, 
+
+def concatenador_csv(caminho_arquivos: str,
                      arquivo_output: str,
-                     delimitador: str, 
+                     delimitador: str,
                      encoding: str) -> str:
     """
     Une diversos arquivos CSV com o mesmo schema em um único CSV.
-    
+
     Args:
         caminho_arquivos (str): caminho para o diretório com os CSV de input.
         arquivo_output (str): caminho para o output do CSV final.
         delimitador (str): símbolo de delimitação de colunas.
         encoding (str): codificação de caracteres do arquivo.
-    
+
     Returns:
         str: nome do arquivo de output.
         bool: False se ocorrer erro.
@@ -48,14 +49,10 @@ def concatenador_csv(caminho_arquivos: str,
     try:
         # Obter todos os arquivos CSV no diretório
         arqs_csv = glob.glob(os.path.join(caminho_arquivos, "*.csv"))
-        
-        if not arqs_csv:
-            print("Não existem arquivos CSV no diretório indicado")
-            return False
-            
+
         # Armazenar os DataFrames individualmente
         dfs = []
-        
+
         # Ler cada arquivo CSV e adicionar à lista
         for arquivo in arqs_csv:
             print(f"Processando: {arquivo}")
@@ -68,24 +65,20 @@ def concatenador_csv(caminho_arquivos: str,
                     na_values=['', 'NA', 'NULL'],  # Tratar campos vazios
                     keep_default_na=True
                 )
-                
+
                 # Remover quaisquer linhas vazias
                 df = df.dropna(how='all')
-                
+
                 dfs.append(df)
                 print(f"Arquivo {arquivo} processado com sucesso")
-                
+
             except Exception as e:
                 print(f"Erro ao processar o arquivo {arquivo}: {str(e)}")
                 return False
-            
-        if not dfs:
-            print("Sem DataFrames válidos para concatenar")
-            return False
-            
+
         # Concatenar todos os DataFrames
         final_df = pd.concat(dfs, ignore_index=True)
-        
+
         # Exportar o DataFrame concatenado para um arquivo CSV
         final_df.to_csv(
             arquivo_output,
@@ -94,12 +87,12 @@ def concatenador_csv(caminho_arquivos: str,
             quotechar='"',
             na_rep=''  # Representa valores NA como strings vazias
         )
-        
+
         print(f"{len(arqs_csv)} arquivos concatenados em {arquivo_output}")
         print(f"Quantidade de linhas no arquivo final: {len(final_df)}")
-        
+
         return arquivo_output
-        
+
     except Exception as e:
         print(f"Um erro ocorreu: {str(e)}")
         return False
@@ -107,30 +100,32 @@ def concatenador_csv(caminho_arquivos: str,
 
 class LogPrinter:
     """Classe de redirecionamento do stdout para log."""
+
     def __init__(self, nome_arquivo: str):
         """Construtor: obtém o arquivo log e conecta-se ao stdout."""
         self.arq_log = open(nome_arquivo, 'a')
         self.stdout = sys.stdout
         sys.stdout = self
-        
+
     def write(self, dados: str):
         """Escrita de dados com timestamp no stdout e log."""
-        if dados.strip():
+        if dados:
             timestamp = datetime.now().strftime("[%d-%m-%Y %H:%M:%S]")
             registro = f"{timestamp} {dados.strip()}\n"
             self.arq_log.write(registro)
             self.stdout.write(registro)
-            
+
     def flush(self):
         """Escrita imediata com flush do buffer."""
         self.arq_log.flush()
         self.stdout.flush()
-    
+
     def close(self):
         """Fechamento do arquivo log."""
         if not self.arq_log.closed:
             self.arq_log.close()
-            sys.stdout = self.stdout    
+            sys.stdout = self.stdout
+
 
 ##############################################################################
 # VARIÁVEIS
@@ -153,7 +148,7 @@ s3 = boto3.resource(
 diretorio_raw = "./dados_raw"
 raw_csvs = glob.glob(os.path.join(diretorio_raw, "*.csv"))
 output_csv = "dataset.csv"
-nome_balde = "compass-sprint5-desafio-ancine-2"
+nome_balde = "compass-sprint5-desafio-ancine"
 analise = "analise.csv"
 log = 'output_log.txt'
 
@@ -165,40 +160,40 @@ logger = LogPrinter(log)
 #
 
 if __name__ == '__main__':
-    
-    print(f"Início da sequência de execução")
+
+    print("Início da sequência de execução")
     print(f"Criação do bucket no S3: {nome_balde}")
     balde = s3.create_bucket(Bucket=nome_balde)
-    
+
     print(f"Upload de dados originais do diretorio: {diretorio_raw}")
     for arquivo_raw in raw_csvs:
         print(f"Upload de dataset: {arquivo_raw}")
         nome_arq = os.path.basename(arquivo_raw)
         balde.upload_file(Filename=arquivo_raw, Key=f'dados_raw/{nome_arq}')
-    
-    print(f"Concatenação de dados originais em um único dataset")
+
+    print("Concatenação de dados originais em um único dataset")
     dataset = concatenador_csv(diretorio_raw,
                                output_csv,
                                delimitador=';',
                                encoding='utf-8')
-    
-    print(f"Upload do dataset concatenado no bucket")
+
+    print("Upload do dataset concatenado no bucket")
     balde.upload_file(Filename=dataset,
                       Key=f'{dataset}')
-    
-    print(f"Deleção do dataset concatenado após upload no bucket")
+
+    print("Deleção do dataset concatenado após upload no bucket")
     subprocess.call(['rm', f'{dataset}'], text=True)
-    
-    print(f"Download do dataset para etapa de análise")
+
+    print("Download do dataset para etapa de análise")
     balde.download_file(Key=f'{dataset}', Filename=dataset)
-    
-    print(f"Início do script de análise do dataset")
-    namespace = rp.run_path(f'analise.py')
+
+    print("Início do script de análise do dataset")
+    namespace = rp.run_path('analise.py')
     print(f"Análise concluída, veja uma prévia:\n{namespace['df'].head()}")
-    
-    print(f"Upload do arquivo de análise para o bucket")
+
+    print("Upload do arquivo de análise para o bucket")
     balde.upload_file(Filename=analise, Key=f'{analise}')
-    
-    print(f"Fim da sequência de execução")
+
+    print("Fim da sequência de execução")
     logger.close()
     balde.upload_file(Filename=log, Key=f'{log}')
