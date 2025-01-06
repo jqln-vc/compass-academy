@@ -1,0 +1,2 @@
+dados_raw/series.csv filter=lfs diff=lfs merge=lfs -text
+dados_raw/movies.csv filter=lfs diff=lfs merge=lfs -text
