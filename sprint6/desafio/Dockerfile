@@ -7,6 +7,11 @@ RUN useradd -m datalake
 # Definição do diretório de trabalho
 WORKDIR /datalake/raw
 
+# Update de pip e instalação do boto3
+RUN pypy3 -m ensurepip && \
+    pypy3 -m pip install --upgrade pip && \
+    pypy3 -m pip install boto3
+
 # Cópia dos arquivos da aplicação para o WORKDIR
 COPY . .
 
