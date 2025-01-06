@@ -21,20 +21,29 @@ Todos os códigos dos exercícios foram implementados seguindo os Python Enhance
 Na pasta `evidencias/exercicios`, estão localizadas as imagens com a validação de cada exercício.
 
 * **Hospedagem S3** : criação e hospedagem de website em bucket S3 por meio do console.
-  * **/bucket-app** : contém os arquivos HTML de index e erro do app de teste.
-  * **/dados** : contém o arquivo CSV do app de teste.
+  * [**/bucket-app**](./exercicios/bucket-app/) : contém os arquivos HTML de index e erro do app de teste.
+  * [**/dados**](./exercicios/dados/) : contém o arquivo CSV do app de teste.
   * Conteúdo do bucket:
-    * `index.html`
-    * `404.html`
-    * `dados/nomes.csv`
+    * [**index.html**](./exercicios/bucket-app/index.html)
+    * [**404.html**](./exercicios/bucket-app/404.html)
+    * [**dados/nomes.csv**](./exercicios/dados/nomes.csv)
   * Link para o website [֍](http://compass-sprint5-lab.s3-website-us-east-1.amazonaws.com/)
 * **Análise com Athena** : análise de dados *serverless* em um bucket S3 utilizando Athena.
-  * **/sql** : contém os arquivos SQL com os comandos utilizados.
-    * `create_db_table.sql` comandos DDL para criação de banco de dados e tabela consumida a partir de conexão com S3.
-    * `analise.sql` comando DQL utilizado para a pesquisa dos 3 nomes mais utilizados em cada década, a partir desta, é gerado o arquivo CSV a seguir.
-  * `analise_athena.csv` arquivo gerado com os resultados da query.
+  * [**/sql**](./exercicios/sql/) : contém os arquivos SQL com os comandos utilizados.
+    * [**create_db_table.sql**](./exercicios/sql/create_db_table.sql) comandos DDL para criação de banco de dados e tabela consumida a partir de conexão com S3.
+    * [**analise.sql**](./exercicios/sql/analise.sql) comando DQL utilizado para a pesquisa dos 3 nomes mais utilizados em cada década, a partir desta, é gerado o arquivo CSV a seguir.
+  * [**analise_athena.csv**](./exercicios/analise_athena.csv) arquivo gerado com os resultados da query.
 
 ## DESAFIO
+
+O projeto final desenvolve um fluxo de processamento e análise de dados, a partir de uma arquitetura data lake. Para a primeira etapa, é implementada a camada raw, onde os arquivos originais são armazenados e organizados de acordo com a origem e data de processamento. A execução do script de ingestão de dados ao bucket S3 é realizada isolada em um container.
+
+* [**./dados_raw**](./desafio/dados_raw/) : diretório com os arquivos originais.
+  * [**movies.csv**](./desafio/dados_raw/movies.csv)
+  * [**series.csv**](./desafio/dados_raw/series.csv)
+* [**Dockerfile**](./desafio/Dockerfile) : arquivo de imagem Docker.
+* [**ingestão.py**](./desafio/ingestao.py) : script de execução da etapa de criação do bucket S3 e camada raw, seguida da ingestão dos arquivos originais.
+  * [**log-ingestao-20250106.txt**](./desafio/log-ingestao-20250106.txt) : arquivo de log gerado pela execução do script de ingestão.
 
 ## EVIDÊNCIAS
 
@@ -61,9 +70,67 @@ Análise de dados *serverless*, consumindo dados de um bucket S3, utilizando Ath
 
 ![Athena Análise de Dados](./evidencias/exercicios/3-athena-create-table-analise.gif)
 
+### AWS LAB LAMBDA
+
 ## CERTIFICADOS AWS SKILL BUILDER
 
-### AWS Curso-Padrão de Preparação para o Exame: CLF-C02 - Português
+### Fundamentals of Analytics on AWS - Part 1
+
+| |
+|---|
+|![Certificado](./certificados/cert-analytics-fundamentals-1.jpg) |
+||
+
+### Fundamentals of Analytics on AWS - Part 2
+
+| |
+|---|
+|![Certificado]() |
+||
+
+### AWS Serverless Analytics
+
+| |
+|---|
+|![Certificado](./certificados/cert-serverless-analytics.jpg) |
+||
+
+### Introduction to Amazon Athena
+
+| |
+|---|
+|![Certificado](./certificados/cert-intro-amazon-athena.jpg) |
+||
+
+### AWS Glue Getting Started
+
+| |
+|---|
+|![Certificado](./certificados/cert-getting-start-emr.jpg) |
+||
+
+### Amazon EMR Getting Started
+
+| |
+|---|
+|![Certificado](./certificados/cert-getting-start-emr.jpg) |
+||
+
+### Amazon Redshift Getting Started
+
+| |
+|---|
+|![Certificado](./certificados/cert-getting-started-redshift.jpg) |
+||
+
+### Best Practices for Data Warehousing with Amazon Redshift
+
+| |
+|---|
+|![Certificado](./certificados/cert-best-practices-data-warehousing.jpg) |
+||
+
+### Amazon QuickSight - Getting Started
 
 | |
 |---|
@@ -74,11 +141,32 @@ Análise de dados *serverless*, consumindo dados de um bucket S3, utilizando Ath
 
 Para absorver melhor o conteúdo desta sprint e me aprofundar em pontos de interesse, concluí em paralelo os cursos abaixo, externos à Udemy.
 
-### AWS Fundamentals of Machine Learning and Artificial Intelligence
+### Amazon Q Business Getting Started
 
 | |
 |---|
-|![Certificado](certificados/cert-comp-fundamentals-ml-ai.png)|
+|![Certificado](certificados/cert-comp-amazon-q-business.jpg)|
+||
+
+### Introduction to AWS Identity and Access Management (IAM)
+
+| |
+|---|
+|![Certificado](certificados/cert-comp-intro-aws-iam.jpg)|
+||
+
+### Getting Started with Amazon Simple Storage Service (S3)
+
+| |
+|---|
+|![Certificado](certificados/cert-comp-getting-started-s3.jpg)|
+||
+
+### Amazon RDS Primer
+
+| |
+|---|
+|![Certificado](certificados/cert-comp-rds-service-primer.jpg)|
 ||
 
 ## BIBLIOGRAFIA

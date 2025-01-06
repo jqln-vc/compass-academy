@@ -8,17 +8,24 @@
 ## SEÇÕES
 
 * **Introdução aos Datasets** [֍](#introdução-aos-datasets)
+  * **Tamanhos: Quantidade de Linhas e Colunas** [֍](#tamanhos-quantidade-de-linhas-e-colunas)
   * **Colunas e Tipos de Dados** [֍](#colunas-e-tipos-de-dados)
-  * **Análise Final: Contra-hegemonia Audiovisual na Era Pós-streaming** [֍](#análise-final-contra-hegemonia-audiovisual-na-era-pós-streaming)
+  * **Análise Final: Contra-hegemonia Cinematográfica na Era Pós-streaming** [֍](#análise-final-contra-hegemonia-cinematográfica-na-era-pós-streaming)
     * **Recorte Regional e Linguístico** [֍](#recorte-regional-e-linguístico)
     * **Recorte Temporal** [֍](#recorte-temporal)
+    * **Questões e Indicadores** [֍](#questões-e-indicadores)
 * **Introdução à Arquitetura de Data Lake** [֍](#introdução-à-arquitetura-de-data-lake)
   * **Estrutura do Data Lake com AWS S3** [֍](#estrutura-do-data-lake-com-aws-s3)
   * **Camada Raw** [֍](#camada-raw)
 * **Processamento de Dados no Data Lake: Etapa de Ingestão** [֍](#processamento-de-dados-no-data-lake-etapa-de-ingestão)
   * **Análise do Script** [֍](#análise-do-script)
+    * **Declaração de Variáveis** [֍](#declaração-de-variáveis)
+    * **Pipeline de Execução** [֍](#pipeline-de-execução)
   * **Preparação da Imagem Docker** [֍](#preparação-da-imagem-docker)
-  * **Execução do Container e Ingestão de Dados no S3 Raw** [֍](#execução-do-container-e-ingestão-de-dados-no-s3-raw)
+    * **Build da Imagem com Dockerfile** [֍](#build-da-imagem-com-dockerfile)
+  * **Execução do Container e Criação de Named Volume** [֍](#execução-do-container-e-criação-de-named-volume)
+  * **Demonstração da Ingestão de Dados no S3 Raw** [֍](#demonstração-da-ingestão-de-dados-no-s3-raw)
+    * **Organização dos Objetos no Bucket** [֍](#organização-dos-objetos-no-bucket)
 * **Considerações Finais** [֍](#considerações-finais)
 * **Referências** [֍](#referências)
 
@@ -30,11 +37,15 @@ Os [datasets](./dados_raw) utilizados neste projeto, `series.csv` e `movies.csv`
 
 ### TAMANHOS: QUANTIDADE DE LINHAS E COLUNAS
 
+*Voltar para **Seções*** [֍](#seções)
+
 O dataset `series.csv` possui 468783 linhas e 16 colunas, e o `filmes.csv` 1045161 linhas e 15 colunas.
 
 ![Shape DataFrames](../evidencias/desafio/3-datasets-shapes.png)
 
 ### COLUNAS E TIPOS DE DADOS
+
+*Voltar para **Seções*** [֍](#seções)
 
 A seguir a listagem e descrição dos campos:
 
@@ -76,6 +87,8 @@ Para a análise final será utilizado somente o dataset `filmes.csv` e os gêner
 
 #### RECORTE REGIONAL E LINGUÍSTICO
 
+*Voltar para **Seções*** [֍](#seções)
+
 Partindo desse recorte inicial, será analisada a emergência e popularização de produções audiovisuais de países pertencentes às **regiões das Américas Caribenha e Latina, África, Ásia, Polinésia e Leste Europeu, interpretadas em língua materna não-anglófona**, no período concernente à globalização cultural incentivada com os novos paradigmas de distribuição midiática.
 
 Para efetuar este recorte, será utilizada uma biblioteca de NLP (ainda a definir) para a identificação da língua dos títulos da coluna `tituloOriginal`, primeiramente, excluindo o inglês devido sua disseminação estar relacionada ao colonialismo, em todas suas facetas.
@@ -86,6 +99,8 @@ Após isso, será necessário obter dados auxiliares do país de produção a pa
 
 #### RECORTE TEMPORAL
 
+*Voltar para **Seções*** [֍](#seções)
+
 Para tanto, será realizada uma **seleção baseada em marcos temporais de consolidação de mercado da empresa de streaming Netflix**. Esta foi escolhida em vista da grande quantidade e visibilidade de títulos pertencentes aos países de interesse na plataforma; em contraste a outras plataformas de presença global que possuem uma quantidade irrisória de tais títulos, como Amazon Prime e HBO Max, ou àquelas que visam um público menor e mais específico, já consumidores de "cinema de arte", como a Mubi.
 
 Será considerada a coluna `anoLancamento`, filtrando o **período de 2013 aos dias de hoje**, visto que nesse ano, a presença da plataforma Netflix começa a se expandir para outros continentes. Porém, só em 2016 pode-se considerar sua quasi-onipresença global, ano em que é anunciado que, com exceção de alguns países (China, Crimeia, Coreia do Norte e Síria), o serviço da plataforma estaria disponível em todos os países.
@@ -95,6 +110,8 @@ Será considerada a coluna `anoLancamento`, filtrando o **período de 2013 aos d
 Partindo de um ano inicial em que a plataforma ainda não tinha presença global (2013), é possível verificar possíveis aumentos em indicativos de popularização nos anos após 2016.
 
 #### QUESTÕES E INDICADORES
+
+*Voltar para **Seções*** [֍](#seções)
 
 Após filtrados os títulos lançados a partir das regiões, línguas e período de interesse, serão utilizadas, a princípio, as seguintes questões norteadoras para embasar a análise final:
 
@@ -127,13 +144,15 @@ Para a arquitetura de um Data Lake utilizando buckets no S3, a AWS sugere a impl
 
 *Voltar para **Seções*** [֍](#seções)
 
-### ANÁLISE DO SCRIPT DE INGESTÃO
+### ANÁLISE DO SCRIPT
 
 *Voltar para **Seções*** [֍](#seções)
 
 A seguir, alguns comentários sobre detalhes do código e alterações realizadas para facilitar a execução em container.
 
 #### DECLARAÇÃO DE VARIÁVEIS
+
+*Voltar para **Seções*** [֍](#seções)
 
 ![Declaração de Variáveis](../evidencias/desafio/10-script-variaveis.png)
 
@@ -197,6 +216,8 @@ A função de `LogPrinter`, já apresentada em outra sprint, é utilizada para a
 
 #### PIPELINE DE EXECUÇÃO
 
+*Voltar para **Seções*** [֍](#seções)
+
 A sequência de ingestão se dá em 4 etapas, pontuadas com registros de log de inicialização, processo e conclusão.
 
 ![Pipeline de Execução](../evidencias/desafio/11-script-pipeline-execucao.png)
@@ -256,6 +277,8 @@ Após o último registro, o arquivo de logs é fechado e enviado para o bucket, 
 A execução da ingestão será realizada em um ambiente isolado de container com volume, a seguir o detalhamento do arquivo `Dockerfile` da imagem.
 
 #### BUILD DA IMAGEM COM DOCKERFILE
+
+*Voltar para **Seções*** [֍](#seções)
 
 O arquivo `Dockerfile` abaixo mantém a mesma estrutura já utilizada em outros projetos, com a exceção do bloco `RUN` que atualiza o gerenciador de pacotes Python `pip` e realiza a instalação da biblioteca `Boto3` no ambiente do container. 
 
@@ -329,7 +352,7 @@ Após a execução, é possível confirmar a criação do volume e inspeção de
 
 ![Listagem de Docker Volumes](../evidencias/desafio/14-docker-volume-ls.png)
 
-### EXECUÇÃO DO CONTAINER E INGESTÃO DE DADOS NO S3 RAW
+### DEMONSTRAÇÃO DA INGESTÃO DE DADOS NO S3 RAW
 
 *Voltar para **Seções*** [֍](#seções)
 
@@ -342,6 +365,8 @@ A seguir o comando completo para a execução do container com utilização de v
 ![Execução do Container e Ingestão no S3](../evidencias/desafio/15-execucao-desafio.gif)
 
 #### ORGANIZAÇÃO DOS OBJETOS NO BUCKET
+
+*Voltar para **Seções*** [֍](#seções)
 
 Dentro do AWS Management Console, a estrutura final após a conclusão da ingestão dos arquivos na camada raw fica assim disposta:
 
@@ -365,7 +390,9 @@ Dentro do AWS Management Console, a estrutura final após a conclusão da ingest
 
 *Voltar para **Seções*** [֍](#seções)
 
-A ideia geral para a composição do dashboard final é poder visualizar protagonistas de direção e atuação nesse novo cenário de produção e distribuição cinematográfica, que possibilita o acesso global em massa, facilitado pelas plataformas de streaming, em especial a Netflix, e sua variedade de legendas e dublagens.
+Nesta etapa do projeto final, é implementada a **camada raw** do datalake em um bucket AWS S3, onde os arquivos originais são armazenados e organizados de acordo com a origem e data de processamento.
+
+A ideia geral para análise final é poder visualizar protagonistas de direção e atuação nesse novo cenário de produção e distribuição cinematográfica que, alicerçado nas plataformas de streaming, em especial a líder de mercado Netflix, com sua variedade de legendas e dublagens, possibilita o acesso em massa de cultura global.
 
 ## REFERÊNCIAS
 
