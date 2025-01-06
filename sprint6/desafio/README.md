@@ -197,7 +197,7 @@ A função de `LogPrinter`, já apresentada em outra sprint, é utilizada para a
 
 #### PIPELINE DE EXECUÇÃO
 
-A sequência de ingestão se dá em 3 etapas, pontuadas com registros de log de inicialização, processo e conclusão.
+A sequência de ingestão se dá em 4 etapas, pontuadas com registros de log de inicialização, processo e conclusão.
 
 ![Pipeline de Execução](../evidencias/desafio/11-script-pipeline-execucao.png)
 
@@ -230,6 +230,15 @@ O upload de cada arquivo é feito pela iteração de `raw_csvs`:
         print(f"Upload de dataset {nome_arq} no caminho {caminho_raw}")
 ```
 
+* **Listagem do Conteúdo do Bucket**
+  
+Após a criação e os uploads, os objetos do bucket são listados.
+
+```python
+    print("Listagem de objetos no bucket")
+    [print(objeto) for objeto in balde.objects.all()]
+```
+
 * **Finalização e Geração de Arquivo de Log**
 
 Após o último registro, o arquivo de logs é fechado e enviado para o bucket, em um diretório especial para conter arquivos de logs dos processos executados no datalake.
@@ -248,7 +257,9 @@ A execução da ingestão será realizada em um ambiente isolado de container co
 
 #### BUILD DA IMAGEM COM DOCKERFILE
 
-```python
+O arquivo `Dockerfile` abaixo mantém a mesma estrutura já utilizada em outros projetos, com a exceção do bloco `RUN` que atualiza o gerenciador de pacotes Python `pip` e realiza a instalação da biblioteca `Boto3` no ambiente do container. 
+
+```docker
   # Uso de imagem pypy slim (mais ágil e eficiente)
   FROM pypy:3-slim
 
@@ -257,6 +268,11 @@ A execução da ingestão será realizada em um ambiente isolado de container co
 
   # Definição do diretório de trabalho
   WORKDIR /datalake/raw
+
+  # Update de pip e instalação do boto3
+  RUN pypy3 -m ensurepip && \
+  pypy3 -m pip install --upgrade pip && \
+  pypy3 -m pip install boto3
 
   # Cópia dos arquivos da aplicação para o WORKDIR
   COPY . .
@@ -280,8 +296,14 @@ Após a configuração do Dockerfile, é realizado o `build` da imagem a partir 
 A utilização de tags com a flag `-t` é uma boa prática para indicar nome e versão da imagem.
 
 ```bash
-    docker build . -t datalake_ingestao:v1
+    docker build . -t dl_ingestao:versao
 ```
+
+![Build da Imagem](../evidencias/desafio/12-docker-build.png)
+
+E a confirmação da criação da imagem com `docker images -a` :
+
+![Docker Images](../evidencias/desafio/13-docker-images.png)
 
 ### EXECUÇÃO DO CONTAINER E CRIAÇÃO DE NAMED VOLUME
 
@@ -295,21 +317,17 @@ Abaixo, o trecho do comando referente à criação do volume:
   docker run -v <nome-do-volume>:<caminho-para-montagem-do-volume>
 ```
 
-Após a execução, é possível confirmar a criação do volume com o comando a seguir:
+Após a execução, é possível confirmar a criação do volume e inspeção de sua configuração com os comandos a seguir:
 
 ```bash
-   docker volume ls
+  # Listagem de volumes
+  docker volume ls
+
+  # Inspeção de um volume específico
+  docker volume inspect dl_volume
 ```
 
-![Listagem de Docker Volumes]()
-
-Bem como as configurações do volume:
-
-```bash
-  docker volume inspect <nome-do-volume>
-```
-
-![Inspeção do Volume]()
+![Listagem de Docker Volumes](../evidencias/desafio/14-docker-volume-ls.png)
 
 ### EXECUÇÃO DO CONTAINER E INGESTÃO DE DADOS NO S3 RAW
 
@@ -318,8 +336,30 @@ Bem como as configurações do volume:
 A seguir o comando completo para a execução do container com utilização de volume:
 
 ```bash
-  docker run -it --name datalake_ingestao -v datalake_volume:/datalake/raw/data datalake_ingestao:v1
+  docker run -it --name dl_ingestao -v dl_volume:/datalake/raw/data dl_ingestao:v1
 ```
+
+![Execução do Container e Ingestão no S3](../evidencias/desafio/15-execucao-desafio.gif)
+
+#### ORGANIZAÇÃO DOS OBJETOS NO BUCKET
+
+Dentro do AWS Management Console, a estrutura final após a conclusão da ingestão dos arquivos na camada raw fica assim disposta:
+
+***Visão Geral do Bucket***
+
+![Bucket](../evidencias/desafio/15-bucket-s3.png)
+
+***Logs***
+
+![Bucket Logs](../evidencias/desafio/16-bucket-logs.png)
+
+***Movies***
+
+![Bucket Movies](../evidencias/desafio/5-s3-uri-movies.png)
+
+***Series***
+
+![Bucket Series](../evidencias/desafio/6-s3-uri-series.png)
 
 ## CONSIDERAÇÕES FINAIS
 

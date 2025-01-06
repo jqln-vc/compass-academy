@@ -1,0 +1,9 @@
+[06-01-2025 06:51:04] Início da sequência de execução de ingestão
+[06-01-2025 06:51:04] Criação do bucket no S3: compass-desafio-final-dramance
+[06-01-2025 06:51:04] Upload de dados originais do diretório: ./dados_raw
+[06-01-2025 06:51:05] Upload de dataset series.csv no caminho Raw/Local/CSV/Series/2025/01/06/series.csv
+[06-01-2025 06:51:06] Upload de dataset movies.csv no caminho Raw/Local/CSV/Movies/2025/01/06/movies.csv
+[06-01-2025 06:51:06] Listagem de objetos no bucket
+[06-01-2025 06:51:06] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/Local/CSV/Movies/2025/01/06/movies.csv')
+[06-01-2025 06:51:06] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/Local/CSV/Series/2025/01/06/series.csv')
+[06-01-2025 06:51:06] Ingestão realizada com sucesso
