@@ -122,25 +122,51 @@ Após filtrados os títulos lançados a partir das regiões, línguas e período
 
 *Voltar para **Seções*** [֍](#seções)
 
+A arquitetura de dados ***data lake*** surgiu para lidar com as dificuldades de lidar com ***big data***: a grande quantidade de dados, gerados em alta velocidade, em uma grande variedade de formatos e fontes.
+
+> *Em vez de impor limitações estruturais rígidas nos seus dados, por que não simplesmente depositar todos os seus dados estruturados e não-estruturados em um local centralizado?* [^1]
+
+Porém, apesar de simplificar e centralizar o armazenamento desses dados, surge a demanda um tratamento criterioso para obter valor e disponibilizá-los em tempo hábil e com fácil acesso.
+
+> *Assim que os dados estão em um **data lake**, precisam ser limpos, unidos, e possivelmente agregados para que se tornem úteis. É aqui onde algum tipo de computação [...] precisa se conectar ao **data lake**, extrair e transformar os dados, e então enviá-los de volta ao **data lake**.* [^2]
+
+Abaixo uma estrutura geral de um ***data lake*** [^3], a qual é mais ou menos modificada para atender quaisquer particularidades.
+
+![Data Lake General View](../../assets/data-lake-general-architecture.png)
+
+No exemplo acima, a etapa de ingestão é realizada fora da camada de armazenamento. Isso não será adotado neste projeto.
+
 ### ESTRUTURA DO DATA LAKE COM AWS S3
 
 *Voltar para **Seções*** [֍](#seções)
 
-Para a arquitetura de um Data Lake utilizando buckets no S3, a AWS sugere a implementação das seguintes camadas para o processo de ETL (AWS, Prescriptive Guidance, p. 5):
+Com o surgirmento e consolidação dos serviços de nuvem, as possibilidades de uma arquitetura robusta e desacoplada de ***data lake*** se expandiram.
+
+> *Conforme a nuvem cresceu em popularidade, esses **data lakes** migraram para armazenamentos de objetos em nuvem, com custos de armazenamento extremamente baratos e sua capacidade virtualmente ilimitada. [...] O **data lake** permite o armazenamento de uma quantidade imensa de dados de qualquer tamanho e tipo. Quando esses dados precisam ser analisados ou transformados, você tem acesso a um poder de computação quasi-ilimitado ao executar um cluster sob demanda, podendo escolher sua tecnologia de processamento de dados favorita para a tarefa em questão - MapReduce, Spark, Ray, Presto, Hive, etc.* [^4]
+
+Para a arquitetura de um ***data lake*** utilizando buckets no S3, a AWS sugere a implementação das seguintes camadas para o processo de ETL [^5]:
 
 ![Arquitetura Data Lake AWS](/assets/aws-cloud-data-lake-s3.png)
 
-> *Você pode utilizar uma camada de **landing** para datasets parcialmente sensíveis (por exemplo, se encriptação é somente necessária a nível de linhas ou colunas). Esses dados são ingeridos na camada **landing** de um bucket S3 e, então, mascarados. Depois que os dados são mascarados, são ingeridos na camada **raw** do bucket S3, o qual é encriptado com criptografia do lado do servidor (SSE - Server Side Encryption) com o Gerenciamento de Chaves S3 (SSE-S3).* (AWS Prescriptive Guidance, p. 12)
+É importante compreender que essa é uma sugestão de estruturação, porém a implementação é flexível e deve atender às necessidades específicas de cada projeto.
+
+Dito isso, a primeira camada de entrada de dados adotada aqui não será a camada ***landing***, mas sim a camada ***raw***. Não há necessidade daquela, em vista de os dados utilizados serem de acesso público e dispensarem tratamentos de privacidade.
+
+> *Você pode utilizar uma camada de **landing** para datasets parcialmente sensíveis (por exemplo, se encriptação é somente necessária a nível de linhas ou colunas). Esses dados são ingeridos na camada **landing** de um bucket S3 e, então, mascarados. Depois que os dados são mascarados, são ingeridos na camada **raw** do bucket S3, o qual é encriptado com criptografia do lado do servidor (SSE - Server Side Encryption) com o Gerenciamento de Chaves S3 (SSE-S3).* [^6]
 
 ### CAMADA RAW
 
 *Voltar para **Seções*** [֍](#seções)
 
-> *A camada **raw** contém os dados ingeridos que não foram transformados e que estão em seu arquivo original (por exemplo, JSON ou CSV). Esses dados são tipicamente organizados por fonte e pela data em que foi ingerido no bucket S3 da camada **raw** .* (AWS Prescriptive Guidance, p. 7)
+A primeira camada de recebimento de dados no ***data lake*** deste projeto será a camada **raw**, onde os dados são armazenados após a ingestão inicial da fonte original.
+
+> *A camada **raw** contém os dados ingeridos que não foram transformados e que estão em seu arquivo original (por exemplo, JSON ou CSV). Esses dados são tipicamente organizados por fonte e pela data em que foi ingerido no bucket S3 da camada **raw** .* [^7]
 
 ## PROCESSAMENTO DE DADOS NO DATA LAKE: ETAPA DE INGESTÃO
 
 *Voltar para **Seções*** [֍](#seções)
+
+A seguir, serão detalhados os passos da etapa inicial de ingestão de dados para a arquitetura de ***data lake*** em nuvem.
 
 ### ANÁLISE DO SCRIPT
 
@@ -396,4 +422,10 @@ A ideia geral para análise final é poder visualizar protagonistas de direção
 
 *Voltar para **Seções*** [֍](#seções)
 
-[^1]:
+[^1]: REIS, HOUSLEY, 2022, p. 101
+[^2]: SERRA, 2024, p. 60
+[^3]: EAGAR, 2021, p. 42
+[^4]: REIS, HOUSLEY, 2022, p. 101
+[^5]: AWS, Prescriptive Guidance, p. 5
+[^6]: Ibid., p. 12
+[^7]: Ibid., p. 7
