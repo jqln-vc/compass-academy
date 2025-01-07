@@ -11,7 +11,7 @@
 
 Acredito que esta sprint tenha sido essencial para fundamentar meus conhecimentos dos serviços AWS e como eles se integram uns aos outros. Tivemos muitas oportunidades de ver isso, como na integração do Athena e do Lambda com o S3.
 
-Também foi ótimo visualizar como iremos integrar os serviços de *analytics* futuramente, bem como implementar uma arquitetura de data lake na prática.
+Também foi ótimo visualizar como iremos integrar os serviços de *analytics* futuramente, bem como implementar uma arquitetura de data lake na prática. Além de vislumbrar, nos cursos, outras alternativas de arquiteturas para especificidades e ambientes diferentes, como o Data Warehouse "Moderno" e o Data Mesh, e como a AWS possibilita isso com os serviços disponíveis.
 
 ---
 
