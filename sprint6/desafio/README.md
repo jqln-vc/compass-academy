@@ -91,11 +91,9 @@ Para a análise final será utilizado somente o dataset `filmes.csv` e os gêner
 
 Partindo desse recorte inicial, será analisada a emergência e popularização de produções audiovisuais de países pertencentes às **regiões das Américas Caribenha e Latina, África, Ásia, Polinésia e Leste Europeu, interpretadas em língua materna não-anglófona**, no período concernente à globalização cultural incentivada com os novos paradigmas de distribuição midiática.
 
-Para efetuar este recorte, será utilizada uma biblioteca de NLP (ainda a definir) para a identificação da língua dos títulos da coluna `tituloOriginal`, primeiramente, excluindo o inglês devido sua disseminação estar relacionada ao colonialismo, em todas suas facetas.
+Para efetuar este recorte, será necessário obter dados auxiliares do país e língua de produção a partir das APIs do IMDB e TMDB, e/ou talvez alguma biblioteca de NLP (ainda a definir) para a análise dos títulos da coluna `tituloOriginal`. Primeiramente, será excluído o inglês devido sua disseminação estar relacionada ao colonialismo, em todas suas facetas, inclusive as pós-coloniais.
 
 ![Título Originais: Filmes](../evidencias/desafio/7-titulos-originais.png)
-
-Após isso, será necessário obter dados auxiliares do país de produção a partir das APIs do IMDB e TMDB.
 
 #### RECORTE TEMPORAL
 
@@ -280,7 +278,7 @@ A execução da ingestão será realizada em um ambiente isolado de container co
 
 *Voltar para **Seções*** [֍](#seções)
 
-O arquivo `Dockerfile` abaixo mantém a mesma estrutura já utilizada em outros projetos, com a exceção do bloco `RUN` que atualiza o gerenciador de pacotes Python `pip` e realiza a instalação da biblioteca `Boto3` no ambiente do container. 
+O arquivo `Dockerfile` abaixo mantém a mesma estrutura já utilizada em outros projetos, com a exceção do bloco `RUN` que atualiza o gerenciador de pacotes Python `pip` e realiza a instalação da biblioteca `Boto3` no ambiente do container.
 
 ```docker
   # Uso de imagem pypy slim (mais ágil e eficiente)

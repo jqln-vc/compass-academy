@@ -7,10 +7,11 @@
 
 ## RELATOS DE APRENDIZADO
 
-### AWS S3 Athena, Lambda
+### AWS S3, Athena, Lambda & Data Lake
 
-[![AWS Fundamentos](https://img.shields.io/badge/Guia-AWS_Fundamentos-ED751A)](/guide/aws_fundamentos.md)  
-[![AWS Storage](https://img.shields.io/badge/Guia-AWS_Storage-ED751A)](/guide/aws_storage.md)
+Acredito que esta sprint tenha sido essencial para fundamentar meus conhecimentos dos serviços AWS e como eles se integram uns aos outros. Tivemos muitas oportunidades de ver isso, como na integração do Athena e do Lambda com o S3.
+
+Também foi ótimo visualizar como iremos integrar os serviços de *analytics* futuramente, bem como implementar uma arquitetura de data lake na prática.
 
 ---
 
@@ -33,6 +34,7 @@ Na pasta `evidencias/exercicios`, estão localizadas as imagens com a validaçã
     * [**create_db_table.sql**](./exercicios/sql/create_db_table.sql) comandos DDL para criação de banco de dados e tabela consumida a partir de conexão com S3.
     * [**analise.sql**](./exercicios/sql/analise.sql) comando DQL utilizado para a pesquisa dos 3 nomes mais utilizados em cada década, a partir desta, é gerado o arquivo CSV a seguir.
   * [**analise_athena.csv**](./exercicios/analise_athena.csv) arquivo gerado com os resultados da query.
+* **Função Serverless com Lambda** : execução de uma função Lambda em Python que calcula a quantidade de linhas de um arquivo csv armazenado em um bucket S3. A função utiliza uma camada com a biblioteca Pandas. Detalhes sobre a execução na seção [**AWS Lab Lambda**](#aws-lab-lambda).
 
 ## DESAFIO
 
@@ -44,6 +46,8 @@ O projeto final desenvolve um fluxo de processamento e análise de dados, a part
 * [**Dockerfile**](./desafio/Dockerfile) : arquivo de imagem Docker.
 * [**ingestão.py**](./desafio/ingestao.py) : script de execução da etapa de criação do bucket S3 e camada raw, seguida da ingestão dos arquivos originais.
   * [**log-ingestao-20250106.txt**](./desafio/log-ingestao-20250106.txt) : arquivo de log gerado pela execução do script de ingestão.
+  
+Após a familiarização inicial com os datasets, as motivações para a pesquisa proposta para a análise final foram desenvolvidas na seção [Análise Final: Contra-hegemonia Cinematográfica na Era Pós-streaming](./desafio/README.md#análise-final-contra-hegemonia-cinematográfica-na-era-pós-streaming).
 
 ## EVIDÊNCIAS
 
@@ -72,6 +76,34 @@ Análise de dados *serverless*, consumindo dados de um bucket S3, utilizando Ath
 
 ### AWS LAB LAMBDA
 
+#### ETAPA 1: DEPLOY DA FUNÇÃO
+
+![Etapa 1 Lambda Deploy](./evidencias/exercicios/4-lambda-deploy.gif)
+
+#### ETAPA 2: ERRO NO TESTE
+
+![Etapa 2 Erro](./evidencias/exercicios/5-lambda-error.gif)
+
+#### ETAPA 3: CRIAÇÃO DA LAYER EM UM DOCKER CONTAINER
+
+![Etapa 3 Layer em Container](./evidencias/exercicios/6-lambda-build-layer-pandas.gif)
+
+#### ETAPA 4: UPLOAD DA LAYER NO BUCKET S3
+
+![Etapa 4 Upload da Layer no Bucket](./evidencias/exercicios/7-lambda-upload-zip-bucket.png)
+
+#### ETAPA 5: CRIAÇÃO DA LAYER COM PANDAS
+
+![Etapa 5 Criação de Layer](./evidencias/exercicios/8-lambda-criacao-pandas-layer.png)
+
+#### ETAPA 6: ADIÇÃO DA LAYER NA FUNÇÃO LAMBDA
+
+![Etapa 6 Adição da Layer na Função](./evidencias/exercicios/9-lambda-add-layer.png)
+
+#### ETAPA 7: TESTE DA FUNÇÃO REALIZADO COM SUCESSO
+
+![Etapa 7 Teste Realizado com Sucesso](./evidencias/exercicios/10-lambda-successful-test.png)
+
 ## CERTIFICADOS AWS SKILL BUILDER
 
 ### Fundamentals of Analytics on AWS - Part 1
@@ -85,7 +117,7 @@ Análise de dados *serverless*, consumindo dados de um bucket S3, utilizando Ath
 
 | |
 |---|
-|![Certificado]() |
+|![Certificado](./certificados/cert-analytics-fundamentals-2.jpg) |
 ||
 
 ### AWS Serverless Analytics
@@ -134,7 +166,7 @@ Análise de dados *serverless*, consumindo dados de um bucket S3, utilizando Ath
 
 | |
 |---|
-|![Certificado]() |
+|![Certificado](./certificados/cert-getting-started-quicksight.jpg) |
 ||
 
 ## CERTIFICADOS COMPLEMENTARES
