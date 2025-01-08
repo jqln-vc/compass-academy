@@ -25,14 +25,14 @@
 
 ## EXPERIÊNCIAS NA ÁREA DE DADOS
 
-* **Pesquisadora | Projeto TermNeo - Observatório de Neologismos do Português Brasileiro Contemporâneo | [Profª Drª Ieda Maria Alves](http://lattes.cnpq.br/1928032004153127)**  
-Coleta e elaboração de *corpora* terminológicos, bem como análise lexical de compostos lúdicos e neologismos da área de Desenvolvimento Sustentável.  
+* **Analista de Metainformação Sênior & Squad Leader | Omnilogic SA**  
+Coordenação de rotinas de squad responsável pela documentação de processos, padronização de metadados e processamentos em batch de dados, com uso de RegEx e SQL, auxiliando o squad de MLOps na otimização dos modelos de machine learning dos produtos voltados à área de e-commerce.
 
 * **Integrante | [SemioCom](https://semio.cc/) - Grupo Experimental em Semiótica Computacional**  
 Breve participação no grupo com contribuição de ideias e códigos. Nesse período, buscávamos o desenvolvimento de alternativas de processamento de linguagem natural, em específico para análise de sentimento, baseadas em uma abordagem metodológica semiótica.
 
-* **Analista de Metainformação Sênior & Squad Leader | Omnilogic SA**  
-Coordenação de rotinas de squad responsável pela documentação de processos, padronização de metadados e processamentos em batch de dados, com uso de RegEx e SQL, auxiliando o squad de MLOps na otimização dos modelos de machine learning dos produtos voltados à área de e-commerce.  
+* **Pesquisadora | Projeto TermNeo - Observatório de Neologismos do Português Brasileiro Contemporâneo | [Profª Drª Ieda Maria Alves](http://lattes.cnpq.br/1928032004153127)**  
+Coleta e elaboração de *corpora* terminológicos, bem como análise lexical de compostos lúdicos e neologismos da área de Desenvolvimento Sustentável.  
 
 ## MOTIVAÇÕES E INTERESSES
 
