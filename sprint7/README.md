@@ -19,6 +19,9 @@ Todos os códigos dos exercícios foram implementados seguindo os Python Enhance
 
 Na pasta `evidencias/exercicios`, estão localizadas as imagens com a validação de cada exercício.
 
+* **Spark | Contador de Palavras** : a partir de um container com PySpark, execução de um script para a contagem de palavras do README do desafio da sprint 6.
+  * [**contador.py**](./exercicios/spark/contador.py)
+
 
 ## DESAFIO
 
@@ -30,6 +33,7 @@ Na pasta `evidencias`, encontram-se prints referentes a momentos de execução, 
 No passo a passo explicativo, encontrado na pasta `desafio`, serão comentados outros prints de pontos específicos.
 
 ### APACHE SPARK: CONTADOR DE PALAVRAS
+
 
 ### AWS LAB GLUE
 
