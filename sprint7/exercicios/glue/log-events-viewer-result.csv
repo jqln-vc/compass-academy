@@ -1,0 +1,92 @@
+timestamp,message
+1736535120697,"PROXY_DISABLED=
+PROXY_DISABLED_V2=
+"
+1736535120697,"AWS_USE_FIPS_ENDPOINT=false
+"
+1736535154410,"About to invoke Process launcher
+"
+1736535213864,"/usr/lib/spark/python/lib/pyspark.zip/pyspark/sql/dataframe.py:147: UserWarning: DataFrame constructor is internal. Do not directly use it.
+Etapa 1: Esquema do DataFrame
+"
+1736535213894,"root
+ |-- nome: string (nullable = true)
+ |-- sexo: string (nullable = true)
+ |-- total: string (nullable = true)
+ |-- ano: string (nullable = true)
+
+Etapa 2: Nomes em Maiúsculas
+"
+1736535217507,'"+---------+----+-----+----+
+|     nome|sexo|total| ano|
++---------+----+-----+----+
+| JENNIFER|   F|54336|1983|
+|  JESSICA|   F|45278|1983|
+|   AMANDA|   F|33752|1983|
+|   ASHLEY|   F|33292|1983|
+|    SARAH|   F|27228|1983|
+|  MELISSA|   F|23472|1983|
+|   NICOLE|   F|22392|1983|
+|STEPHANIE|   F|22323|1983|
+|  HEATHER|   F|20749|1983|
+|ELIZABETH|   F|19838|1983|
++---------+----+-----+----+
+only showing top 10 rows
+
+Etapa 3: Contagem de Linhas
+"
+1736535222660,"1825433 linhas
+Etapa 4: Contagem de nomes agrupados por ano e sexo
+"
+1736535232755,'"+---------+----+----+----------+
+|     nome| ano|sexo|soma_total|
++---------+----+----+----------+
+|   OLIVIA|2014|   F|   19674.0|
+|     EMMA|2014|   F|   20799.0|
+|CHARLOTTE|2014|   F|   10048.0|
+|     ANNA|2014|   F|    5639.0|
+|      AVA|2014|   F|   15586.0|
+|   SOPHIA|2014|   F|   18490.0|
+|  ARIANNA|2014|   F|    5240.0|
+|    EMILY|2014|   F|   12562.0|
+|    RILEY|2014|   F|    4761.0|
+|  ABIGAIL|2014|   F|   11985.0|
++---------+----+----+----------+
+only showing top 10 rows
+
+Etapa 5: Nome Feminino com Mais Ocorrências
+"
+1736535238662,'"+---------+-----+----+
+|     nome|total| ano|
++---------+-----+----+
+|ELIZABETH| 9993|1932|
++---------+-----+----+
+
+Etapa 6: Nome Masculino com Mais Ocorrências
+"
+1736535241621,'"+-----+-----+----+
+| nome|total| ano|
++-----+-----+----+
+|DAVID| 9997|1928|
++-----+-----+----+
+
+Etapa 6: Nome Masculino com Mais Ocorrências
+"
+1736535245017,'"+----+----------+
+| ano|soma_total|
++----+----------+
+|1880|  201484.0|
+|1881|  192699.0|
+|1882|  221538.0|
+|1883|  216950.0|
+|1884|  243467.0|
+|1885|  240855.0|
+|1886|  255319.0|
+|1887|  247396.0|
+|1888|  299480.0|
+|1889|  288950.0|
++----+----------+
+only showing top 10 rows
+
+Etapa 8: Salvando DataFrame no Bucket
+"

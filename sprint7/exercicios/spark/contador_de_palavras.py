@@ -3,7 +3,8 @@ Sprint 7 - Lab Spark: contador de palavras de arquivo.
 
 Autoria: Jaquelinha Costa
 Data: Jan/2025
-contador_de_palavras.py: script que realiza u
+contador_de_palavras.py: script que realiza contagem de frequência
+de palavras de arquivo.
 """
 
 from pyspark.sql import SparkSession
@@ -27,13 +28,13 @@ def limpeza_caracteres(linha):
 # Execução da contagem de palavras
 contagem_palavras = (
     texto_rdd
-    .flatMap(limpeza_caracteres)            # Split linhas into words
-    .map(lambda word: (word, 1))         # Map each word to (word, 1)
-    .reduceByKey(lambda a, b: a + b)     # Reduce by key to count occurrences
+    .flatMap(limpeza_caracteres)         # Separa linhas em palavras
+    .map(lambda palavra: (palavra, 1))         # Mapeia cada palavra em (palavra, 1)
+    .reduceByKey(lambda a, b: a + b)     # Reduz pela chave, contando ocorrências
 )
 
 # Collect and display results
 for palavra, contagem in contagem_palavras\
     .sortBy(lambda x: x[1], ascending=False)\
     .collect():
-    print(f"{word}: {count}")
+    print(f"{palavra}: {contagem}")
