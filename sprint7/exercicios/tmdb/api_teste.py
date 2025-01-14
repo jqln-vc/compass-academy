@@ -1,3 +1,10 @@
+"""
+Sprint 7 - TMDB API: teste de chaves com requisição de dados.
+
+Data: Jan/25
+api_teste.py: script que obtém dados de filmes do banco de dados
+TMDB, com tratamento da resposta obtida em JSON.
+"""
 
 #################################################################
 # IMPORTAÇÕES

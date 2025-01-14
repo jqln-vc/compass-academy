@@ -19,9 +19,23 @@ Todos os códigos dos exercícios foram implementados seguindo os Python Enhance
 
 Na pasta `evidencias/exercicios`, estão localizadas as imagens com a validação de cada exercício.
 
-* **Spark | Contador de Palavras** : a partir de um container com PySpark, execução de um script para a contagem de palavras do README do desafio da sprint 6.
-  * [**contador.py**](./exercicios/spark/contador.py)
+* **Spark | Contador de Palavras** : a partir de um container com PySpark, execução de um script para a contagem de palavras de um arquivo de texto, testado com este README.
+  * [**contador_de_palavras.py**](./exercicios/spark/contador_de_palavras.py)
+  * **comando de execução do container**:
+  
+  ```bash
+    docker run -it --name spark_contador_07 -v ./README.md:/home/readme.md -v ./exercicios/spark/contador_de_palavras.py:/home/contador.py 0add pyspark
+  ```
 
+* **API TMDB | Teste de Acesso** : obtenção de dados do database TMDB por meio de API.
+  * [**api_teste.py**](./exercicios/tmdb/api_teste.py)
+
+* **AWS Lab Glue** : execução de ETL, leitura de schema com crawler, e análise de dados com integração no S3, CloudWatch Logs e Athena.
+  * [**job_intro_teste.py**](./exercicios/glue/job_intro_teste.py) : script de introdução ao AWS Glue, teste com filtro de dataset e output em parquet.
+    * [**analise_ano_1934.parquet**](./exercicios/glue/analise_ano_1934.parquet) : arquivo gerado com a execução do job acima.
+  * [**job_exercicio.py**](./exercicios/glue/job_exercicio.py) : script de resolução do exercício, visualização de schema, 6 etapas de análise de dados e output particionado em JSON no bucket S3.
+    * [**data_catalog_freq_registro_nomes_eua.csv**](./exercicios/glue/data_catalog_freq_registro_nomes_eua.csv) : arquivo de dados gerado com o crawler.
+    * [**log_events_viewer_result.csv**](./exercicios/glue/log_events_viewer_result.csv) : arquivo de logs da execução gerado com o CloudWatch.
 
 ## DESAFIO
 
@@ -34,6 +48,17 @@ No passo a passo explicativo, encontrado na pasta `desafio`, serão comentados o
 
 ### APACHE SPARK: CONTADOR DE PALAVRAS
 
+#### ETAPA 1: PULL DA IMAGEM
+
+![Docker Pull Imagem](./evidencias/exercicios/2-spark-pull-docker-image.png)
+
+#### ETAPA 2: EXECUÇÃO DO SCRIPT CONTADOR EM CONTAINER COM VOLUME
+
+![Docker Run Com Volume](./evidencias/exercicios/3-spark-run-script-contador.png)
+
+### API TMDB
+
+![Script Dados API](./evidencias/exercicios/1-tmdb-filmes.png)
 
 ### AWS LAB GLUE
 
