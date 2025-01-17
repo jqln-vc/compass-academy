@@ -6,10 +6,10 @@
 
 import json
 import csv
-import requests
-import os
-import time
 import boto3
+import requests
+import sys
+from datetime import datetime
 from math import ceil
 
 #########################################################################
@@ -48,6 +48,7 @@ def processador_api_batch(filmes_id: list[str],
                           headers: dict,
                           paises_excluidos: list[str],
                           atributos: list[str],
+                          s3_bucket: str,
                           tam_batch: int = 100,
                           caminho_output: str = './api_data'
                           ) -> None:
@@ -67,54 +68,60 @@ def processador_api_batch(filmes_id: list[str],
     # Calcula o número total de batches
     total_batches = ceil(len(filmes_id) / tam_batch)
         
-    for batch_num in range(total_batches):
-        inicio = batch_num * tam_batch
+    for batch_n in range(total_batches):
+        inicio = batch_n * tam_batch
         fim = min(inicio + tam_batch, len(filmes_id))
+        batch_n += 1
             
         # Processa o batch atual
         dados = []
         batch_atual = filmes_id[inicio:fim]
             
-        print(f"Processando batch {batch_num + 1}/{total_batches} (IDs {inicio} to {fim})")
+        print(f"Processando batch {batch_n}/{total_batches}\
+            (IDs {inicio} to {fim})")
             
         for _id in batch_atual:
             try:
                 url = f"https://api.themoviedb.org/3/movie/{_id}?language=en-US"
                 resposta = requests.get(url, headers=headers)
-                    
+
                 if resposta.status_code == 200:
                     dados_tmdb = resposta.json()
-                        
+
                     # Verifica condições de exclusão
-                    if (dados_tmdb['origin_country'][0] not in paises_excluidos and 
-                        dados_tmdb['original_language'] != 'en'):
-                            
+                    if (dados_tmdb['origin_country'][0]
+                        not in paises_excluidos
+                        and dados_tmdb['original_language'] != 'en'):
+
                         print(f"Adicionado id: {_id}")
                         dados.append(dados_tmdb)
                 else:
-                    print(f"Falha em obter o filme de id: {_id}. Status: {resposta.status_code}")
-                    
-                # Temporizador de espera, entre requests
-                time.sleep(1)
-                    
+                    print(f"Erro em obter o filme de id: {_id}. Status: {resposta.status_code}")
+
             except Exception as e:
-                print(f"Erro ao processar filme de id {_id}: {str(e)}")
+                print(f"Erro ao processar filme de id {_id}: {str(e)}. Status: {resposta.status_code}")
                 continue
             
         # Filtrar atributos e salvar o batch em json
         if dados:
-            dados_filtrados = [{chave: item[chave] for chave in atributos} for item in dados]
-                
-            arq_output = f'{caminho_output}/filmes_attr_batch_{batch_num + 1}.json'
+            dados_filtrados = [{chave: item[chave] 
+                                for chave in atributos} 
+                               for item in dados]
             try:
-                with open(arq_output, 'w', encoding='utf-8') as arqjson:
-                    json.dump(dados_filtrados, arqjson, indent=4, ensure_ascii=False)
-                print(f"Batch {batch_num + 1} salvo em {arq_output}")
+                s3_bucket.put_object(
+                    Key=f'{caminho_output}/filmes_attr_batch_{batch_n}.json',
+                    Body=json.dumps(dados_filtrados,
+                                    indent=4,
+                                    ensure_ascii=False).encode('utf-8')
+                    )
+
+                print(f"Batch {batch_n} salvo em {arq_output}")
+
             except Exception as e:
-                print(f"Erro ao salvar o batch {batch_num + 1}: {str(e)}")
+                print(f"Erro ao salvar o batch {batch_n}: {str(e)}")
                     
         else:
-            print(f"Não existem filmes válidos no batch {batch_num + 1}")
+            print(f"Erro: não existem filmes válidos no batch {batch_n}")
 
 
 #########################################################################
@@ -127,10 +134,22 @@ tmdb_api_token = os.environ.get('TMDB_READ_TOKEN')
 ano, mes, dia = datetime.now().year,\
     f"{datetime.now().month:02}", f"{datetime.now().day:02}"
 
-# ID de Filmes
-with open('filmes_attr_is_english.csv', 'r', encoding='latin1') as arq:
+# Caminhos e Nomes de Arquivos
+nome_balde = os.environ.get('BUCKET')
+dataset_base = os.environ.get('BASE_DATASET')
+caminho_output = f'Raw/TMDB/JSON/{ano}/{mes}/{dia}'
+log = f'log-ingestao-{ano}{mes}{dia}.txt'
+
+
+# Recurso S3
+s3 = boto3.resource('s3')
+balde = s3.Bucket(nome_balde)
+
+# ID de Filmes: somente IDs distintos
+with open(dataset_base, 'r', encoding='latin1') as arq:
     reader = csv.reader(arq)
-    filmes_id = [row[0] for row in list(reader)[1:200]]
+    #filmes_id = list({linha[0] for linha in list(reader)[1:]})
+    filmes_id = ['tt7600718', 'tt14045622']
     
 # Header das Requisições
 headers = {
@@ -138,7 +157,7 @@ headers = {
     "Authorization": f"Bearer {tmdb_api_token}"
 }
 
-# Filtros de Dados 
+# Filtros de Dados
 paises_excluidos = [
     "BE",
     "CH",
@@ -160,29 +179,36 @@ paises_excluidos = [
     "US"
 ]
 
-atributos = ["imdb_id",
-             "origin_country",
-             "original_language",
-             "original_title",
-             "overview",
-             "spoken_languages"]
-
-# Caminhos e Nomes de Arquivos
-nome_balde = "compass-desafio-final-dramance"
-log = f'log-ingestao-{ano}{mes}{dia}.txt'
+atributos = [
+    "imdb_id",
+    "original_title",
+    "origin_country",
+    "original_language",
+    "spoken_languages",
+    "overview"]
 
 # Reconfiguração do stdout
+sys.stdout.reconfigure(encoding='utf-8')
 logger = LogPrinter(log)
 
 ###############################################################
 # EXECUÇÃO
 
-
+print("Início da sequência de execução de ingestão via API")
+print(f"Iniciando requisições de dados do TMDB")
 processador_api_batch(
     filmes_id=filmes_id,
     headers=headers,
     paises_excluidos=paises_excluidos,
     atributos=atributos,
+    s3_bucket=balde,
     tam_batch=100,
-    caminho_output='./api_data'
+    caminho_output=caminho_output
 )
+
+print("Listagem de objetos no bucket {nome_balde}")
+[print(objeto) for objeto in balde.objects.all()]
+    
+print("Ingestão realizada com sucesso")
+logger.close()
+balde.upload_file(Filename=log, Key=f'Logs/{log}')
