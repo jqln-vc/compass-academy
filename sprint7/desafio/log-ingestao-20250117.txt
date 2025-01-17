@@ -1,0 +1,669 @@
+[17-01-2025 03:03:09] Início da sequência de execução de ingestão via API
+[17-01-2025 03:03:09] Iniciando requisições de dados do TMDB
+[17-01-2025 03:03:09] Processando batch 1/10            (IDs 0 to 100)
+[17-01-2025 03:03:09] Adicionado id: tt10841514
+[17-01-2025 03:03:09] Adicionado id: tt2999342
+[17-01-2025 03:03:09] Adicionado id: tt11274618
+[17-01-2025 03:03:09] Erro em obter o filme de id: tt12235966. Status: 404
+[17-01-2025 03:03:09] Adicionado id: tt7726702
+[17-01-2025 03:03:09] Adicionado id: tt12054712
+[17-01-2025 03:03:09] Adicionado id: tt4479178
+[17-01-2025 03:03:09] Adicionado id: tt14190918
+[17-01-2025 03:03:09] Adicionado id: tt4903518
+[17-01-2025 03:03:09] Adicionado id: tt5915304
+[17-01-2025 03:03:09] Adicionado id: tt10922610
+[17-01-2025 03:03:09] Adicionado id: tt14514234
+[17-01-2025 03:03:09] Adicionado id: tt15212810
+[17-01-2025 03:03:09] Erro em obter o filme de id: tt4226230. Status: 404
+[17-01-2025 03:03:09] Adicionado id: tt19850394
+[17-01-2025 03:03:09] Erro em obter o filme de id: tt2338862. Status: 404
+[17-01-2025 03:03:09] Adicionado id: tt6072380
+[17-01-2025 03:03:09] Erro em obter o filme de id: tt14123982. Status: 404
+[17-01-2025 03:03:09] Adicionado id: tt14123898
+[17-01-2025 03:03:09] Adicionado id: tt15677260
+[17-01-2025 03:03:09] Adicionado id: tt8238312
+[17-01-2025 03:03:09] Adicionado id: tt8755418
+[17-01-2025 03:03:09] Erro em obter o filme de id: tt6128124. Status: 404
+[17-01-2025 03:03:09] Adicionado id: tt9105026
+[17-01-2025 03:03:09] Adicionado id: tt4834850
+[17-01-2025 03:03:09] Erro em obter o filme de id: tt5931678. Status: 404
+[17-01-2025 03:03:09] Erro em obter o filme de id: tt15386622. Status: 404
+[17-01-2025 03:03:09] Erro em obter o filme de id: tt15282112. Status: 404
+[17-01-2025 03:03:09] Adicionado id: tt7817448
+[17-01-2025 03:03:09] Erro em obter o filme de id: tt8243058. Status: 404
+[17-01-2025 03:03:09] Adicionado id: tt3108170
+[17-01-2025 03:03:09] Erro em obter o filme de id: tt7137706. Status: 404
+[17-01-2025 03:03:09] Erro em obter o filme de id: tt12833848. Status: 404
+[17-01-2025 03:03:09] Erro em obter o filme de id: tt7530862. Status: 404
+[17-01-2025 03:03:09] Adicionado id: tt5908042
+[17-01-2025 03:03:09] Erro em obter o filme de id: tt9248864. Status: 404
+[17-01-2025 03:03:10] Adicionado id: tt4539442
+[17-01-2025 03:03:10] Adicionado id: tt5347160
+[17-01-2025 03:03:10] Adicionado id: tt14553896
+[17-01-2025 03:03:10] Erro em obter o filme de id: tt3661700. Status: 404
+[17-01-2025 03:03:10] Erro em obter o filme de id: tt9382076. Status: 404
+[17-01-2025 03:03:10] Adicionado id: tt18291400
+[17-01-2025 03:03:10] Erro em obter o filme de id: tt11012230. Status: 404
+[17-01-2025 03:03:10] Adicionado id: tt5603022
+[17-01-2025 03:03:10] Adicionado id: tt4819470
+[17-01-2025 03:03:10] Adicionado id: tt12944128
+[17-01-2025 03:03:10] Adicionado id: tt5525506
+[17-01-2025 03:03:10] Adicionado id: tt9454176
+[17-01-2025 03:03:10] Erro em obter o filme de id: tt6075750. Status: 404
+[17-01-2025 03:03:10] Erro em obter o filme de id: tt8853060. Status: 404
+[17-01-2025 03:03:10] Erro em obter o filme de id: tt13033542. Status: 404
+[17-01-2025 03:03:10] Erro em obter o filme de id: tt12531726. Status: 404
+[17-01-2025 03:03:10] Adicionado id: tt6720298
+[17-01-2025 03:03:10] Adicionado id: tt11301882
+[17-01-2025 03:03:10] Adicionado id: tt15840188
+[17-01-2025 03:03:10] Erro em obter o filme de id: tt6375006. Status: 404
+[17-01-2025 03:03:10] Erro em obter o filme de id: tt4218580. Status: 404
+[17-01-2025 03:03:10] Adicionado id: tt12506600
+[17-01-2025 03:03:10] Adicionado id: tt14502378
+[17-01-2025 03:03:10] Adicionado id: tt3476368
+[17-01-2025 03:03:10] Adicionado id: tt4648510
+[17-01-2025 03:03:10] Adicionado id: tt15478268
+[17-01-2025 03:03:10] Erro em obter o filme de id: tt16211650. Status: 404
+[17-01-2025 03:03:10] Adicionado id: tt8366254
+[17-01-2025 03:03:10] Adicionado id: tt3255322
+[17-01-2025 03:03:10] Adicionado id: tt7433398
+[17-01-2025 03:03:10] Adicionado id: tt15138462
+[17-01-2025 03:03:10] Adicionado id: tt5052972
+[17-01-2025 03:03:10] Adicionado id: tt9680090
+[17-01-2025 03:03:10] Adicionado id: tt15625968
+[17-01-2025 03:03:10] Adicionado id: tt8016672
+[17-01-2025 03:03:10] Adicionado id: tt5359598
+[17-01-2025 03:03:10] Erro ao salvar o batch 1: name 'arq_output' is not defined
+[17-01-2025 03:03:10] Processando batch 2/10            (IDs 100 to 200)
+[17-01-2025 03:03:10] Adicionado id: tt4769258
+[17-01-2025 03:03:10] Adicionado id: tt5928448
+[17-01-2025 03:03:11] Adicionado id: tt14546082
+[17-01-2025 03:03:11] Adicionado id: tt21936550
+[17-01-2025 03:03:11] Adicionado id: tt9174120
+[17-01-2025 03:03:11] Adicionado id: tt2853396
+[17-01-2025 03:03:11] Adicionado id: tt11214936
+[17-01-2025 03:03:11] Adicionado id: tt21938042
+[17-01-2025 03:03:11] Adicionado id: tt11358490
+[17-01-2025 03:03:11] Adicionado id: tt9389778
+[17-01-2025 03:03:11] Adicionado id: tt7600718
+[17-01-2025 03:03:11] Adicionado id: tt2662494
+[17-01-2025 03:03:11] Erro em obter o filme de id: tt7929502. Status: 404
+[17-01-2025 03:03:11] Adicionado id: tt10612164
+[17-01-2025 03:03:11] Adicionado id: tt10125986
+[17-01-2025 03:03:11] Adicionado id: tt8757198
+[17-01-2025 03:03:11] Erro em obter o filme de id: tt8905928. Status: 404
+[17-01-2025 03:03:11] Adicionado id: tt8071204
+[17-01-2025 03:03:11] Erro em obter o filme de id: tt5364390. Status: 404
+[17-01-2025 03:03:11] Adicionado id: tt10234494
+[17-01-2025 03:03:11] Adicionado id: tt10467054
+[17-01-2025 03:03:11] Adicionado id: tt4938362
+[17-01-2025 03:03:11] Adicionado id: tt5857912
+[17-01-2025 03:03:11] Adicionado id: tt4840680
+[17-01-2025 03:03:11] Adicionado id: tt17023860
+[17-01-2025 03:03:11] Adicionado id: tt2979322
+[17-01-2025 03:03:11] Adicionado id: tt13841504
+[17-01-2025 03:03:11] Adicionado id: tt4295992
+[17-01-2025 03:03:11] Erro em obter o filme de id: tt19784004. Status: 404
+[17-01-2025 03:03:11] Erro em obter o filme de id: tt7142036. Status: 404
+[17-01-2025 03:03:11] Adicionado id: tt8108212
+[17-01-2025 03:03:11] Adicionado id: tt13039100
+[17-01-2025 03:03:11] Adicionado id: tt5514602
+[17-01-2025 03:03:11] Erro em obter o filme de id: tt11564382. Status: 404
+[17-01-2025 03:03:11] Adicionado id: tt17507072
+[17-01-2025 03:03:11] Adicionado id: tt8269204
+[17-01-2025 03:03:11] Adicionado id: tt7959952
+[17-01-2025 03:03:11] Adicionado id: tt18375342
+[17-01-2025 03:03:11] Adicionado id: tt6246362
+[17-01-2025 03:03:11] Adicionado id: tt8267152
+[17-01-2025 03:03:11] Adicionado id: tt8809750
+[17-01-2025 03:03:11] Adicionado id: tt3118910
+[17-01-2025 03:03:11] Adicionado id: tt8016500
+[17-01-2025 03:03:11] Adicionado id: tt9765480
+[17-01-2025 03:03:11] Adicionado id: tt10713826
+[17-01-2025 03:03:11] Adicionado id: tt12625380
+[17-01-2025 03:03:11] Erro em obter o filme de id: tt15465144. Status: 404
+[17-01-2025 03:03:11] Adicionado id: tt5773696
+[17-01-2025 03:03:12] Adicionado id: tt2988120
+[17-01-2025 03:03:12] Adicionado id: tt4591230
+[17-01-2025 03:03:12] Erro em obter o filme de id: tt15251154. Status: 404
+[17-01-2025 03:03:12] Adicionado id: tt17023780
+[17-01-2025 03:03:12] Adicionado id: tt6518886
+[17-01-2025 03:03:12] Erro em obter o filme de id: tt14725096. Status: 404
+[17-01-2025 03:03:12] Adicionado id: tt8344532
+[17-01-2025 03:03:12] Adicionado id: tt3652872
+[17-01-2025 03:03:12] Adicionado id: tt22475068
+[17-01-2025 03:03:12] Adicionado id: tt6731862
+[17-01-2025 03:03:12] Adicionado id: tt10738782
+[17-01-2025 03:03:12] Erro em obter o filme de id: tt15464452. Status: 404
+[17-01-2025 03:03:12] Erro em obter o filme de id: tt14773742. Status: 404
+[17-01-2025 03:03:12] Erro em obter o filme de id: tt18302390. Status: 404
+[17-01-2025 03:03:12] Erro em obter o filme de id: tt6409234. Status: 404
+[17-01-2025 03:03:12] Adicionado id: tt7599864
+[17-01-2025 03:03:12] Adicionado id: tt4934506
+[17-01-2025 03:03:12] Adicionado id: tt13039188
+[17-01-2025 03:03:12] Erro ao salvar o batch 2: name 'arq_output' is not defined
+[17-01-2025 03:03:12] Processando batch 3/10            (IDs 200 to 300)
+[17-01-2025 03:03:12] Erro em obter o filme de id: tt4654776. Status: 404
+[17-01-2025 03:03:12] Erro em obter o filme de id: tt21818370. Status: 404
+[17-01-2025 03:03:12] Adicionado id: tt9021092
+[17-01-2025 03:03:12] Erro em obter o filme de id: tt11931168. Status: 404
+[17-01-2025 03:03:12] Adicionado id: tt10505592
+[17-01-2025 03:03:12] Adicionado id: tt7820526
+[17-01-2025 03:03:12] Adicionado id: tt21842982
+[17-01-2025 03:03:12] Adicionado id: tt3433260
+[17-01-2025 03:03:12] Adicionado id: tt5008220
+[17-01-2025 03:03:12] Adicionado id: tt21611284
+[17-01-2025 03:03:12] Adicionado id: tt10162730
+[17-01-2025 03:03:12] Erro em obter o filme de id: tt2583532. Status: 404
+[17-01-2025 03:03:12] Adicionado id: tt18075156
+[17-01-2025 03:03:12] Adicionado id: tt13409986
+[17-01-2025 03:03:12] Adicionado id: tt3109648
+[17-01-2025 03:03:12] Adicionado id: tt7692832
+[17-01-2025 03:03:13] Erro em obter o filme de id: tt4610754. Status: 404
+[17-01-2025 03:03:13] Adicionado id: tt8386710
+[17-01-2025 03:03:13] Adicionado id: tt4773218
+[17-01-2025 03:03:13] Adicionado id: tt12814006
+[17-01-2025 03:03:13] Adicionado id: tt15358794
+[17-01-2025 03:03:13] Erro em obter o filme de id: tt8674396. Status: 404
+[17-01-2025 03:03:13] Adicionado id: tt13801458
+[17-01-2025 03:03:13] Adicionado id: tt11355320
+[17-01-2025 03:03:13] Adicionado id: tt5226466
+[17-01-2025 03:03:13] Erro em obter o filme de id: tt15241580. Status: 404
+[17-01-2025 03:03:13] Adicionado id: tt5170834
+[17-01-2025 03:03:13] Adicionado id: tt15170506
+[17-01-2025 03:03:13] Adicionado id: tt22311646
+[17-01-2025 03:03:13] Erro em obter o filme de id: tt10529130. Status: 404
+[17-01-2025 03:03:13] Adicionado id: tt7920146
+[17-01-2025 03:03:13] Adicionado id: tt10968482
+[17-01-2025 03:03:13] Adicionado id: tt7767866
+[17-01-2025 03:03:13] Erro em obter o filme de id: tt7777960. Status: 404
+[17-01-2025 03:03:13] Erro em obter o filme de id: tt3854690. Status: 404
+[17-01-2025 03:03:13] Erro em obter o filme de id: tt11991532. Status: 404
+[17-01-2025 03:03:13] Adicionado id: tt8662426
+[17-01-2025 03:03:13] Adicionado id: tt3345868
+[17-01-2025 03:03:13] Adicionado id: tt7674006
+[17-01-2025 03:03:13] Erro em obter o filme de id: tt3059424. Status: 404
+[17-01-2025 03:03:13] Adicionado id: tt11771206
+[17-01-2025 03:03:13] Adicionado id: tt15839646
+[17-01-2025 03:03:13] Adicionado id: tt14760092
+[17-01-2025 03:03:13] Adicionado id: tt10632744
+[17-01-2025 03:03:13] Adicionado id: tt13397632
+[17-01-2025 03:03:13] Adicionado id: tt8835722
+[17-01-2025 03:03:13] Erro em obter o filme de id: tt3507702. Status: 404
+[17-01-2025 03:03:14] Erro em obter o filme de id: tt3757460. Status: 404
+[17-01-2025 03:03:14] Adicionado id: tt12660372
+[17-01-2025 03:03:14] Adicionado id: tt5210054
+[17-01-2025 03:03:14] Adicionado id: tt15954686
+[17-01-2025 03:03:14] Adicionado id: tt6289452
+[17-01-2025 03:03:14] Adicionado id: tt5396888
+[17-01-2025 03:03:14] Erro em obter o filme de id: tt12464902. Status: 404
+[17-01-2025 03:03:14] Adicionado id: tt3158218
+[17-01-2025 03:03:14] Adicionado id: tt8680096
+[17-01-2025 03:03:14] Erro em obter o filme de id: tt4968546. Status: 404
+[17-01-2025 03:03:14] Adicionado id: tt2281309
+[17-01-2025 03:03:14] Adicionado id: tt6705126
+[17-01-2025 03:03:14] Adicionado id: tt16528036
+[17-01-2025 03:03:14] Adicionado id: tt3780812
+[17-01-2025 03:03:14] Adicionado id: tt4192656
+[17-01-2025 03:03:14] Erro ao salvar o batch 3: name 'arq_output' is not defined
+[17-01-2025 03:03:14] Processando batch 4/10            (IDs 300 to 400)
+[17-01-2025 03:03:14] Adicionado id: tt2187102
+[17-01-2025 03:03:14] Adicionado id: tt11384004
+[17-01-2025 03:03:14] Erro em obter o filme de id: tt7540724. Status: 404
+[17-01-2025 03:03:14] Erro em obter o filme de id: tt9518824. Status: 404
+[17-01-2025 03:03:14] Adicionado id: tt8831362
+[17-01-2025 03:03:14] Adicionado id: tt9579634
+[17-01-2025 03:03:14] Adicionado id: tt6058878
+[17-01-2025 03:03:14] Adicionado id: tt6808038
+[17-01-2025 03:03:14] Adicionado id: tt15738162
+[17-01-2025 03:03:14] Erro em obter o filme de id: tt7411266. Status: 404
+[17-01-2025 03:03:14] Adicionado id: tt7679852
+[17-01-2025 03:03:14] Adicionado id: tt9691324
+[17-01-2025 03:03:14] Adicionado id: tt15768294
+[17-01-2025 03:03:14] Adicionado id: tt4016152
+[17-01-2025 03:03:14] Adicionado id: tt8921800
+[17-01-2025 03:03:14] Erro em obter o filme de id: tt13549412. Status: 404
+[17-01-2025 03:03:14] Adicionado id: tt9033534
+[17-01-2025 03:03:14] Adicionado id: tt9379256
+[17-01-2025 03:03:14] Adicionado id: tt14764886
+[17-01-2025 03:03:14] Adicionado id: tt3662730
+[17-01-2025 03:03:14] Adicionado id: tt4838340
+[17-01-2025 03:03:14] Adicionado id: tt12587454
+[17-01-2025 03:03:14] Adicionado id: tt4846952
+[17-01-2025 03:03:14] Erro em obter o filme de id: tt3548340. Status: 404
+[17-01-2025 03:03:14] Adicionado id: tt5033038
+[17-01-2025 03:03:14] Adicionado id: tt13444292
+[17-01-2025 03:03:14] Adicionado id: tt3209682
+[17-01-2025 03:03:14] Erro em obter o filme de id: tt10033852. Status: 404
+[17-01-2025 03:03:14] Adicionado id: tt3793116
+[17-01-2025 03:03:14] Adicionado id: tt6771678
+[17-01-2025 03:03:14] Adicionado id: tt11773342
+[17-01-2025 03:03:14] Erro em obter o filme de id: tt3332772. Status: 404
+[17-01-2025 03:03:14] Adicionado id: tt10534962
+[17-01-2025 03:03:15] Adicionado id: tt3500478
+[17-01-2025 03:03:15] Adicionado id: tt3869260
+[17-01-2025 03:03:15] Adicionado id: tt4366196
+[17-01-2025 03:03:15] Adicionado id: tt7838158
+[17-01-2025 03:03:15] Adicionado id: tt9081436
+[17-01-2025 03:03:15] Adicionado id: tt2714934
+[17-01-2025 03:03:15] Adicionado id: tt17127518
+[17-01-2025 03:03:15] Adicionado id: tt14865506
+[17-01-2025 03:03:15] Adicionado id: tt12683660
+[17-01-2025 03:03:15] Adicionado id: tt9112578
+[17-01-2025 03:03:15] Erro em obter o filme de id: tt0850678. Status: 404
+[17-01-2025 03:03:15] Adicionado id: tt7297002
+[17-01-2025 03:03:15] Adicionado id: tt9081562
+[17-01-2025 03:03:15] Erro em obter o filme de id: tt4256244. Status: 404
+[17-01-2025 03:03:15] Adicionado id: tt6423542
+[17-01-2025 03:03:15] Erro em obter o filme de id: tt15731270. Status: 404
+[17-01-2025 03:03:15] Adicionado id: tt6800650
+[17-01-2025 03:03:15] Adicionado id: tt7585620
+[17-01-2025 03:03:15] Adicionado id: tt2706340
+[17-01-2025 03:03:15] Adicionado id: tt6434084
+[17-01-2025 03:03:15] Adicionado id: tt8590992
+[17-01-2025 03:03:15] Erro em obter o filme de id: tt4367544. Status: 404
+[17-01-2025 03:03:15] Adicionado id: tt10209164
+[17-01-2025 03:03:15] Adicionado id: tt7254046
+[17-01-2025 03:03:15] Adicionado id: tt5899800
+[17-01-2025 03:03:15] Adicionado id: tt15669564
+[17-01-2025 03:03:15] Adicionado id: tt22777864
+[17-01-2025 03:03:15] Erro em obter o filme de id: tt22264658. Status: 404
+[17-01-2025 03:03:15] Adicionado id: tt2419576
+[17-01-2025 03:03:15] Erro em obter o filme de id: tt2999262. Status: 404
+[17-01-2025 03:03:15] Adicionado id: tt4979160
+[17-01-2025 03:03:15] Adicionado id: tt6271264
+[17-01-2025 03:03:16] Adicionado id: tt3921664
+[17-01-2025 03:03:16] Adicionado id: tt3996970
+[17-01-2025 03:03:16] Adicionado id: tt11027672
+[17-01-2025 03:03:16] Erro em obter o filme de id: tt20781110. Status: 404
+[17-01-2025 03:03:16] Adicionado id: tt7239146
+[17-01-2025 03:03:16] Adicionado id: tt1674766
+[17-01-2025 03:03:16] Erro em obter o filme de id: tt3728556. Status: 404
+[17-01-2025 03:03:16] Adicionado id: tt10300646
+[17-01-2025 03:03:16] Adicionado id: tt14766058
+[17-01-2025 03:03:16] Erro ao salvar o batch 4: name 'arq_output' is not defined
+[17-01-2025 03:03:16] Processando batch 5/10            (IDs 400 to 500)
+[17-01-2025 03:03:16] Adicionado id: tt6867828
+[17-01-2025 03:03:16] Adicionado id: tt3261912
+[17-01-2025 03:03:16] Adicionado id: tt5257730
+[17-01-2025 03:03:16] Adicionado id: tt6925132
+[17-01-2025 03:03:16] Erro em obter o filme de id: tt13444424. Status: 404
+[17-01-2025 03:03:16] Adicionado id: tt10452466
+[17-01-2025 03:03:16] Adicionado id: tt15979440
+[17-01-2025 03:03:16] Adicionado id: tt21206496
+[17-01-2025 03:03:16] Adicionado id: tt5179576
+[17-01-2025 03:03:16] Adicionado id: tt4425414
+[17-01-2025 03:03:16] Adicionado id: tt3121474
+[17-01-2025 03:03:16] Adicionado id: tt9015764
+[17-01-2025 03:03:16] Adicionado id: tt6066012
+[17-01-2025 03:03:16] Erro em obter o filme de id: tt15380124. Status: 404
+[17-01-2025 03:03:16] Adicionado id: tt5364756
+[17-01-2025 03:03:16] Adicionado id: tt8042286
+[17-01-2025 03:03:16] Adicionado id: tt4384128
+[17-01-2025 03:03:16] Adicionado id: tt7610620
+[17-01-2025 03:03:16] Adicionado id: tt6567840
+[17-01-2025 03:03:16] Adicionado id: tt10838362
+[17-01-2025 03:03:16] Adicionado id: tt18358032
+[17-01-2025 03:03:16] Adicionado id: tt15071228
+[17-01-2025 03:03:16] Adicionado id: tt4860356
+[17-01-2025 03:03:17] Adicionado id: tt6234666
+[17-01-2025 03:03:17] Adicionado id: tt9546080
+[17-01-2025 03:03:17] Adicionado id: tt7262474
+[17-01-2025 03:03:17] Erro em obter o filme de id: tt3324570. Status: 404
+[17-01-2025 03:03:17] Erro em obter o filme de id: tt10515408. Status: 404
+[17-01-2025 03:03:17] Adicionado id: tt7550816
+[17-01-2025 03:03:17] Erro em obter o filme de id: tt9446952. Status: 404
+[17-01-2025 03:03:17] Erro em obter o filme de id: tt2566038. Status: 404
+[17-01-2025 03:03:17] Adicionado id: tt8396112
+[17-01-2025 03:03:17] Adicionado id: tt8710128
+[17-01-2025 03:03:17] Adicionado id: tt13187502
+[17-01-2025 03:03:17] Adicionado id: tt20455272
+[17-01-2025 03:03:17] Erro em obter o filme de id: tt3886682. Status: 404
+[17-01-2025 03:03:17] Adicionado id: tt14449678
+[17-01-2025 03:03:17] Erro em obter o filme de id: tt14612456. Status: 404
+[17-01-2025 03:03:17] Adicionado id: tt22742720
+[17-01-2025 03:03:17] Adicionado id: tt3006554
+[17-01-2025 03:03:17] Adicionado id: tt12945050
+[17-01-2025 03:03:17] Adicionado id: tt7817520
+[17-01-2025 03:03:17] Erro em obter o filme de id: tt14302466. Status: 404
+[17-01-2025 03:03:17] Erro em obter o filme de id: tt22002744. Status: 404
+[17-01-2025 03:03:17] Adicionado id: tt6240032
+[17-01-2025 03:03:17] Adicionado id: tt7188858
+[17-01-2025 03:03:17] Adicionado id: tt5956006
+[17-01-2025 03:03:17] Erro em obter o filme de id: tt6916936. Status: 404
+[17-01-2025 03:03:17] Erro em obter o filme de id: tt15767718. Status: 404
+[17-01-2025 03:03:17] Adicionado id: tt16059146
+[17-01-2025 03:03:17] Adicionado id: tt3569828
+[17-01-2025 03:03:17] Adicionado id: tt16359836
+[17-01-2025 03:03:17] Adicionado id: tt8674418
+[17-01-2025 03:03:17] Adicionado id: tt15716968
+[17-01-2025 03:03:17] Adicionado id: tt12467352
+[17-01-2025 03:03:17] Erro em obter o filme de id: tt14993294. Status: 404
+[17-01-2025 03:03:17] Erro em obter o filme de id: tt7475006. Status: 404
+[17-01-2025 03:03:17] Adicionado id: tt21094328
+[17-01-2025 03:03:17] Adicionado id: tt4886030
+[17-01-2025 03:03:17] Erro em obter o filme de id: tt10085844. Status: 404
+[17-01-2025 03:03:17] Adicionado id: tt5000984
+[17-01-2025 03:03:18] Erro em obter o filme de id: tt11137336. Status: 404
+[17-01-2025 03:03:18] Adicionado id: tt3757400
+[17-01-2025 03:03:18] Adicionado id: tt4580794
+[17-01-2025 03:03:18] Erro em obter o filme de id: tt8852284. Status: 404
+[17-01-2025 03:03:18] Adicionado id: tt3207536
+[17-01-2025 03:03:18] Erro em obter o filme de id: tt9460596. Status: 404
+[17-01-2025 03:03:18] Adicionado id: tt12078088
+[17-01-2025 03:03:18] Adicionado id: tt12587782
+[17-01-2025 03:03:18] Adicionado id: tt7284022
+[17-01-2025 03:03:18] Adicionado id: tt4084182
+[17-01-2025 03:03:18] Adicionado id: tt10957620
+[17-01-2025 03:03:18] Adicionado id: tt13213122
+[17-01-2025 03:03:18] Adicionado id: tt7705790
+[17-01-2025 03:03:18] Erro em obter o filme de id: tt3958374. Status: 404
+[17-01-2025 03:03:18] Erro ao salvar o batch 5: name 'arq_output' is not defined
+[17-01-2025 03:03:18] Processando batch 6/10            (IDs 500 to 600)
+[17-01-2025 03:03:18] Erro em obter o filme de id: tt4607906. Status: 404
+[17-01-2025 03:03:18] Adicionado id: tt5959970
+[17-01-2025 03:03:18] Adicionado id: tt7617988
+[17-01-2025 03:03:18] Erro em obter o filme de id: tt7111826. Status: 404
+[17-01-2025 03:03:18] Erro em obter o filme de id: tt9878866. Status: 404
+[17-01-2025 03:03:18] Erro em obter o filme de id: tt9840958. Status: 404
+[17-01-2025 03:03:18] Erro em obter o filme de id: tt10039472. Status: 404
+[17-01-2025 03:03:18] Adicionado id: tt15929016
+[17-01-2025 03:03:18] Adicionado id: tt3426282
+[17-01-2025 03:03:18] Adicionado id: tt8555576
+[17-01-2025 03:03:18] Erro em obter o filme de id: tt7386212. Status: 404
+[17-01-2025 03:03:18] Adicionado id: tt11092258
+[17-01-2025 03:03:18] Erro em obter o filme de id: tt18182234. Status: 404
+[17-01-2025 03:03:18] Adicionado id: tt2186322
+[17-01-2025 03:03:18] Adicionado id: tt11534356
+[17-01-2025 03:03:18] Adicionado id: tt7435822
+[17-01-2025 03:03:18] Erro em obter o filme de id: tt2986548. Status: 404
+[17-01-2025 03:03:18] Adicionado id: tt4964550
+[17-01-2025 03:03:18] Adicionado id: tt7754486
+[17-01-2025 03:03:18] Adicionado id: tt12625184
+[17-01-2025 03:03:18] Adicionado id: tt10356526
+[17-01-2025 03:03:18] Erro em obter o filme de id: tt19730338. Status: 404
+[17-01-2025 03:03:19] Erro em obter o filme de id: tt7243910. Status: 404
+[17-01-2025 03:03:19] Erro em obter o filme de id: tt6080004. Status: 404
+[17-01-2025 03:03:19] Adicionado id: tt9226154
+[17-01-2025 03:03:19] Adicionado id: tt6352592
+[17-01-2025 03:03:19] Erro em obter o filme de id: tt5599880. Status: 404
+[17-01-2025 03:03:19] Adicionado id: tt15310668
+[17-01-2025 03:03:19] Adicionado id: tt8650508
+[17-01-2025 03:03:19] Erro em obter o filme de id: tt7981470. Status: 404
+[17-01-2025 03:03:19] Adicionado id: tt7502256
+[17-01-2025 03:03:19] Adicionado id: tt12613748
+[17-01-2025 03:03:19] Adicionado id: tt5889280
+[17-01-2025 03:03:19] Erro em obter o filme de id: tt11312128. Status: 404
+[17-01-2025 03:03:19] Adicionado id: tt3021806
+[17-01-2025 03:03:19] Erro em obter o filme de id: tt3863784. Status: 404
+[17-01-2025 03:03:19] Adicionado id: tt10731732
+[17-01-2025 03:03:19] Adicionado id: tt8668488
+[17-01-2025 03:03:19] Adicionado id: tt9536820
+[17-01-2025 03:03:19] Adicionado id: tt7626364
+[17-01-2025 03:03:19] Adicionado id: tt5190944
+[17-01-2025 03:03:19] Adicionado id: tt7672868
+[17-01-2025 03:03:19] Adicionado id: tt5192998
+[17-01-2025 03:03:19] Adicionado id: tt3421036
+[17-01-2025 03:03:19] Adicionado id: tt17296772
+[17-01-2025 03:03:19] Erro em obter o filme de id: tt3313792. Status: 404
+[17-01-2025 03:03:19] Adicionado id: tt8365354
+[17-01-2025 03:03:19] Erro em obter o filme de id: tt4804076. Status: 404
+[17-01-2025 03:03:19] Adicionado id: tt18673736
+[17-01-2025 03:03:19] Erro em obter o filme de id: tt7637322. Status: 404
+[17-01-2025 03:03:19] Erro em obter o filme de id: tt6571586. Status: 404
+[17-01-2025 03:03:20] Adicionado id: tt11730940
+[17-01-2025 03:03:20] Adicionado id: tt2984080
+[17-01-2025 03:03:20] Adicionado id: tt6798992
+[17-01-2025 03:03:20] Adicionado id: tt3006508
+[17-01-2025 03:03:20] Adicionado id: tt5227998
+[17-01-2025 03:03:20] Adicionado id: tt7981422
+[17-01-2025 03:03:20] Adicionado id: tt8390616
+[17-01-2025 03:03:20] Erro em obter o filme de id: tt6427442. Status: 404
+[17-01-2025 03:03:20] Erro em obter o filme de id: tt5074740. Status: 404
+[17-01-2025 03:03:20] Adicionado id: tt4620528
+[17-01-2025 03:03:20] Adicionado id: tt6886062
+[17-01-2025 03:03:20] Adicionado id: tt7619554
+[17-01-2025 03:03:20] Erro em obter o filme de id: tt6389500. Status: 404
+[17-01-2025 03:03:20] Erro em obter o filme de id: tt4654964. Status: 404
+[17-01-2025 03:03:20] Adicionado id: tt9174050
+[17-01-2025 03:03:20] Adicionado id: tt9575164
+[17-01-2025 03:03:20] Erro em obter o filme de id: tt21652888. Status: 404
+[17-01-2025 03:03:20] Adicionado id: tt7603582
+[17-01-2025 03:03:20] Erro ao salvar o batch 6: name 'arq_output' is not defined
+[17-01-2025 03:03:20] Processando batch 7/10            (IDs 600 to 700)
+[17-01-2025 03:03:20] Erro em obter o filme de id: tt10393846. Status: 404
+[17-01-2025 03:03:20] Erro em obter o filme de id: tt9680080. Status: 404
+[17-01-2025 03:03:20] Erro em obter o filme de id: tt22742518. Status: 404
+[17-01-2025 03:03:20] Adicionado id: tt4610308
+[17-01-2025 03:03:20] Adicionado id: tt2691040
+[17-01-2025 03:03:20] Erro em obter o filme de id: tt6632208. Status: 404
+[17-01-2025 03:03:20] Adicionado id: tt2911684
+[17-01-2025 03:03:20] Erro em obter o filme de id: tt13811150. Status: 404
+[17-01-2025 03:03:20] Erro em obter o filme de id: tt19888200. Status: 404
+[17-01-2025 03:03:20] Erro em obter o filme de id: tt8439472. Status: 404
+[17-01-2025 03:03:20] Adicionado id: tt8677256
+[17-01-2025 03:03:20] Adicionado id: tt5370376
+[17-01-2025 03:03:21] Adicionado id: tt5660296
+[17-01-2025 03:03:21] Adicionado id: tt3175478
+[17-01-2025 03:03:21] Adicionado id: tt8490534
+[17-01-2025 03:03:21] Adicionado id: tt3822606
+[17-01-2025 03:03:21] Adicionado id: tt4714454
+[17-01-2025 03:03:21] Adicionado id: tt7055812
+[17-01-2025 03:03:21] Adicionado id: tt6431324
+[17-01-2025 03:03:21] Erro em obter o filme de id: tt10033904. Status: 404
+[17-01-2025 03:03:21] Erro em obter o filme de id: tt15955156. Status: 404
+[17-01-2025 03:03:21] Adicionado id: tt4882692
+[17-01-2025 03:03:21] Adicionado id: tt10564776
+[17-01-2025 03:03:21] Erro em obter o filme de id: tt14417074. Status: 404
+[17-01-2025 03:03:21] Erro em obter o filme de id: tt14539502. Status: 404
+[17-01-2025 03:03:21] Adicionado id: tt10592082
+[17-01-2025 03:03:21] Adicionado id: tt3517986
+[17-01-2025 03:03:21] Adicionado id: tt3378470
+[17-01-2025 03:03:21] Adicionado id: tt14398454
+[17-01-2025 03:03:21] Adicionado id: tt8650270
+[17-01-2025 03:03:21] Adicionado id: tt6998762
+[17-01-2025 03:03:21] Erro em obter o filme de id: tt7981432. Status: 404
+[17-01-2025 03:03:21] Adicionado id: tt8172164
+[17-01-2025 03:03:21] Adicionado id: tt7286500
+[17-01-2025 03:03:21] Erro em obter o filme de id: tt4990024. Status: 404
+[17-01-2025 03:03:21] Erro em obter o filme de id: tt4145850. Status: 404
+[17-01-2025 03:03:21] Adicionado id: tt5078964
+[17-01-2025 03:03:21] Adicionado id: tt5154096
+[17-01-2025 03:03:21] Adicionado id: tt5278634
+[17-01-2025 03:03:21] Adicionado id: tt5341036
+[17-01-2025 03:03:21] Adicionado id: tt3811228
+[17-01-2025 03:03:21] Erro em obter o filme de id: tt5570212. Status: 404
+[17-01-2025 03:03:21] Adicionado id: tt7975740
+[17-01-2025 03:03:21] Adicionado id: tt4886056
+[17-01-2025 03:03:21] Adicionado id: tt8835702
+[17-01-2025 03:03:21] Adicionado id: tt8883686
+[17-01-2025 03:03:21] Erro em obter o filme de id: tt5334470. Status: 404
+[17-01-2025 03:03:21] Adicionado id: tt2229420
+[17-01-2025 03:03:21] Adicionado id: tt7722484
+[17-01-2025 03:03:21] Adicionado id: tt6523068
+[17-01-2025 03:03:21] Adicionado id: tt20413256
+[17-01-2025 03:03:21] Erro em obter o filme de id: tt4946192. Status: 404
+[17-01-2025 03:03:22] Erro em obter o filme de id: tt10006510. Status: 404
+[17-01-2025 03:03:22] Adicionado id: tt15081946
+[17-01-2025 03:03:22] Erro em obter o filme de id: tt15909834. Status: 404
+[17-01-2025 03:03:22] Adicionado id: tt4396080
+[17-01-2025 03:03:22] Erro em obter o filme de id: tt22098270. Status: 404
+[17-01-2025 03:03:22] Adicionado id: tt4271820
+[17-01-2025 03:03:22] Erro em obter o filme de id: tt8302882. Status: 404
+[17-01-2025 03:03:22] Erro em obter o filme de id: tt13517382. Status: 404
+[17-01-2025 03:03:22] Adicionado id: tt4634898
+[17-01-2025 03:03:22] Adicionado id: tt15164524
+[17-01-2025 03:03:22] Erro em obter o filme de id: tt8677388. Status: 404
+[17-01-2025 03:03:22] Erro em obter o filme de id: tt12929210. Status: 404
+[17-01-2025 03:03:22] Erro em obter o filme de id: tt4389410. Status: 404
+[17-01-2025 03:03:22] Erro em obter o filme de id: tt12651550. Status: 404
+[17-01-2025 03:03:22] Adicionado id: tt9647776
+[17-01-2025 03:03:22] Adicionado id: tt15710228
+[17-01-2025 03:03:22] Adicionado id: tt5659988
+[17-01-2025 03:03:22] Erro em obter o filme de id: tt3255776. Status: 404
+[17-01-2025 03:03:22] Adicionado id: tt6449976
+[17-01-2025 03:03:22] Adicionado id: tt10720088
+[17-01-2025 03:03:23] Erro em obter o filme de id: tt4512266. Status: 404
+[17-01-2025 03:03:23] Adicionado id: tt12625310
+[17-01-2025 03:03:23] Erro ao salvar o batch 7: name 'arq_output' is not defined
+[17-01-2025 03:03:23] Processando batch 8/10            (IDs 700 to 800)
+[17-01-2025 03:03:23] Erro ao processar filme de id tt3867556: list index out of range. Status: 200
+[17-01-2025 03:03:23] Adicionado id: tt20228670
+[17-01-2025 03:03:23] Adicionado id: tt9387300
+[17-01-2025 03:03:23] Adicionado id: tt4602608
+[17-01-2025 03:03:23] Adicionado id: tt5686868
+[17-01-2025 03:03:23] Erro em obter o filme de id: tt3045730. Status: 404
+[17-01-2025 03:03:23] Adicionado id: tt8718066
+[17-01-2025 03:03:23] Adicionado id: tt3360350
+[17-01-2025 03:03:23] Adicionado id: tt15310236
+[17-01-2025 03:03:23] Adicionado id: tt11470456
+[17-01-2025 03:03:23] Adicionado id: tt14813878
+[17-01-2025 03:03:23] Erro em obter o filme de id: tt10370434. Status: 404
+[17-01-2025 03:03:23] Adicionado id: tt4293766
+[17-01-2025 03:03:23] Adicionado id: tt9766610
+[17-01-2025 03:03:23] Adicionado id: tt5855402
+[17-01-2025 03:03:23] Erro em obter o filme de id: tt19782950. Status: 404
+[17-01-2025 03:03:23] Adicionado id: tt7585522
+[17-01-2025 03:03:23] Adicionado id: tt4114302
+[17-01-2025 03:03:23] Adicionado id: tt15433860
+[17-01-2025 03:03:23] Erro em obter o filme de id: tt17023920. Status: 404
+[17-01-2025 03:03:23] Adicionado id: tt6359586
+[17-01-2025 03:03:23] Adicionado id: tt10706640
+[17-01-2025 03:03:23] Erro em obter o filme de id: tt15554670. Status: 404
+[17-01-2025 03:03:23] Adicionado id: tt2648034
+[17-01-2025 03:03:23] Adicionado id: tt11241544
+[17-01-2025 03:03:23] Adicionado id: tt12718416
+[17-01-2025 03:03:23] Adicionado id: tt13594078
+[17-01-2025 03:03:23] Adicionado id: tt2930040
+[17-01-2025 03:03:23] Adicionado id: tt2878406
+[17-01-2025 03:03:23] Adicionado id: tt11220376
+[17-01-2025 03:03:23] Adicionado id: tt5181806
+[17-01-2025 03:03:23] Adicionado id: tt6093868
+[17-01-2025 03:03:23] Erro em obter o filme de id: tt4183862. Status: 404
+[17-01-2025 03:03:23] Adicionado id: tt3776402
+[17-01-2025 03:03:23] Adicionado id: tt21100400
+[17-01-2025 03:03:23] Adicionado id: tt11079986
+[17-01-2025 03:03:23] Adicionado id: tt11173106
+[17-01-2025 03:03:24] Adicionado id: tt13334932
+[17-01-2025 03:03:24] Adicionado id: tt4112354
+[17-01-2025 03:03:24] Adicionado id: tt4892714
+[17-01-2025 03:03:24] Erro em obter o filme de id: tt5001880. Status: 404
+[17-01-2025 03:03:24] Erro em obter o filme de id: tt10515438. Status: 404
+[17-01-2025 03:03:24] Adicionado id: tt3830032
+[17-01-2025 03:03:24] Adicionado id: tt12944052
+[17-01-2025 03:03:24] Adicionado id: tt8269216
+[17-01-2025 03:03:24] Adicionado id: tt8319694
+[17-01-2025 03:03:24] Adicionado id: tt9574444
+[17-01-2025 03:03:24] Adicionado id: tt10320120
+[17-01-2025 03:03:24] Adicionado id: tt13452944
+[17-01-2025 03:03:24] Adicionado id: tt6876318
+[17-01-2025 03:03:24] Adicionado id: tt7559200
+[17-01-2025 03:03:24] Adicionado id: tt3253120
+[17-01-2025 03:03:24] Adicionado id: tt2753628
+[17-01-2025 03:03:24] Adicionado id: tt9743420
+[17-01-2025 03:03:24] Erro em obter o filme de id: tt16917146. Status: 404
+[17-01-2025 03:03:24] Adicionado id: tt11024568
+[17-01-2025 03:03:24] Adicionado id: tt15840196
+[17-01-2025 03:03:24] Adicionado id: tt8176308
+[17-01-2025 03:03:24] Adicionado id: tt8108210
+[17-01-2025 03:03:24] Adicionado id: tt7361540
+[17-01-2025 03:03:24] Adicionado id: tt3175460
+[17-01-2025 03:03:24] Adicionado id: tt6750962
+[17-01-2025 03:03:24] Adicionado id: tt20879358
+[17-01-2025 03:03:24] Erro em obter o filme de id: tt10077042. Status: 404
+[17-01-2025 03:03:24] Adicionado id: tt17312226
+[17-01-2025 03:03:24] Adicionado id: tt5850944
+[17-01-2025 03:03:24] Erro ao salvar o batch 8: name 'arq_output' is not defined
+[17-01-2025 03:03:24] Processando batch 9/10            (IDs 800 to 900)
+[17-01-2025 03:03:24] Adicionado id: tt6413312
+[17-01-2025 03:03:24] Adicionado id: tt8080982
+[17-01-2025 03:03:24] Erro em obter o filme de id: tt8677400. Status: 404
+[17-01-2025 03:03:24] Adicionado id: tt15788948
+[17-01-2025 03:03:24] Adicionado id: tt3527134
+[17-01-2025 03:03:24] Erro em obter o filme de id: tt7112622. Status: 404
+[17-01-2025 03:03:24] Adicionado id: tt14051714
+[17-01-2025 03:03:25] Erro em obter o filme de id: tt6423596. Status: 404
+[17-01-2025 03:03:25] Adicionado id: tt6975046
+[17-01-2025 03:03:25] Adicionado id: tt6400696
+[17-01-2025 03:03:25] Adicionado id: tt11314148
+[17-01-2025 03:03:25] Adicionado id: tt5004918
+[17-01-2025 03:03:25] Erro em obter o filme de id: tt12504020. Status: 404
+[17-01-2025 03:03:25] Adicionado id: tt8365006
+[17-01-2025 03:03:25] Adicionado id: tt4819604
+[17-01-2025 03:03:25] Adicionado id: tt6023800
+[17-01-2025 03:03:25] Erro em obter o filme de id: tt10422832. Status: 404
+[17-01-2025 03:03:25] Adicionado id: tt3090310
+[17-01-2025 03:03:25] Adicionado id: tt6620138
+[17-01-2025 03:03:25] Adicionado id: tt3175936
+[17-01-2025 03:03:25] Adicionado id: tt6267944
+[17-01-2025 03:03:25] Adicionado id: tt15621370
+[17-01-2025 03:03:25] Adicionado id: tt18689962
+[17-01-2025 03:03:25] Erro em obter o filme de id: tt8536930. Status: 404
+[17-01-2025 03:03:25] Erro em obter o filme de id: tt3609414. Status: 404
+[17-01-2025 03:03:25] Adicionado id: tt6975084
+[17-01-2025 03:03:25] Adicionado id: tt5216780
+[17-01-2025 03:03:25] Erro em obter o filme de id: tt6562428. Status: 404
+[17-01-2025 03:03:25] Erro em obter o filme de id: tt12929208. Status: 404
+[17-01-2025 03:03:25] Erro em obter o filme de id: tt4596284. Status: 404
+[17-01-2025 03:03:25] Erro em obter o filme de id: tt12576274. Status: 404
+[17-01-2025 03:03:25] Erro em obter o filme de id: tt8931366. Status: 404
+[17-01-2025 03:03:25] Adicionado id: tt14045622
+[17-01-2025 03:03:25] Erro em obter o filme de id: tt4007368. Status: 404
+[17-01-2025 03:03:25] Adicionado id: tt7817568
+[17-01-2025 03:03:25] Adicionado id: tt5994086
+[17-01-2025 03:03:26] Adicionado id: tt7946936
+[17-01-2025 03:03:26] Adicionado id: tt7889930
+[17-01-2025 03:03:26] Adicionado id: tt22297570
+[17-01-2025 03:03:26] Adicionado id: tt3420850
+[17-01-2025 03:03:26] Adicionado id: tt5808990
+[17-01-2025 03:03:26] Erro em obter o filme de id: tt4320128. Status: 404
+[17-01-2025 03:03:26] Adicionado id: tt6077598
+[17-01-2025 03:03:26] Adicionado id: tt5590026
+[17-01-2025 03:03:26] Adicionado id: tt14533622
+[17-01-2025 03:03:26] Erro em obter o filme de id: tt2928172. Status: 404
+[17-01-2025 03:03:26] Adicionado id: tt10116478
+[17-01-2025 03:03:26] Adicionado id: tt12196092
+[17-01-2025 03:03:26] Adicionado id: tt7108736
+[17-01-2025 03:03:26] Adicionado id: tt12773560
+[17-01-2025 03:03:26] Adicionado id: tt4119590
+[17-01-2025 03:03:26] Adicionado id: tt8982154
+[17-01-2025 03:03:26] Adicionado id: tt6011710
+[17-01-2025 03:03:26] Adicionado id: tt10423120
+[17-01-2025 03:03:26] Adicionado id: tt5822288
+[17-01-2025 03:03:26] Adicionado id: tt3175440
+[17-01-2025 03:03:26] Adicionado id: tt3024056
+[17-01-2025 03:03:26] Adicionado id: tt16732214
+[17-01-2025 03:03:26] Adicionado id: tt5364694
+[17-01-2025 03:03:26] Erro em obter o filme de id: tt10564792. Status: 404
+[17-01-2025 03:03:26] Adicionado id: tt3729994
+[17-01-2025 03:03:26] Erro ao salvar o batch 9: name 'arq_output' is not defined
+[17-01-2025 03:03:26] Processando batch 10/10            (IDs 900 to 920)
+[17-01-2025 03:03:26] Adicionado id: tt4657764
+[17-01-2025 03:03:26] Adicionado id: tt10905616
+[17-01-2025 03:03:26] Adicionado id: tt7323580
+[17-01-2025 03:03:26] Adicionado id: tt8002356
+[17-01-2025 03:03:26] Erro em obter o filme de id: tt5638478. Status: 404
+[17-01-2025 03:03:26] Adicionado id: tt5720106
+[17-01-2025 03:03:26] Adicionado id: tt9466424
+[17-01-2025 03:03:26] Adicionado id: tt4311466
+[17-01-2025 03:03:26] Adicionado id: tt7034918
+[17-01-2025 03:03:26] Adicionado id: tt5454506
+[17-01-2025 03:03:27] Erro em obter o filme de id: tt10726952. Status: 404
+[17-01-2025 03:03:27] Erro em obter o filme de id: tt11931044. Status: 404
+[17-01-2025 03:03:27] Adicionado id: tt15295240
+[17-01-2025 03:03:27] Erro ao salvar o batch 10: name 'arq_output' is not defined
+[17-01-2025 03:03:27] Listagem de objetos no bucket {nome_balde}
+[17-01-2025 03:03:27] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Logs/log-ingestao-20250106.txt')
+[17-01-2025 03:03:27] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/Local/CSV/Movies/2025/01/06/movies.csv')
+[17-01-2025 03:03:27] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/Local/CSV/Series/2025/01/06/series.csv')
+[17-01-2025 03:03:27] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/17/filmes_attr_batch_1.json')
+[17-01-2025 03:03:27] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/17/filmes_attr_batch_10.json')
+[17-01-2025 03:03:27] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/17/filmes_attr_batch_2.json')
+[17-01-2025 03:03:27] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/17/filmes_attr_batch_3.json')
+[17-01-2025 03:03:27] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/17/filmes_attr_batch_4.json')
+[17-01-2025 03:03:27] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/17/filmes_attr_batch_5.json')
+[17-01-2025 03:03:27] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/17/filmes_attr_batch_6.json')
+[17-01-2025 03:03:27] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/17/filmes_attr_batch_7.json')
+[17-01-2025 03:03:27] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/17/filmes_attr_batch_8.json')
+[17-01-2025 03:03:27] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/17/filmes_attr_batch_9.json')
+[17-01-2025 03:03:27] Ingestão realizada com sucesso
