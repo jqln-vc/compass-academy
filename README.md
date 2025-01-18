@@ -71,4 +71,5 @@ Coleta e elaboração de *corpora* terminológicos, bem como análise lexical de
 [![Sprint 3](https://img.shields.io/badge/Sprint_3-Python_&_AWS_Partner-FDCA00)](/sprint3)  
 [![Sprint 4](https://img.shields.io/badge/Sprint_4-Python_Funcional_&_Docker-ED751A)](/sprint4)  
 [![Sprint 5](https://img.shields.io/badge/Sprint_5-AWS_&_Boto-E42322)](/sprint5)  
-[![Sprint 6](https://img.shields.io/badge/Sprint_6-AWS_&_Data_Lake-FDCA00)](/sprint6)
+[![Sprint 6](https://img.shields.io/badge/Sprint_6-AWS_&_Data_Lake-FDCA00)](/sprint6)  
+[![Sprint 7](https://img.shields.io/badge/Sprint_7-Apache_Spark-ED751A)](/sprint7)

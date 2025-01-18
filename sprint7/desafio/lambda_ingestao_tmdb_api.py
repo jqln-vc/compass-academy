@@ -12,7 +12,7 @@ e ingestão na camada raw do data lake.
 
 """
 
-#########################################################################
+###########################################################################
 # IMPORTAÇÕES
 
 import json
@@ -24,7 +24,7 @@ import sys
 from datetime import datetime
 from math import ceil
 
-#########################################################################
+###########################################################################
 # CLASSES E FUNÇÕES
 
 class LogPrinter:
@@ -91,8 +91,8 @@ def processador_api_batch(filmes_id: list[str],
         dados = []
         batch_atual = filmes_id[inicio:fim]
             
-        print(f"Processando batch {batch_n}/{total_batches}\
-            (IDs {inicio} to {fim})")
+        print(f"Processando batch {batch_n}/{total_batches}"
+              f"(IDs {inicio} to {fim})")
             
         for _id in batch_atual:
             try:
@@ -110,13 +110,15 @@ def processador_api_batch(filmes_id: list[str],
                         print(f"Adicionado id: {_id}")
                         dados.append(dados_tmdb)
                 else:
-                    print(f"Erro em obter o filme de id: {_id}. Status: {resposta.status_code}")
+                    print(f"Erro em obter o filme de id: {_id}"
+                          f".Status: {resposta.status_code}")
 
             except Exception as e:
-                print(f"Erro ao processar filme de id {_id}: {str(e)}. Status: {resposta.status_code}")
+                print(f"Erro ao processar filme de id {_id}: {str(e)}."
+                      f"Status: {resposta.status_code}")
                 continue
             
-        # Filtrar atributos e salvar o batch em json
+        # Filtrar atributos de interesse e salvar o batch em json
         if dados:
             dados_filtrados = [{chave: item[chave] 
                                 for chave in atributos} 
@@ -138,7 +140,7 @@ def processador_api_batch(filmes_id: list[str],
             print(f"Erro: não existem filmes válidos no batch {batch_n}")
 
 
-#########################################################################
+###########################################################################
 # VARIÁVEIS
 
 # Chaves de Acesso
@@ -149,27 +151,14 @@ ano, mes, dia = datetime.now().year,\
     f"{datetime.now().month:02}", f"{datetime.now().day:02}"
 
 # Caminhos e Nomes de Arquivos
-#nome_balde = os.environ.get("BUCKET")
-nome_balde = "compass-desafio-final-dramance"
-#dataset_base = os.environ.get("BASE_DATASET")
-dataset_base = "./csv/dataset_base_com_elenco.csv"
+nome_balde = os.environ.get("BUCKET")
+#nome_balde = "compass-desafio-final-dramance"
+dataset_base = os.environ.get("BASE_DATASET")
+#dataset_base = "./csv/dataset_base_com_elenco.csv"
 caminho_output = f"Raw/TMDB/JSON/{ano}/{mes}/{dia}"
 log = f"log-ingestao-{ano}{mes}{dia}.txt"
 
-# Chaves de Acesso
-aws_access_key_id = getpass.getpass("Insira sua AWS Access Key ID: ")
-aws_secret_access_key = getpass.getpass("Insira sua AWS Secret Access Key: ")
-aws_session_token = getpass.getpass("Insira seu AWS Session Token: ")
-
-# Recurso S3
-s3 = boto3.resource(
-    "s3",
-    aws_access_key_id=aws_access_key_id,
-    aws_secret_access_key=aws_secret_access_key,
-    aws_session_token=aws_session_token
-)
-
-#s3 = boto3.resource("s3")
+s3 = boto3.resource("s3")
 balde = s3.Bucket(nome_balde)
 
 # ID de Filmes: somente IDs distintos
@@ -220,8 +209,8 @@ atributos = [
 sys.stdout.reconfigure(encoding="utf-8")
 logger = LogPrinter(f"/tmp/{log}")
 
-###############################################################
-# EXECUÇÃO
+###########################################################################
+# EXECUÇÃO LAMBDA
 
 
 def lambda_handler(event, context):
@@ -238,7 +227,7 @@ def lambda_handler(event, context):
         caminho_output=caminho_output
     )
 
-    print("Listagem de objetos no bucket {nome_balde}")
+    print(f"Listagem de objetos no bucket {nome_balde}")
     [print(objeto) for objeto in balde.objects.all()]
         
     print("Ingestão realizada com sucesso")
@@ -247,7 +236,5 @@ def lambda_handler(event, context):
     
     return {
         "statusCode": 200,
-        "body": json.dumps("Processamento e ingestão concluídos.")
+        "body": "Processamento e ingestão concluídos."
     }
-
-#lambda_handler()
