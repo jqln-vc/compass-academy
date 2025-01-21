@@ -1,9 +1,9 @@
-"""Sprint 7 - Desafio Final - Etapa 2: ingestão de dados via API do TMDB.
+"""Sprint 7 - Desafio Final - Etapa 2: ingestão de dados de API do TMDB.
 
 Autoria: Jaqueline Costa
 Data: Jan/25
-ingestao_tmdb_api.py: script com pipeline de requisição de dados via API
-e ingestão na camada raw do data lake.
+lambda_ingestao_tmdb_api.py: script com pipeline de requisição de dados
+via API e ingestão na camada raw do data lake.
 
     Outputs / Uploads:
         - filmes_attr_batch_{batch_n}.json: arquivos de dados obtidos
@@ -26,6 +26,7 @@ from math import ceil
 
 ###########################################################################
 # CLASSES E FUNÇÕES
+
 
 class LogPrinter:
     """Classe de redirecionamento do stdout para log."""
@@ -66,6 +67,7 @@ def processador_api_batch(filmes_id: list[str],
                           ) -> None:
     """
     Processador de requisição de filmes por ID em batch, output em JSON.
+    
     Upload de arquivos em bucket AWS S3.
 
     Args:
@@ -81,19 +83,19 @@ def processador_api_batch(filmes_id: list[str],
     """
     # Calcula o número total de batches
     total_batches = ceil(len(filmes_id) / tam_batch)
-        
+
     for batch_n in range(total_batches):
         inicio = batch_n * tam_batch
         fim = min(inicio + tam_batch, len(filmes_id))
         batch_n += 1
-            
+
         # Processa o batch atual
         dados = []
         batch_atual = filmes_id[inicio:fim]
-            
+
         print(f"Processando batch {batch_n}/{total_batches}"
               f"(IDs {inicio} to {fim})")
-            
+
         for _id in batch_atual:
             try:
                 url = f"https://api.themoviedb.org/3/movie/{_id}?language=en-US"
@@ -117,11 +119,11 @@ def processador_api_batch(filmes_id: list[str],
                 print(f"Erro ao processar filme de id {_id}: {str(e)}."
                       f"Status: {resposta.status_code}")
                 continue
-            
+
         # Filtrar atributos de interesse e salvar o batch em json
         if dados:
-            dados_filtrados = [{chave: item[chave] 
-                                for chave in atributos} 
+            dados_filtrados = [{chave: item[chave]
+                                for chave in atributos}
                                for item in dados]
             try:
                 s3_bucket.put_object(
@@ -131,11 +133,11 @@ def processador_api_batch(filmes_id: list[str],
                                     ensure_ascii=False).encode("utf-8")
                     )
 
-                print(f"Batch {batch_n} salvo em {arq_output}")
+                print(f"Batch {batch_n} salvo em {caminho_output}")
 
             except Exception as e:
                 print(f"Erro ao salvar o batch {batch_n}: {str(e)}")
-                    
+
         else:
             print(f"Erro: não existem filmes válidos no batch {batch_n}")
 
@@ -156,6 +158,7 @@ dataset_base = os.environ.get("BASE_DATASET")
 caminho_output = f"Raw/TMDB/JSON/{ano}/{mes}/{dia}"
 log = f"log-ingestao-{ano}{mes}{dia}.txt"
 
+# Integração AWS
 s3 = boto3.resource("s3")
 balde = s3.Bucket(nome_balde)
 
@@ -163,7 +166,7 @@ balde = s3.Bucket(nome_balde)
 with open(dataset_base, "r", encoding="latin1") as arq:
     reader = csv.reader(arq)
     filmes_id = list({linha[0] for linha in list(reader)[1:]})
-    
+
 # Header das Requisições
 headers = {
     "accept": "application/json",
@@ -193,7 +196,7 @@ paises_excluidos = [
     "US",  # Estados Unidos
     "VA",  # Vaticano
     "XI"   # Irlanda do Norte
-]
+    ]
 
 atributos = [
     "imdb_id",
@@ -201,7 +204,8 @@ atributos = [
     "origin_country",
     "original_language",
     "spoken_languages",
-    "overview"]
+    "overview"
+    ]
 
 # Reconfiguração do stdout
 sys.stdout.reconfigure(encoding="utf-8")
@@ -212,9 +216,10 @@ logger = LogPrinter(f"/tmp/{log}")
 
 
 def lambda_handler(event, context):
+    """Função de execução event-driven na Lambda."""
 
     print("Início da sequência de execução de ingestão via API")
-    print(f"Iniciando requisições de dados do TMDB")
+    print("Iniciando requisições de dados do TMDB")
     processador_api_batch(
         filmes_id=filmes_id,
         headers=headers,
@@ -227,11 +232,11 @@ def lambda_handler(event, context):
 
     print(f"Listagem de objetos no bucket {nome_balde}")
     [print(objeto) for objeto in balde.objects.all()]
-        
+
     print("Ingestão realizada com sucesso")
     logger.close()
     balde.upload_file(Filename=f"/tmp/{log}", Key=f"Logs/{log}")
-    
+
     return {
         "statusCode": 200,
         "body": "Processamento e ingestão concluídos."

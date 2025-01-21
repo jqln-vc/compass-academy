@@ -7,6 +7,33 @@
 
 ## SEÇÕES
 
+* **Primeiras Explorações no Dataset** [֍](#primeiras-explorações-no-dataset)
+  * **Recapitulando a Análise Inicial** [֍](#recapitulando-a-análise-inicial)
+  * **Filtros Iniciais no Dataset Original** [֍](#filtros-iniciais-no-dataset-original)
+    * **Filtro 1: Gênero** [֍](#filtro-1-gênero)
+    * **Filtro 2: Data de Lançamento** [֍](#filtro-2-data-de-lançamento)
+    * **Filtro 3: IDs Distintos** [֍](#filtro-3-ids-distintos)
+    * **Filtro 4 (Descartado): Títulos Originais em Inglês** [֍](#filtro-4-descartado-títulos-originais-em-inglês)
+  * **Reformulação da Análise Final** [֍](#reformulação-da-análise-final)
+* **Data Lake e Ingestão de Dados: Fontes Distintas** [֍](#data-lake-e-ingestão-de-dados-fontes-distintas)
+  * **Processamento de Dados no Data Lake: Etapa de Ingestão Pt.2** [֍](#processamento-de-dados-no-data-lake-etapa-de-ingestão-pt-2)
+  * **API TMDB: Seleção de Dados** [֍](#api-tmdb-seleção-de-dados)
+  * **Criação de Arquivo ZIP para Layer** [֍](#criação-de-arquivo-zip-para-layer)
+  * **Criação e Configuração da Lambda e Layer** [֍](#criação-e-configuração-da-lambda-e-layer)
+  * **Variáveis de Ambiente** [֍](#variáveis-de-ambiente)
+  * **Criação do IAM Role** [֍](#criação-do-iam-role)
+  * **Análise do Script Lambda** [֍](#análise-do-script-lambda)
+    * **Cabeçalho e Importações** [֍](#cabeçalho-e-importações)
+    * **Classe LogPrinter** [֍](#classe-logprinter)
+    * **Função Processador API Batch** [֍](#função-processador-api-batch)
+    * **Variáveis** [֍](#variáveis)
+    * **Execução Lambda** [֍](#execução-lambda)
+  * **Execução da Ingestão no Data Lake** [֍](#execução-da-ingestão-no-data-lake)
+    * **Arquivos JSON Consumidos Após a Ingestão** [֍](#arquivos-json-consumidos-após-a-ingestão)
+    * **Arquivo de Log Gerado** [֍](#arquivo-de-log-gerado)
+* **Considerações Finais** [֍](#considerações-finais)
+* **Referências** [֍](#referências)
+
 ## PRIMEIRAS EXPLORAÇÕES NO DATASET
 
 *Voltar para **Seções*** [֍](#seções)
@@ -127,39 +154,13 @@ Com isso, também será reformulado o tema central da análise, enfocando soment
 
 Nesta etapa do projeto, a camada **raw** do data lake é enriquecida com dados provenientes de fontes externas, um processo corriqueiro porém nada trivial, pois engloba o estudo das especificidades de fonte, formato, tempo, volume e utilização dos dados.
 
-> *Ingestão de dados é o processo de mover dados de um lugar para outro. A ingestão de dados implica na movimentação de dados de sistemas-fonte para o armazenamento no ciclo de vida de engenharia de dados, sendo a ingestão um passo intermediário.* (REIS & HOUSLEY, 2022, p. 234)
-
-```mermaid
-flowchart LR
-    BD1@{ shape: lin-cyl}
-    BD2@{ shape: lin-cyl}
-    BD3@{ shape: lin-cyl}
-    DW1@{ shape: st-rect, label: "1: STAGING LAYER:\n Tabelas Normalizadas de Fontes Diversas"}
-    DW2@{ shape: rect, label: "2: CIF:\n Consolidação em Tabelas Normalizadas"}
-    DW3@{ shape: rect, label: "3: CORE & ACCESS LAYER:\n Tabelas Fato e Dimensão"}
-    DW4@{ shape: das, label: "4: SERVING LAYER:\nCubos"}
-    DM1@{ shape: cyl, label: "CUBO\nMarketing"}
-    DM2@{ shape: cyl, label: "CUBO\nFinanceiro"}
-    DM3@{ shape: cyl, label: "CUBO\nManutenção"}
-    BD1 & BD2 & BD3 == EXTRAÇÃO + CARREGAMENTO ==> DW1
-    DW1 == TRANSFORMAÇÃO #1 ==> DW2
-    DW2 == TRANSFORMAÇÃO #2 ==> DW3
-    DW3 --o DW4
-    DW4 == DISTRIBUIÇÃO ==> DM1 & DM2 & DM3
-    T1@{ shape: text, label: "SISTEMAS-FONTE (OLTP)"}
-    T2@{ shape: text, label: "DATA WAREHOUSE (OLAP)"}
-    T3@{ shape: text, label: "CUBOS (OLAP)"}
-    T1 ~~~ T2
-    T2 ~~~~~~ T3
-    T1 -.-oT2
-    T2 -.-oT3
-```
+> *Ingestão de dados é o processo de mover dados de um lugar para outro. A ingestão de dados implica na movimentação de dados de sistemas-fonte para o armazenamento no ciclo de vida de engenharia de dados, sendo a ingestão um passo intermediário.* [^1]
 
 ### PROCESSAMENTO DE DADOS NO DATA LAKE: ETAPA DE INGESTÃO PT. 2
 
 *Voltar para **Seções*** [֍](#seções)
 
-No ciclo de vida da engenharia de dados, a etapa de ingestão precisa considerar alguns fatores para otimização do processo de coleta de dados, incluindo finalidade, fonte dos dados, quantidade e frequência, entre outros. A seguir, alguns pontos a nortearem o planejamento da ingestão (REIS & HOUSLEY, 2022, p. 235):
+No ciclo de vida da engenharia de dados, a etapa de ingestão precisa considerar alguns fatores para otimização do processo de coleta de dados, incluindo finalidade, fonte dos dados, quantidade e frequência, entre outros. A seguir, alguns pontos a nortearem o planejamento da ingestão [^2]:
 
 * *Qual a utilidade dos dados que estou ingerindo?*
 * *Posso reutilizar esses dados e evitar a ingestão de múltiplas versões do mesmo dataset?*
@@ -186,6 +187,10 @@ Para a complementação dos dados existentes no dataset `movies.csv`, foi necess
 * `original_language` : língua original, no formato ISO 639-1
 * `spoken_languages` : lista de línguas adicionais faladas no filme, no formato ISO 639-1
 * `overview` : sinopse do filme em inglês, utilizado para obter os tópicos das narrativas
+
+A partir da [documentação](https://developer.themoviedb.org/docs/getting-started) foi estudada a maneira mais objetiva de obter todos os dados necessários acima, esta é uma etapa importante para otimizar o tempo de execução, ao minimizar a quantidade de requisições necessárias, assim reduzindo custos (se considerarmos largas escalas).
+
+> *APIs são um tipo de fonte de dados que continua a crescer em importância e popularidade. Uma organização comum pode ter centenas de fontes de dados externas, tais como plataformas SaaS e outras empresas parceiras. A dura realidade é que não existe um padrão real para troca de dados via APIs. Engenheiros de dados podem passar um tempo significativo lendo documentações, comunicando-se com proprietários de dados externos, e escrevendo e mantendo códigos de conexão com APIs.* [^3]
 
 Além disso, foram obtidos, diretamente no site do TMDB, a lista de códigos de países e línguas utilizadas na base de dados. Abaixo uma amostra desses dados, localizados nos arquivos [linguas.json](./api_data/linguas.json) e [paises.json](./api_data/paises.json) :
 
@@ -239,11 +244,142 @@ Para as permissões da Lambda, foi reutilizado um IAM Role criado para o Lab da 
 
 *Voltar para **Seções*** [֍](#seções)
 
-### EXECUÇÃO DA LAMBDA E INGESTÃO NO DATA LAKE
+A seguir um detalhamento de cada seção do script de ingestão implementado na AWS Lambda.
+
+#### CABEÇALHO E IMPORTAÇÕES
 
 *Voltar para **Seções*** [֍](#seções)
 
-A seguir uma amostra da execução da Lambda e os arquivos ingeridos no S3.
+O script é iniciado com documentação em ***docstrings***, detalhando autoria, data, propósito e arquivos gerados.
+
+![Script: Cabeçalho e Importações](../evidencias/desafio/19-script-cabeçalho-importações.png)
+
+Dentre as bibliotecas utilizadas, somente a `requests` teve de ser instalada externamente e configurada na ***layer*** da Lambda.
+
+* `json` tratamento dos arquivos de saída
+* `csv` processamento do dataset base para obtenção dos ids de filmes utilizados nas requisições
+* `boto3` integração com serviços AWS
+* `requests` execução das requisições GET dos dados do TMDB
+* `os` acesso às variáveis de ambiente
+* `sys` acesso ao stdout para a configuração da classe LogPrinter
+* `datetime` acesso ao horário do sistema, para registros nos logs e nos diretórios da camada raw
+* `math` utilização da função `ceil` para arredondamento superior no cálculo de batches necessários para execução.
+
+#### CLASSE LOGPRINTER
+
+*Voltar para **Seções*** [֍](#seções)
+
+Implementação de classe LogPrinter já utilizada e detalhada anteriormente, a qual reconfigura o `stdout`, gerando registros de logs de execução a cada chamada da função `print()` e, posteriormente, geração de arquivo de texto.
+
+![Script: Classe LogPrinter](../evidencias/desafio/20-script-logprinter.png)
+
+#### FUNÇÃO PROCESSADOR API BATCH
+
+*Voltar para **Seções*** [֍](#seções)
+
+Função principal do script, faz o particionamento dos dados em batches, as requisições à API do TMDB, filtro de dados obtidos, geração de arquivo JSON e upload do mesmo no bucket S3.
+
+A função possui os seguintes parâmetros:
+
+![Script: Função Processador Parâmetros](../evidencias/desafio/21-script-funcao-processador-api-parametros.png)
+
+* `filmes_id` lista com os ids de filmes obtidos a partir do arquivo CSV resultante da exploração e filtros iniciais comentados na seção [Filtros Iniciais no Dataset Original](#filtros-iniciais-no-dataset-original), localizado em [dataset_base_com_elenco.csv](./csv/dataset_base_com_elenco.csv).
+* `headers` dicionário com chave de leitura da API, utilizada na requisição GET.
+* `paises_excluidos` lista com siglas de países excluídos no recorte regional da análise final.
+* `atributos` lista com os atributos/colunas/chaves a serem obtidos do TMDB para complementação dos dados da análise.
+* `s3_bucket` nome do bucket de destino da ingestão.
+* `tam_batch` quantidade de requisições a serem realizadas por batch, valor default de 100.
+* `caminho_output` caminho de saída para armazenamento dos arquivos JSON gerados, valor default "./api_data".
+
+Primeiramente, a quantidade de batches necessária é calculada a partir da quantidade de ids a serem buscados nas requisições. Neste caso, a quantidade de ids distintos é 920, o valor é dividido pelo tamanho do batch (100) e arrendondado "para cima", resultando em 10 batches.
+
+Em seguida, um laço de repetição itera os (10) batches, selecionando o índice de ínicio e término da lista de (920) ids, selecionando 100 ids a cada iteração, salvos na variável `batch_atual` .
+
+![Script: Função Processador Quantidade de Batches](../evidencias/desafio/22-script-funcao-processador-api-qtd-batches.png)
+
+Então, um novo laço interno itera cada um dos 100 ids do batch atual, fazendo a requisição dos dados partir do id.
+
+Havendo confirmação de obtenção dos dados com o status 200 (alguns ids não foram localizados na base de dados, resultando em status 404), é aplicado um filtro condicional de exclusão de filmes com base no país de origem e língua original.
+
+Caso o registro obtido passe nesse filtro, este é adicionado a uma lista referente aos ids obtidos neste batch.
+
+![Script: Função Processador Requisições](../evidencias/desafio/23-script-funcao-processador-api-requisicoes-por-id.png)
+
+Terminadas as requisições do batch, caso a lista `dados` não esteja vazia, somente os dados de interesse na lista `atributos` são coletados e salvos em `dados_filtrados`, e a geração do arquivo JSON é feita diretamente no bucket, na estrutura de diretórios declarada em `caminho_output` .
+
+![Script: Função Processador JSON Dumps no S3](../evidencias/desafio/24-script-funcao-processador-json-dumps-s3.png)
+
+#### VARIÁVEIS
+
+*Voltar para **Seções*** [֍](#seções)
+
+Declaração das variáveis utilizadas no script:
+
+![Script: Variáveis](../evidencias/desafio/25-script-funcao-processador-variaveis.png)
+
+* **Chaves de acesso à API TMDB**
+* **Obtenção de horário atual do sistema para registros na camada raw e logs de execução**
+* Caminhos e nomes de arquivos**
+* **Conexão via ***resource*** com o AWS S3**
+* **Processamento do arquivo CSV e obtenção dos ids distintos na primeira coluna, salvos na variável `filmes_id`**
+* **Preparação do header de requisição com a chave de acesso**
+
+Para as variáveis referentes aos filtros de dados, será interessante um melhor detalhamento devido à relevância para a análise final:
+
+* **Países excluídos**: localizados na Europa Ocidental e América do Norte, ou com histórico de colonização, não incorporados no recorte regional.
+
+```python
+    paises_excluidos = [
+    "AD",  # Andorra
+    "BE",  # Bélgica
+    "CA",  # Canadá
+    "CH",  # Suiça
+    "DE",  # Alemanha
+    "DK",  # Dinamarca
+    "ES",  # Espanha
+    "FI",  # Finlândia
+    "FR",  # França
+    "GB",  # Reino Unido
+    "IE",  # Irlanda
+    "IT",  # Itália
+    "LU",  # Luxemburgo
+    "MC",  # Mônaco
+    "NL",  # Países Baixos
+    "NO",  # Noruega
+    "PT",  # Portugal
+    "SE",  # Suécia
+    "US",  # Estados Unidos
+    "VA",  # Vaticano
+    "XI"   # Irlanda do Norte
+    ]
+```
+
+* **Atributos**: dados de interesse a serem obtidos para complementar o dataset.
+
+```python
+    atributos = [
+    "imdb_id",              # ID utilizado como "chave estrangeira"
+    "original_title",       # Título na língua original
+    "origin_country",       # Sigla do país de origem
+    "original_language",    # Sigla da língua original
+    "spoken_languages",     # Línguas adicionais, se houverem
+    "overview"              # Sinopse do filme (em inglês)
+    ]
+```
+
+#### EXECUÇÃO LAMBDA
+
+*Voltar para **Seções*** [֍](#seções)
+
+A seguir a função `lamda_handler`, que faz a integração com a execução baseada em eventos da Lambda. Nesta seção, é executada a sequência dos processos pontuada pelas gerações de logs, com as funções de `print()` a cada conclusão de etapa. O conteúdo do bucket é listado somente para fins de registro no arquivo de logs. Por fim, o arquivo `logger` é fechado e enviado ao bucket, a funçaõ retorna com um código de sucesso.
+
+![Script: Execução Lambda](../evidencias/desafio/26-script-funcao-processador-execucao-lambda.png)
+
+### EXECUÇÃO DA INGESTÃO NO DATA LAKE
+
+*Voltar para **Seções*** [֍](#seções)
+
+A seguir uma amostra da execução da Lambda e os arquivos ingeridos no S3, na camada ***raw***.
 
 ![Execução Lambda e Ingestão](../evidencias/desafio/16-execucao-lambda-desafio.gif)
 
@@ -251,7 +387,13 @@ A seguir uma amostra da execução da Lambda e os arquivos ingeridos no S3.
 
 *Voltar para **Seções*** [֍](#seções)
 
+Abaixo a estrutura dos arquivos armazenados no bucket S3:
+
 ![Bucket S3 Arquivos JSON](../evidencias/desafio/12-lambda-jsons.png)
+
+E uma amostra dos registros obtidos, com a seleção dos atributos de interesse para a complementação dos dados de análise:
+
+![Amostra JSON TMDB](../evidencias/desafio/27-amostra-json-tmdb.png)
 
 #### ARQUIVO DE LOG GERADO
 
@@ -263,6 +405,16 @@ A seguir uma amostra da execução da Lambda e os arquivos ingeridos no S3.
 
 *Voltar para **Seções*** [֍](#seções)
 
+O fluxo de engenharia de dados engloba as diversas etapas pelas quais um dado, ou um grupo deles, passa desde sua geração nos sistemas-fonte até seu consumo em análises e inferências. Neste momento, ainda na etapa de ingestão, são obtidos dados provenientes de fontes externas, neste caso, via requisições a APIs.
+
+O planejamento desta etapa, considerando principalmente a finalidade, o volume e o formato dos dados a serem ingeridos, é essencial para a otimização da performance. É preciso buscar a redução de ingestão de dados desnecessários ou já existentes, economizando em vários aspectos, desde tempo de computação a espaço de armazenagem.
+
+Portanto, o controle do ciclo de vida dos dados é fundamental para o controle e a governança, e sua negligência pode resultar em aumentos de custos, brechas de segurança e a transformação do data lake no temido ***data swamp***.
+
 ## REFERÊNCIAS
 
 *Voltar para **Seções*** [֍](#seções)
+
+[^1]: REIS & HOUSLEY, 2022, p. 234
+[^2]: Ibid., p. 235
+[^3]: Ibid., p. 254
