@@ -152,9 +152,7 @@ ano, mes, dia = datetime.now().year,\
 
 # Caminhos e Nomes de Arquivos
 nome_balde = os.environ.get("BUCKET")
-#nome_balde = "compass-desafio-final-dramance"
 dataset_base = os.environ.get("BASE_DATASET")
-#dataset_base = "./csv/dataset_base_com_elenco.csv"
 caminho_output = f"Raw/TMDB/JSON/{ano}/{mes}/{dia}"
 log = f"log-ingestao-{ano}{mes}{dia}.txt"
 
