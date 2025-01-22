@@ -13,6 +13,8 @@ Todos os códigos dos exercícios foram implementados seguindo os Python Enhance
 
 Na pasta `evidencias/exercicios`, estão localizadas as imagens com a validação de cada exercício.
 
+* **Gerador em Massa de Dados** : utilização de aleatoriedade para geração de dados em massa.
+
 * **Spark | ** : 
 
 * **API TMDB | Teste de Acesso** : obtenção de dados do database TMDB por meio de API.
@@ -26,6 +28,8 @@ O projeto final desenvolve um fluxo de processamento e análise de dados, a part
 
 Na pasta `evidencias`, encontram-se prints referentes a momentos de execução, exemplificando abordagens adotadas para o desenvolvimento dos exercícios e do desafio.  
 No passo a passo explicativo, encontrado na pasta `desafio`, serão comentados outros prints de pontos específicos.
+
+### GERADOR EM MASSA DE DADOS
 
 ### APACHE SPARK
 
