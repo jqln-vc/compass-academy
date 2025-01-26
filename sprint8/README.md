@@ -14,8 +14,12 @@ Todos os códigos dos exercícios foram implementados seguindo os Python Enhance
 Na pasta `evidencias/exercicios`, estão localizadas as imagens com a validação de cada exercício.
 
 * **Gerador em Massa de Dados** : utilização de aleatoriedade para geração de dados em massa.
+  * [**gerador_dados.py**](./exercicios/spark_batch/gerador_dados.py) : script que gera 2 arquivos de dados aleatórios de animais e nomes de pessoas.
+    * [**nomes_animais.csv**](./exercicios/spark_batch/nomes_animais.csv) : arquivo CSV com nomes de animais ordenados em ordem alfabética.
+    * [**nomes_aleatorios.txt**](./exercicios/spark_batch/nomes_aleatorios.txt) : arquivo TXT com quantidade massiva de nomes gerados aleatoriamente.
 
-* **Spark | ** : 
+* **Lab Spark SQL** : utilização do framework PySpark para manipulação e análise de alto volume de dados, a partir do arquivo `nomes_aleatorios.txt` gerado no exercício acima.
+  * [**lab_spark_sql.py**](./exercicios/spark_batch/lab_spark_sql.py) : script de execução das sequência de manipulações e análises solicitados.
 
 * **API TMDB | Teste de Acesso** : obtenção de dados do database TMDB por meio de API.
   * [**api_teste.py**](./exercicios/tmdb/api_teste.py)
@@ -31,7 +35,63 @@ No passo a passo explicativo, encontrado na pasta `desafio`, serão comentados o
 
 ### GERADOR EM MASSA DE DADOS
 
+#### ETAPA 1: NÚMEROS ALEATÓRIOS
+
+![Etapa 1](./evidencias/exercicios/2-gerador-etapa1.png)
+
+#### ETAPA 2: LISTA DE ANIMAIS
+
+![Etapa 2](./evidencias/exercicios/3-gerador-etapa2.png)
+
+#### ETAPA 3: NOMES ALEATÓRIOS
+
+![Etapa 3](./evidencias/exercicios/4-gerador-etapa3.png)
+
 ### APACHE SPARK
+
+#### ETAPA 1: CRIAÇÃO DA SESSÃO E DO DATAFRAME
+
+![Etapa 1](./evidencias/exercicios/5-lab-spark-etapa1.png)
+
+#### ETAPA 2: RENOMEAÇÃO PARA COLUNA "NOMES" E VERIFICAÇÃO DO SCHEMA
+
+![Etapa 2](./evidencias/exercicios/6-lab-spark-etapa2.png)
+
+#### ETAPA 3: CRIAÇÃO DA COLUNA "ESCOLARIDADE"
+
+![Etapa 3](./evidencias/exercicios/7-lab-spark-etapa3.png)
+
+#### ETAPA 4: CRIAÇÃO DA COLUNA "PAÍS"
+
+![Etapa 4](./evidencias/exercicios/8-lab-spark-etapa4.png)
+
+#### ETAPA 5: CRIAÇÃO DA COLUNA "ANONASCIMENTO" (1946 ~ 2010)
+
+![Etapa 5](./evidencias/exercicios/9-lab-spark-etapa5.png)
+
+#### ETAPA 6: SELECT DE PESSOAS NASCIDAS NESTE SÉCULO
+
+![Etapa 6](./evidencias/exercicios/10-lab-spark-etapa6.png)
+
+#### ETAPA 7: SELECT DA ETAPA 6 COM SPARK SQL
+
+![Etapa 7](./evidencias/exercicios/11-lab-spark-etapa7.png)
+
+#### ETAPA 8: CONTAGEM DE MILLENNIALS (1980 ~ 1994) COM FILTER
+
+![Etapa 8](./evidencias/exercicios/12-lab-spark-etapa8.png)
+
+#### ETAPA 9: CONTAGEM DA ETAPA 8 COM SPARK SQL
+
+![Etapa 9](./evidencias/exercicios/13-lab-spark-etapa9.png)
+
+#### ETAPA 10: QUANTIDADE DE PESSOAS POR PAÍS E GERAÇÃO
+
+![Etapa 10](./evidencias/exercicios/14-lab-spark-etapa10.png)
+
+#### EXECUÇÃO COMPLETA DO SCRIPT
+
+![Execução Lab Spark](./evidencias/exercicios/15-execucao-lab-spark-script.gif)
 
 ### API TMDB
 

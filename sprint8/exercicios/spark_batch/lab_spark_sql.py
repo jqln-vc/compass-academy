@@ -32,7 +32,7 @@ df_nomes.printSchema()
 df_nomes.show(10)
 
 
-# Etapa 3 - Adição da Coluna "Escolaridade"
+# Etapa 3 - Criação da Coluna "Escolaridade"
 
 print("Etapa 3: Criando coluna Escolaridade ...")
 escolaridades = ["Fundamental", "Medio", "Superior"]
@@ -44,7 +44,7 @@ df_nomes = df_nomes.withColumn("Escolaridade",
 
 df_nomes.show(10)
 
-# Etapa 4 - Adição da Coluna "País"
+# Etapa 4 - Criação da Coluna "País"
 
 print("Etapa 4: Criando coluna País ...")
 
@@ -70,7 +70,7 @@ df_nomes = df_nomes.withColumn("Pais",
 
 df_nomes.show(10)
 
-# Etapa 5 - Adição da Coluna "AnoNascimento" (anos 1945 a 2010)
+# Etapa 5 - Criação da Coluna "AnoNascimento" (anos 1945 a 2010)
 
 print("Etapa 5: Criando coluna AnoNascimento ...")
 
@@ -112,7 +112,7 @@ spark.sql("""
           WHERE AnoNascimento >= 1980 AND AnoNascimento <= 1994
           """).show()
 
-# Etapa 10 - Quantidade de Pessoas por Geração por País
+# Etapa 10 - Quantidade de Pessoas por País e Geração
 
 print("Etapa 10: Contagem de Pessoas por País e Geração com Spark SQL ...")
 
