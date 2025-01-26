@@ -12,7 +12,7 @@ import names
 # ETAPA 1: NÚMEROS ALEATÓRIOS
 
 numeros_random = [random.randrange(0, 1000000) for num in range(250)][::-1]
-#print(numeros_random)
+print(numeros_random)
 
 #####################################################################
 # ETAPA 2: LISTA DE ANIMAIS
@@ -41,9 +41,9 @@ with open("nomes_animais.csv", "a") as arq:
         "Coelophysis bauri"
     ]
 
-    #for dino in sorted(animais_fofinhos):
-        #print(dino)
-        #arq.write(f"{dino}\n")
+    for dino in sorted(animais_fofinhos):
+        print(dino)
+        arq.write(f"{dino}\n")
 
 #####################################################################
 # ETAPA 3: NOMES ALEATÓRIOS

@@ -167,3 +167,7 @@ cython_debug/
 node_modules/
 package*.json
 .vscode
+
+# Compass
+
+nomes_aleatorios.txt
