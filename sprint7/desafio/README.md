@@ -140,7 +140,7 @@ Abaixo a verificação do ID no IMDB, atestando a divergência entre a coluna t�
 Considerando os fatores comentados acima, o fato de que para os dados de **direção** existiam muitos desfalques de ids sem essa informação, bem como novas perspectivas, as perguntas foram reformuladas em:
 
 * ***Qual a quantidade de filmes lançados anualmente, por região?***
-* ***Quais os 5 países com maior quantidade de filmes lançados? Desses países, quais línguas são mais utilizadas***
+* ***Quais os 5 países com maior quantidade de filmes lançados? Desses países, quais línguas são mais utilizadas?***
 * ***Quais as atrizes/atores com maior atuação e em qual(is) língua(s)?***
 * ***Quais as 5 línguas com maior quantidade de títulos?***
 * ***Dentre os 100 títulos melhores votados, quais as nacionalidades das produções?***

@@ -50,7 +50,7 @@ with open("nomes_animais.csv", "a") as arq:
 
 random.seed(210388)
 qtd_nomes_unicos = 3001
-qtd_nomes_aleatorios = 1000001
+qtd_nomes_aleatorios = 10000001
 nomes_unicos = [names.get_full_name() for num in range(qtd_nomes_unicos)]
 
 print(f"Gerando {qtd_nomes_aleatorios} nomes aleatórios...")
@@ -59,3 +59,5 @@ nomes_aleatorios = [random.choice(nomes_unicos) for num in range(qtd_nomes_aleat
 with open("nomes_aleatorios.txt", "a") as arq2:
     for nome in nomes_aleatorios:
         arq2.write(f"{nome}\n")
+
+print("Geração de nomes aleatórios concluída. Arquivo salvo com sucesso!")
