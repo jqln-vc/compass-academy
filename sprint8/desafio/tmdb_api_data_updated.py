@@ -74,28 +74,31 @@ def tmdb_api_genero_por_anos(
         while pag <= total_pags:
                 try:
                     url = f"https://api.themoviedb.org/3/discover/movie?include_adult=false&\
-                        include_video=false&language=en-US&page={pag}&primary_release_year={ano}&with_genres={genero_id}"
+                        include_video=false&language=en-US&page={pag}&\
+                        primary_release_year={ano}&with_genres={genero_id}"
                     resposta = requests.get(url, headers=headers)
 
                     if resposta.status_code == 200:
                         dados_tmdb = resposta.json()
-                        total_pags = dados_tmdb['total_pages']
+                        total_pags = dados_tmdb["total_pages"]
+                        print(f"Obtida página {pag} / {total_pags} de filmes de genero_id {genero_id}: ano {ano}.")
                         for filme in dados_tmdb["results"]:
                             if filme[exclusao_chave_valor[0]] != exclusao_chave_valor[1]:
                                 ids_filmes_genero_por_anos.append({"id": filme["id"], 
                                                     "genre_ids": filme["genre_ids"]})
                         pag += 1
                     else:
-                        print(f"Erro em obter os filmes de ano {ano}. Status: {resposta.status_code}")
+                        print(f"Erro em obter os filmes de ano {ano}. "
+                              f"Status: {resposta.status_code}.")
                         break
 
                 except Exception as e:
-                    print(f"Erro ao processar filmes: {str(e)}."
-                        f"Status: {resposta.status_code}")
+                    print(f"Erro ao processar filmes: {str(e)}.")
                     continue
 
                 time.sleep(0.25)
     
+    print("Sequência de requisições por ano de lançamento e gênero concluída.")
     return ids_filmes_genero_por_anos
 
 
@@ -118,17 +121,19 @@ def tmdb_api_ids_pais_origem_exclusao(
                 if (dados_tmdb["origin_country"][0] not in paises_excluidos
                     and dados_tmdb[exclusao_chave_valor[0]] != exclusao_chave_valor[1]):
 
-                    print(f"Adicionado id: {_id}")
+                    print(f"Adicionado id: {_id}. "
+                          f"Status: {resposta.status_code}.")
                     filmes_filtro_paises.append(dados_tmdb)
                 else:
-                    print(f"Filme de id: {_id} barrado no filtro de países. "
-                        f"Status: {resposta.status_code}.")
+                    print(f"Filme de id {_id} barrado no filtro de países.")
 
         except Exception as e:
-            print(f"Erro ao processar filme de id {_id}: {str(e)}. "
-                f"Status: {resposta.status_code}.")
+            print(f"Erro ao processar filme de id {_id}: {str(e)}.")
             continue
+
+        time.sleep(0.25)
     
+    print("Sequência de requisições por ids e filtro de países concluída.")
     return filmes_filtro_paises
 
 
@@ -140,22 +145,24 @@ def tmdb_selecao_atributos(
     """
     dados_atributos_final = [{chave: item[chave] 
                               for chave in atributos} for item in dados_tmdb]
-
-
+    
+    print("Seleção de atributos do dataset concluída.")
     return dados_atributos_final
 
 
 def s3_ingestao_batch(
         filmes: list[dict],
+        nome_bucket: str,
         s3_bucket: object,
         tam_batch: int = 100,
         caminho_output: str = "./api_data"
 ) -> None:
     """
-    Upload em batch de arquivos json em bucket AWS S3.
+    Upload em batch de registros em JSON em bucket AWS S3.
 
     Args:
-        s3_bucket (str): nome do AWS S3 bucket
+        filmes (list[dict]): lista em formato JSON com dados de filmes
+        s3_bucket (object): AWS S3 bucket, objeto Bucket
         tam_batch (int): número de IDs processados por batch
             default: 100
         caminho_output (str): saída para os arquivos JSON
@@ -172,8 +179,8 @@ def s3_ingestao_batch(
         # Processa o batch atual
         batch_atual = filmes[inicio:fim]
 
-        print(f"Processando batch {batch_n}/{total_batches}"
-              f"(IDs {inicio} to {fim})")
+        print(f"Processando batch {batch_n}/{total_batches} para upload no bucket {nome_bucket}"
+              f"(IDs {inicio} até {fim}).")
 
         if batch_atual:
             try:
@@ -184,13 +191,18 @@ def s3_ingestao_batch(
                                     ensure_ascii=False).encode("utf-8")
                     )
 
-                print(f"Batch {batch_n} salvo em {caminho_output}")
+                print(f"Batch {batch_n} salvo no bucket {nome_bucket} em {caminho_output}.")
 
             except Exception as e:
-                print(f"Erro ao salvar o batch {batch_n}: {str(e)}")
+                print(f"Erro ao salvar o batch {batch_n} no bucket {nome_bucket}: {str(e)}.")
 
         else:
-            print(f"Erro: não existem filmes válidos no batch {batch_n}")
+            print(f"Erro: não existem filmes válidos no batch {batch_n}.")
+    
+    print("Ingestão em batch de arquivos JSON finalizada."
+          f"Listagem de objetos no bucket {nome_bucket}: ")
+    [print(objeto) for objeto in s3_bucket.objects.all()]
+
 
 
 
@@ -210,13 +222,14 @@ ano, mes, dia = datetime.now().year,\
 
 # Caminhos e Nomes de Arquivos
 nome_balde = "compass-desafio-final-dramance"
-dataset_base = "/workspaces/compass-academy/sprint7/desafio/csv/ids_distintos_attr_em_ingles.csv"
+#dataset_base = "/workspaces/compass-academy/sprint7/desafio/csv/ids_distintos_attr_em_ingles.csv"
+dataset_base = "../../sprint7/desafio/csv/ids_distintos_attr_em_ingles.csv"
 caminho_output = f"Raw/TMDB/JSON/{ano}/{mes}/{dia}"
 log = f"log-ingestao-{ano}{mes}{dia}.txt"
 
 # Integração AWS
 s3 = boto3.resource(
-    's3',
+    "s3",
     aws_access_key_id=aws_access_key_id,
     aws_secret_access_key=aws_secret_access_key,
     aws_session_token=aws_session_token
@@ -267,6 +280,7 @@ atributos = [
     "origin_country",
     "original_language",
     "spoken_languages",
+    "release_date",
     "popularity",
     "vote_average",
     "vote_count",
@@ -286,8 +300,8 @@ logger = LogPrinter(f"{log}")
 
 if __name__ == "__main__":
 
-    print("Início da sequência de execução de ingestão via API")
-    print("Iniciando requisições de dados de filmes de anos atuais do TMDB")
+    print("Início da sequência de execução de ingestão via API.")
+    print("Iniciando requisições de dados de filmes de anos atuais do TMDB.")
 
     filmes_atuais = tmdb_api_genero_por_anos(
         anos_lancamento=anos_lancamento,
@@ -296,15 +310,15 @@ if __name__ == "__main__":
     )
 
     print("Requisições por gênero e anos de lançamento finalizadas.")
-    print("Iniciando filtro de gênero único...")
+    print("Iniciando filtro de gênero único de Romance.")
 
     filmes_atuais_df = pd.DataFrame.from_dict(filmes_atuais)
     romances_atuais_df = filmes_atuais_df[filmes_atuais_df["genre_ids"]
-                                          .apply(lambda x: len(x) == 1 and 10749 in x)]
+                                          .apply(lambda x: len(x) == 1 and romance_id in x)]
     print("Removendo duplicações de filmes atuais.")
-    romances_atuais_sem_dup_df = romances_atuais_df.drop_duplicates(subset='id')
+    romances_atuais_sem_dup_df = romances_atuais_df.drop_duplicates(subset="id")
 
-    print(f"Dataset de filmes atuais com {romances_atuais_sem_dup_df.shape[0]} linhas.")
+    print(f"Dataset de filmes atuais de Romance com {romances_atuais_sem_dup_df.shape[0]} linhas.")
 
     romances_atuais_dados_totais = tmdb_api_ids_pais_origem_exclusao(
         filmes_ids=romances_atuais_sem_dup_df["id"],
@@ -330,22 +344,21 @@ if __name__ == "__main__":
 
     romances_final = romances_csv_final + romances_atuais_final
     pd.DataFrame(romances_final).to_json(
-        'dados_tmdb_atributos_finais.json',
-        orient='records',
+        "tmdb_filmes_atributos_finais.json",
+        orient="records",
         force_ascii=False,
         indent=4
     )
+    print("Download local de arquivo consolidado em JSON.")
 
     s3_ingestao_batch(
         filmes=romances_final,
+        nome_bucket=nome_balde,
         s3_bucket=balde,
         tam_batch=100,
         caminho_output=caminho_output
     )
 
-    print(f"Listagem de objetos no bucket {nome_balde}: ")
-    [print(objeto) for objeto in balde.objects.all()]
-
-    print("Ingestão realizada com sucesso")
+    print("Ingestão de API TMDB para bucket S3 realizada com sucesso !")
     logger.close()
     balde.upload_file(Filename=f"{log}", Key=f"Logs/{log}")
