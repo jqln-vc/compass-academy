@@ -1,0 +1,1193 @@
+[28-01-2025 01:12:34] Início da sequência de execução de ingestão via API
+[28-01-2025 01:12:34] Iniciando requisições de dados de filmes de anos atuais do TMDB
+[28-01-2025 01:13:44] Requisições por gênero e anos de lançamento finalizadas.
+[28-01-2025 01:13:44] Iniciando filtro de gênero único...
+[28-01-2025 01:13:44] Removendo duplicações de filmes atuais.
+[28-01-2025 01:13:44] Dataset de filmes atuais com 390 linhas.
+[28-01-2025 01:13:44] Adicionado id: 1196656
+[28-01-2025 01:13:44] Adicionado id: 1241612
+[28-01-2025 01:13:44] Adicionado id: 1231914
+[28-01-2025 01:13:44] Adicionado id: 1236401
+[28-01-2025 01:13:44] Adicionado id: 1205036
+[28-01-2025 01:13:44] Adicionado id: 1232177
+[28-01-2025 01:13:44] Adicionado id: 1225482
+[28-01-2025 01:13:44] Adicionado id: 1231897
+[28-01-2025 01:13:44] Adicionado id: 1233759
+[28-01-2025 01:13:44] Adicionado id: 1073035
+[28-01-2025 01:13:44] Adicionado id: 928333
+[28-01-2025 01:13:44] Adicionado id: 1231295
+[28-01-2025 01:13:44] Adicionado id: 1231924
+[28-01-2025 01:13:44] Adicionado id: 1234720
+[28-01-2025 01:13:44] Adicionado id: 1231940
+[28-01-2025 01:13:44] Adicionado id: 1239122
+[28-01-2025 01:13:44] Adicionado id: 1124348
+[28-01-2025 01:13:44] Adicionado id: 1083986
+[28-01-2025 01:13:44] Adicionado id: 1159892
+[28-01-2025 01:13:44] Adicionado id: 1232221
+[28-01-2025 01:13:44] Adicionado id: 1241772
+[28-01-2025 01:13:44] Adicionado id: 1297107
+[28-01-2025 01:13:44] Adicionado id: 1094463
+[28-01-2025 01:13:44] Adicionado id: 1241190
+[28-01-2025 01:13:44] Adicionado id: 1230972
+[28-01-2025 01:13:44] Adicionado id: 1242163
+[28-01-2025 01:13:44] Adicionado id: 1242173
+[28-01-2025 01:13:44] Adicionado id: 1168715
+[28-01-2025 01:13:44] Adicionado id: 1232226
+[28-01-2025 01:13:44] Adicionado id: 992787
+[28-01-2025 01:13:44] Adicionado id: 1233728
+[28-01-2025 01:13:44] Adicionado id: 1069069
+[28-01-2025 01:13:44] Adicionado id: 1232266
+[28-01-2025 01:13:45] Adicionado id: 1120459
+[28-01-2025 01:13:45] Adicionado id: 1231426
+[28-01-2025 01:13:45] Adicionado id: 1236814
+[28-01-2025 01:13:45] Adicionado id: 1248488
+[28-01-2025 01:13:45] Adicionado id: 1232186
+[28-01-2025 01:13:45] Adicionado id: 1237482
+[28-01-2025 01:13:45] Filme de id: 1313909 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:45] Adicionado id: 1236387
+[28-01-2025 01:13:45] Adicionado id: 1242606
+[28-01-2025 01:13:45] Adicionado id: 610338
+[28-01-2025 01:13:45] Adicionado id: 1241615
+[28-01-2025 01:13:45] Adicionado id: 1231821
+[28-01-2025 01:13:45] Filme de id: 1066575 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:45] Adicionado id: 1168931
+[28-01-2025 01:13:45] Adicionado id: 1024015
+[28-01-2025 01:13:45] Adicionado id: 1242610
+[28-01-2025 01:13:45] Adicionado id: 1395237
+[28-01-2025 01:13:45] Adicionado id: 1252499
+[28-01-2025 01:13:45] Adicionado id: 1093659
+[28-01-2025 01:13:45] Adicionado id: 1248394
+[28-01-2025 01:13:45] Adicionado id: 1232188
+[28-01-2025 01:13:45] Adicionado id: 1236334
+[28-01-2025 01:13:45] Adicionado id: 1236236
+[28-01-2025 01:13:45] Adicionado id: 1236232
+[28-01-2025 01:13:45] Adicionado id: 1242168
+[28-01-2025 01:13:45] Adicionado id: 1238490
+[28-01-2025 01:13:45] Adicionado id: 1240781
+[28-01-2025 01:13:45] Adicionado id: 1228483
+[28-01-2025 01:13:45] Adicionado id: 1072551
+[28-01-2025 01:13:45] Adicionado id: 1174942
+[28-01-2025 01:13:45] Adicionado id: 1127218
+[28-01-2025 01:13:45] Adicionado id: 1184303
+[28-01-2025 01:13:45] Adicionado id: 1237499
+[28-01-2025 01:13:45] Adicionado id: 1323887
+[28-01-2025 01:13:45] Adicionado id: 1237496
+[28-01-2025 01:13:45] Adicionado id: 1239343
+[28-01-2025 01:13:45] Adicionado id: 1239436
+[28-01-2025 01:13:45] Adicionado id: 1237505
+[28-01-2025 01:13:45] Filme de id: 1193380 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:45] Filme de id: 1069507 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:45] Adicionado id: 1237493
+[28-01-2025 01:13:46] Adicionado id: 1175501
+[28-01-2025 01:13:46] Adicionado id: 1279880
+[28-01-2025 01:13:46] Filme de id: 1136279 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:46] Adicionado id: 1134409
+[28-01-2025 01:13:46] Adicionado id: 1159798
+[28-01-2025 01:13:46] Adicionado id: 1022830
+[28-01-2025 01:13:46] Adicionado id: 1092113
+[28-01-2025 01:13:46] Adicionado id: 1162675
+[28-01-2025 01:13:46] Adicionado id: 1155381
+[28-01-2025 01:13:46] Adicionado id: 1200897
+[28-01-2025 01:13:46] Adicionado id: 1093176
+[28-01-2025 01:13:46] Filme de id: 1092268 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:46] Adicionado id: 1236227
+[28-01-2025 01:13:46] Adicionado id: 1106528
+[28-01-2025 01:13:46] Adicionado id: 1070005
+[28-01-2025 01:13:46] Filme de id: 1105045 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:46] Adicionado id: 1226836
+[28-01-2025 01:13:46] Adicionado id: 1107139
+[28-01-2025 01:13:46] Adicionado id: 1152908
+[28-01-2025 01:13:46] Adicionado id: 1143365
+[28-01-2025 01:13:46] Adicionado id: 1070895
+[28-01-2025 01:13:46] Adicionado id: 933233
+[28-01-2025 01:13:46] Adicionado id: 938501
+[28-01-2025 01:13:46] Adicionado id: 1158841
+[28-01-2025 01:13:46] Adicionado id: 667701
+[28-01-2025 01:13:46] Adicionado id: 1227361
+[28-01-2025 01:13:46] Adicionado id: 1272017
+[28-01-2025 01:13:46] Adicionado id: 1271481
+[28-01-2025 01:13:46] Adicionado id: 1164137
+[28-01-2025 01:13:46] Filme de id: 892499 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:46] Adicionado id: 1226846
+[28-01-2025 01:13:46] Filme de id: 1101319 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:46] Filme de id: 1189860 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:46] Adicionado id: 1174325
+[28-01-2025 01:13:46] Adicionado id: 1204756
+[28-01-2025 01:13:46] Adicionado id: 1087429
+[28-01-2025 01:13:46] Adicionado id: 1116945
+[28-01-2025 01:13:46] Adicionado id: 1225623
+[28-01-2025 01:13:46] Filme de id: 1132179 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:46] Adicionado id: 1126374
+[28-01-2025 01:13:46] Adicionado id: 1117333
+[28-01-2025 01:13:46] Adicionado id: 1138788
+[28-01-2025 01:13:47] Adicionado id: 1245138
+[28-01-2025 01:13:47] Adicionado id: 1170419
+[28-01-2025 01:13:47] Adicionado id: 1193204
+[28-01-2025 01:13:47] Adicionado id: 1211459
+[28-01-2025 01:13:47] Adicionado id: 1081685
+[28-01-2025 01:13:47] Filme de id: 1211408 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:47] Filme de id: 1120987 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:47] Adicionado id: 1145727
+[28-01-2025 01:13:47] Adicionado id: 1151021
+[28-01-2025 01:13:47] Adicionado id: 1125079
+[28-01-2025 01:13:47] Adicionado id: 1123038
+[28-01-2025 01:13:47] Adicionado id: 1151648
+[28-01-2025 01:13:47] Adicionado id: 1125111
+[28-01-2025 01:13:47] Adicionado id: 1164308
+[28-01-2025 01:13:47] Adicionado id: 1227387
+[28-01-2025 01:13:47] Adicionado id: 1147067
+[28-01-2025 01:13:47] Adicionado id: 1201331
+[28-01-2025 01:13:47] Filme de id: 961602 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:47] Adicionado id: 1175173
+[28-01-2025 01:13:47] Filme de id: 1178932 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:47] Adicionado id: 1396136
+[28-01-2025 01:13:47] Adicionado id: 1155384
+[28-01-2025 01:13:47] Filme de id: 1175228 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:47] Adicionado id: 1309603
+[28-01-2025 01:13:47] Adicionado id: 1160310
+[28-01-2025 01:13:47] Adicionado id: 1255550
+[28-01-2025 01:13:47] Filme de id: 1198888 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:47] Adicionado id: 1329650
+[28-01-2025 01:13:47] Adicionado id: 1106135
+[28-01-2025 01:13:47] Adicionado id: 1318736
+[28-01-2025 01:13:47] Adicionado id: 1297407
+[28-01-2025 01:13:47] Adicionado id: 1252766
+[28-01-2025 01:13:47] Filme de id: 931260 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:47] Adicionado id: 1189498
+[28-01-2025 01:13:47] Filme de id: 1176436 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:47] Adicionado id: 1167376
+[28-01-2025 01:13:47] Filme de id: 1402589 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:47] Adicionado id: 1117695
+[28-01-2025 01:13:47] Filme de id: 1062895 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:47] Filme de id: 1059370 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:48] Adicionado id: 1144298
+[28-01-2025 01:13:48] Adicionado id: 1277395
+[28-01-2025 01:13:48] Adicionado id: 1189554
+[28-01-2025 01:13:48] Adicionado id: 1234812
+[28-01-2025 01:13:48] Adicionado id: 1143234
+[28-01-2025 01:13:48] Adicionado id: 1184552
+[28-01-2025 01:13:48] Adicionado id: 1152692
+[28-01-2025 01:13:48] Filme de id: 1353928 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:48] Adicionado id: 1117965
+[28-01-2025 01:13:48] Filme de id: 1091385 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:48] Filme de id: 1074294 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:48] Filme de id: 1069372 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:48] Adicionado id: 1152768
+[28-01-2025 01:13:48] Filme de id: 1126746 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:48] Adicionado id: 1165578
+[28-01-2025 01:13:48] Adicionado id: 1115784
+[28-01-2025 01:13:48] Filme de id: 1257455 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:48] Filme de id: 1236626 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:48] Filme de id: 1220593 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:48] Adicionado id: 1086720
+[28-01-2025 01:13:48] Adicionado id: 1224804
+[28-01-2025 01:13:48] Filme de id: 1092246 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:48] Adicionado id: 1367376
+[28-01-2025 01:13:48] Adicionado id: 1198872
+[28-01-2025 01:13:48] Adicionado id: 1367937
+[28-01-2025 01:13:48] Adicionado id: 1206271
+[28-01-2025 01:13:48] Adicionado id: 1102812
+[28-01-2025 01:13:48] Filme de id: 1392193 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:48] Filme de id: 1360512 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:48] Filme de id: 1407952 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:48] Adicionado id: 1189647
+[28-01-2025 01:13:48] Filme de id: 1198808 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:48] Filme de id: 1142196 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:48] Adicionado id: 1175398
+[28-01-2025 01:13:48] Adicionado id: 1178503
+[28-01-2025 01:13:48] Filme de id: 1166350 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:48] Adicionado id: 1154214
+[28-01-2025 01:13:48] Adicionado id: 1300639
+[28-01-2025 01:13:48] Adicionado id: 1380677
+[28-01-2025 01:13:48] Adicionado id: 1148925
+[28-01-2025 01:13:48] Adicionado id: 1145746
+[28-01-2025 01:13:49] Adicionado id: 1072244
+[28-01-2025 01:13:49] Adicionado id: 1111834
+[28-01-2025 01:13:49] Filme de id: 1078450 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:49] Adicionado id: 1073003
+[28-01-2025 01:13:49] Adicionado id: 1070017
+[28-01-2025 01:13:49] Filme de id: 1203209 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:49] Adicionado id: 1269381
+[28-01-2025 01:13:49] Filme de id: 1214977 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:49] Adicionado id: 1067798
+[28-01-2025 01:13:49] Adicionado id: 1167898
+[28-01-2025 01:13:49] Adicionado id: 1240773
+[28-01-2025 01:13:49] Adicionado id: 1268663
+[28-01-2025 01:13:49] Adicionado id: 1254604
+[28-01-2025 01:13:49] Adicionado id: 1248482
+[28-01-2025 01:13:49] Adicionado id: 1247475
+[28-01-2025 01:13:49] Adicionado id: 1241186
+[28-01-2025 01:13:49] Adicionado id: 1261947
+[28-01-2025 01:13:49] Adicionado id: 1225107
+[28-01-2025 01:13:49] Adicionado id: 1252509
+[28-01-2025 01:13:49] Adicionado id: 1248390
+[28-01-2025 01:13:49] Adicionado id: 1241179
+[28-01-2025 01:13:49] Adicionado id: 1336938
+[28-01-2025 01:13:49] Adicionado id: 1303599
+[28-01-2025 01:13:49] Adicionado id: 1231995
+[28-01-2025 01:13:49] Adicionado id: 1242615
+[28-01-2025 01:13:49] Adicionado id: 1240625
+[28-01-2025 01:13:49] Adicionado id: 1248484
+[28-01-2025 01:13:49] Adicionado id: 1248485
+[28-01-2025 01:13:49] Adicionado id: 1238488
+[28-01-2025 01:13:49] Adicionado id: 1268660
+[28-01-2025 01:13:49] Adicionado id: 1285366
+[28-01-2025 01:13:49] Adicionado id: 1297098
+[28-01-2025 01:13:49] Adicionado id: 1257361
+[28-01-2025 01:13:49] Adicionado id: 1275519
+[28-01-2025 01:13:49] Adicionado id: 1297104
+[28-01-2025 01:13:49] Adicionado id: 1306473
+[28-01-2025 01:13:49] Adicionado id: 1275522
+[28-01-2025 01:13:49] Adicionado id: 1297095
+[28-01-2025 01:13:49] Adicionado id: 1249605
+[28-01-2025 01:13:49] Adicionado id: 1414059
+[28-01-2025 01:13:49] Adicionado id: 1237237
+[28-01-2025 01:13:49] Filme de id: 1241848 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:50] Adicionado id: 1220635
+[28-01-2025 01:13:50] Adicionado id: 1269247
+[28-01-2025 01:13:50] Adicionado id: 1236234
+[28-01-2025 01:13:50] Adicionado id: 1255643
+[28-01-2025 01:13:50] Adicionado id: 1394182
+[28-01-2025 01:13:50] Adicionado id: 1236225
+[28-01-2025 01:13:50] Adicionado id: 1393664
+[28-01-2025 01:13:50] Adicionado id: 1288727
+[28-01-2025 01:13:50] Adicionado id: 1239382
+[28-01-2025 01:13:50] Adicionado id: 1270970
+[28-01-2025 01:13:50] Adicionado id: 1167815
+[28-01-2025 01:13:50] Adicionado id: 1386625
+[28-01-2025 01:13:50] Adicionado id: 1014795
+[28-01-2025 01:13:50] Adicionado id: 1394911
+[28-01-2025 01:13:50] Filme de id: 1262432 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:50] Adicionado id: 1318336
+[28-01-2025 01:13:50] Adicionado id: 1214887
+[28-01-2025 01:13:50] Adicionado id: 1246163
+[28-01-2025 01:13:50] Adicionado id: 1423599
+[28-01-2025 01:13:50] Adicionado id: 1266857
+[28-01-2025 01:13:50] Adicionado id: 1251930
+[28-01-2025 01:13:50] Adicionado id: 1369088
+[28-01-2025 01:13:50] Adicionado id: 1391944
+[28-01-2025 01:13:50] Filme de id: 1385685 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:50] Adicionado id: 1220221
+[28-01-2025 01:13:50] Adicionado id: 1381436
+[28-01-2025 01:13:50] Adicionado id: 1392131
+[28-01-2025 01:13:50] Adicionado id: 1403345
+[28-01-2025 01:13:50] Adicionado id: 1308834
+[28-01-2025 01:13:50] Adicionado id: 1404828
+[28-01-2025 01:13:50] Adicionado id: 1404827
+[28-01-2025 01:13:50] Adicionado id: 1402804
+[28-01-2025 01:13:50] Adicionado id: 1322833
+[28-01-2025 01:13:50] Adicionado id: 1235857
+[28-01-2025 01:13:50] Adicionado id: 1396972
+[28-01-2025 01:13:50] Adicionado id: 1325215
+[28-01-2025 01:13:50] Filme de id: 1306261 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:50] Filme de id: 1353922 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:50] Adicionado id: 1204618
+[28-01-2025 01:13:50] Adicionado id: 1218670
+[28-01-2025 01:13:50] Adicionado id: 1392700
+[28-01-2025 01:13:50] Adicionado id: 1184582
+[28-01-2025 01:13:50] Adicionado id: 1388382
+[28-01-2025 01:13:51] Adicionado id: 1396161
+[28-01-2025 01:13:51] Adicionado id: 1249644
+[28-01-2025 01:13:51] Filme de id: 1315787 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:51] Adicionado id: 1239837
+[28-01-2025 01:13:51] Filme de id: 1390846 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:51] Adicionado id: 1402652
+[28-01-2025 01:13:51] Adicionado id: 1257050
+[28-01-2025 01:13:51] Adicionado id: 1403363
+[28-01-2025 01:13:51] Filme de id: 1314662 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:51] Filme de id: 1319299 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:51] Filme de id: 1237437 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:51] Adicionado id: 1373765
+[28-01-2025 01:13:51] Adicionado id: 1297058
+[28-01-2025 01:13:51] Adicionado id: 1365280
+[28-01-2025 01:13:51] Adicionado id: 1371249
+[28-01-2025 01:13:51] Filme de id: 1312350 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:51] Erro ao processar filme de id 1374595: list index out of range. Status: 200.
+[28-01-2025 01:13:51] Filme de id: 1366219 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:51] Adicionado id: 1357715
+[28-01-2025 01:13:51] Filme de id: 1239659 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:51] Adicionado id: 1255967
+[28-01-2025 01:13:51] Adicionado id: 1393662
+[28-01-2025 01:13:51] Filme de id: 1352486 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:51] Filme de id: 1316748 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:51] Adicionado id: 1269642
+[28-01-2025 01:13:51] Filme de id: 1307264 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:51] Filme de id: 1374024 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:51] Adicionado id: 1241611
+[28-01-2025 01:13:51] Adicionado id: 1162910
+[28-01-2025 01:13:51] Filme de id: 1271364 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:51] Filme de id: 1415958 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:51] Filme de id: 1370285 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:51] Adicionado id: 1230433
+[28-01-2025 01:13:51] Filme de id: 1383293 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:51] Adicionado id: 1381067
+[28-01-2025 01:13:51] Adicionado id: 1365301
+[28-01-2025 01:13:51] Adicionado id: 1260200
+[28-01-2025 01:13:51] Filme de id: 1409467 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:51] Adicionado id: 1377359
+[28-01-2025 01:13:51] Adicionado id: 1353826
+[28-01-2025 01:13:51] Adicionado id: 1316998
+[28-01-2025 01:13:52] Adicionado id: 1376690
+[28-01-2025 01:13:52] Adicionado id: 1390494
+[28-01-2025 01:13:52] Adicionado id: 772742
+[28-01-2025 01:13:52] Adicionado id: 1304573
+[28-01-2025 01:13:52] Filme de id: 1396070 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:52] Filme de id: 1298754 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:52] Filme de id: 1320488 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:52] Filme de id: 1304056 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:52] Adicionado id: 1367714
+[28-01-2025 01:13:52] Adicionado id: 1299553
+[28-01-2025 01:13:52] Filme de id: 1408370 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:52] Adicionado id: 1226227
+[28-01-2025 01:13:52] Filme de id: 1322197 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:52] Filme de id: 1306749 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:52] Adicionado id: 1306553
+[28-01-2025 01:13:52] Adicionado id: 1391146
+[28-01-2025 01:13:52] Adicionado id: 1324287
+[28-01-2025 01:13:52] Adicionado id: 1307229
+[28-01-2025 01:13:52] Filme de id: 1240885 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:52] Adicionado id: 1317797
+[28-01-2025 01:13:52] Adicionado id: 1314951
+[28-01-2025 01:13:52] Adicionado id: 1247868
+[28-01-2025 01:13:52] Adicionado id: 1374298
+[28-01-2025 01:13:52] Filme de id: 1305733 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:52] Adicionado id: 1236696
+[28-01-2025 01:13:52] Adicionado id: 1313487
+[28-01-2025 01:13:52] Filme de id: 1306183 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:52] Filme de id: 1269948 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:52] Filme de id: 1359681 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:52] Adicionado id: 1339800
+[28-01-2025 01:13:52] Adicionado id: 1294437
+[28-01-2025 01:13:52] Adicionado id: 1283217
+[28-01-2025 01:13:52] Adicionado id: 1233188
+[28-01-2025 01:13:52] Adicionado id: 1400947
+[28-01-2025 01:13:52] Erro ao processar filme de id 1053864: list index out of range. Status: 200.
+[28-01-2025 01:13:52] Filme de id: 1275060 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:52] Filme de id: 1280071 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:52] Adicionado id: 1219835
+[28-01-2025 01:13:52] Adicionado id: 1233765
+[28-01-2025 01:13:52] Filme de id: 1217238 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:52] Adicionado id: 1266681
+[28-01-2025 01:13:52] Adicionado id: 1252473
+[28-01-2025 01:13:53] Adicionado id: 1242863
+[28-01-2025 01:13:53] Adicionado id: 1283727
+[28-01-2025 01:13:53] Filme de id: 1335117 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:53] Adicionado id: 1237948
+[28-01-2025 01:13:53] Adicionado id: 1253230
+[28-01-2025 01:13:53] Adicionado id: 1275116
+[28-01-2025 01:13:53] Adicionado id: 1318917
+[28-01-2025 01:13:53] Adicionado id: 1354785
+[28-01-2025 01:13:53] Adicionado id: 1420602
+[28-01-2025 01:13:53] Erro ao processar filme de id 1230458: list index out of range. Status: 200.
+[28-01-2025 01:13:53] Filme de id: 1144443 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:53] Adicionado id: 1422702
+[28-01-2025 01:13:53] Adicionado id: 1227132
+[28-01-2025 01:13:53] Adicionado id: 1384126
+[28-01-2025 01:13:53] Adicionado id: 1335881
+[28-01-2025 01:13:53] Adicionado id: 1202167
+[28-01-2025 01:13:53] Adicionado id: 1410516
+[28-01-2025 01:13:53] Adicionado id: 1375966
+[28-01-2025 01:13:53] Adicionado id: 360138
+[28-01-2025 01:13:53] Adicionado id: 1405207
+[28-01-2025 01:13:53] Adicionado id: 1375970
+[28-01-2025 01:13:53] Adicionado id: 1375981
+[28-01-2025 01:13:53] Adicionado id: 1399278
+[28-01-2025 01:13:53] Adicionado id: 1375976
+[28-01-2025 01:13:53] Filme de id: 1411290 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:53] Adicionado id: tt6072380
+[28-01-2025 01:13:53] Adicionado id: tt10905616
+[28-01-2025 01:13:53] Adicionado id: tt9546080
+[28-01-2025 01:13:53] Filme de id: tt13401252 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:53] Adicionado id: tt7981422
+[28-01-2025 01:13:53] Filme de id: tt11096780 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:53] Adicionado id: tt15478268
+[28-01-2025 01:13:53] Filme de id: tt17057126 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:53] Adicionado id: tt3006554
+[28-01-2025 01:13:53] Adicionado id: tt12587782
+[28-01-2025 01:13:53] Adicionado id: tt5822288
+[28-01-2025 01:13:53] Filme de id: tt6170202 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:53] Filme de id: tt3771900 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:53] Adicionado id: tt4979160
+[28-01-2025 01:13:54] Adicionado id: tt3378470
+[28-01-2025 01:13:54] Filme de id: tt6414392 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:54] Adicionado id: tt15212810
+[28-01-2025 01:13:54] Filme de id: tt3800028 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:54] Filme de id: tt9168996 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:54] Adicionado id: tt15071228
+[28-01-2025 01:13:54] Adicionado id: tt11534356
+[28-01-2025 01:13:54] Filme de id: tt5612182 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:54] Adicionado id: tt7705790
+[28-01-2025 01:13:54] Filme de id: tt5171816 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:54] Filme de id: tt3708436 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:54] Filme de id: tt10408944 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:54] Adicionado id: tt15738162
+[28-01-2025 01:13:54] Filme de id: tt7278838 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:54] Adicionado id: tt10209164
+[28-01-2025 01:13:54] Adicionado id: tt8555576
+[28-01-2025 01:13:54] Adicionado id: tt9574444
+[28-01-2025 01:13:54] Adicionado id: tt3175478
+[28-01-2025 01:13:54] Adicionado id: tt7286500
+[28-01-2025 01:13:54] Filme de id: tt8615328 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:54] Filme de id: tt14219458 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:54] Adicionado id: tt9691324
+[28-01-2025 01:13:54] Adicionado id: tt3421036
+[28-01-2025 01:13:54] Adicionado id: tt14449678
+[28-01-2025 01:13:54] Adicionado id: tt3207536
+[28-01-2025 01:13:54] Adicionado id: tt6289452
+[28-01-2025 01:13:54] Filme de id: tt7116248 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:54] Adicionado id: tt13187502
+[28-01-2025 01:13:54] Adicionado id: tt14051714
+[28-01-2025 01:13:55] Adicionado id: tt6720298
+[28-01-2025 01:13:55] Adicionado id: tt13841504
+[28-01-2025 01:13:55] Adicionado id: tt3420850
+[28-01-2025 01:13:55] Adicionado id: tt11730940
+[28-01-2025 01:13:55] Adicionado id: tt4860356
+[28-01-2025 01:13:55] Filme de id: tt15174062 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:55] Adicionado id: tt6800650
+[28-01-2025 01:13:55] Adicionado id: tt7585620
+[28-01-2025 01:13:55] Adicionado id: tt8319694
+[28-01-2025 01:13:55] Adicionado id: tt8042286
+[28-01-2025 01:13:55] Adicionado id: tt3811228
+[28-01-2025 01:13:55] Filme de id: tt5947582 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:55] Adicionado id: tt8016672
+[28-01-2025 01:13:55] Filme de id: tt18350946 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:55] Adicionado id: tt3776402
+[28-01-2025 01:13:55] Filme de id: tt2332503 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:55] Adicionado id: tt5514602
+[28-01-2025 01:13:55] Adicionado id: tt14865506
+[28-01-2025 01:13:55] Adicionado id: tt8016500
+[28-01-2025 01:13:55] Adicionado id: tt15716968
+[28-01-2025 01:13:55] Adicionado id: tt11241544
+[28-01-2025 01:13:55] Filme de id: tt7030194 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:55] Adicionado id: tt3830032
+[28-01-2025 01:13:55] Adicionado id: tt15081946
+[28-01-2025 01:13:55] Adicionado id: tt8080982
+[28-01-2025 01:13:55] Adicionado id: tt8590992
+[28-01-2025 01:13:55] Adicionado id: tt10505592
+[28-01-2025 01:13:55] Adicionado id: tt6975046
+[28-01-2025 01:13:56] Adicionado id: tt8490534
+[28-01-2025 01:13:56] Filme de id: tt3835734 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:56] Adicionado id: tt12467352
+[28-01-2025 01:13:56] Adicionado id: tt3729994
+[28-01-2025 01:13:56] Adicionado id: tt8757198
+[28-01-2025 01:13:56] Filme de id: tt6675230 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:56] Adicionado id: tt4886056
+[28-01-2025 01:13:56] Adicionado id: tt18673736
+[28-01-2025 01:13:56] Filme de id: tt5478698 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:56] Adicionado id: tt14764886
+[28-01-2025 01:13:56] Filme de id: tt2589070 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:56] Filme de id: tt13781030 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:56] Filme de id: tt6649066 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:56] Adicionado id: tt5660296
+[28-01-2025 01:13:56] Adicionado id: tt6352592
+[28-01-2025 01:13:56] Filme de id: tt17663776 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:56] Adicionado id: tt3662730
+[28-01-2025 01:13:56] Filme de id: tt10601432 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:56] Filme de id: tt10514932 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:56] Filme de id: tt14661276 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:56] Filme de id: tt3097524 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:56] Adicionado id: tt3021806
+[28-01-2025 01:13:56] Adicionado id: tt6449976
+[28-01-2025 01:13:56] Adicionado id: tt3793116
+[28-01-2025 01:13:56] Filme de id: tt14459796 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:56] Filme de id: tt4394104 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:56] Filme de id: tt14831708 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:56] Adicionado id: tt3869260
+[28-01-2025 01:13:56] Filme de id: tt6695734 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:57] Adicionado id: tt9765480
+[28-01-2025 01:13:57] Filme de id: tt15214902 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:57] Adicionado id: tt8108210
+[28-01-2025 01:13:57] Adicionado id: tt5908042
+[28-01-2025 01:13:57] Adicionado id: tt14502378
+[28-01-2025 01:13:57] Adicionado id: tt11358490
+[28-01-2025 01:13:57] Adicionado id: tt2281309
+[28-01-2025 01:13:57] Filme de id: tt9074404 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:57] Adicionado id: tt15164524
+[28-01-2025 01:13:57] Filme de id: tt4475244 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:57] Adicionado id: tt4119590
+[28-01-2025 01:13:57] Adicionado id: tt9033534
+[28-01-2025 01:13:57] Filme de id: tt13876954 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:57] Adicionado id: tt2999342
+[28-01-2025 01:13:57] Filme de id: tt8461048 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:57] Adicionado id: tt7435822
+[28-01-2025 01:13:57] Adicionado id: tt12718416
+[28-01-2025 01:13:57] Filme de id: tt14818550 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:57] Adicionado id: tt7254046
+[28-01-2025 01:13:57] Filme de id: tt3627458 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:57] Filme de id: tt7031338 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:57] Adicionado id: tt12613748
+[28-01-2025 01:13:57] Adicionado id: tt5720106
+[28-01-2025 01:13:57] Adicionado id: tt7946936
+[28-01-2025 01:13:57] Filme de id: tt12546872 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:57] Adicionado id: tt10922610
+[28-01-2025 01:13:57] Adicionado id: tt3090310
+[28-01-2025 01:13:57] Adicionado id: tt7619554
+[28-01-2025 01:13:58] Filme de id: tt13515538 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:58] Adicionado id: tt7188858
+[28-01-2025 01:13:58] Filme de id: tt13841476 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:58] Adicionado id: tt5959970
+[28-01-2025 01:13:58] Filme de id: tt14207306 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:58] Filme de id: tt5980788 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:58] Adicionado id: tt10632744
+[28-01-2025 01:13:58] Adicionado id: tt5396888
+[28-01-2025 01:13:58] Adicionado id: tt8390616
+[28-01-2025 01:13:58] Filme de id: tt14147982 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:58] Filme de id: tt14550450 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:58] Adicionado id: tt17296772
+[28-01-2025 01:13:58] Adicionado id: tt8662426
+[28-01-2025 01:13:58] Adicionado id: tt4846952
+[28-01-2025 01:13:58] Adicionado id: tt2662494
+[28-01-2025 01:13:58] Adicionado id: tt10162730
+[28-01-2025 01:13:58] Adicionado id: tt17312226
+[28-01-2025 01:13:58] Filme de id: tt14300376 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:58] Filme de id: tt16047670 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:58] Filme de id: tt6111634 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:58] Adicionado id: tt6023800
+[28-01-2025 01:13:58] Adicionado id: tt6867828
+[28-01-2025 01:13:58] Adicionado id: tt10968482
+[28-01-2025 01:13:58] Filme de id: tt3230668 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:58] Adicionado id: tt8650508
+[28-01-2025 01:13:58] Filme de id: tt12418270 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:58] Filme de id: tt14111862 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:58] Filme de id: tt6917012 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:58] Adicionado id: tt4479178
+[28-01-2025 01:13:58] Filme de id: tt8377698 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:58] Filme de id: tt10559412 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:58] Filme de id: tt12282354 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:59] Adicionado id: tt6431324
+[28-01-2025 01:13:59] Adicionado id: tt5659988
+[28-01-2025 01:13:59] Adicionado id: tt6400696
+[28-01-2025 01:13:59] Filme de id: tt8741612 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:59] Adicionado id: tt10320120
+[28-01-2025 01:13:59] Adicionado id: tt9387300
+[28-01-2025 01:13:59] Adicionado id: tt8755418
+[28-01-2025 01:13:59] Adicionado id: tt21842982
+[28-01-2025 01:13:59] Adicionado id: tt18358032
+[28-01-2025 01:13:59] Adicionado id: tt5454506
+[28-01-2025 01:13:59] Adicionado id: tt15979440
+[28-01-2025 01:13:59] Adicionado id: tt4819604
+[28-01-2025 01:13:59] Adicionado id: tt4964550
+[28-01-2025 01:13:59] Adicionado id: tt15840188
+[28-01-2025 01:13:59] Adicionado id: tt10534962
+[28-01-2025 01:13:59] Adicionado id: tt20455272
+[28-01-2025 01:13:59] Adicionado id: tt3121474
+[28-01-2025 01:13:59] Filme de id: tt9150394 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:59] Adicionado id: tt13594078
+[28-01-2025 01:13:59] Filme de id: tt6465984 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:59] Filme de id: tt7604210 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:59] Adicionado id: tt12078088
+[28-01-2025 01:13:59] Filme de id: tt8723010 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:59] Filme de id: tt4536284 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:59] Filme de id: tt6066696 barrado no filtro de países. Status: 200.
+[28-01-2025 01:13:59] Filme de id: tt2928076 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:00] Filme de id: tt14799960 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:00] Filme de id: tt10241024 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:00] Adicionado id: tt6975084
+[28-01-2025 01:14:00] Filme de id: tt10783168 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:00] Adicionado id: tt22777864
+[28-01-2025 01:14:00] Adicionado id: tt8269216
+[28-01-2025 01:14:00] Filme de id: tt4447048 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:00] Adicionado id: tt22297570
+[28-01-2025 01:14:00] Adicionado id: tt11355320
+[28-01-2025 01:14:00] Filme de id: tt9256578 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:00] Adicionado id: tt15669564
+[28-01-2025 01:14:00] Adicionado id: tt2648034
+[28-01-2025 01:14:00] Adicionado id: tt22742720
+[28-01-2025 01:14:00] Filme de id: tt5928320 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:00] Filme de id: tt2494476 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:00] Adicionado id: tt5216780
+[28-01-2025 01:14:00] Filme de id: tt11159984 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:00] Filme de id: tt4070204 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:00] Filme de id: tt12857614 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:00] Adicionado id: tt5603022
+[28-01-2025 01:14:00] Adicionado id: tt5190944
+[28-01-2025 01:14:00] Adicionado id: tt3175440
+[28-01-2025 01:14:00] Adicionado id: tt3569828
+[28-01-2025 01:14:00] Adicionado id: tt11214936
+[28-01-2025 01:14:00] Filme de id: tt6520962 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:00] Adicionado id: tt7726702
+[28-01-2025 01:14:01] Filme de id: tt8421698 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:01] Filme de id: tt3951558 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:01] Adicionado id: tt8835702
+[28-01-2025 01:14:01] Adicionado id: tt5000984
+[28-01-2025 01:14:01] Adicionado id: tt14123898
+[28-01-2025 01:14:01] Adicionado id: tt6620138
+[28-01-2025 01:14:01] Adicionado id: tt21100400
+[28-01-2025 01:14:01] Adicionado id: tt15840196
+[28-01-2025 01:14:01] Filme de id: tt14460090 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:01] Adicionado id: tt13213122
+[28-01-2025 01:14:01] Adicionado id: tt9226154
+[28-01-2025 01:14:01] Filme de id: tt13892546 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:01] Adicionado id: tt10957620
+[28-01-2025 01:14:01] Adicionado id: tt12196092
+[28-01-2025 01:14:01] Adicionado id: tt3996970
+[28-01-2025 01:14:01] Filme de id: tt8174318 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:01] Filme de id: tt3214448 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:01] Filme de id: tt4189646 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:01] Filme de id: tt2327661 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:01] Adicionado id: tt15929016
+[28-01-2025 01:14:01] Adicionado id: tt7626364
+[28-01-2025 01:14:01] Filme de id: tt7797542 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:01] Filme de id: tt11831084 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:01] Adicionado id: tt11470456
+[28-01-2025 01:14:01] Filme de id: tt8537984 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:01] Adicionado id: tt6434084
+[28-01-2025 01:14:01] Filme de id: tt14087490 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:01] Filme de id: tt2735480 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:01] Adicionado id: tt9579634
+[28-01-2025 01:14:01] Filme de id: tt3065040 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:02] Adicionado id: tt6998762
+[28-01-2025 01:14:02] Filme de id: tt3565174 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:02] Adicionado id: tt9015764
+[28-01-2025 01:14:02] Filme de id: tt3232158 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:02] Filme de id: tt12744088 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:02] Adicionado id: tt15295240
+[28-01-2025 01:14:02] Filme de id: tt3749512 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:02] Filme de id: tt4687508 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:02] Adicionado id: tt9536820
+[28-01-2025 01:14:02] Filme de id: tt7324726 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:02] Adicionado id: tt16059146
+[28-01-2025 01:14:02] Filme de id: tt11779744 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:02] Filme de id: tt8595426 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:02] Adicionado id: tt8982154
+[28-01-2025 01:14:02] Filme de id: tt19037888 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:02] Filme de id: tt3752610 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:02] Adicionado id: tt13334932
+[28-01-2025 01:14:02] Adicionado id: tt6093868
+[28-01-2025 01:14:02] Adicionado id: tt15170506
+[28-01-2025 01:14:02] Filme de id: tt7710360 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:02] Adicionado id: tt3780812
+[28-01-2025 01:14:02] Filme de id: tt11399362 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:02] Adicionado id: tt14398454
+[28-01-2025 01:14:02] Adicionado id: tt2930040
+[28-01-2025 01:14:02] Adicionado id: tt22311646
+[28-01-2025 01:14:02] Adicionado id: tt3255322
+[28-01-2025 01:14:02] Adicionado id: tt6413312
+[28-01-2025 01:14:02] Adicionado id: tt4903518
+[28-01-2025 01:14:02] Filme de id: tt14496722 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:02] Adicionado id: tt3921664
+[28-01-2025 01:14:02] Adicionado id: tt4271820
+[28-01-2025 01:14:02] Adicionado id: tt10125986
+[28-01-2025 01:14:02] Filme de id: tt1597070 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:02] Filme de id: tt5892632 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:03] Adicionado id: tt4834850
+[28-01-2025 01:14:03] Adicionado id: tt7817448
+[28-01-2025 01:14:03] Adicionado id: tt3517986
+[28-01-2025 01:14:03] Adicionado id: tt6271264
+[28-01-2025 01:14:03] Filme de id: tt4975874 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:03] Filme de id: tt10294052 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:03] Adicionado id: tt15621370
+[28-01-2025 01:14:03] Filme de id: tt6445398 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:03] Adicionado id: tt12945050
+[28-01-2025 01:14:03] Adicionado id: tt7610620
+[28-01-2025 01:14:03] Adicionado id: tt10234494
+[28-01-2025 01:14:03] Filme de id: tt2674244 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:03] Filme de id: tt13491628 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:03] Adicionado id: tt8718066
+[28-01-2025 01:14:03] Adicionado id: tt5341036
+[28-01-2025 01:14:03] Filme de id: tt5436520 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:03] Adicionado id: tt16732214
+[28-01-2025 01:14:03] Adicionado id: tt5359598
+[28-01-2025 01:14:03] Filme de id: tt2945592 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:03] Adicionado id: tt9647776
+[28-01-2025 01:14:03] Adicionado id: tt10423120
+[28-01-2025 01:14:03] Adicionado id: tt8680096
+[28-01-2025 01:14:03] Filme de id: tt4094916 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:03] Adicionado id: tt8071204
+[28-01-2025 01:14:03] Adicionado id: tt18291400
+[28-01-2025 01:14:03] Filme de id: tt7905168 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:03] Filme de id: tt21622428 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:03] Adicionado id: tt6234666
+[28-01-2025 01:14:03] Filme de id: tt13456588 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:03] Adicionado id: tt5889280
+[28-01-2025 01:14:04] Filme de id: tt15913744 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:04] Adicionado id: tt6066012
+[28-01-2025 01:14:04] Adicionado id: tt13444292
+[28-01-2025 01:14:04] Filme de id: tt5045648 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:04] Adicionado id: tt15768294
+[28-01-2025 01:14:04] Adicionado id: tt5192998
+[28-01-2025 01:14:04] Adicionado id: tt5928448
+[28-01-2025 01:14:04] Filme de id: tt16607614 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:04] Filme de id: tt7819598 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:04] Adicionado id: tt14514234
+[28-01-2025 01:14:04] Adicionado id: tt5008220
+[28-01-2025 01:14:04] Filme de id: tt11079540 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:04] Filme de id: tt7939428 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:04] Adicionado id: tt20228670
+[28-01-2025 01:14:04] Adicionado id: tt9112578
+[28-01-2025 01:14:04] Adicionado id: tt4425414
+[28-01-2025 01:14:04] Filme de id: tt7278660 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:04] Adicionado id: tt10838362
+[28-01-2025 01:14:04] Filme de id: tt14732424 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:04] Filme de id: tt10165624 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:04] Adicionado id: tt14553896
+[28-01-2025 01:14:04] Adicionado id: tt2706340
+[28-01-2025 01:14:04] Adicionado id: tt3433260
+[28-01-2025 01:14:04] Adicionado id: tt5004918
+[28-01-2025 01:14:04] Adicionado id: tt8668488
+[28-01-2025 01:14:04] Adicionado id: tt15954686
+[28-01-2025 01:14:04] Filme de id: tt7842086 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:04] Filme de id: tt10545474 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:04] Filme de id: tt5663992 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:04] Adicionado id: tt2691040
+[28-01-2025 01:14:04] Filme de id: tt9081418 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:04] Adicionado id: tt4610308
+[28-01-2025 01:14:04] Adicionado id: tt6240032
+[28-01-2025 01:14:04] Adicionado id: tt7920146
+[28-01-2025 01:14:04] Adicionado id: tt12660372
+[28-01-2025 01:14:04] Adicionado id: tt8809750
+[28-01-2025 01:14:04] Adicionado id: tt7817520
+[28-01-2025 01:14:04] Adicionado id: tt3175936
+[28-01-2025 01:14:04] Adicionado id: tt7262474
+[28-01-2025 01:14:05] Filme de id: tt14960572 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:05] Adicionado id: tt6808038
+[28-01-2025 01:14:05] Adicionado id: tt7754486
+[28-01-2025 01:14:05] Adicionado id: tt5154096
+[28-01-2025 01:14:05] Filme de id: tt7257446 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:05] Adicionado id: tt15677260
+[28-01-2025 01:14:05] Filme de id: tt10489754 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:05] Filme de id: tt8652636 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:05] Adicionado id: tt2419576
+[28-01-2025 01:14:05] Filme de id: tt5789924 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:05] Adicionado id: tt8269204
+[28-01-2025 01:14:05] Adicionado id: tt5364694
+[28-01-2025 01:14:05] Filme de id: tt10602774 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:05] Adicionado id: tt3652872
+[28-01-2025 01:14:05] Filme de id: tt3171886 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:05] Filme de id: tt12691830 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:05] Filme de id: tt6658066 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:05] Adicionado id: tt17023780
+[28-01-2025 01:14:05] Adicionado id: tt21611284
+[28-01-2025 01:14:05] Adicionado id: tt8344532
+[28-01-2025 01:14:05] Filme de id: tt4860338 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:05] Adicionado id: tt12054712
+[28-01-2025 01:14:05] Filme de id: tt13438628 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:05] Adicionado id: tt5808990
+[28-01-2025 01:14:05] Filme de id: tt3021126 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:05] Adicionado id: tt15710228
+[28-01-2025 01:14:05] Adicionado id: tt5226466
+[28-01-2025 01:14:06] Adicionado id: tt7433398
+[28-01-2025 01:14:06] Filme de id: tt4188582 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:06] Filme de id: tt21374064 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:06] Adicionado id: tt15625968
+[28-01-2025 01:14:06] Adicionado id: tt5033038
+[28-01-2025 01:14:06] Adicionado id: tt2186322
+[28-01-2025 01:14:06] Filme de id: tt8078850 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:06] Filme de id: tt11192714 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:06] Filme de id: tt11871300 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:06] Filme de id: tt9038166 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:06] Adicionado id: tt3253120
+[28-01-2025 01:14:06] Adicionado id: tt3024056
+[28-01-2025 01:14:06] Filme de id: tt15507800 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:06] Adicionado id: tt7055812
+[28-01-2025 01:14:06] Adicionado id: tt11220376
+[28-01-2025 01:14:06] Filme de id: tt18075698 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:06] Adicionado id: tt3261912
+[28-01-2025 01:14:06] Filme de id: tt7257734 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:06] Filme de id: tt5328796 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:06] Filme de id: tt8614742 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:06] Filme de id: tt14726510 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:06] Adicionado id: tt4366196
+[28-01-2025 01:14:06] Adicionado id: tt10300646
+[28-01-2025 01:14:06] Filme de id: tt22558984 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:06] Adicionado id: tt6359586
+[28-01-2025 01:14:06] Filme de id: tt13438634 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:07] Filme de id: tt11464446 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:07] Filme de id: tt9728368 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:07] Adicionado id: tt4114302
+[28-01-2025 01:14:07] Adicionado id: tt8108212
+[28-01-2025 01:14:07] Filme de id: tt2618936 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:07] Adicionado id: tt5364756
+[28-01-2025 01:14:07] Adicionado id: tt7585522
+[28-01-2025 01:14:07] Adicionado id: tt2878406
+[28-01-2025 01:14:07] Filme de id: tt17071350 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:07] Filme de id: tt5021968 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:07] Adicionado id: tt1674766
+[28-01-2025 01:14:07] Adicionado id: tt6798992
+[28-01-2025 01:14:07] Adicionado id: tt7672868
+[28-01-2025 01:14:07] Adicionado id: tt6925132
+[28-01-2025 01:14:07] Filme de id: tt5804178 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:07] Adicionado id: tt14533622
+[28-01-2025 01:14:07] Adicionado id: tt4384128
+[28-01-2025 01:14:07] Adicionado id: tt4396080
+[28-01-2025 01:14:07] Filme de id: tt7817124 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:07] Adicionado id: tt10467054
+[28-01-2025 01:14:07] Adicionado id: tt4580794
+[28-01-2025 01:14:07] Adicionado id: tt7889930
+[28-01-2025 01:14:07] Adicionado id: tt10731732
+[28-01-2025 01:14:07] Adicionado id: tt7108736
+[28-01-2025 01:14:07] Adicionado id: tt7838158
+[28-01-2025 01:14:07] Adicionado id: tt11079986
+[28-01-2025 01:14:07] Adicionado id: tt10452466
+[28-01-2025 01:14:07] Filme de id: tt13857480 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:07] Adicionado id: tt9466424
+[28-01-2025 01:14:07] Filme de id: tt3130394 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:07] Adicionado id: tt3426282
+[28-01-2025 01:14:07] Adicionado id: tt6077598
+[28-01-2025 01:14:07] Adicionado id: tt9081562
+[28-01-2025 01:14:08] Adicionado id: tt4192656
+[28-01-2025 01:14:08] Filme de id: tt13328800 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:08] Filme de id: tt4909730 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:08] Adicionado id: tt3109648
+[28-01-2025 01:14:08] Filme de id: tt7416650 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:08] Adicionado id: tt8835722
+[28-01-2025 01:14:08] Filme de id: tt6133860 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:08] Adicionado id: tt15310668
+[28-01-2025 01:14:08] Filme de id: tt11641654 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:08] Adicionado id: tt19850394
+[28-01-2025 01:14:08] Adicionado id: tt10738782
+[28-01-2025 01:14:08] Adicionado id: tt12944128
+[28-01-2025 01:14:08] Filme de id: tt2004216 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:08] Filme de id: tt16743878 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:08] Adicionado id: tt8365006
+[28-01-2025 01:14:08] Adicionado id: tt7297002
+[28-01-2025 01:14:08] Adicionado id: tt9081436
+[28-01-2025 01:14:08] Filme de id: tt15227890 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:08] Filme de id: tt8984208 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:08] Filme de id: tt6692840 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:08] Adicionado id: tt5525506
+[28-01-2025 01:14:08] Adicionado id: tt2911684
+[28-01-2025 01:14:08] Filme de id: tt22505680 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:08] Adicionado id: tt2979322
+[28-01-2025 01:14:08] Filme de id: tt12319706 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:08] Adicionado id: tt5850944
+[28-01-2025 01:14:08] Adicionado id: tt10841514
+[28-01-2025 01:14:08] Adicionado id: tt7034918
+[28-01-2025 01:14:08] Filme de id: tt4463762 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:09] Filme de id: tt3734974 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:09] Adicionado id: tt14813878
+[28-01-2025 01:14:09] Adicionado id: tt7820526
+[28-01-2025 01:14:09] Filme de id: tt8980510 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:09] Adicionado id: tt5686868
+[28-01-2025 01:14:09] Filme de id: tt11709818 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:09] Adicionado id: tt2853396
+[28-01-2025 01:14:09] Adicionado id: tt21094328
+[28-01-2025 01:14:09] Filme de id: tt3219296 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:09] Adicionado id: tt12773560
+[28-01-2025 01:14:09] Filme de id: tt15727400 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:09] Adicionado id: tt4620528
+[28-01-2025 01:14:09] Adicionado id: tt5347160
+[28-01-2025 01:14:09] Adicionado id: tt10592082
+[28-01-2025 01:14:09] Adicionado id: tt12625310
+[28-01-2025 01:14:09] Adicionado id: tt17127518
+[28-01-2025 01:14:09] Adicionado id: tt5994086
+[28-01-2025 01:14:09] Adicionado id: tt8396112
+[28-01-2025 01:14:09] Adicionado id: tt4714454
+[28-01-2025 01:14:09] Adicionado id: tt5590026
+[28-01-2025 01:14:09] Adicionado id: tt18375342
+[28-01-2025 01:14:09] Adicionado id: tt2714934
+[28-01-2025 01:14:09] Adicionado id: tt7600718
+[28-01-2025 01:14:09] Adicionado id: tt8674418
+[28-01-2025 01:14:09] Adicionado id: tt9454176
+[28-01-2025 01:14:09] Adicionado id: tt10713826
+[28-01-2025 01:14:09] Adicionado id: tt11301882
+[28-01-2025 01:14:10] Adicionado id: tt7599864
+[28-01-2025 01:14:10] Adicionado id: tt13039100
+[28-01-2025 01:14:10] Adicionado id: tt5210054
+[28-01-2025 01:14:10] Filme de id: tt9730696 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:10] Adicionado id: tt15138462
+[28-01-2025 01:14:10] Adicionado id: tt3757400
+[28-01-2025 01:14:10] Filme de id: tt4742556 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:10] Adicionado id: tt12944052
+[28-01-2025 01:14:10] Filme de id: tt17371496 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:10] Filme de id: tt13535456 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:10] Adicionado id: tt7817568
+[28-01-2025 01:14:10] Adicionado id: tt21936550
+[28-01-2025 01:14:10] Adicionado id: tt9379256
+[28-01-2025 01:14:10] Adicionado id: tt5078964
+[28-01-2025 01:14:10] Filme de id: tt6364638 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:10] Adicionado id: tt4016152
+[28-01-2025 01:14:10] Adicionado id: tt7959952
+[28-01-2025 01:14:10] Filme de id: tt10703902 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:10] Adicionado id: tt9021092
+[28-01-2025 01:14:10] Filme de id: tt11056732 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:10] Filme de id: tt11773084 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:10] Adicionado id: tt3006508
+[28-01-2025 01:14:10] Adicionado id: tt3360350
+[28-01-2025 01:14:10] Filme de id: tt5086384 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:10] Filme de id: tt3300526 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:11] Filme de id: tt6106980 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:11] Adicionado id: tt9680090
+[28-01-2025 01:14:11] Adicionado id: tt3175460
+[28-01-2025 01:14:11] Filme de id: tt12410066 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:11] Adicionado id: tt8366254
+[28-01-2025 01:14:11] Adicionado id: tt9174050
+[28-01-2025 01:14:11] Adicionado id: tt15839646
+[28-01-2025 01:14:11] Adicionado id: tt12506600
+[28-01-2025 01:14:11] Filme de id: tt9543238 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:11] Filme de id: tt11885576 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:11] Adicionado id: tt6267944
+[28-01-2025 01:14:11] Adicionado id: tt8831362
+[28-01-2025 01:14:11] Filme de id: tt13535454 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:11] Adicionado id: tt14045622
+[28-01-2025 01:14:11] Adicionado id: tt22475068
+[28-01-2025 01:14:11] Filme de id: tt8954890 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:11] Adicionado id: tt11024568
+[28-01-2025 01:14:11] Filme de id: tt5991290 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:11] Filme de id: tt12986254 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:11] Adicionado id: tt7722484
+[28-01-2025 01:14:11] Adicionado id: tt8677256
+[28-01-2025 01:14:11] Adicionado id: tt3209682
+[28-01-2025 01:14:11] Filme de id: tt7456222 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:11] Filme de id: tt11546078 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:11] Filme de id: tt11316854 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:11] Adicionado id: tt17023860
+[28-01-2025 01:14:11] Adicionado id: tt15788948
+[28-01-2025 01:14:11] Filme de id: tt10106822 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:11] Filme de id: tt2715098 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:11] Filme de id: tt3687102 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:11] Filme de id: tt7111822 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:11] Filme de id: tt5536316 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:12] Adicionado id: tt13452944
+[28-01-2025 01:14:12] Adicionado id: tt13397632
+[28-01-2025 01:14:12] Filme de id: tt5720558 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:12] Adicionado id: tt3108170
+[28-01-2025 01:14:12] Adicionado id: tt3527134
+[28-01-2025 01:14:12] Filme de id: tt5986010 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:12] Adicionado id: tt2187102
+[28-01-2025 01:14:12] Filme de id: tt7310230 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:12] Adicionado id: tt5052972
+[28-01-2025 01:14:12] Adicionado id: tt21206496
+[28-01-2025 01:14:12] Adicionado id: tt11027672
+[28-01-2025 01:14:12] Filme de id: tt11226400 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:12] Adicionado id: tt6876318
+[28-01-2025 01:14:12] Filme de id: tt19716990 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:12] Filme de id: tt4659490 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:12] Filme de id: tt5302316 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:12] Adicionado id: tt10116478
+[28-01-2025 01:14:12] Adicionado id: tt6731862
+[28-01-2025 01:14:12] Filme de id: tt9445114 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:12] Filme de id: tt15422932 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:12] Adicionado id: tt16359836
+[28-01-2025 01:14:12] Adicionado id: tt7679852
+[28-01-2025 01:14:12] Adicionado id: tt20413256
+[28-01-2025 01:14:12] Filme de id: tt10458950 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:12] Filme de id: tt2618948 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:12] Adicionado id: tt4602608
+[28-01-2025 01:14:12] Adicionado id: tt13801458
+[28-01-2025 01:14:12] Adicionado id: tt7284022
+[28-01-2025 01:14:12] Filme de id: tt3905168 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:12] Filme de id: tt19121744 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:12] Adicionado id: tt4084182
+[28-01-2025 01:14:12] Filme de id: tt23435128 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:13] Adicionado id: tt5278634
+[28-01-2025 01:14:13] Adicionado id: tt6246362
+[28-01-2025 01:14:13] Adicionado id: tt8238312
+[28-01-2025 01:14:13] Adicionado id: tt5857912
+[28-01-2025 01:14:13] Adicionado id: tt6750962
+[28-01-2025 01:14:13] Adicionado id: tt11274618
+[28-01-2025 01:14:13] Filme de id: tt11033942 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:13] Adicionado id: tt4934506
+[28-01-2025 01:14:13] Adicionado id: tt14190918
+[28-01-2025 01:14:13] Adicionado id: tt5181806
+[28-01-2025 01:14:13] Adicionado id: tt5915304
+[28-01-2025 01:14:13] Filme de id: tt22015094 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:13] Adicionado id: tt8650270
+[28-01-2025 01:14:13] Adicionado id: tt4591230
+[28-01-2025 01:14:13] Filme de id: tt15048212 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:13] Filme de id: tt2166850 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:13] Filme de id: tt7436428 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:13] Filme de id: tt3092520 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:13] Filme de id: tt13369758 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:13] Filme de id: tt3413916 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:13] Adicionado id: tt10706640
+[28-01-2025 01:14:13] Filme de id: tt6721424 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:13] Filme de id: tt3416908 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:13] Adicionado id: tt7975740
+[28-01-2025 01:14:13] Filme de id: tt12728214 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:13] Adicionado id: tt7361540
+[28-01-2025 01:14:14] Adicionado id: tt6423542
+[28-01-2025 01:14:14] Adicionado id: tt5179576
+[28-01-2025 01:14:14] Adicionado id: tt9174120
+[28-01-2025 01:14:14] Adicionado id: tt7603582
+[28-01-2025 01:14:14] Adicionado id: tt4293766
+[28-01-2025 01:14:14] Filme de id: tt3983640 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:14] Filme de id: tt11647130 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:14] Filme de id: tt8766536 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:14] Filme de id: tt5528268 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:14] Adicionado id: tt12625184
+[28-01-2025 01:14:14] Filme de id: tt9238392 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:14] Filme de id: tt6685776 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:14] Filme de id: tt14849138 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:14] Adicionado id: tt5899800
+[28-01-2025 01:14:14] Adicionado id: tt8002356
+[28-01-2025 01:14:14] Adicionado id: tt4634898
+[28-01-2025 01:14:14] Adicionado id: tt8883686
+[28-01-2025 01:14:14] Adicionado id: tt9743420
+[28-01-2025 01:14:14] Filme de id: tt2804994 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:14] Adicionado id: tt4657764
+[28-01-2025 01:14:14] Filme de id: tt10887282 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:14] Adicionado id: tt12683660
+[28-01-2025 01:14:14] Filme de id: tt11024142 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:14] Adicionado id: tt3158218
+[28-01-2025 01:14:14] Adicionado id: tt5370376
+[28-01-2025 01:14:14] Adicionado id: tt3118910
+[28-01-2025 01:14:14] Filme de id: tt5797038 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:14] Filme de id: tt5943392 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:14] Adicionado id: tt2988120
+[28-01-2025 01:14:14] Adicionado id: tt4295992
+[28-01-2025 01:14:14] Adicionado id: tt11173106
+[28-01-2025 01:14:14] Adicionado id: tt14766058
+[28-01-2025 01:14:14] Adicionado id: tt18075156
+[28-01-2025 01:14:14] Adicionado id: tt4886030
+[28-01-2025 01:14:14] Adicionado id: tt5170834
+[28-01-2025 01:14:15] Adicionado id: tt7502256
+[28-01-2025 01:14:15] Filme de id: tt3130282 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:15] Adicionado id: tt7617988
+[28-01-2025 01:14:15] Filme de id: tt6838460 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:15] Filme de id: tt13356758 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:15] Adicionado id: tt4539442
+[28-01-2025 01:14:15] Adicionado id: tt18689962
+[28-01-2025 01:14:15] Filme de id: tt3917316 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:15] Filme de id: tt13406130 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:15] Erro ao processar filme de id tt3867556: list index out of range. Status: 200.
+[28-01-2025 01:14:15] Filme de id: tt10851466 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:15] Adicionado id: tt11092258
+[28-01-2025 01:14:15] Filme de id: tt4557998 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:15] Adicionado id: tt6058878
+[28-01-2025 01:14:15] Filme de id: tt7590334 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:15] Filme de id: tt9050186 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:15] Adicionado id: tt3822606
+[28-01-2025 01:14:15] Adicionado id: tt4938362
+[28-01-2025 01:14:15] Adicionado id: tt7323580
+[28-01-2025 01:14:15] Adicionado id: tt8710128
+[28-01-2025 01:14:15] Adicionado id: tt11314148
+[28-01-2025 01:14:15] Adicionado id: tt15358794
+[28-01-2025 01:14:15] Filme de id: tt3466476 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:15] Filme de id: tt3235206 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:15] Adicionado id: tt20879358
+[28-01-2025 01:14:15] Adicionado id: tt2753628
+[28-01-2025 01:14:15] Adicionado id: tt7767866
+[28-01-2025 01:14:15] Adicionado id: tt12587454
+[28-01-2025 01:14:15] Filme de id: tt14442346 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:16] Adicionado id: tt6705126
+[28-01-2025 01:14:16] Adicionado id: tt7550816
+[28-01-2025 01:14:16] Adicionado id: tt9766610
+[28-01-2025 01:14:16] Adicionado id: tt8921800
+[28-01-2025 01:14:16] Filme de id: tt10283234 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:16] Adicionado id: tt6886062
+[28-01-2025 01:14:16] Adicionado id: tt13039188
+[28-01-2025 01:14:16] Adicionado id: tt6518886
+[28-01-2025 01:14:16] Adicionado id: tt16528036
+[28-01-2025 01:14:16] Adicionado id: tt5257730
+[28-01-2025 01:14:16] Adicionado id: tt5227998
+[28-01-2025 01:14:16] Adicionado id: tt17507072
+[28-01-2025 01:14:16] Filme de id: tt4543804 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:16] Adicionado id: tt5773696
+[28-01-2025 01:14:16] Filme de id: tt7415156 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:16] Adicionado id: tt10356526
+[28-01-2025 01:14:16] Filme de id: tt8516600 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:16] Adicionado id: tt15433860
+[28-01-2025 01:14:16] Adicionado id: tt8172164
+[28-01-2025 01:14:16] Adicionado id: tt4311466
+[28-01-2025 01:14:16] Filme de id: tt11141592 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:16] Adicionado id: tt4819470
+[28-01-2025 01:14:16] Filme de id: tt12827662 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:16] Adicionado id: tt7692832
+[28-01-2025 01:14:16] Filme de id: tt4299234 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:16] Adicionado id: tt8386710
+[28-01-2025 01:14:16] Adicionado id: tt4882692
+[28-01-2025 01:14:16] Adicionado id: tt5855402
+[28-01-2025 01:14:16] Adicionado id: tt7239146
+[28-01-2025 01:14:17] Adicionado id: tt11771206
+[28-01-2025 01:14:17] Adicionado id: tt12625380
+[28-01-2025 01:14:17] Adicionado id: tt3500478
+[28-01-2025 01:14:17] Adicionado id: tt5956006
+[28-01-2025 01:14:17] Adicionado id: tt6011710
+[28-01-2025 01:14:17] Adicionado id: tt14760092
+[28-01-2025 01:14:17] Filme de id: tt3109750 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:17] Adicionado id: tt9389778
+[28-01-2025 01:14:17] Adicionado id: tt15310236
+[28-01-2025 01:14:17] Adicionado id: tt8176308
+[28-01-2025 01:14:17] Adicionado id: tt9105026
+[28-01-2025 01:14:17] Adicionado id: tt12814006
+[28-01-2025 01:14:17] Adicionado id: tt6771678
+[28-01-2025 01:14:17] Adicionado id: tt11384004
+[28-01-2025 01:14:17] Filme de id: tt9012782 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:17] Filme de id: tt4941354 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:17] Filme de id: tt7988464 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:17] Adicionado id: tt10720088
+[28-01-2025 01:14:17] Filme de id: tt3585116 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:17] Adicionado id: tt4112354
+[28-01-2025 01:14:17] Adicionado id: tt7674006
+[28-01-2025 01:14:17] Adicionado id: tt3476368
+[28-01-2025 01:14:17] Adicionado id: tt4773218
+[28-01-2025 01:14:18] Adicionado id: tt21938042
+[28-01-2025 01:14:18] Filme de id: tt15216236 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:18] Adicionado id: tt4892714
+[28-01-2025 01:14:18] Adicionado id: tt8267152
+[28-01-2025 01:14:18] Adicionado id: tt10564776
+[28-01-2025 01:14:18] Adicionado id: tt14546082
+[28-01-2025 01:14:18] Adicionado id: tt2229420
+[28-01-2025 01:14:18] Adicionado id: tt9575164
+[28-01-2025 01:14:18] Adicionado id: tt4840680
+[28-01-2025 01:14:18] Adicionado id: tt11773342
+[28-01-2025 01:14:18] Adicionado id: tt10612164
+[28-01-2025 01:14:18] Filme de id: tt6021386 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:18] Filme de id: tt15404468 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:18] Filme de id: tt3290680 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:18] Filme de id: tt15261550 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:18] Filme de id: tt6393284 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:18] Filme de id: tt14059632 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:18] Filme de id: tt13098300 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:18] Filme de id: tt12899846 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:18] Adicionado id: tt7559200
+[28-01-2025 01:14:18] Adicionado id: tt13409986
+[28-01-2025 01:14:18] Adicionado id: tt2984080
+[28-01-2025 01:14:18] Adicionado id: tt4769258
+[28-01-2025 01:14:18] Adicionado id: tt8365354
+[28-01-2025 01:14:18] Filme de id: tt9723328 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:18] Adicionado id: tt4648510
+[28-01-2025 01:14:18] Filme de id: tt4782290 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:18] Adicionado id: tt6523068
+[28-01-2025 01:14:18] Filme de id: tt7668424 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:18] Filme de id: tt8079510 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:18] Adicionado id: tt3345868
+[28-01-2025 01:14:18] Filme de id: tt12549904 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:18] Adicionado id: tt6567840
+[28-01-2025 01:14:19] Adicionado id: tt4838340
+[28-01-2025 01:14:19] Filme de id: tt3016948 barrado no filtro de países. Status: 200.
+[28-01-2025 01:14:19] Processando batch 1/8(IDs 0 to 100)
+[28-01-2025 01:14:19] Batch 1 salvo em Raw/TMDB/JSON/2025/01/28
+[28-01-2025 01:14:19] Processando batch 2/8(IDs 100 to 200)
+[28-01-2025 01:14:19] Batch 2 salvo em Raw/TMDB/JSON/2025/01/28
+[28-01-2025 01:14:19] Processando batch 3/8(IDs 200 to 300)
+[28-01-2025 01:14:19] Batch 3 salvo em Raw/TMDB/JSON/2025/01/28
+[28-01-2025 01:14:19] Processando batch 4/8(IDs 300 to 400)
+[28-01-2025 01:14:19] Batch 4 salvo em Raw/TMDB/JSON/2025/01/28
+[28-01-2025 01:14:19] Processando batch 5/8(IDs 400 to 500)
+[28-01-2025 01:14:19] Batch 5 salvo em Raw/TMDB/JSON/2025/01/28
+[28-01-2025 01:14:19] Processando batch 6/8(IDs 500 to 600)
+[28-01-2025 01:14:19] Batch 6 salvo em Raw/TMDB/JSON/2025/01/28
+[28-01-2025 01:14:19] Processando batch 7/8(IDs 600 to 700)
+[28-01-2025 01:14:19] Batch 7 salvo em Raw/TMDB/JSON/2025/01/28
+[28-01-2025 01:14:19] Processando batch 8/8(IDs 700 to 771)
+[28-01-2025 01:14:19] Batch 8 salvo em Raw/TMDB/JSON/2025/01/28
+[28-01-2025 01:14:19] Listagem de objetos no bucket compass-desafio-final-dramance:
+[28-01-2025 01:14:19] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Logs/log-ingestao-20250106.txt')
+[28-01-2025 01:14:19] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Logs/log-ingestao-20250118.txt')
+[28-01-2025 01:14:19] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Logs/log-ingestao-20250128.txt')
+[28-01-2025 01:14:19] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/Local/CSV/Movies/2025/01/06/movies.csv')
+[28-01-2025 01:14:19] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/Local/CSV/Series/2025/01/06/series.csv')
+[28-01-2025 01:14:19] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/18/filmes_attr_batch_1.json')
+[28-01-2025 01:14:19] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/18/filmes_attr_batch_10.json')
+[28-01-2025 01:14:19] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/18/filmes_attr_batch_2.json')
+[28-01-2025 01:14:19] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/18/filmes_attr_batch_3.json')
+[28-01-2025 01:14:19] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/18/filmes_attr_batch_4.json')
+[28-01-2025 01:14:19] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/18/filmes_attr_batch_5.json')
+[28-01-2025 01:14:19] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/18/filmes_attr_batch_6.json')
+[28-01-2025 01:14:19] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/18/filmes_attr_batch_7.json')
+[28-01-2025 01:14:19] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/18/filmes_attr_batch_8.json')
+[28-01-2025 01:14:19] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/18/filmes_attr_batch_9.json')
+[28-01-2025 01:14:19] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/20/')
+[28-01-2025 01:14:19] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/20/linguas.json')
+[28-01-2025 01:14:19] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/20/paises.json')
+[28-01-2025 01:14:19] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/28/filmes_attr_batch_1.json')
+[28-01-2025 01:14:19] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/28/filmes_attr_batch_2.json')
+[28-01-2025 01:14:19] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/28/filmes_attr_batch_3.json')
+[28-01-2025 01:14:19] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/28/filmes_attr_batch_4.json')
+[28-01-2025 01:14:19] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/28/filmes_attr_batch_5.json')
+[28-01-2025 01:14:19] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/28/filmes_attr_batch_6.json')
+[28-01-2025 01:14:19] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/28/filmes_attr_batch_7.json')
+[28-01-2025 01:14:19] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/28/filmes_attr_batch_8.json')
+[28-01-2025 01:14:19] Ingestão realizada com sucesso
