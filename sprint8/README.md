@@ -112,6 +112,10 @@ Para absorver melhor o conteúdo desta sprint e me aprofundar em pontos de inter
 
 AMAZON WEB SERVICES. **Boto Documentation**. Última atualização: 2024. Disponível em: <[boto3.amazonaws.com/v1/documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)>.
 
+CHAMBERS, Bill; ZAHARIA, Matei. **Spark: The Definitive Guide**. Sebastopol: O'Reilly, 2018.
+
+DEAN, Jeffrey; GHEMAWAT, Sanjay. **MapReduce: Simplified Data Processing on Large Clusters** In: Communications of the ACM, v. 51, n. 1. New York: Association for Computing Machinery, 2008.
+
 REIS, Joe; HOUSLEY, Matt. **Fundamentals of Data Engineering: Plan and Build Robust Data Systems**. Sebastopol: O’Reilly, 2022.
 
 VAN ROSSUM, Guido; WARSAW, Barry; COGHLAN, Alyssa. **PEP 8 – Style Guide for Python Code**. Última atualização: 2013. Disponível em: <[peps.python.org/pep-0008/](https://peps.python.org/pep-0008/)>.  

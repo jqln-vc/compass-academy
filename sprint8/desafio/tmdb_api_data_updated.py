@@ -3,11 +3,13 @@
 Autoria: Jaqueline Costa
 Data: Jan/25
 tmdb_updated_csv_data.py: script com pipeline de requisição de dados
-via API e ingestão na camada raw do data lake, novos 
+via API e ingestão na camada raw do data lake, novos dados adicionados.
 
     Outputs / Uploads:
-        - filmes_attr_batch_{batch_n}.json: arquivos de dados obtidos
-        via API do TMDB.
+        - filmes_attr_csv_batch_{batch_n}.json: arquivos de dados obtidos
+        via API do TMDB, usando ids do csv local como referência.
+        - filmes_attr_atuais_batch_{batch_n}.json: arquivos de dados obtidos
+        via API do TMDB, buscando ids de lançamentos atuais.
         - log-ingestao-{ano}{mes}{dia}.txt: arquivo de logs de execução.
 
 """
@@ -62,8 +64,7 @@ class LogPrinter:
 def tmdb_api_genero_por_anos(
         anos_lancamento: list[int],
         genero_id: int,
-        exclusao_chave_valor: tuple[str, str]
-) -> list[dict]:
+        exclusao_chave_valor: tuple[str, str]) -> list[dict]:
     """
     """
     ids_filmes_genero_por_anos = []
@@ -105,8 +106,7 @@ def tmdb_api_genero_por_anos(
 def tmdb_api_ids_pais_origem_exclusao(
         filmes_ids: list[int, str],
         paises_excluidos: list[str],
-        exclusao_chave_valor: tuple[str, str]
-) -> list[dict]:
+        exclusao_chave_valor: tuple[str, str]) -> list[dict]:
     """
     """
     filmes_filtro_paises = []
@@ -139,8 +139,7 @@ def tmdb_api_ids_pais_origem_exclusao(
 
 def tmdb_selecao_atributos(
         dados_tmdb: list[dict],
-        atributos: list[str]
-) -> list[dict]:
+        atributos: list[str]) -> list[dict]:
     """
     """
     dados_atributos_final = [{chave: item[chave] 
@@ -154,15 +153,18 @@ def s3_ingestao_batch(
         filmes: list[dict],
         nome_bucket: str,
         s3_bucket: object,
+        origem: str = "selecao",
         tam_batch: int = 100,
-        caminho_output: str = "./api_data"
-) -> None:
+        caminho_output: str = "./api_data") -> None:
     """
     Upload em batch de registros em JSON em bucket AWS S3.
 
     Args:
         filmes (list[dict]): lista em formato JSON com dados de filmes
         s3_bucket (object): AWS S3 bucket, objeto Bucket
+        origem (str): etiqueta identificadora de origem/propósito do batch,
+            para nomear o arquivo final.
+            default: "selecao"
         tam_batch (int): número de IDs processados por batch
             default: 100
         caminho_output (str): saída para os arquivos JSON
@@ -185,7 +187,7 @@ def s3_ingestao_batch(
         if batch_atual:
             try:
                 s3_bucket.put_object(
-                    Key=f"{caminho_output}/filmes_attr_batch_{batch_n}.json",
+                    Key=f"{caminho_output}/filmes_attr_{origem}_batch_{batch_n}.json",
                     Body=json.dumps(batch_atual,
                                     indent=4,
                                     ensure_ascii=False).encode("utf-8")
@@ -202,9 +204,6 @@ def s3_ingestao_batch(
     print("Ingestão em batch de arquivos JSON finalizada."
           f"Listagem de objetos no bucket {nome_bucket}: ")
     [print(objeto) for objeto in s3_bucket.objects.all()]
-
-
-
 
 
 ###########################################################################
@@ -352,9 +351,19 @@ if __name__ == "__main__":
     print("Download local de arquivo consolidado em JSON.")
 
     s3_ingestao_batch(
-        filmes=romances_final,
+        filmes=romances_csv_final,
         nome_bucket=nome_balde,
         s3_bucket=balde,
+        origem="csv",
+        tam_batch=100,
+        caminho_output=caminho_output
+    )
+    
+    s3_ingestao_batch(
+        filmes=romances_atuais_final,
+        nome_bucket=nome_balde,
+        s3_bucket=balde,
+        origem="atuais",
         tam_batch=100,
         caminho_output=caminho_output
     )
