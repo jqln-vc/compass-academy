@@ -11,24 +11,28 @@ atributos de interesse provenientes da camada Raw do data lake,
 transformação para Parquet e reingestão na camada Trusted.
 
     Outputs / Uploads:
-        -
+        - Arquivos Parquet na Trusted Zone:
+            - filmes_local
+            - filmes_tmdb
+            - paises_tmdb
+            - linguas_tmdb
 
 """
 
-#################################################################
+################################################################################
 # IMPORTAÇÕES
 
 import sys
 import re
 from pyspark.context import SparkContext
-from pyspark.sql.functions import col
+from pyspark.sql.functions import when, col, explode, year, to_date, array, size
 from pyspark.sql.types import IntegerType, DoubleType, StringType, ArrayType
 from awsglue.utils import getResolvedOptions
 from awsglue.context import GlueContext
 from awsglue.transforms import *
 from awsglue.job import Job
 
-#################################################################
+################################################################################
 # VARIÁVEIS
 
 # Argumentos do Sistema
@@ -37,8 +41,7 @@ args = getResolvedOptions(
     ["JOB_NAME",
      "S3_LOCAL_INPUT_PATH",
      "S3_TMDB_INPUT_PATH",
-     "S3_LOCAL_TARGET_PATH",  #s3://bucket/Trusted/Local/Parquet/movies/movies.parquet
-     "S3_TMDB_TARGET_PATH"    #s3://bucket/Trusted/TMDB/Parquet/movies/2025/01/30/linguas.parquet
+     "S3_BUCKET"
     ]
 )
 
@@ -49,62 +52,23 @@ spark = glue_context.spark_session
 job = Job(glue_context)
 job.init(args["JOB_NAME"], args)
 
-# Caminhos de Input e Output
+# Caminhos de Input
 s3_local_input = args["S3_LOCAL_INPUT_PATH"]
 s3_tmdb_input = args["S3_TMDB_INPUT_PATH"]
-s3_local_output = args["S3_LOCAL_TARGET_PATH"]
-s3_tmdb_output = args["S3_TMDB_TARGET_PATH"]
 
-# Datas dos Registros da Ingestão
+# Datas dos Registros da Ingestão no Input
 match = re.search(
     r"/(\d{4})/(\d{2})/(\d{2})",
     s3_tmdb_input)
-
 if match:
     ano, mes, dia = map(int, match.groups())
-    if re.search(
-        r"/(\d{4})/(\d{2})/(\d{2})",
-        s3_tmdb_input)
 
-# Colunas: Filmes Local
-colunas_filmes_local = [
-    "tmdb_id",             # id
-    "titulo_comercial",    # tituloPincipal
-    "titulo_original",     # tituloOriginal
-    "ano_lancamento",      # anoLancamento
-    "media_avaliacao",     # notaMedia
-    "qtd_avaliacoes"       # numeroVotos
-]
+# Caminhos de Output
+bucket = args["S3_BUCKET"]
+s3_local_output = f"s3://{bucket}/Trusted/Local/Parquet/Movies/"
+s3_tmdb_output = f"s3://{bucket}/Trusted/TMDB/Parquet/Movies/{ano}/{mes}/{dia}/"
 
-# Colunas: Filmes TMDB
-colunas_filmes_tmdb = [
-    "tmdb_id",             # id
-    "imdb_id",
-    "titulo_comercial",    # title
-    "titulo_original",     # original_title
-    "pais_origem",         # origin_country
-    "lingua_original",     # original_language
-    "linguas_faladas",     # spoken_languages
-    "ano_lancamento",      # release_date
-    "popularidade",        # popularity
-    "media_avaliacao",     # vote_average
-    "qtd_avaliacoes",      # vote_count
-    "sinopse"              # overview
-]
-
-# Colunas: Línguas TMDB
-colunas_linguas_tmdb = [
-    "iso_cod",             # iso_639_1
-    "nome_lingua"          # english_name
-]
-
-# Colunas: Países TMDB
-colunas_paises_tmdb = [
-    "iso_cod",             # iso_3166_1
-    "pais"                 # english_name
-]
-
-#################################################################
+################################################################################
 # CRIAÇÃO DOS SPARK DATAFRAMES
 
 # DataFrame Filmes Local
@@ -131,7 +95,7 @@ linguas_tmdb_df = spark.read \
     .option("mode", "PERMISSIVE") \
     .json(f"{s3_tmdb_input}/linguas.json")
 
-#################################################################
+################################################################################
 # TRANSFORMAÇÕES
 
 # FILMES LOCAL ___________________________________________
@@ -178,54 +142,78 @@ romances_local_df = romances_local_df.select(
 
 # Conversão de Tipos, Padronização e Seleção de Colunas
 
-# Colunas: Filmes TMDB
-colunas_filmes_tmdb = [
-    "tmdb_id",             # id
-    "imdb_id",
-    "titulo_comercial",    # title
-    "titulo_original",     # original_title
-    "pais_origem",         # origin_country
-    "lingua_original",     # original_language
-    "linguas_faladas",     # spoken_languages
-    "ano_lancamento",      # release_date
-    "popularidade",        # popularity
-    "media_avaliacao",     # vote_average
-    "qtd_avaliacoes",      # vote_count
-    "sinopse"              # overview
-]
-
-
-filmes_tmdb_df = filmes_tmdb_df.where(
+filmes_tmdb_df = filmes_tmdb_df.select(
     col("id").cast(IntegerType()).alias("tmdb_id"),
     col("imdb_id").cast(StringType()),
     col("title").cast(StringType()).alias("titulo_comercial"),
     col("original_title").cast(StringType()).alias("titulo_original"),
-    col("origin_country").cast()
-)
+    col("original_language").cast(StringType()).alias("lingua_original"),
+    col("popularity").cast(DoubleType()).alias("popularidade"),
+    col("vote_average").cast(DoubleType()).alias("media_avaliacao"),
+    col("vote_count").cast(IntegerType()).alias("qtd_avaliacoes"),
+    col("overview").cast(StringType()).alias("sinopse"),
+    year(to_date(col("release_date"))).cast(IntegerType()).alias("ano_lancamento"),
+    # Handle origin countries
+    when(col("origin_country").isNull(), array())
+    .when(size(col("origin_country")) == 0, array())
+    .otherwise(col("origin_country")).alias("paises_origem"),
+    # Handle spoken languages
+    when(col("spoken_languages.iso_639_1").isNull(), array())
+    .when(size(col("spoken_languages.iso_639_1")) == 0, array())
+    .otherwise(col("spoken_languages.iso_639_1")).alias("linguas_faladas_full")
+).select(
+    "*",
+    explode(col("paises_origem")).alias("pais_origem"),
+    explode(col("linguas_faladas_full")).alias("linguas_faladas")
+).drop("paises_origem", "linguas_faladas_full")
 
 # LÍNGUAS TMDB ___________________________________________
 
 # Conversão de Tipos, Padronização e Seleção de Colunas
 
+linguas_tmdb_df = linguas_tmdb_df.select(
+    col("iso_639_1").cast(StringType()).alias("iso_cod"),
+    col("english_name").cast(StringType()).alias("lingua")
+)
+
 # PAÍSES TMDB ____________________________________________
 
 # Conversão de Tipos, Padronização e Seleção de Colunas
 
+paises_tmdb_df = paises_tmdb_df.select(
+    col("iso_3166_1").cast(StringType()).alias("iso_cod"),
+    col("english_name").cast(StringType()).alias("pais")
+)
 
-#################################################################
+################################################################################
 # INGRESSÃO NA CAMADA TRUSTED DO BUCKET
 
 # FILMES LOCAL ___________________________________________
 
+filmes_local_df.coalesce(1).write \
+    .mode("overwrite") \
+    .format("parquet") \
+    .save(s3_local_output)
 
 # FILMES TMDB ____________________________________________
 
+filmes_tmdb_df.coalesce(1).write \
+    .mode("overwrite") \
+    .format("parquet") \
+    .save(f"{s3_tmdb_output}")
+
 # LÍNGUAS TMDB ___________________________________________
+
+linguas_tmdb_df.coalesce(1).write \
+    .mode("overwrite") \
+    .format("parquet") \
+    .save(f"{s3_tmdb_output}/linguas/")
 
 # PAÍSES TMDB ____________________________________________
 
-df2.write.mode("write") \
+paises_tmdb_df.coalesce(1).write \
+    .mode("overwrite") \
     .format("parquet") \
-    .save(bucket)
+    .save(f"{s3_tmdb_output}/paises/")
 
 job.commit()
