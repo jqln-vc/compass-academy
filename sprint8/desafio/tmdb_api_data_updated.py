@@ -6,10 +6,10 @@ tmdb_updated_csv_data.py: script com pipeline de requisição de dados
 via API e ingestão na camada raw do data lake, novos dados adicionados.
 
     Outputs / Uploads:
-        - filmes_attr_csv_batch_{batch_n}.json: arquivos de dados obtidos
-        via API do TMDB, usando ids do csv local como referência.
-        - filmes_attr_atuais_batch_{batch_n}.json: arquivos de dados obtidos
-        via API do TMDB, buscando ids de lançamentos atuais.
+        - filmes_batch_{batch_n}.json: arquivos de dados obtidos
+        via API do TMDB, enviados em batches de 100 ao S3 Bucket.
+        - tmdb_filmes_selecao_atributos.json: download local de arquivo
+        com todos os dados obtidos consolidados.
         - log-ingestao-{ano}{mes}{dia}.txt: arquivo de logs de execução.
 
 """
@@ -153,7 +153,6 @@ def s3_ingestao_batch(
         filmes: list[dict],
         nome_bucket: str,
         s3_bucket: object,
-        origem: str = "selecao",
         tam_batch: int = 100,
         caminho_output: str = "./api_data") -> None:
     """
@@ -162,9 +161,6 @@ def s3_ingestao_batch(
     Args:
         filmes (list[dict]): lista em formato JSON com dados de filmes
         s3_bucket (object): AWS S3 bucket, objeto Bucket
-        origem (str): etiqueta identificadora de origem/propósito do batch,
-            para nomear o arquivo final.
-            default: "selecao"
         tam_batch (int): número de IDs processados por batch
             default: 100
         caminho_output (str): saída para os arquivos JSON
@@ -187,7 +183,7 @@ def s3_ingestao_batch(
         if batch_atual:
             try:
                 s3_bucket.put_object(
-                    Key=f"{caminho_output}/filmes_attr_{origem}_batch_{batch_n}.json",
+                    Key=f"{caminho_output}/filmes_batch_{batch_n}.json",
                     Body=json.dumps(batch_atual,
                                     indent=4,
                                     ensure_ascii=False).encode("utf-8")
@@ -221,7 +217,6 @@ ano, mes, dia = datetime.now().year,\
 
 # Caminhos e Nomes de Arquivos
 nome_balde = "compass-desafio-final-dramance"
-#dataset_base = "/workspaces/compass-academy/sprint7/desafio/csv/ids_distintos_attr_em_ingles.csv"
 dataset_base = "../../sprint7/desafio/csv/ids_distintos_attr_em_ingles.csv"
 caminho_output = f"Raw/TMDB/JSON/{ano}/{mes}/{dia}"
 log = f"log-ingestao-{ano}{mes}{dia}.txt"
@@ -250,7 +245,6 @@ headers = {
 paises_excluidos = [
     "AD",  # Andorra
     "BE",  # Bélgica
-    "CA",  # Canadá
     "CH",  # Suiça
     "DE",  # Alemanha
     "DK",  # Dinamarca
@@ -343,7 +337,7 @@ if __name__ == "__main__":
 
     romances_final = romances_csv_final + romances_atuais_final
     pd.DataFrame(romances_final).to_json(
-        "tmdb_filmes_atributos_finais.json",
+        "tmdb_filmes_selecao_atributos.json",
         orient="records",
         force_ascii=False,
         indent=4
@@ -354,7 +348,6 @@ if __name__ == "__main__":
         filmes=romances_csv_final,
         nome_bucket=nome_balde,
         s3_bucket=balde,
-        origem="csv",
         tam_batch=100,
         caminho_output=caminho_output
     )
@@ -363,7 +356,6 @@ if __name__ == "__main__":
         filmes=romances_atuais_final,
         nome_bucket=nome_balde,
         s3_bucket=balde,
-        origem="atuais",
         tam_batch=100,
         caminho_output=caminho_output
     )
