@@ -375,7 +375,7 @@ E abaixo as variáveis, retiradas do script referente à Trusted Zone do TMDB, d
 
 Para a manipulação dos dados, estes foram importados para um Spark DataFrame, com as opções abaixo:
 
-![Criação de DataFrames TMDB](../evidencias/desafio/7-job-script-criação-dataframes.png
+![Criação de DataFrames TMDB](../evidencias/desafio/7-job-script-criação-dataframes.png)
 
 * `multiline: True` Spark lê, por default, um JSON em que cada linha é um objeto. Para lidar com JSONs em estrutura de multilinhas é necessário habilitar a opção.
 
@@ -412,7 +412,9 @@ A seguir, o detalhamento das transformções da tabela de filmes locais, proveni
       .rlike(r"^Romance$"))
 ```
 
-* **Recorte Temporal**: 
+* **Recorte Temporal**: para selecionar filmes com lançamento a partir do ano de 2013, primeiro, é necessário tratar os valores nulos (desprezados ao serem tratados com 0), conversão para integer e, então, a aplicação do filtro com `where` .
+
+Os valores nulos continham caracteres alfabéticos `\\N` e, para sua identificação, foi utilizada uma expressão regular para identificar tais ocorrências.
 
 ```python
   ## Substituição de Valores Nulos (0)
@@ -439,7 +441,7 @@ A seguir, o detalhamento das transformções da tabela de filmes locais, proveni
   romances_local_df = romances_local_df.drop_duplicates(["id"])
 ```
 
-* **Conversão de Tipos, Padronização e Seleção de Colunas**: seleção de colunas de interesse, conversão para os tipos apropriados e renomeação padronizada em português(mesmo padrão adotado para a renomeação dos dados de origem local).
+* **Conversão de Tipos, Padronização e Seleção de Colunas**: seleção de colunas de interesse, conversão para os tipos apropriados e renomeação padronizada em português (mesmo padrão adotado para a renomeação dos dados de origem TMDB).
 
 ```python
   romances_local_df = romances_local_df.select(
@@ -460,7 +462,7 @@ O processamento do dataset de filmes passa pelas seguintes etapas de transforma�
 
 ![Transformações Filmes TMDB](../evidencias/desafio/8-job-script-transform-tmdb-filmes.png)
 
-* **Renomeação de Colunas**
+* **Renomeação de Colunas** : todas as colunas "simples" (sem coleções aninhadas) são renomeadas no padrão adotado, e têm seus tipos especificados.
 
 ```python
   filmes_tmdb_df = filmes_tmdb_df.select(
@@ -476,14 +478,17 @@ O processamento do dataset de filmes passa pelas seguintes etapas de transforma�
     col("overview").cast(StringType()).alias("sinopse")  
 ```
 
-* **Extração do Ano de Lançamento**
+* **Extração do Ano de Lançamento** : o atributo `release-date` possui dados no formato `AAAA-MM-DD` em string, então primeiramente é convertido para data com `to_date()` para assim extrair o valor de ano com `year()`.
+
+  Após isso, é realizada a conversão para integer e renomeação da coluna.
 
 ```python
     # Extração do Ano de Lançamento
     year(to_date(col("release_date"))).cast(IntegerType()).alias("ano_lancamento")
 ```
 
-* **Tratativas Pré-Explode: Casos Sem Listas Aninhadas**
+* **Tratativas Pré-Explode: Casos Sem Listas Aninhadas** : para utilizar o `explode` e separar coleções aninhadas, é preciso que todas as linhas da coluna contenham coleções.  
+  Para evitar erros, é confirmado se o valor da coluna estiver nulo ou contiver uma lista vazia, assim inicializa-se um array. Caso contrário, já existe uma coleção e esta é persistida na coluna.
 
 ```python
   # Tratativas Pré-Explode: Casos Sem Listas Aninhadas
@@ -492,7 +497,7 @@ O processamento do dataset de filmes passa pelas seguintes etapas de transforma�
   .otherwise(col("origin_country")).alias("paises_origem")
 ```
 
-* **Tratativas Pré-Explode: Casos Sem Dicionários Aninhados
+* **Tratativas Pré-Explode: Casos Sem Dicionários Aninhados** : a estratégia acima se repete neste caso, com a exceção de que somente a chave `iso_639_1` é verificada. Todos os valores são ainda aninhados são atualizados na coluna `linguas_faladas_total` .
 
 ```python
   # Tratativas Pré-Explode: Casos Sem Dicionários Aninhados
@@ -501,7 +506,8 @@ O processamento do dataset de filmes passa pelas seguintes etapas de transforma�
   .otherwise(col("spoken_languages.iso_639_1")).alias("linguas_faladas_total")
 ```
 
-* **Tratativa Explode: Desaninhamento de Coleções em Linhas**
+* **Tratativa Explode: Desaninhamento de Coleções em Linhas** : nesta etapa, as colunas já selecionadas no 1º `select` são mantidas com `*`, e as colunas com coleções têm seus valores separados em linhas com `explode`, esses valores entram na coluna `pais_origem` e `linguas_faladas`.  
+  As colunas com as coleções são removidas posteriormente com `drop()` .
 
 ```python
   # Tratativa Explode: Desaninhamento de Coleções em Linhas
