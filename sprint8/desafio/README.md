@@ -24,6 +24,8 @@ Com a acessibilização de Big Data - dados em alto volume, variedade e velocida
 
 ### VISÃO GERAL DO HADOOP
 
+*Voltar para **Seções*** [֍](#seções)
+
 Hadoop surge, na Google, como um framework *open-source* de computação e armazenamento distribuídos, baseado em escalabilidade horizontal e paralelismo entre os nós de um **cluster**. Seus principais componentes são:
 
 * **HDFS (Hadoop Distributed File System)** : armazenamento de arquivos distribuídos no *cluster*. É composto de :
@@ -39,9 +41,17 @@ Hadoop surge, na Google, como um framework *open-source* de computação e armaz
 
 > *Como  reação a essa complexidade, nós desenvolvemos uma nova abstração que nos permite expressar as computações simples que buscávamos executar, mas oculta os detalhes confusos da paralelização, tolerância a falhas, distribuição de dados e balanceamento de carga em uma biblioteca. [...] Nós percebemos que a maioria das nossas computações envolviam aplicar uma operação **map** a cada registro lógico de nosso input, de modo a computar uma série de pares chave-valor intermediários e, então, aplicar uma operação **reduce** em todos os valores que partilham a mesma chave, de maneira a combinar os dados derivados apropriadamente.* [^2]
 
+A seguir, uma visão de como cada componentes se organiza na estrutura do cluster, e em cada um dos nós.
+
+![Estrutura Cluster Hadoop](/assets/)
+
 ### VISÃO GERAL DO APACHE SPARK
 
+*Voltar para **Seções*** [֍](#seções)
+
 #### MODELO DE PROCESSAMENTO
+
+*Voltar para **Seções*** [֍](#seções)
 
 * **Modos de Execução (Execution Modes)**
   * Cliente
@@ -49,6 +59,8 @@ Hadoop surge, na Google, como um framework *open-source* de computação e armaz
 
 * **Cluster Managers (Gerenciadores de Cluster)**
   * local [n]: simulação local de uma arquitetura client-driver, em que `n` é o número de threads disponibilizadas para o processo.
+    * 1 thread: driver
+    * n-1 threads: executores
   * Standalone: execução por script ou manual de um cluster com uma interface web para gerenciamento.
   * YARN: gerenciador nativo Hadoop
   * Kubernetes
@@ -59,6 +71,8 @@ Hadoop surge, na Google, como um framework *open-source* de computação e armaz
   * **Spark Submit**
 
 #### TABLES X DATAFRAMES
+
+*Voltar para **Seções*** [֍](#seções)
 
 |---|Spark Table|Spark DataFrame|
 |---|:---:|:---:|
@@ -93,53 +107,124 @@ Tanto os DataFrames quanto as Tables são objetos que podem ser convertidos entr
 
 * **Ações (Actions)** : operações que lançam a execução de um Spark Job e retornam, depois, para o Spark Driver. É a última operação de um encadeamento de métodos.
 
-|Exemplos|
-|:---|
-|collect|
-|count|
-|describe|
-|first|
-|foreach|
-|head|
-|show|
-|summary|
-|tail|
-|take|
+||Exemplos||
+|:---|:---:|---:|
+|collect|first|show|
+|count|foreach|summary|
+|describe|head|tail|
+|take|||
 
-## INTRODUÇÃO AO AWS GLUE
+## VISÃO GERAL DO AWS GLUE
 
 *Voltar para **Seções*** [֍](#seções)
 
-## RECAPITULANDO A ANÁLISE FINAL
+
+
+* **Crawler**
+
+* **Data Catalog**: armazenamento de metadados de datasets, pode ser alimentado manualmente ou automaticamente com um Crawler.
+
+* **Data Brew**
+
+## REFORMULAÇÃO DA ANÁLISE FINAL
 
 *Voltar para **Seções*** [֍](#seções)
 
-Até então, a análise atual  **Contra-hegemonia no Cinema: Novas Perspectivas Afetivas na Era Pós-streaming**, utiliza os seguintes recortes :
+A análise atual utiliza os seguintes recortes :
 
 * Filmes de países fora do eixo Europa Ocidental Colonial-EUA
 * Exclusão de produções originais em inglês
-* Período de lançamento entre 2013-2025
+* Período de lançamento entre 2013-2025 (período de transição de popularização da Netflix)
 * Produções do gênero Romance
 
-Abaixo, as perguntas selecionadas anteriormente:
+O enfoque da análise, no entanto, sofreu uma leve reformulação: antes o estudo abarcava o elenco e sua popularidade, sendo uma maneira de representação do *ethos* dos novos referenciais afetivos, os quais seriam os protagonistas dos novos discursos.
 
-* Qual a quantidade de filmes lançados anualmente, por região?
-* Quais os 5 países com maior quantidade de filmes lançados? Desses países, quais línguas são mais utilizadas?
-* Quais as atrizes/atores com maior atuação e em qual(is) língua(s)?
-* Quais as 5 línguas com maior quantidade de títulos?
-* Dentre os 100 títulos melhores votados, quais as nacionalidades das produções?
-* Quais os tópicos mais recorrentes nas narrativas dos títulos selecionados?
+No entanto, o enfoque será reorientado para as dimensões discursivas do *pathos* e *lexis*. Buscando, assim, explorar aspectos semânticos na construções de novas representatividades culturais, em atual expansão comercial. Para isso, serão utilizadas técnicas de processamento de língua natural para análise dos títulos e sinopses.
 
+* *Qual a quantidade de filmes lançados anualmente, por região?*
+* *Quais os 5 países com maior quantidade de filmes lançados? Desses países, quais línguas são mais utilizadas?*
+* *Quais as 5 línguas com maior quantidade de títulos?*
+* *Dentre os 100 títulos melhores votados, quais as nacionalidades das produções?*
+* *Quais as línguas com mais lançamentos por região?*
+* *Quais os termos mais recorrentes nas narrativas dos títulos selecionados?*
+  * *Unigramas: substantivo, verbo*
+  * *Bigramas: substantivo + adjetivo, substantivo + verbo*
+  * *Trigrama: substantivo + verbo + substantivo*
+* *Quais os tópicos mais encontrados em cada país?*
+* *Quais os tópicos mais encontrados por língua?*
 
-### REFORMULAÇÃO DA ANÁLISE FINAL
+Caso seja possível identificar recorrências interessantes de representações de personagens nas sinopses, utilizando métodos de Named Entity Recognition (NER), será considerada uma reincorporação da análise de *ethos*.
+
+Com isso, o título é alterado para: **Contra-hegemonia no Cinema: Semânticas Afetivas na Era Pós-streaming**, buscando assim refletir o novo enfoque da análise.
+
+### ANÁLISE DAS FUNÇÕES DO SCRIPT DE REINGESTÃO
 
 *Voltar para **Seções*** [֍](#seções)
 
-No entanto, o enfoque sofreu uma leve reformulação, na qual o elenco mais popular seria uma forma de representações do *ethos* dos novos referenciais afetivos, ao
+Abaixo, uma visão geral das funções desenvolvidas para a reexecução de extração de dados de interesse do TMDB para a Raw Zone. Nesta nova extração, foram incluídos filmes com ano de lançamento posterior a 2022, sendo este o maior ano presente no dataset de dados locais.
+
+A reexecução foi realizada a partir de um único script, distribuída em 4 processos:
+
+* `tmdb_api_genero_por_anos` requisição de todos os filmes de determinado gênero `genero_id` (valor em integer, necessário obter da documentação) por ano(s) de lançamento.
+  
+  É necessário fazer o tratamento por páginas, a quantidade total `total_pags` é obtida na 1ª requisição e atualizada como condição de parada do laço.
+
+  No endpoint utilizado `discover` também é incluído o filtros `include_adult=false`  para a exclusão de filmes adultos. A partir da resposta da requisição `resposta`, é possível realizar uma exclusão chave-valor e então, são obtidos os ids dos filmes filtrados e os ids de gêneros, retornados em uma lista `ids_filmes_genero_por_anos` .
+
+![Função Extração API Filtro Genero e Anos](../evidencias/desafio/28-func-reingestao-genero-anos.png)
+
+* `tmdb_api_ids_pais_origem_exclusao` esta função itera por uma lista de ids de filmes e obtém atributos detalhados sobre métricas, avaliações, línguas, etc. Este endpoint contém todos os atributos de interesse para complementar a análise.
+  
+  Os dados recebidos na requisição passam para um filtro de países a serem excluídos e uma exclusão adicional de chave-valor. Para essa exclusão é utilizado língua original inglesa.
+
+![Função Extração API Ids com Exclusão Países](../evidencias/desafio/29-func-reingestao-exclusao-paises.png)
+
+* `tmdb_selecao_atributos` com esta função, os dados recebidos em sua totalidade de colunas são filtrados a partir de uma lista de atributos pré-selecionados.
+
+![Função Seleção de Atributos TMDB](../evidencias/desafio/30-func-reingestao-selecao-atributos.png)
+
+* `s3_ingestao_batch` esta função segue a mesma lógica de ingestão na camada Raw Zone em batches de 100 ids por vez, e não será detalhada.
 
 ### VISÃO GERAL DOS DADOS APÓS REINGESTÃO DO TMDB
 
 *Voltar para **Seções*** [֍](#seções)
+
+Abaixo, um exemplo de como ficaram estruturados os registros obtidos. É importante notar os atributos `origin_country` e `spoken_languages` , estes possuem coleções aninhadas e necessitam de tratamento específico em seu processamento.
+
+![Amostra JSON Reingestão](../evidencias/desafio/16-reingestao-tmdb-api-amostra-json.png)
+
+#### TABELAS, COLUNAS E TIPOS
+
+*Voltar para **Seções*** [֍](#seções)
+
+Após o processamento dos dados e envio para a Trusted Zone, as tabelas em `parquet` possuem a seguinte estrutura; a qual ainda sofrerá modificações na etapa de modelagem dimensional.
+
+```mermaid
+  erDiagram
+
+  LINGUAS {
+    str iso_cod
+    str lingua
+  }
+    FILMES {
+    int tmdb_id
+    str imdb_id
+    str titulo_comercial
+    str titulo_original
+    str lingua_original
+    str linguas_faladas
+    str pais_origem
+    float popularidade
+    float media_avaliacao
+    int qtd_avaliacoes
+    str sinopse
+  }
+  PAISES {
+    str iso_cod
+    str pais
+  }
+
+```
 
 ## DATA LAKE E TRUSTED ZONE
 
@@ -149,15 +234,341 @@ No entanto, o enfoque sofreu uma leve reformulação, na qual o elenco mais popu
 
 *Voltar para **Seções*** [֍](#seções)
 
+* **CloudWatch Logs** : monitoramento de logs de execução de recursos AWS em tempo real.
+  
+* **Lake Formation** :
+
+* **S3** : serviço de armazenamento de objetos, contém a estrutura do data lake.
+  * Raw Zone : arquivos em seu estado e formato originais, assim como recebidos da fonte.
+  * Trusted Zone : arquivos refinados, com transformações e limpezas de acordo com a necessidade, convertidos para parquet.
+  * Logs : arquivos de logs de execução de cada etapa executada no data lake, exclusivo aos registros produzidos pelos scripts.
+
+* **Glue** : serviço de ETL e integração de dados.
+  * **Glue Crawler** : mapeia os schemas e metadata do data lake.
+  * **Glue Data Catalog** : 
+  
+* **Athena** : serviço serverless de queries em SQL que permite a análise direta de dados armazenados em um bucket S3.
+
+A seguir, uma visualização da relação entre esses serviços nesta etapa de processamento de dados.
+
+![Visualização do Processamento](../evidencias/desafio/18-dramance-data-lake-etapa-transform.png)
+
 ### VISÃO GERAL DA RAW ZONE
 
 *Voltar para **Seções*** [֍](#seções)
 
-### PREPARAÇÃO DO GLUE
+A seguir, uma revisão da Raw Zone do data lake, referente às fontes Local e TMDB, para entender a estrutura e os caminhos a servirem de input para os Glue Jobs de processamento de dados para a Trusted Zone.
+
+* **Raw Zone Local**
+
+```bash
+  s3://compass-desafio-final-dramance/Raw/Local/CSV/Movies/2025/01/06/
+```
+
+![Visão Geral Raw Zone Local](../evidencias/desafio/17-visao-raw-filmes-local.png)
+
+* **Raw Zone TMDB**
+
+```bash
+  s3://compass-desafio-final-dramance/Raw/TMDB/JSON/2025/01/31/
+```
+
+![Visão Geral Raw Zone TMDB](../evidencias/desafio/1-desafio-final-reingestao-tmdb.png)
+
+### ANÁLISE DO SCRIPT DO GLUE JOB
 
 *Voltar para **Seções*** [֍](#seções)
 
-#### CRIAÇÃO DO ROLE
+Abaixo seções comentadas dos scripts utilizados, nos casos em que as abordagens são as mesmas para ambos scripts, será utilizado somente imagem de exemplo do script [job_trusted_tmdb.py](./job_trusted_tmdb.py), referente às transformações dos dados provenientes do TMDB. No caso da seção de transformações, as quais são específicas para cada fonte de dados, ambos os scripts serão comentados.
+
+#### IMPORTAÇÕES
+
+*Voltar para **Seções*** [֍](#seções)
+
+![Importações TMDB](../evidencias/desafio/4-job-script-imports-tmdb.png)
+
+#### VARIÁVEIS
+
+*Voltar para **Seções*** [֍](#seções)
+
+Antes de elucidar as variáveis e contexto utilizados no script, foi utilizada a classe LogPrinter para redirecionamento de prints de terminal em um arquivo de logs, específico à execução das etapas do script. Como esta classe já foi comentada anteriormente, não será detalhada.
+
+##### CLASSE AUXILIAR: LOGPRINTER
+
+*Voltar para **Seções*** [֍](#seções)
+
+![Classe Auxiliar Log Printer](../evidencias/desafio/5-job-script-classe-auxiliar-logprinter.png)
+
+E abaixo as variáveis, retiradas do script referente à Trusted Zone do TMDB, declaradas utilizadas no pipeline de transformações e reingressão. Para o script da Trusted Zone Local, foram utilizadas variáveis iguais, com exceção de algumas adições necessárias para este script:
+
+![Variáveis TMDB](../evidencias/desafio/6-job-script-variaveis.png)
+
+* **Argumentos do Sistema** : recebe as variáveis de ambiente passadas como argumentos do Job.
+
+```python
+  args = getResolvedOptions(
+      sys.argv,
+      ["JOB_NAME",
+      "S3_TMDB_INPUT_PATH",
+      "S3_BUCKET"
+      ])
+```
+
+* **Ambiente Spark & Glue** : configura o ambiente Spark e inicializa dentro do Glue Context.
+
+```python
+  sc = SparkContext()                  # Configuração do Spark e entry point
+  glue_context = GlueContext(sc)       # Conecta o Spark ao AWS Glue
+  spark = glue_context.spark_session   # Inicializa a sessão Spark
+  job = Job(glue_context)              # 
+  job.init(args["JOB_NAME"], args)
+```
+
+* **Data Atual** : captura data atual para registro do arquivo de log de execução próprio do script (externo aos logs gerados pelo CloudWatch Logs).
+
+```python
+  ano_hj, mes_hj, dia_hj = datetime.now().year,\
+      f"{datetime.now().month:02}", f"{datetime.now().day:02}"
+```
+
+* **Caminho de Input** : local de input de dados da Raw Zone do TMDB.
+
+```python
+  s3_tmdb_input = args["S3_TMDB_INPUT_PATH"]
+```
+
+* **Datas dos Registros da Ingestão no Input** : extração dos dados de data de ingestão registrados no caminho de input da Raw Zone, para reutilização na Trusted Zone.
+
+```python
+  match = re.search(
+      r"/(\d{4})/(\d{2})/(\d{2})",
+      s3_tmdb_input)
+  if match:
+      ano, mes, dia = map(int, match.groups())
+```
+
+* **Caminhos de Output** : variáveis de output, incluindo caminhos e arquivos.
+
+```python
+  nome_bucket = args["S3_BUCKET"]
+  s3_tmdb_output = f"s3://{bucket}/Trusted/TMDB/Parquet/Movies/{ano}/{mes}/{dia}/"
+  log = f"log-transform-trusted-tmdb-{ano_hj}{mes_hj}{dia_hj}"
+```
+
+* **Integração AWS** : integração com Boto via API para envio de arquivo de log.
+
+```python
+  s3 = boto3.resource("s3")
+  bucket = s3.Bucket(nome_bucket)
+```
+
+* **Reconfiguração do stdout** : configuração do stdout para registro de logs.
+
+```python
+  sys.stdout.reconfigure(encoding="utf-8")
+  logger = LogPrinter(log)
+```
+
+#### CRIAÇÃO DOS DATAFRAMES
+
+*Voltar para **Seções*** [֍](#seções)
+
+Para a manipulação dos dados, estes foram importados para um Spark DataFrame, com as opções abaixo:
+
+![Criação de DataFrames TMDB](../evidencias/desafio/7-job-script-criação-dataframes.png
+
+* `multiline: True` Spark lê, por default, um JSON em que cada linha é um objeto. Para lidar com JSONs em estrutura de multilinhas é necessário habilitar a opção.
+
+* `mode: Permissive` trata dados corrompidos, deslocados para uma coluna `_corrupt_record`, sem levantar exceções.
+
+Neste caso, o wildcard `*` seleciona todos os arquivos `json` contido no diretório passado como input.
+
+```python
+  filmes_tmdb_df = spark.read \
+      .option("multiline", "true") \
+      .option("mode", "PERMISSIVE") \
+      .json(f"{s3_tmdb_input}/filmes*.json")
+```
+
+#### TRANSFORMAÇÕES
+
+*Voltar para **Seções*** [֍](#seções)
+
+Nesta seção, serão detalhados os recortes e transformações realizados nos datasets, de modo a refiná-los para a etapa de modelagem. No geral, buscou-se adotar um padrão nos nomes das colunas e identificações, seleção de dados de interesse, desaninhamento de coleções de dados e conversão de tipos.
+
+##### FILMES LOCAL
+
+*Voltar para **Seções*** [֍](#seções)
+
+A seguir, o detalhamento das transformções da tabela de filmes locais, provenientes do dataset em `csv`.
+
+![Transformações Filmes Local](../evidencias/desafio/10-job-script-transform-local-filmes.png)
+
+* **Recorte de Gênero**: utilização de expressão regular para selecionar somente títulos com gênero (único) Romance, excluindo os demais gêneros.
+
+```python
+  romances_local_df = filmes_local_df.where(
+      col("genero") \
+      .rlike(r"^Romance$"))
+```
+
+* **Recorte Temporal**: 
+
+```python
+  ## Substituição de Valores Nulos (0)
+  romances_local_df = romances_local_df.withColumn(
+      "anoLancamento",
+      when(col("anoLancamento") \
+          .rlike(r"^[a-zA-Z]+$"), 0) \
+          .otherwise(col("anoLancamento")))
+
+  ## Conversão da Coluna: Integer
+  romances_local_df = romances_local_df.withColumn(
+      "anoLancamento",
+      col("anoLancamento") \
+      .cast("int"))
+
+  ## Seleção de Valores do Recorte
+  romances_local_df = romances_local_df.where(
+      col("anoLancamento") >= 2013)
+```
+
+* **Remoção de Duplicações**: remoção de filmes duplicados com base na coluna `id` .
+
+```python
+  romances_local_df = romances_local_df.drop_duplicates(["id"])
+```
+
+* **Conversão de Tipos, Padronização e Seleção de Colunas**: seleção de colunas de interesse, conversão para os tipos apropriados e renomeação padronizada em português(mesmo padrão adotado para a renomeação dos dados de origem local).
+
+```python
+  romances_local_df = romances_local_df.select(
+      col("id").cast(StringType()).alias("imdb_id"),
+      col("tituloPincipal").cast(StringType()).alias("titulo_comercial"),
+      col("tituloOriginal").cast(StringType()).alias("titulo_original"),
+      col("anoLancamento").cast(IntegerType()).alias("ano_lancamento"),
+      col("notaMedia").cast(DoubleType()).alias("media_avaliacao"),
+      col("numeroVotos").cast(IntegerType()).alias("qtd_avaliacoes")
+  )
+```
+
+##### FILMES TMDB
+
+*Voltar para **Seções*** [֍](#seções)
+
+O processamento do dataset de filmes passa pelas seguintes etapas de transformações, todas inseridas dentro de um `select()` que atualiza o DataFrame a partir de uma query.
+
+![Transformações Filmes TMDB](../evidencias/desafio/8-job-script-transform-tmdb-filmes.png)
+
+* **Renomeação de Colunas**
+
+```python
+  filmes_tmdb_df = filmes_tmdb_df.select(
+    # Renomeação de Colunas
+    col("id").cast(IntegerType()).alias("tmdb_id"),
+    col("imdb_id").cast(StringType()),
+    col("title").cast(StringType()).alias("titulo_comercial"),
+    col("original_title").cast(StringType()).alias("titulo_original"),
+    col("original_language").cast(StringType()).alias("lingua_original"),
+    col("popularity").cast(DoubleType()).alias("popularidade"),
+    col("vote_average").cast(DoubleType()).alias("media_avaliacao"),
+    col("vote_count").cast(IntegerType()).alias("qtd_avaliacoes"),
+    col("overview").cast(StringType()).alias("sinopse")  
+```
+
+* **Extração do Ano de Lançamento**
+
+```python
+    # Extração do Ano de Lançamento
+    year(to_date(col("release_date"))).cast(IntegerType()).alias("ano_lancamento")
+```
+
+* **Tratativas Pré-Explode: Casos Sem Listas Aninhadas**
+
+```python
+  # Tratativas Pré-Explode: Casos Sem Listas Aninhadas
+  when(col("origin_country").isNull(), array())
+  .when(size(col("origin_country")) == 0, array())
+  .otherwise(col("origin_country")).alias("paises_origem")
+```
+
+* **Tratativas Pré-Explode: Casos Sem Dicionários Aninhados
+
+```python
+  # Tratativas Pré-Explode: Casos Sem Dicionários Aninhados
+  when(col("spoken_languages.iso_639_1").isNull(), array())
+  .when(size(col("spoken_languages.iso_639_1")) == 0, array())
+  .otherwise(col("spoken_languages.iso_639_1")).alias("linguas_faladas_total")
+```
+
+* **Tratativa Explode: Desaninhamento de Coleções em Linhas**
+
+```python
+  # Tratativa Explode: Desaninhamento de Coleções em Linhas
+  .select(  
+      "*",
+      explode(col("paises_origem")).alias("pais_origem"),
+      explode(col("linguas_faladas_full")).alias("linguas_faladas")
+  ).drop("paises_origem", "linguas_faladas_total")
+  
+```
+
+##### LÍNGUAS E PAÍSES TMDB
+
+*Voltar para **Seções*** [֍](#seções)
+
+Os datasets de `linguas` e `paises` do TMDB trazem as referências dos códigos presentes nas colunas de detalhes de títulos de filmes, como `pais_origem` , `lingua_original` e `linguas_faladas` .
+
+![Transformações Línguas TMDB](../evidencias/desafio/9-job-script-transform-tmdb-linguas-paises.png)
+
+A modelagem é a mesma para ambos, uma coluna para o código ISO de cada uma e o nome do país/língua em língua inglesa. O código não é numérico, portanto também recebe tipo `string` .
+
+```python
+  paises_tmdb_df = paises_tmdb_df.select(
+    col("iso_3166_1").cast(StringType()).alias("iso_cod"),
+    col("english_name").cast(StringType()).alias("pais")
+)
+```
+
+#### INGRESSÃO NA TRUSTED ZONE
+
+*Voltar para **Seções*** [֍](#seções)
+
+Finalizadas as transformações, são obtidos os dataset refinados e preparados para a etapa de modelagem. Aqui estes são enviados à Trusted Zone no bucket em formato `parquet` .
+
+![Ingressão Trusted Zone TMDB](../evidencias/desafio/11-job-script-transform-tmdb-reingressao-bucket.png)
+
+O uso função e argumento `coalesce(1)` compila o arquivo em uma única partição. E, para melhorar a organização das diversas tabelas, é acrescentado um repositório referente a cada dataset: *titulos*, *paises* e *linguas*.
+
+```python
+  filmes_tmdb_df.coalesce(1).write \
+    .mode("overwrite") \
+    .format("parquet") \
+    .save(f"{s3_tmdb_output}/titulos/")
+```
+
+Realizadas as escritas no bucket, para fins de registro de logs, é listado o conteúdo e enviado o arquivo de logs. O script se encerra com o commit de execução do Job `job.commit` .
+
+```python
+  print(f"Listagem de objetos no bucket {nome_balde}")
+  [print(objeto) for objeto in bucket.objects.all()]
+
+  print("Transformação e ingressão na Trusted Zone TMDB realizada com sucesso")
+  logger.close()
+  bucket.upload_file(Filename=f"{log}", Key=f"Logs/{log}")
+
+  job.commit()
+```
+
+### CONFIGURAÇÃO DE RECURSOS: GLUE E LAKE FORMATION
+
+*Voltar para **Seções*** [֍](#seções)
+
+Com o AWS Lake Formation é possível estabelecer controles de acesso com alta granularidade para Data Lakes armazenados em buckets S3 e catalogados com o AWS Glue Data Catalog (a ser realizado automaticamente por meio de um Crawler). Assim, combina em um único reposítório os dados provenientes de diversas fontes e com diferentes estruturas e tipo de dados originais.
+
+Após configurar o Glue e as permissões necessárias para executar tarefas no bucket S3, os Glue Jobs geram os arquivos `parquet` na camada Trusted Zone do data lake. O banco de dados é criado com o Lake Formation, e a execução de um Glue Crawler irá identificar os schemas dos arquivos monitorados, criando tabelas que podem ser analisadas com o Athena.
+
+#### CRIAÇÃO DO IAM ROLE
 
 *Voltar para **Seções*** [֍](#seções)
 
@@ -165,25 +576,135 @@ Para a criação do IAM Role, foram mantidas as mesmas permissões utilizadas em
 
 ![Role Glue Service](../evidencias/desafio/2-glue-role.png)
 
-#### CRIAÇÃO DO CRAWLER E DATABASE
+#### EXECUÇÃO DO GLUE JOB
 
 *Voltar para **Seções*** [֍](#seções)
 
-### ANÁLISE DO SCRIPT DO GLUE JOB
+Após upload dos scripts e a configuração dos jobs, com variáveis de ambiente, os 2 jobs são executados concomitantemente :
+
+![Execução Console Glue Jobs](../evidencias/desafio/28-execucao-job.gif)
+
+E abaixo, os comandos utilizados para as (re)execuções dos Glue Jobs durante o vídeo de apresentação :
+
+```bash
+  # Listando jobs
+  aws glue list-jobs
+
+  # Executando os jobs de transformação para a Trusted Zone
+  aws glue start-job-run --job-name "
+job_dramance_trusted_local"
+
+  aws glue start-job-run --job-name "
+job_dramance_trusted_tmdb"
+```
+
+#### CRIAÇÃO DE DATABASE E EXECUÇÃO DO CRAWLER
 
 *Voltar para **Seções*** [֍](#seções)
 
-### EXECUÇÃO DO GLUE JOB
+Finalizada a execução dos Glue Jobs, e gerados os arquivos na Trusted Zone, é possível extrair seu schema e metadados, catalogando-os automaticamente em tabelas com um Crawler.
+
+![Criação Database e Tables](../evidencias/desafio/29-execucao-lakeformation-crawler.gif)
+
+E abaixo, os comandos utilizados para as verificações de databases e tabelas criados, durante o vídeo de apresentação:
+
+```bash
+  # Listando databases
+  aws glue get-databases
+
+  # Listando tabelas
+  aws glue get-tables --database-name dramance_db
+```
+
+## LEITURA DE ARQUIVOS COM ATHENA
 
 *Voltar para **Seções*** [֍](#seções)
+
+Após a execução do Crawler, verifica-se uma amostra de cada tabela por meio do AWS Athena, com queries em SQL:
+
+```sql
+  SELECT * FROM "AwsDataCatalog"."dramance_db"."nome_tabela" limit 5;
+```
+
+* **Filmes (Local)**
+
+![Query Athena Filmes Local](../evidencias/desafio/25-athena-filmes-local.png)
+
+* **Filmes (TMDB)**
+
+![Query Athena Filmes TMDB](../evidencias/desafio/26-athena-filmes-tmdb.png)
+
+* **Países (TMDB)**
+
+![Query Athena Países TMDB](../evidencias/desafio/23-athena-paises.png)
+
+* **Línguas (TMDB)**
+
+![Query Athena Línguas TMDB](../evidencias/desafio/24-athena-lingua.png)
+
+E abaixo, os comandos utilizados para a (re)execução da query de teste durante o vídeo de apresentação. Para facilitar a visualização no terminal, foram selecionadas somente algumas colunas de amostra.
+
+```bash
+  aws athena start-query-execution \
+      --query-string "SELECT titulo_comercial, titulo_original, pais_origem, lingua_original FROM dramance_db.titulos LIMIT 25" \
+      --query-execution-context Database=dramance_db \
+      --result-configuration OutputLocation=s3://compass-dramance-desafio-final/query-results/
+```
+
+E a seguir, para visualizar os resultados obtidos :
+
+```bash
+  aws athena get-query-results --query-execution-id <id-de-execução-obtido> | jq -r '.ResultSet.Rows[] | [.Data[].VarCharValue] | @csv' > /tmp/results.csv
+```
+
+![Execução Query Athena Terminal](../evidencias/desafio/31-execucao-query-athena-terminal.png)
 
 ## VISÃO GERAL DA TRUSTED ZONE
 
 *Voltar para **Seções*** [֍](#seções)
 
+A seguir, verifica-se a camada após o processamento de dados e como estes se dispõem na estrutura do data lake.
+
+* **Trusted Zone Local Filmes**
+
+![Trusted Zone Local](../evidencias/desafio/21-visao-trusted-filmes-local.png)
+
+* **Trusted Zone TMDB**
+
+![Trusted Zone TMDB](../evidencias/desafio/20-visao-trusted-filmes-tmdb-tabelas.png)
+
+* **Trusted Zone TMDB: Tabela Títulos**
+
+![Trusted Zone TMDB Títulos](../evidencias/desafio/19-visao-trusted-filmes-titulos-tmdb.png)
+
+* **Logs de Execução**
+
+![Logs](../evidencias/desafio/22-visao-bucket-logs.png)
+
+### AMOSTRA DE ARQUIVOS PARQUET GERADOS
+
+*Voltar para **Seções*** [֍](#seções)
+
+Abaixo uma amostra da leitura dos arquivos `parquet` baixados da Trusted Zone com PySpark.
+
+```bash
+  docker run -it --name read-parquet -v ./filmes_local.parquet:/home/filmes_local.parquet -v ./filmes_tmdb.parquet:/home/filmes_tmdb.parquet -v ./linguas.parquet:/home/linguas.parquet -v ./paises.parquet:/home/paises.parquet 0add pyspark
+```
+
+* **filmes_local.parquet**
+  ![Filmes Local Parquet](../evidencias/desafio/15-leitura-parquet-filmes-local.png)
+* **filmes_tmdb.parquet**
+  ![Filmes TMDB Parquet](../evidencias/desafio/14-leitura-parquet-filmes-tmdb.png)
+* **linguas.parquet**
+* ![Linguas Parquet](../evidencias/desafio/13-leitura-parquet-linguas.png)
+* **paises.parquet**
+  ![Paises Parquet](../evidencias/desafio/12-leitura-parquet-paises.png)
+
 ## CONSIDERAÇÕES FINAIS
 
 *Voltar para **Seções*** [֍](#seções)
+
+A etapa de transformação de dados, desde seu estado bruto na Raw Zone até seu refinamento na Trusted Zone, 
 
 ## REFERÊNCIAS
 

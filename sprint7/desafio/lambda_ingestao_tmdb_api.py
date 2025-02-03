@@ -106,7 +106,7 @@ def processador_api_batch(filmes_id: list[str],
 
                     # Verifica condições de exclusão
                     if (dados_tmdb["origin_country"][0]
-                        not in paises_excluidos
+                        not in paises_excluidos 
                         and dados_tmdb["original_language"] != "en"):
 
                         print(f"Adicionado id: {_id}")
@@ -217,7 +217,6 @@ logger = LogPrinter(f"/tmp/{log}")
 
 def lambda_handler(event, context):
     """Função de execução event-driven na Lambda."""
-
     print("Início da sequência de execução de ingestão via API")
     print("Iniciando requisições de dados do TMDB")
     processador_api_batch(

@@ -7,6 +7,8 @@
 
 ## RELATOS DE APRENDIZADO
 
+
+
 ## EXERCÍCIOS
 
 Todos os códigos dos exercícios foram implementados seguindo os Python Enhancement Proposal, especificamente as recomendações de estilo do PEP8 e convenções de docstrings do PEP257, indicados na seção [Bibliografia](#bibliografia), com validação no [*CodeWOF: Python 3 Style Checker*](https://www.codewof.co.nz/style/python3/) online.
@@ -26,7 +28,31 @@ Na pasta `evidencias/exercicios`, estão localizadas as imagens com a validaçã
 
 ## DESAFIO
 
-O projeto final desenvolve um fluxo de processamento e análise de dados, a partir de uma arquitetura data lake. Para a terceira etapa
+O projeto final desenvolve um fluxo de processamento e análise de dados, a partir de uma arquitetura data lake. Para a terceira etapa, é realizada a
+a transformação dos dados de seu estado original (Raw Zone) para tabelas
+refinadas de acordo com as necessidades da análise (Trusted Zone).
+
+O processo foi realizado com AWS GLue e os dados transformados, catalogados com AWS Data Catalog e enviados ao data lake no AWS S3.
+
+* [**job_trusted_local.py**](./desafio/job_trusted_local.py) `script` com pipeline de transformação de datasets da Raw Zone Local do data lake, transformação para Parquet e reingestão na Trusted Zone Local.
+* [**job_trusted_tmdb.py**](./desafio/job_trusted_tmdb.py) `script` com pipeline de transformação de datasets da Raw Zone TMDB do data lake, transformação para Parquet e reingestão na Trusted Zone TMDB.
+* [**lambda_tmdb_api_data_updated.py**](./desafio/lambda_tmdb_api_data_updated.py) `script` lambda de reingestão de dados da API do TMDB para a Raw Zone.
+
+* [**/parquet/**](./desafio/parquet/) `diretório` com arquivos parquet gerados com a execução dos scripts de Glue Jobs, renomeados para fácil identificação. Contém os seguintes arquivos :
+  * [**filmes_local.parquet**](./desafio/parquet/filmes_local.parquet): `dataset` de filmes com seleção de atributos ingeridos do arquivo CSV Local.
+  * [**filmes_tmdb.parquet**](./desafio/parquet/filmes_tmdb.parquet) `dataset` de filmes com seleção de atributos ingeridos pela API.
+  * [**linguas.parquet**](./desafio/parquet/linguas.parquet) `dataset` de línguas e respectivos códigos.
+  * [**paises.parquet**](./desafio/parquet/paises.parquet) `dataset` de países e respectivos códigos.
+* [**/json/**](./desafio/json/) `diretório` com arquivo de dados provenientes da reingestão de dados do TMDB para a Raw Zone.
+  * [**tmdb_filmes_selecao_atributos.json**](./desafio/json/tmdb_filmes_selecao_atributos.json) `dataset` compilado com todos os dados da API TMDB e atributos selecionados.
+* [**/logs/**](./desafio/logs/) `diretório` com arquivos de logs resultantes das execuções dos scripts.
+  * [**log_ingestao_20250131.txt**](./desafio/log-ingestao-20250131.txt) `logs` da reingestão de dados do TMDB na Raw Zone.
+  * [**log-transform-trusted-local-20250202.txt**](./desafio/logs/log-transform-trusted-local-20250202) `logs` da transformação de dados Locais da Raw Zone para a Trusted Zone.
+  * [**log-transform-trusted-tmdb-20250202.txt**](./desafio/logs/log-transform-trusted-tmdb-20250202) `logs` da transformação de dados do TMDB da Raw Zone para a Trusted Zone.
+
+### REFORMULAÇÃO DA ANÁLISE FINAL
+
+A partir das motivações documentadas em [seção homônima](./desafio/README.md/#reformulação-da-análise-final) no README do desafio, foram estipulados novos norteadores de pesquisa nos dados, com enfoque em **distribuição de popularidade por línguas, países e regiões, e aspectos semântico-lexicais de representações de afeto romântico, a partir de técnicas de processamento de linguagem natural**.
 
 ## EVIDÊNCIAS
 
@@ -101,14 +127,17 @@ No passo a passo explicativo, encontrado na pasta `desafio`, serão comentados o
 
 Para absorver melhor o conteúdo desta sprint e me aprofundar em pontos de interesse, concluí em paralelo os cursos abaixo, externos à Udemy.
 
-### AWS
+### EXAM PREP STANDARD COURSE: AWS CERTIFIED AI PRACTITIONER (AIF-C01)
 
 | |
 |---|
-|![Certificado](./certificados/)|
+|![Certificado](./certificados/cert-comp-aws-prep-ai-practitioner.jpg)|
 ||
 
 ## BIBLIOGRAFIA
+
+AMAZON WEB SERVICES. **AWS Prescriptive Guidance: Defining S3 Bucket and Path Names for
+Data Lake Layers on the AWS Cloud**. Última atualização: 2024. Disponível em: <[docs.aws.amazon.com/pdfs/prescriptive-guidance](https://docs.aws.amazon.com/pdfs/prescriptive-guidance/latest/defining-bucket-names-data-lakes/defining-bucket-names-data-lakes.pdf#raw-data-layer-naming-structure)>.
 
 AMAZON WEB SERVICES. **Boto Documentation**. Última atualização: 2024. Disponível em: <[boto3.amazonaws.com/v1/documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)>.
 
