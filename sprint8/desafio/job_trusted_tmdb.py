@@ -5,7 +5,7 @@ Conversão de dados para formato Parquet, e ingestão na camada
 Trusted do data lake, a partir de Job no AWS Glue.
 
 Autoria: Jaqueline Costa
-Data: Jan/25
+Data: Fev/25
 job_trusted_tmdb.py: script com pipeline de transformação de datasets da 
 Raw Zone TMDB do data lake, transformação para Parquet e reingestão 
 na Trusted Zone TMDB.

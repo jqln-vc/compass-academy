@@ -1,7 +1,7 @@
 """Sprint 8 - Desafio Final - Etapa 2: (re)ingestão de dados de API do TMDB.
 
 Autoria: Jaqueline Costa
-Data: Jan/25
+Data: Fev/25
 tmdb_updated_csv_data.py: script com pipeline de requisição de dados
 via API e ingestão na camada raw do data lake, novos dados adicionados.
 
