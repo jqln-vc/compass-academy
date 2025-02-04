@@ -7,7 +7,11 @@
 
 ## RELATOS DE APRENDIZADO
 
+Nesta sprint, ao continuar as práticas de Spark no AWS Glue, pude assimilar melhor os benefícios da computação em nuvem e de forma distribuída, ao vivenciar quedas bruscas de tempo de execução e a facilidade de realizar transformações em massa de forma simplificada.
 
+Comecei a explorar os dados da análise final no Databricks, eu já utilizava a plataforma anteriormente (em âmbito profissional) para análise de dados em SQL, e não fazia ideia do seu sistema de clusters ou que era uma "interface" para computação distribuída.
+
+Então, sinto que estas semanas foram muito importantes para integrar não só meus dados, mas meus conhecimentos fragmentados ao longo das minhas experiências.
 
 ## EXERCÍCIOS
 
@@ -53,6 +57,21 @@ O processo foi realizado com AWS GLue e os dados transformados, catalogados com 
 ### REFORMULAÇÃO DA ANÁLISE FINAL
 
 A partir das motivações documentadas em [seção homônima](./desafio/README.md/#reformulação-da-análise-final) no README do desafio, foram estipulados novos norteadores de pesquisa nos dados, com enfoque em **distribuição de popularidade por línguas, países e regiões, e aspectos semântico-lexicais de representações de afeto romântico, a partir de técnicas de processamento de linguagem natural**.
+
+Estas são algumas das buscas a serem realizadas nas próximas etapas :
+
+* *Qual a quantidade de filmes lançados anualmente, por região?*
+* *Quais os 5 países com maior quantidade de filmes lançados? Desses países, quais línguas são mais utilizadas?*
+* *Quais as 5 línguas com maior quantidade de títulos?*
+* *Dentre os 100 títulos melhores votados, quais as nacionalidades das produções?*
+* *Quais as línguas com mais lançamentos por região?*
+* *Quais os termos mais recorrentes nas narrativas dos títulos selecionados?*
+  * *Unigramas: substantivo, verbo*
+  * *Bigramas: substantivo + adjetivo, substantivo + verbo*
+  * *Trigrama: substantivo + verbo + substantivo*
+* *Quais os tópicos mais encontrados em cada país?*
+* *Quais os tópicos mais encontrados por língua?*
+* *Qual a análise de "toxicidade" e/ou sentimentos de cada filme (sinopse e títulos)?*
 
 ## EVIDÊNCIAS
 
@@ -136,16 +155,17 @@ Para absorver melhor o conteúdo desta sprint e me aprofundar em pontos de inter
 
 ## BIBLIOGRAFIA
 
-AMAZON WEB SERVICES. **AWS Prescriptive Guidance: Defining S3 Bucket and Path Names for
-Data Lake Layers on the AWS Cloud**. Última atualização: 2024. Disponível em: <[docs.aws.amazon.com/pdfs/prescriptive-guidance](https://docs.aws.amazon.com/pdfs/prescriptive-guidance/latest/defining-bucket-names-data-lakes/defining-bucket-names-data-lakes.pdf#raw-data-layer-naming-structure)>.
-
 AMAZON WEB SERVICES. **Boto Documentation**. Última atualização: 2024. Disponível em: <[boto3.amazonaws.com/v1/documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)>.
+
+AMAZON WEB SERVICES. **Glue User Guide**. Última atualização: 2024. Disponível em: <[docs.aws.amazon.com/pdfs/glue](https://docs.aws.amazon.com/pdfs/glue/latest/dg/glue-dg.pdf)>.
 
 CHAMBERS, Bill; ZAHARIA, Matei. **Spark: The Definitive Guide**. Sebastopol: O'Reilly, 2018.
 
 DEAN, Jeffrey; GHEMAWAT, Sanjay. **MapReduce: Simplified Data Processing on Large Clusters** In: Communications of the ACM, v. 51, n. 1. New York: Association for Computing Machinery, 2008.
 
-REIS, Joe; HOUSLEY, Matt. **Fundamentals of Data Engineering: Plan and Build Robust Data Systems**. Sebastopol: O’Reilly, 2022.
+EAGAR, Gareth. **Data Engineering with AWS**. Birmingham: Packt Publishing, 2021.
+
+GOPALAN, Rukmani. **The Cloud Data Lake: A Guide to Building Robust Cloud Data Architecture.** Sebastopol: O'Reilly, 2023.
 
 VAN ROSSUM, Guido; WARSAW, Barry; COGHLAN, Alyssa. **PEP 8 – Style Guide for Python Code**. Última atualização: 2013. Disponível em: <[peps.python.org/pep-0008/](https://peps.python.org/pep-0008/)>.  
 

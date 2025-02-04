@@ -7,10 +7,35 @@
 
 ## SEÇÕES
 
-* **Introdução à Computação Distribuída** [֍]()
-  * **Visão Geral do Hadoop** [֍]()
-  * **Visão Geral do Apache Spark** [֍]()
-    * **Modelo de Processamento** [֍]()
+* **Introdução à Computação Distribuída** [֍](#introdução-à-computação-distribuída)
+  * **Visão Geral do Hadoop** [֍](#visão-geral-do-hadoop)
+  * **Visão Geral do Apache Spark** [֍](#visão-geral-do-apache-spark)
+    * **Modelo de Processamento** [֍](#modelo-de-processamento)
+    * **Tables X DataFrames** [֍](#tables-x-dataframes)
+* **Visão Geral do AWS Glue** [֍](#visão-geral-do-aws-glue)
+* **Reformulação da Análise Final** [֍](#reformulação-da-análise-final)
+  * **Funções do Script de Reingestão para Raw Zone** [֍](#funções-do-script-de-reingestão-para-raw-zone)
+  * **Visão Geral dos Dados Após Reingestão do TMDB** [֍](#visão-geral-dos-dados-após-reingestão-do-tmdb)
+  * **Diagrama de Tabelas, Colunas e Tipos** [֍](#diagrama-de-tabelas-colunas-e-tipos)
+* **Data Lake e Trusted Zone** [֍](#data-lake-e-trusted-zone)
+  * **Processamento de Dados: Etapa de Transformação Pt. 1** [֍](#processamento-de-dados-etapa-de-transformação-pt-1)
+  * **Visão Geral da Raw Zone** [֍](#visão-geral-da-raw-zone)
+  * **Análise do Script do Glue Job** [֍](#análise-do-script-do-glue-job)
+    * **Importações** [֍](#importações)
+    * **Variáveis** [֍](#variáveis)
+      * **Classe Auxiliar: LogPrinter** [֍](#classe-auxiliar-logprinter)
+    * **Criação dos DataFrames** [֍](#criação-dos-dataframes)
+    * **Transformações** [֍](#transformações)
+      * **Filmes Local** [֍](#filmes-local)
+      * **Filmes TMDB** [֍](#filmes-tmdb)
+      * **Línguas e Países TMDB** [֍](#línguas-e-países-tmdb)
+    * **Ingressão na Trusted Zone** [֍](#ingressão-na-trusted-zone)
+  * **Configuração de Recursos: Glue e Lake Formation** [֍](#configuração-de-recursos-glue-e-lake-formation)
+    * **Criação do IAM Role** [֍](#criação-do-iam-role)
+    * **Execução do Glue Job** [֍](#execução-do-glue-job)
+    * **Criação de Database e Execução do Crawler** [֍](#criação-de-database-e-execução-do-crawler)
+  * **Visão Geral da Trusted Zone** [֍](#visão-geral-da-trusted-zone)
+    * **Amostra de Arquivos Parquet Gerados** [֍](#amostra-de-arquivos-parquet-gerados)
 * **Considerações Finais** [֍](#considerações-finais)
 * **Referências** [֍](#referências)
 
@@ -22,6 +47,8 @@ Com a acessibilização de Big Data - dados em alto volume, variedade e velocida
 
 > *Máquinas sozinhas não têm energia e recursos suficientes para executar computações em quantidades enormes de informação (ou o usuário provavelmente não tem o tempo necessário para que a computação termine). Um **cluster**, ou grupo, de computadores, rateiam os recursos de várias máquinas juntas, fornecendo a capacidade de utilização de todos os recursos acumulados, como se fossem um único computador. Agora, um grupo de máquinas per se não é poderoso, é necessário um framework para coordenar trabalhos entre elas.* [^1]
 
+A distribuição de processos em *threads* localmente ou máquinas diferentes não é algo novo, porém é necessário um sistema que coordene as execuções e otimize os recursos para obter as vantagens da arquitetura paralela de cluster, aí entra o Hadoop.
+
 ### VISÃO GERAL DO HADOOP
 
 *Voltar para **Seções*** [֍](#seções)
@@ -29,13 +56,26 @@ Com a acessibilização de Big Data - dados em alto volume, variedade e velocida
 Hadoop surge, na Google, como um framework *open-source* de computação e armazenamento distribuídos, baseado em escalabilidade horizontal e paralelismo entre os nós de um **cluster**. Seus principais componentes são:
 
 * **HDFS (Hadoop Distributed File System)** : armazenamento de arquivos distribuídos no *cluster*. É composto de :
-  * **NN - Name Node**
-  * **DN - Data Node**
+  * **NN - Name Node** : armazena os metadados dos arquivos distribuídos em blocos pelo cluster.
+    * nome do arquivo
+    * localização do diretório
+    * tamanho do arquivo
+    * blocos do arquivo, ids dos blocos, sequência dos blocos, localização dos blocos
+  * **DN - Data Node** : nós que armazenam os blocos que compõem o arquivo.
 
-* **YARN (Yet Another Resource Negotiator)**: é o sistema operacional que gerencia os recursos do *cluster*, para onde as submissões de aplicações são enviadas. É composto de :
-  * **RM - Resource Manager**
-  * **NM - Node Manager**
-  * **AM - Application Master**
+* **YARN (Yet Another Resource Negotiator)** : é o sistema operacional que gerencia os recursos do *cluster*, para onde as submissões de aplicações são enviadas. É composto de :
+  * **RM - Resource Manager** : processo Master responsável por gerenciar o cluster.
+    * aloca recursos às aplicações
+    * cronograma tarefas e estabelece prioridades de execução de *jobs*
+  * **NM - Node Manager** : roda em cada Worker Node, é responsável pelo monitoramento de recursos e execução de tarefas.
+    * recebe requisições de recursos do RM
+    * inicializa e monitora containers, que executam tarefas
+    * monitora utilização de CPU, memory e disco no nó e reporta de volta ao RM
+  * **AM - Application Master** : existe um para cada *job*, gere o ciclo de vida da aplicação.
+    * negociação de recursos com RM
+    * monitora o progresso e lida com os erros lançados pelo *job*
+    * opera em conjunto com NMs para inicializar containers de tarefas
+    * é desalocado quando o *job* se encerra, liberando recursos
 
 * **MapReduce** : um modelo de programação, que também é um framework, inspirado em programação funcional, que busca facilitar a computação paralela e que processa dados em batch.
 
@@ -43,15 +83,27 @@ Hadoop surge, na Google, como um framework *open-source* de computação e armaz
 
 A seguir, uma visão de como cada componentes se organiza na estrutura do cluster, e em cada um dos nós.
 
-![Estrutura Cluster Hadoop](/assets/)
+![Estrutura Cluster Hadoop](/sprint8/evidencias/desafio/32-estrutura-cluster-hadoop.png)
+
+Apesar das vantagens, Hadoop apresenta alguns desafios como a alta complexidade de um código MapReduce, é mais adequado para processamento em batch e requer gerenciamento granular do cluster para otimização e escalabilidade horizontal.
 
 ### VISÃO GERAL DO APACHE SPARK
 
 *Voltar para **Seções*** [֍](#seções)
 
+O framework Spark surge para simplificar a computação distribuída, podendo rodar localmente, em nuvem ou em cima de um cluster físico. Em comparação com Hadoop, consegue aprimorar os seguintes aspectos problematizantes:
+
+* redução de latência com processamento de dados em memória
+* API simplificada e suporte para múltiplas linguagens
+* motor de processamento unificado para diversos tipos de cargas de trabalho, como processamento em batch (Spark Core), queries em SQL (Spark SQL), fluxo de dados (Spark Streaming), aprendizado de máquina (MLlib) e processamento de grafos (GraphX)
+* otimização de execuções com escalonador de DAGs - Directed Acyclic Graphs (DAGScheduler)
+* integração suave com Hadoop, podendo rodar em cima do sistema HDFS e se beneficiando de clusters Hadoop
+
 #### MODELO DE PROCESSAMENTO
 
 *Voltar para **Seções*** [֍](#seções)
+
+![Spark Modelo de Processamento](../evidencias/desafio/33-estrutura-cluster-spark.png)
 
 * **Modos de Execução (Execution Modes)**
   * Cliente
@@ -92,7 +144,7 @@ Tanto os DataFrames quanto as Tables são objetos que podem ser convertidos entr
 |createGlobalTempView|cov|
 |createOrReplaceGlobalTempView|freqItems|
 |createOrReplaceTempView|mapInPandas|
-|explain|replace|
+|expr|replace|
 |printSchema|sameSemantics|
 |toDF|semanticHash|
 |toJSON|to_koalas|
@@ -100,12 +152,19 @@ Tanto os DataFrames quanto as Tables são objetos que podem ser convertidos entr
 
 * **Transformações (Transformations)** : produzem um novo DataFrame transformado, podendo sofrer alterações no número de linhas e/ou colunas.
 
-|Exemplos||
-|:---|---:|
-|agg|alias|
-|coalesce|colRegex|
+||Exemplos||
+|:---|:---:|---:|
+|agg|alias|count|
+|coalesce|colRegex|join|
+|distinct|drop|drop_duplicates|
+|dropna|filter|groupby|
+|limit|orderby|repartition|
+|sample|select|sort|
+|transform|where|withColumn|
 
-* **Ações (Actions)** : operações que lançam a execução de um Spark Job e retornam, depois, para o Spark Driver. É a última operação de um encadeamento de métodos.
+> ❗ `GroupedData.count()` Quando `count()` for usado em dados agrupados, é aplicado como uma transformação na sequência, podendo ser seguido de demais métodos.
+
+* **Ações (Actions)** : operações que lançam a execução de um Spark Job e retornam, depois, para o Spark Driver. É a última operação de um encadeamento de métodos, e por conta de ***Lazy Evaluation***, as transformações só se efetuam com uma ação.
 
 ||Exemplos||
 |:---|:---:|---:|
@@ -114,32 +173,49 @@ Tanto os DataFrames quanto as Tables são objetos que podem ser convertidos entr
 |describe|head|tail|
 |take|||
 
+> ❗ `DataFrame.count()` Quando `count()` for usado em um DataFrame, é aplicado como uma ação na sequência, não podendo ser sucedido e lançando o job para o cluster.
+
 ## VISÃO GERAL DO AWS GLUE
 
 *Voltar para **Seções*** [֍](#seções)
 
+O AWS Glue é um serviço *serverless* de integração de dados, possibilitando sua descoberta, transformação e movimentação ao longo de toda a arquitetura, unindo fontes diversas. Considerando os processos de ETL, é possível executar com Glue [^3]:
 
+* transformação de dados visualmente com interface
+* agendamento e monitoramento de pipelines complexos
+* limpeza e transformação de dados em trânsito
+* limpeza de dados com machine learning
+* definir, detectar e remediar dados sensíveis
+* escalabilidade automática de acordo com a carga
+* automação de job a partir de eventos
 
-* **Crawler**
+Além disso, as seguintes ferramentas do ecossistema Glue abordam outros aspectos do ciclo de engenharia de dados [^4] :
 
-* **Data Catalog**: armazenamento de metadados de datasets, pode ser alimentado manualmente ou automaticamente com um Crawler.
+* **Glue Data Catalog** : catálogo unificado de dados.
+  * **Repositório de Metadados** : armazena informações sobre localização, schema e propriedades das fontes de dados. Os metadados são organizados em databases e tabelas, semelhante a um catálogo de banco de dados relacional.
+  * **Encontrabilidade de Dados Automática** : com Crawlers é possível monitorar e atualizar alterações nos schemas automaticamente.
+  * **Linhagem de Dados** : mantém um registro das transformações e operações executadas em seus dados, provendo informações sobre linhagem dos dados. A qual é valiosa para auditamentos, compliance, e compreensão do histórico dos dados.
 
-* **Data Brew**
+* **Glue Data Quality**: permite mensurar e monitorar a qualidade dos dados, opera com Data Quality Defition Language, uma linguagem específica para definir regras de qualidade de dados.
 
 ## REFORMULAÇÃO DA ANÁLISE FINAL
 
 *Voltar para **Seções*** [֍](#seções)
 
-A análise atual utiliza os seguintes recortes :
+Como introdução para as modificações realizadas na ingestão de dados, segue um panorama dos recortes principais :
 
 * Filmes de países fora do eixo Europa Ocidental Colonial-EUA
 * Exclusão de produções originais em inglês
 * Período de lançamento entre 2013-2025 (período de transição de popularização da Netflix)
 * Produções do gênero Romance
 
-O enfoque da análise, no entanto, sofreu uma leve reformulação: antes o estudo abarcava o elenco e sua popularidade, sendo uma maneira de representação do *ethos* dos novos referenciais afetivos, os quais seriam os protagonistas dos novos discursos.
+Antes, a proposta do estudo abarcava o elenco e sua popularidade, sendo uma maneira de representação do *ethos*, autoridade discursiva e persona do "falante", dos novos referenciais afetivos, os quais seriam os protagonistas dos novos discursos.
 
-No entanto, o enfoque será reorientado para as dimensões discursivas do *pathos* e *lexis*. Buscando, assim, explorar aspectos semânticos na construções de novas representatividades culturais, em atual expansão comercial. Para isso, serão utilizadas técnicas de processamento de língua natural para análise dos títulos e sinopses.
+No entanto, o enfoque será reorientado para as dimensões discursivas do *pathos*, exploração das dimensões da emoção,  e da *lexis*, o estilo e forma de apresentação do discurso.
+
+Assim, procura-se explorar aspectos semânticos na construções de novas representatividades culturais, popularizadas com a atual expansão comercial de produções audiovisuais traduzidas. Para isso, serão utilizadas técnicas de processamento de língua natural para análise dos títulos e sinopses.
+
+Estas são algumas das buscas a serem realizadas nas próximas etapas :
 
 * *Qual a quantidade de filmes lançados anualmente, por região?*
 * *Quais os 5 países com maior quantidade de filmes lançados? Desses países, quais línguas são mais utilizadas?*
@@ -152,12 +228,13 @@ No entanto, o enfoque será reorientado para as dimensões discursivas do *patho
   * *Trigrama: substantivo + verbo + substantivo*
 * *Quais os tópicos mais encontrados em cada país?*
 * *Quais os tópicos mais encontrados por língua?*
+* *Qual a análise de "toxicidade" e/ou sentimentos de cada filme (sinopse e títulos)?*
 
 Caso seja possível identificar recorrências interessantes de representações de personagens nas sinopses, utilizando métodos de Named Entity Recognition (NER), será considerada uma reincorporação da análise de *ethos*.
 
 Com isso, o título é alterado para: **Contra-hegemonia no Cinema: Semânticas Afetivas na Era Pós-streaming**, buscando assim refletir o novo enfoque da análise.
 
-### ANÁLISE DAS FUNÇÕES DO SCRIPT DE REINGESTÃO
+### FUNÇÕES DO SCRIPT DE REINGESTÃO PARA RAW ZONE
 
 *Voltar para **Seções*** [֍](#seções)
 
@@ -193,7 +270,7 @@ Abaixo, um exemplo de como ficaram estruturados os registros obtidos. É importa
 
 ![Amostra JSON Reingestão](../evidencias/desafio/16-reingestao-tmdb-api-amostra-json.png)
 
-#### TABELAS, COLUNAS E TIPOS
+### DIAGRAMA DE TABELAS, COLUNAS E TIPOS
 
 *Voltar para **Seções*** [֍](#seções)
 
@@ -230,22 +307,38 @@ Após o processamento dos dados e envio para a Trusted Zone, as tabelas em `parq
 
 *Voltar para **Seções*** [֍](#seções)
 
+Nesta etapa do pipeline, passamos os dados para a camada Trusted, iniciando o fluxo de processamento dos dados originais. Abaixo, esta é referida como "clean" ou "transform zone" :
+
+> *O processamento inicial dos dados na **landing/raw zone**, tal como validação, limpeza e otimização de datasets, grava dados na **clean/transform zone**. Os dados aqui são frequentemente armazenados em formatos otimizados como Parquet, e são comumente particionados para acelerar a execução de queries e processamentos nos fluxos seguintes.* [^5]
+
+Após a transformação dos dados no data lake, é importante mapear sua estrutura e consolidar o acesso às diferentes tabelas. Na arquitetura da AWS, esse processo será alcançado com o Glue Crawler, que irá mapear os metadados em tabelas no banco de dados gerenciado pelo Lake Formation.
+
+> *[...] usuários devem ser capazes de buscar por datasets disponíveis e revisar o schema e outros metadados desses datasets. A camada de catálogo e busca provê esses metadados (schema, informações de particionamento, categorização, propriedade, etc) [...] também podendo monitorar alterações que tenham sido feitas nos schemas dos datasets no data lake.* [^6]
+
 ### PROCESSAMENTO DE DADOS: ETAPA DE TRANSFORMAÇÃO PT. 1
 
 *Voltar para **Seções*** [֍](#seções)
 
+Até aqui, os dados armazenados na Raw Zone estão em seu formato original, podendo ser estrututurados, semiestruturados e não-estruturados. Nesta etapa, eles serão processados para se conformar a uma estrutura tabular, sendo movimentados para a Trusted Zone, também chamada "Clean", "Transform" ou "Enriched", em geral; no geral, são realizadas 3 principais operações de transformação de dados [^7]:
+
+* **Definição do Schema** : estruturação tabular dos dados, com definições para os valores das colunas.
+* **Limpeza de Dados** : adequação dos dados ao schema definido, inclui formatação, conversão para tipos adequados, e tratativa de valores nulos ou inconformes.
+* **Otimizações** : preparar os dados para padrões de consumo, no caso aplicado aqui seria a otimização para leitura ou "write-once read-many", os dados são convertidos em um formato que facilita o acesso às queries, como Parquet.
+
+E para isso, serão utilizados os seguintes serviços AWS:
+
 * **CloudWatch Logs** : monitoramento de logs de execução de recursos AWS em tempo real.
   
-* **Lake Formation** :
+* **Lake Formation** : governança unificada do data lake, facilita e estrutura o gerenciamento dos dados de maneira similar a um armazenamento relacional.
 
 * **S3** : serviço de armazenamento de objetos, contém a estrutura do data lake.
   * Raw Zone : arquivos em seu estado e formato originais, assim como recebidos da fonte.
-  * Trusted Zone : arquivos refinados, com transformações e limpezas de acordo com a necessidade, convertidos para parquet.
+  * Trusted Zone : arquivos processados, com transformações e limpezas de acordo com a necessidade, convertidos para parquet.
   * Logs : arquivos de logs de execução de cada etapa executada no data lake, exclusivo aos registros produzidos pelos scripts.
 
 * **Glue** : serviço de ETL e integração de dados.
-  * **Glue Crawler** : mapeia os schemas e metadata do data lake.
-  * **Glue Data Catalog** : 
+  * **Glue Crawler** : mapeia os schemas e metadados do data lake em tabelas.
+  * **Glue Data Catalog** : repositório de metadados.
   
 * **Athena** : serviço serverless de queries em SQL que permite a análise direta de dados armazenados em um bucket S3.
 
@@ -320,8 +413,8 @@ E abaixo as variáveis, retiradas do script referente à Trusted Zone do TMDB, d
   sc = SparkContext()                  # Configuração do Spark e entry point
   glue_context = GlueContext(sc)       # Conecta o Spark ao AWS Glue
   spark = glue_context.spark_session   # Inicializa a sessão Spark
-  job = Job(glue_context)              # 
-  job.init(args["JOB_NAME"], args)
+  job = Job(glue_context)              # Integra o job no contexto do AWS Glue
+  job.init(args["JOB_NAME"], args)     # Inicializa o job com os argumentos
 ```
 
 * **Data Atual** : captura data atual para registro do arquivo de log de execução próprio do script (externo aos logs gerados pelo CloudWatch Logs).
@@ -570,7 +663,7 @@ Realizadas as escritas no bucket, para fins de registro de logs, é listado o co
 
 *Voltar para **Seções*** [֍](#seções)
 
-Com o AWS Lake Formation é possível estabelecer controles de acesso com alta granularidade para Data Lakes armazenados em buckets S3 e catalogados com o AWS Glue Data Catalog (a ser realizado automaticamente por meio de um Crawler). Assim, combina em um único reposítório os dados provenientes de diversas fontes e com diferentes estruturas e tipo de dados originais.
+Com o AWS Lake Formation é possível estabelecer controles de acesso com alta granularidade para Data Lakes armazenados em buckets S3 e catalogados com o AWS Glue Data Catalog (a ser realizado automaticamente por meio de um Crawler).
 
 Após configurar o Glue e as permissões necessárias para executar tarefas no bucket S3, os Glue Jobs geram os arquivos `parquet` na camada Trusted Zone do data lake. O banco de dados é criado com o Lake Formation, e a execução de um Glue Crawler irá identificar os schemas dos arquivos monitorados, criando tabelas que podem ser analisadas com o Athena.
 
@@ -654,7 +747,7 @@ E abaixo, os comandos utilizados para a (re)execução da query de teste durante
   aws athena start-query-execution \
       --query-string "SELECT titulo_comercial, titulo_original, pais_origem, lingua_original FROM dramance_db.titulos LIMIT 25" \
       --query-execution-context Database=dramance_db \
-      --result-configuration OutputLocation=s3://compass-dramance-desafio-final/query-results/
+      --result-configuration OutputLocation=s3://compass-desafio-final-dramance/query-results/
 ```
 
 E a seguir, para visualizar os resultados obtidos :
@@ -698,19 +791,32 @@ Abaixo uma amostra da leitura dos arquivos `parquet` baixados da Trusted Zone co
 ```
 
 * **filmes_local.parquet**
+
   ![Filmes Local Parquet](../evidencias/desafio/15-leitura-parquet-filmes-local.png)
+
 * **filmes_tmdb.parquet**
+
   ![Filmes TMDB Parquet](../evidencias/desafio/14-leitura-parquet-filmes-tmdb.png)
+
 * **linguas.parquet**
+
 * ![Linguas Parquet](../evidencias/desafio/13-leitura-parquet-linguas.png)
+
 * **paises.parquet**
+
   ![Paises Parquet](../evidencias/desafio/12-leitura-parquet-paises.png)
 
 ## CONSIDERAÇÕES FINAIS
 
 *Voltar para **Seções*** [֍](#seções)
 
-A etapa de transformação de dados, desde seu estado bruto na Raw Zone até seu refinamento na Trusted Zone, 
+Em uma estrutura de dados como um data lake, a integração entre dados e a identificação do percurso e transformações por quais os dados passam é essencial para a obtenção de valor e conformidade com regulamentos, críterios de qualidade e possíveis legislações.
+
+Isso é alcançado, por exemplo, com registros de identificação de linhagem nos prefixos de nomeação no bucket S3, na catalogação de schemas e metadados com o Glue Data Catalog e a imposição de controles de acesso e qualidade granulares com Lake Formation.
+
+A etapa de transformação de dados, desde seu estado bruto na Raw Zone até sua limpeza e otimização na Trusted Zone, busca facilitar sua leitura e exploração, de acordo com as necessidades específicas do projeto ou análise.
+
+Nesta etapa, foram criadas quatro tabelas, duas de títulos, uma de línguas e outra de países. As duas referentes aos títulos (Local e TMDB) serão agregadas em uma única tabela. Além disso, posteriormente, serão geradas outras colunas referentes ao processamento dos textos e categorização de regiões, conforme o escopo geográfico desenvolvido para a análise final.
 
 ## REFERÊNCIAS
 
@@ -719,3 +825,13 @@ A etapa de transformação de dados, desde seu estado bruto na Raw Zone até seu
 [^1]: CHAMBERS, ZAHARIA; 2018, p. 13
 
 [^2]: DEAN, GHEMAWAT; 2008, p. 107
+
+[^3]: AWS Glue User Guide, 2024, p. 2
+
+[^4]: Ibid., p. 82
+
+[^5]: GARETH, 2021, p. 43
+
+[^6]: Ibid.
+
+[^7]: GOPALAN, 2023, p. 75
