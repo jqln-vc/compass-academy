@@ -109,7 +109,7 @@ O framework Spark surge para simplificar a computação distribuída, podendo ro
   * Cliente
   * Cluster
 
-* ** Gerenciadores de Cluster (Cluster Managers)**
+* **Gerenciadores de Cluster (Cluster Managers)**
   * local [n]: simulação local de uma arquitetura client-driver, em que `n` é o número de threads disponibilizadas para o processo.
     * 1 thread: driver
     * n-1 threads: executores
