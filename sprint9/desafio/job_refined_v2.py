@@ -203,6 +203,9 @@ def termo_mais_comum(lista: list[str]) -> str:
 
 # Tratamento de Palavras para Vocabulário _______________________________________
 
+padrao_process = "\\[|\\]"
+padrao_add_vocab = "^\\s+|\\s+$"
+
 def split_palavras_vocab(df: object,
                          coluna_palavras: str,
                          padrao_process: str,
@@ -539,9 +542,6 @@ print("Tabela dimensional Corpora criada com sucesso")
 
 print("Iniciando criação da tabela dimensional Vocabulário")
 
-padrao_process = "\\[|\\]"
-padrao_add_vocab = "^\\s+|\\s+$"
-
 vocab_df = analise_textual_df.select(
     F.expr("""
             stack(4,
@@ -626,7 +626,7 @@ print("Iniciando criação da tabela bridge Filmes-Vocab")
 # JOIN Entre Fato Filmes e Dimensional Vocabulário
 filmes_vocab_bridge = contagem_palavras.join(
     vocab_dim,
-    contagem_palavras.palavra == vocab_df.palavra,
+    contagem_palavras.palavra == vocab_dim.palavra,
     "inner"
 ).join(
     filmes_fact,

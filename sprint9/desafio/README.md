@@ -8,9 +8,51 @@
 ## SEÇÕES
 
 * **Introdução ao Processamento de Linguagem Natural (NLP)** [֍](#introdução-ao-processamento-de-linguagem-natural-nlp)
+  * **Tarefas de Pré-Processamento** [֍](#tarefas-de-pré-processamento)
   * **Visão Geral do Hugging Face 🤗** [֍](#visão-geral-do-hugging-face-)
-* **Considerações Finais** [֍](../../sprint9/desafio/README.md#considerações-finais)
-* **Referências** [֍](../../sprint9/desafio/README.md#referências)
+  * **Modelos Utilizados** [֍](#modelos-utilizados)
+* **Camada Trusted Zone: Revisando os Dados** [֍](#camada-trusted-zone-revisando-os-dados)
+  * **Primeiras Descobertas nos Dados** [֍](#primeiras-descobertas-nos-dados)
+  * **Diagrama da Modelagem Dimensional** [֍](#diagrama-da-modelagem-dimensional)
+* **Data Lake e Refined Zone** [֍](#data-lake-e-camada-refined-zone)
+  * **Processamento de Dados: Etapa de Transformação Pt. 2** [֍](#processamento-de-dados-etapa-de-transformação-pt-2)
+  * **Análise do Script do Glue Job** [֍](#análise-do-script-do-glue-job)
+    * **Importações** [֍](#importações)
+    * **Variáveis** [֍](#variáveis)
+    * **Modelos de Língua** [֍](#modelos-de-língua)
+    * **Criação dos DataFrames** [֍](#criação-dos-dataframes)
+    * **Integração de Dados Entre Fontes Local e TMDB** [֍](#integração-de-dados-entre-fontes-local-e-tmdb)
+    * **Funções Auxiliares, Extração de Dados e Criação de Novas Colunas** [֍](#funções-auxiliares-extração-de-dados-e-criação-de-novas-colunas)
+      * **Categorização de Regiões** [֍](#categorização-de-regiões)
+      * **Texto Total: Título + Sinopse** [֍](#texto-total-título--sinopse)
+      * **Detecção de Conteúdo Sexual e Sexismo** [֍](#detecção-de-conteúdo-sexual-e-sexismo)
+      * **Classes Sintáticas e Termos Comuns** [֍](#classes-sintáticas-e-termos-comuns)
+      * **Frequência de Termos: Dicionarização** [֍](#frequência-de-termos-dicionarização)
+    * **Criação das Tabelas Dimensão, Fato e Bridge** [֍](#criação-das-tabelas-dimensão-fato-e-bridge)
+      * **Criação Dimensão Línguas** [֍](#criação-dimensão-línguas)
+      * **Criação Dimensão Países** [֍](#criação-dimensão-países)
+      * **Criação Dimensão Títulos** [֍](#criação-dimensão-títulos)
+      * **Criação Dimensão Análise Textual** [֍](#criação-dimensão-análise-textual)
+      * **Criação Dimensão Corpora** [֍](#criação-dimensão-corpora)
+      * **Criação Dimensão Vocabulário** [֍](#criação-dimensão-vocabulário)
+      * **Criação Fato Filmes**  [֍](#criação-fato-filmes)
+      * **Criação Bridge Filmes-Vocabulário** [֍](#criação-bridge-filmes-vocabulário)
+      * **Deleção de Colunas de ID Auxiliares** [֍](#deleção-de-colunas-de-id-auxiliares)
+    * **Ingressão na Refined Zone** [֍](#ingressão-na-refined-zone)
+* **Execução do Glue Job** [֍](#execução-do-glue-job)
+  * **Criação e Execução do Crawler** [֍](#criação-e-execução-do-crawler)
+* **Modelagem Dimensional: Visão Geral com Athena** [֍](#modelagem-dimensional-visão-geral-com-athena)
+  * **Tabela Dimensional Línguas** [֍](#tabela-dimensional-línguas)
+  * **Tabela Dimensional Países** [֍](#tabela-dimensional-países)
+  * **Tabela Dimensional Títulos** [֍](#tabela-dimensional-títulos)
+  * **Tabela Dimensional Análise Textual** [֍](#tabela-dimensional-análise-textual)
+  * **Tabela Dimensional Vocabulário** [֍](#tabela-dimensional-vocabulário)
+  * **Tabela Dimensional Corpora** [֍](#tabela-dimensional-corpora)
+  * **Tabela Fato Filmes** [֍](#tabela-fato-filmes)
+  * **Tabela Bridge Filmes-Vocabulário** [֍](#tabela-bridge-filmes-vocabulário)
+* **Visão Geral do Bucket Dramance** [֍](#visão-geral-do-bucket-dramance)
+* **Considerações Finais: Dificuldades e Pontos de Melhoria** [֍](#considerações-finais-dificuldades-e-pontos-de-melhoria)
+* **Referências** [֍](#referências)
 
 ## INTRODUÇÃO AO PROCESSAMENTO DE LINGUAGEM NATURAL (NLP)
 
@@ -28,27 +70,27 @@ Apesar das especificidades, existem etapas gerais de processamento de textos já
 
 Antes de começar a aplicar funções analíticas em um texto, é preciso processá-lo de forma a facilitar a separação de ocorrências relevantes, limpeza de ruídos e uniformização de formas distintas com significados similares; são tratamentos diversos com fins de otimizar a identificação de padrões significativos.
 
-> ***Normalização** de palavras é a tarefa de colocar palavras, ou **tokens**, em um formato padrão. O caso mais simples de normalização de palavras é o **case folding**. Mapear tudo para minúsculas [...] é muito útil para generalização em muitas tarefas, tais como recuperação de informações ou reconhecimento de fala. Para análise de sentimento e outras tarefas de classificação [...], a caixa da letra pode ser muito útil, e o **case folding** geralmente não é realizado.* (JURAFSKY, MARTIN; 2025, p. 23)
+> ***Normalização** de palavras é a tarefa de colocar palavras, ou **tokens**, em um formato padrão. O caso mais simples de normalização de palavras é o **case folding**. Mapear tudo para minúsculas [...] é muito útil para generalização em muitas tarefas, tais como recuperação de informações ou reconhecimento de fala. Para análise de sentimento e outras tarefas de classificação [...], a caixa da letra pode ser muito útil, e o **case folding** geralmente não é realizado.* [^1]
 
 A caracterização do que é mantido ou desprezado depende da tarefa em questão, no entanto, os processos em si são rotineiros; a seguir alguns relevantes, brevemente comentados para a compreensão das etapas de tratamento dos dados de texto:
 
 * **Parsing e Tokenização**
+  
+O tratamento de tokenização das strings das colunas de texto foi realizado, quase inteiramente, por **expressões regulares**, primeiramente com split baseado em espaços, limpeza de caracteres especiais e consolidação de termos de interesse em uma string de tokens separados por vírgulas. Posteriormente, esses tokens foram separados a partir das vírgulas.
 
-> *Parsing is necessary when the string contains more than plain text. For instance, if
-the raw data is a web page, an email, or a log of some sort, then it contains additional
-structure. [...] After light parsing, the plain-text portion of the document can go through tokeniza‐
-tion. This turns the string—a sequence of characters—into a sequence of tokens.
-Each token can then be counted as a word. The tokenizer needs to know what charac‐
-ters indicate that one token has ended and another is beginning. Space characters are
-usually good separators, as are punctuation characters.* (ZHENG, CASARI; 2018, p. 52)
+> *O **parsing, ou análise sintática**, é necessário quando a string contém mais do que texto simples. Por exemplo, se o texto bruto vem de uma página web, email ou algum log, então contém alguma estrutura adicional. [...] Depois de um parsing superficial, essa porção de texto simples do documento pode passar pelo processo de **tokenização**. Assim, tornando a string - uma sequência de caracteres - em uma sequência de **tokens**. Cada token pode, então, ser contabilizado como uma palavra. O tokenizador precisa saber quais caracteres indicam que um token terminou e outro está começando. Espaços e pontuação são, geralmente bons separadores.* [^2]
 
 * **Remoção de Stopwords**
 
-> *Classificação e recuperação de dados geralmente não necessitam uma compreensão aprofundada do texto. Por exemplo, na frase "Emma bateu em uma porta", a palavras "em" e "uma" não alteram o fato de que essa frase é sobre uma pessoa e uma porta. Para tarefas menos granulares, como classificação, os pronomes, artigos e preposições não acrescentam muito valor. O caso pode ser muito diferente na análise de sentimentos, a qual requer uma compreensão mais refinada de semântica.* (ZHENG, CASARI; 2018, p. 48)
+Os **tokens** gerados foram filtrados para desprezar temos não-alfabéticos e ***stopwords***, que não agregam significado lexical à análise.
+
+> *Classificação e recuperação de dados geralmente não necessitam uma compreensão aprofundada do texto. Por exemplo, na frase "Emma bateu em uma porta", a palavras "em" e "uma" não alteram o fato de que essa frase é sobre uma pessoa e uma porta. Para tarefas menos granulares, como classificação, os pronomes, artigos e preposições não acrescentam muito valor. O caso pode ser muito diferente na análise de sentimentos, a qual requer uma compreensão mais refinada de semântica.* [^3]
 
 * **Lematização**
+  
+Dentre os tokens filtrados na etapa anterior, são armazenados somente termos das classes sintáticas de substantivos, adjetivos, verbos e advérbios. Tais termos são convertidos para sua forma "lemma"; uma forma normalizada que despreza afixos, permitindo agregar ocorrências de um mesmo significado, que estejam flexionadas ou conjugadas de diversas maneiras. No vocabulário, as palavras são inseridas e contabilizadas na tabela bridge Filmes-Vocab somente após a lematização.
 
-> *Lematização é a tarefa de determinar que 2 palavras possuem a mesma raíz, apesar de suas diferenças aparentes. As palavras "am", "are" e "is" possuem em comum o mesmo **lemma** "be"; as palavras "dinner" e "dinners" o mesmo **lemma** "dinner". [...] Os métodos mais sofisticados para a lematização envolvem uma análise morfossintática (**parsing**) completa da palavra. [...] Morfologia é o estudo do morfema, o modo que as palavras são construídas a partir de partes menores, contendo significados. Duas grandes classes de morfemas podem ser definidas: **raíz** (stem), o morfema central da palavra, que supre o significado principal, e os **afixos**, que adicionam significados diversos.* (JURAFSKY, MARTIN; 2025, p. 23)
+> *Lematização é a tarefa de determinar que 2 palavras possuem a mesma raíz, apesar de suas diferenças aparentes. As palavras "am", "are" e "is" possuem em comum o mesmo **lemma** "be"; as palavras "dinner" e "dinners" o mesmo **lemma** "dinner". [...] Os métodos mais sofisticados para a lematização envolvem uma análise morfossintática (**parsing**) completa da palavra. [...] Morfologia é o estudo do morfema, o modo que as palavras são construídas a partir de partes menores, contendo significados. Duas grandes classes de morfemas podem ser definidas: **raíz** (stem), o morfema central da palavra, que supre o significado principal, e os **afixos**, que adicionam significados diversos.* [^4]
 
 * **Vetores e Embeddings**
 
@@ -56,7 +98,7 @@ Para as tarefas acima, ainda são utilizados os textos em forma de ***tokens***,
 
 Para tarefas de processamento utilizando modelos computacionais é preciso transformar os textos em dados numéricos, chamados **embeddings** , onde o "significado" dos ***tokens***, ao serem colocados em relação com os demais, recebe valores numéricos de acordo com sua distribuição de probabilidade a partir de coocorrências. Nas famosas palavras do linguista J.R. Firth (1957), *“You shall know a word by the company it keeps”* , em tradução direta, "conheces uma palavra pelas companhias que mantém."
 
-> *Modelos de Redes de Aprendizado Profundo, incluindo LLMs, são incapazes de processar textos brutos diretamente. Visto que textos são categóricos, não são compatíveis com as operações matemáticas usadas para implementar e treinar redes neurais. Portanto, se faz necessária uma maneira de representar palavras como vetores de valores contínuos.* (RASCHKA, 2025, p. 18)
+> *Modelos de Redes de Aprendizado Profundo, incluindo LLMs, são incapazes de processar textos brutos diretamente. Visto que textos são categóricos, não são compatíveis com as operações matemáticas usadas para implementar e treinar redes neurais. Portanto, se faz necessária uma maneira de representar palavras como vetores de valores contínuos.* [^5]
 
 Nos frameworks utilizados, SpaCy e Hugging Face 🤗, os modelos são carregados juntamente com um pipeline que adapta os pré-processamentos às necessidades de configuração de cada modelo (a quantidade de dimensões de cada embedding, por exemplo, difere entre modelos). Portanto, todo texto processado pelos modelos neste projeto, passou por uma etapa de vetorização camuflada.
 
@@ -72,7 +114,7 @@ Cada pipeline envolve 3 subprocessos, já adaptados para extração de valores p
 * **Processamento** : os dados de input são processados pelo modelo.
 * **Pós-processamento** : os resultados das predições são transformados para facilitar a leitura dos valores obtidos.
 
-> *[...] a abordagem moderna dominante para executar cada tarefa é utilizar um único **modelo de base (foundation model)** e adaptá-lo levemente utilizando quantidades relativamente pequenas de dados anotados, específicos para cada tarefa [...] Esta se provou uma abordagem extremamente exitosa: para a grande maioria das tarefas [...], um modelo de base adaptado para uma tarefa supera vastamente os modelos anteriores ou os pipelines de modelos que foram criados para executar aquela tarefa em específico.* (PAPADIMITRIOU, MANNING; 2021, p. 23)
+> *[...] a abordagem moderna dominante para executar cada tarefa é utilizar um único **modelo de base (foundation model)** e adaptá-lo levemente utilizando quantidades relativamente pequenas de dados anotados, específicos para cada tarefa [...] Esta se provou uma abordagem extremamente exitosa: para a grande maioria das tarefas [...], um modelo de base adaptado para uma tarefa supera vastamente os modelos anteriores ou os pipelines de modelos que foram criados para executar aquela tarefa em específico.* [^6]
 
 Para tarefas de NLP, alavancar resultados com base em grandes modelos de língua pré-treinados é a forma mais acessível e otimizada de trabalhar com datasets de texto. A abordagem adotada segue essa metodologia, os modelos utilizados foram treinados em cima de modelos de base, comentados na próxima seção. A seguir, algumas das tarefas relevantes para o tipo de análise deste projeto, dentre as diversas disponíveis na plataforma Hugging Face 🤗:
 
@@ -98,7 +140,7 @@ A seguir os modelos utilizados nas plataformas utilizadas e algumas informaçõe
 
 `annahaz/xlm-roberta-base-misogyny-sexism-indomain-mix-bal` | Hugging Face 🤗
 
-[Modelo multilíngue](https://huggingface.co/annahaz/xlm-roberta-base-misogyny-sexism-indomain-mix-bal) de detecção de emoções, misoginia e sexismo em discursos, o treino foi realizado em cima dos modelos-base e `XLM-RoBERTa`, `BERT` e `DistilBERT`, com *corpora* de comentários em fóruns de discussão de cunho político e datasets anotados. A seguir alguns dos métodos, critérios e modelos complementares para obtenção das métricas (RONG-CHING, MAY, LERMAN; 2023, p. 88):
+[Modelo multilíngue](https://huggingface.co/annahaz/xlm-roberta-base-misogyny-sexism-indomain-mix-bal) de detecção de emoções, misoginia e sexismo em discursos, o treino foi realizado em cima dos modelos-base e `XLM-RoBERTa`, `BERT` e `DistilBERT`, com *corpora* de comentários em fóruns de discussão de cunho político e datasets anotados. A seguir alguns dos métodos, critérios e modelos complementares para obtenção das métricas [^7]:
 
 * **Detecção de Toxicidade** : utiliza o modelo `Detoxify`
 * **Detecção de Emoções** : utiliza o modelo `GoEmotions`
@@ -486,8 +528,10 @@ Essa função foi utilizada no processo de criação das tabelas `vocab_dim` e `
 * `df` DataFrame com a coluna de termos a ser incluída em uma coleção ou dicionário de termos
 * `coluna_palavras` coluna com a lista de termos, uma string com tokens separados
 * `padrao_process` o padrão em RegEx para o tratamento de separação de termos da lista
+  * `\\[|\\]` o padrão declarado seleciona colchetes para remoção
 * `sep` o separador entre os tokens da lista
 * `padrao_add_vocab` o padrão em RegEx para tratamento após o split, precedendo a inserção do termo
+  * `^\\s+|\\s+$` o padrão declarado seleciona espaços em branco no começo e fim da string
 * `coluna_extra` coluna de referência (geralmente um ID), a ser selecionada e incluída no DataFrame resultante
 
 ![Coluna Frequência](../evidencias/50-script-coluna-frequencia.png)
@@ -498,9 +542,19 @@ Essa função foi utilizada no processo de criação das tabelas `vocab_dim` e `
 
 Nesta seção, as colunas criadas anteriormente e as tabelas auxiliares utilizadas nesse processo são consolidadas na versão final das tabelas após a modelagem dimensional.
 
+Para a criação de chaves primárias, foi utilizada a função `monotonically_increasing_id()` com o acréscimo do inteiro `1` para que a indexação não comece do valor 0 (zero). Os IDs gerados são crescentes e únicos, porém não são necessariamente consecutivos, ainda assim, esse fator não prejudica a modelagem. 
+
+E, para os caso de relações entre tabelas que possuem colunas de IDs compartilhados, foi utilizada a função `alias()` para facilitar a referenciação nos JOINs seguintes.
+
 ##### CRIAÇÃO DIMENSÃO LÍNGUAS
 
 *Voltar para **Seções*** [֍](#seções)
+
+Para a dimensão Línguas, foi utilizada a tabela `linguas_df` do TMDB como base, algumas células multivaloradas tiveram seus valores tratados.
+
+* `lingua_key`
+* `iso_cod`
+* `lingua`
 
 ![Script Dimensão Línguas](../evidencias/18-script-dimensao-linguas.png)
 
@@ -508,11 +562,24 @@ Nesta seção, as colunas criadas anteriormente e as tabelas auxiliares utilizad
 
 *Voltar para **Seções*** [֍](#seções)
 
+A dimensão Países é criada após a extração da categoria `regiao` com a função auxiliar `obter_regiao` aplicada ao DataFrame `paises_df`, também com dados obtidos do TMDB.
+
+* `pais_key`
+* `iso_cod`
+* `pais`
+* `regiao`
+
 ![Script Dimensão Países](../evidencias/19-script-dimensao-paises.png)
 
 ##### CRIAÇÃO DIMENSÃO TÍTULOS
 
 *Voltar para **Seções*** [֍](#seções)
+
+Para a dimensão de Títulos, além das colunas de interesse, foi incluído o `tmdb_id` para facilitar na relação da dimensão com a tabela fato, visto que os dados de título não são confiáveis como identificador único de cada filme.
+
+* `titulo_key`
+* `titulo_comercial`
+* `titulo_original`
 
 ![Script Dimensão Títulos](../evidencias/51-script-dimensao-titulos.png)
 
@@ -520,11 +587,29 @@ Nesta seção, as colunas criadas anteriormente e as tabelas auxiliares utilizad
 
 *Voltar para **Seções*** [֍](#seções)
 
+Na dimensão de Análise Textual, todas as inferências e extrações de classificação de texto e tokens são selecionadas, e também é utilizado `tmdb_id` para auxiliar na relação posterior. Em alguns casos, como este, a seleção é feita em 2 etapas, primeiro com a ordenação dos valores, para depois ser gerada a chave primária. Aqui, a análise é referente a cada filme individualmente.
+
+* `analise_key`
+* `sinopse`
+* `texto_total`
+* `conteudo_sexual`
+* `sexismo`
+* `subst_mais_comum`
+* `verbo_mais_comum`
+* `adj_mais_comum`
+* `adv_mais_comum`
+
 ![Script Dimensão Análise](../evidencias/52-script-dimensao-analise.png)
 
 ##### CRIAÇÃO DIMENSÃO CORPORA
 
 *Voltar para **Seções*** [֍](#seções)
+
+A dimensão Corpora busca centralizar todos os textos de um *corpus* para uma análise específica, podendo explicitar tendências que permeiam os exemplares como um todo. Ou seja, inclui todos os textos analisados na dimensão Análise Textual. Neste caso, também pareceu útil incluir o timestamp de criação, para análises comparativas com outros *corpus* ou versões do mesmo *corpus*.
+
+* `corpus_key`
+* `corpus`
+* `data_registro`
 
 ![Script Dimensão Corpora](../evidencias/53-script-dimensao-corpora.png)
 
@@ -532,13 +617,41 @@ Nesta seção, as colunas criadas anteriormente e as tabelas auxiliares utilizad
 
 *Voltar para **Seções*** [֍](#seções)
 
+Para a criação da dimensão Vocabulário, com ocorrências distintas de tokens já normalizados e categorizados, é utilizado como base o DataFrame `analise_textual_df` , o qual possui os termos extraídos da coluna `texto_total` separados por classe sintática.
+
+O processo é realizado em 2 etapas:
+
+* **Criação de DataFrame intermediário**: a partir da função `stack`, a qual transforma colunas em linhas. Portanto, os arrays de termos contidos nas colunas `substantivos` , `verbos` , `adjetivos` e `adverbios` são translocados para linhas individuais de um DataFrame de termos e classes.
+
+* **Split de termos e limpeza pré-inserção**: a partir da função definida no início do script `split_palavras_vocab` , as colunas com array de termos são tratadas linha a linha com 2 padrões distintos, definidos pelo usuário (bem como o separador a se considerar), os padrões definidos foram:
+  * `padrao_process = \\[|\\]` remoção de colchetes [ e ]
+  * `padrao_add_vocab = ^\\s+|\\s+$` remove espaços vazios no início ou fim do token  
+
 ![Script Dimensão Vocabulário](../evidencias/54-script-dimensao-vocab.png)
+
+Após isso, a dimensão Vocabulário é criada, filtrando linhas vazias e valores nulos que possam ter passado nas etapas anteriores, e ordenada por classe sintática.
 
 ##### CRIAÇÃO FATO FILMES
 
 *Voltar para **Seções*** [֍](#seções)
 
+A criação da tabela fato Filmes foi feita em 2 etapas, somente para contornar um problema de conflito de IDs não resolvido apesar dos aliases criados, separando os JOINs em blocos. Para as dimensões que não possuiam um código único antes de sua criação, foi utilizado o `tmdb_id` como auxiliar.
+
 ![Script Fato Filmes Pt. 1](../evidencias/55-script-fato-parte1.png)
+
+O JOIN da tabela de Análise Textual foi feito separadamente.
+
+* `filme_key`
+* `tmdb_id`
+* `imdb_id`
+* `titulo_key`
+* `pais_key`
+* `lingua_key`
+* `corpus_key`
+* `ano_lancamento`
+* `popularidade`
+* `media_avaliacao`
+* `qtd_avaliacoes`
 
 ![Script Fato Filmes Pt. 2](../evidencias/56-script-fato-parte2.png)
 
@@ -546,15 +659,23 @@ Nesta seção, as colunas criadas anteriormente e as tabelas auxiliares utilizad
 
 *Voltar para **Seções*** [֍](#seções)
 
+O DataFrame intermediário `contagem_palavras` gerado [nesta etapa](#frequência-de-termos-dicionarização), com a coluna de `frequencia` de termos por filme, é utilizado como base para a tabela associativa / bridge Filmes-Vocabulário.
+
+As palavras são relacionadas com a dimensão Vocabulário por meio da coluna `palavra` (correspondente ao termo lematizado, sendo substantivo, adjetivo, verbo ou advérbio) e com a fato Filmes por meio do `tmdb_id`, incluso no DataFrame como auxiliar.
+
+* `filme_key`
+* `vocab_key`
+* `frequencia`
+
 ![Script Bridge Filmes Vocab](../evidencias/57-script-bridge-filmes-linguas.png)
 
 ##### DELEÇÃO DE COLUNAS DE ID AUXILIARES
 
 *Voltar para **Seções*** [֍](#seções)
 
-Em alguns processos de criação das tabelas, foi preciso utilizar um ID comum entre os dados para estabelecer as relações em uma etapa intermediária, antes da criação das novas chaves primárias/estrangeiras para cada nova tabela.
+Como já comentado acima, em alguns processos de criação das tabelas, foi preciso utilizar um ID comum entre os dados para estabelecer as relações em uma etapa intermediária, antes da criação das novas chaves primárias/estrangeiras para cada nova tabela.
 
-Nesta etapa, após estabelecidas as relações com as novas chaves, essas colunas são excluídas das tabelas em que não são pertinentes. No caso presente, foi utilizada somente a coluna `tmdb_id` para todos os casos necessários.
+Nesta etapa, após estabelecidas as relações com as novas chaves, essas colunas são excluídas das tabelas em que não são pertinentes. No caso presente, foi utilizada somente a coluna `tmdb_id` para os 3 casos necessários.
 
 ![Deleção de Colunas Auxiliares](../evidencias/58-script-delecao-colunas-id-aux.png)
 
@@ -711,7 +832,7 @@ E a seguir, para visualizar os resultados obtidos :
 
 ![Logs de Execução](../evidencias/38-bucket-logs.png)
 
-## DIFICULDADES E PONTOS DE MELHORIA
+## CONSIDERAÇÕES FINAIS: DIFICULDADES E PONTOS DE MELHORIA
 
 *Voltar para **Seções*** [֍](#seções)
 
@@ -743,12 +864,14 @@ Para otimizar o fluxo, seria preciso melhorar o planejamento da capacidade de co
   * `annahaz/xlm-roberta-base-misogyny-sexism-indomain-mix-bal`
   * `uget/sexual_content_dection`
 
-## CONSIDERAÇÕES FINAIS
-
-*Voltar para **Seções*** [֍](#seções)
-
-
-
 ## REFERÊNCIAS
 
 *Voltar para **Seções*** [֍](#seções)
+
+[^1]: JURAFSKY, MARTIN; 2025, p. 23
+[^2]: ZHENG, CASARI; 2018, p. 52
+[^3]: Ibidem, p. 48
+[^4]: JURAFSKY, MARTIN; 2025, p. 23
+[^5]: RASCHKA, 2025, p. 18
+[^6]: PAPADIMITRIOU, MANNING; 2021, p. 23
+[^7]: RONG-CHING, MAY, LERMAN; 2023, p. 88
