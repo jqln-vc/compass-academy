@@ -1,0 +1,82 @@
+[16-02-2025 12:05:06] Iniciando upload dos datasets em DataFrames
+[16-02-2025 12:06:25] Iniciando o JOIN entre datasets Local e TMDB
+[16-02-2025 12:06:26] JOIN realizado com sucesso
+[16-02-2025 12:06:26] Gerando coluna texto_total com textos de título e sinopse concatenados
+[16-02-2025 12:06:26] Gerando coluna de classificação de países em regiões
+[16-02-2025 12:06:26] Gerando coluna de classificação de conteúdo sexual
+[16-02-2025 12:06:30] Gerando coluna de classificação de sexismo
+[16-02-2025 12:06:38] Gerando colunas listas de termos por classe sintática
+[16-02-2025 12:06:41] Gerando colunas de termos mais comuns
+[16-02-2025 12:06:41] Gerando coluna Corpus com concatenação de textos de análise
+[16-02-2025 12:06:41] Iniciando criação da tabela dimensional Línguas
+[16-02-2025 12:06:41] Tabela dimensional Línguas criada com sucesso
+[16-02-2025 12:06:41] Iniciando criação da tabela dimensional Países
+[16-02-2025 12:06:41] Tabela dimensional Países criada com sucesso
+[16-02-2025 12:06:41] Iniciando criação da tabela dimensional Títulos
+[16-02-2025 12:06:41] Tabela dimensional Títulos criada com sucesso
+[16-02-2025 12:06:41] Iniciando criação da tabela dimensional Análise Textual
+[16-02-2025 12:06:41] Tabela dimensional Análise Textual criada com sucesso
+[16-02-2025 12:06:41] Iniciando criação da tabela dimensional Corpora
+[16-02-2025 12:06:41] Tabela dimensional Corpora criada com sucesso
+[16-02-2025 12:06:41] Iniciando criação da tabela dimensional Vocabulário
+[16-02-2025 12:06:41] Tabela dimensional Vocabulário criada com sucesso
+[16-02-2025 12:06:41] Iniciando criação da tabela fato Filmes
+[16-02-2025 12:06:41] Tabela fato Filmes criada com sucesso
+[16-02-2025 12:06:41] Excluindo colunas auxiliares para associação entre tabelas
+[16-02-2025 12:06:41] Início da ingressão de tabelas em formato Parquet na Refined Zone
+[16-02-2025 12:06:41] Iniciando escrita da tabela dimensional Línguas
+[16-02-2025 12:06:52] Tabela dimensional Línguas enviada para a Refined Zone
+[16-02-2025 12:06:52] Iniciando escrita da tabela dimensional Países
+[16-02-2025 12:06:58] Tabela dimensional Países enviada para a Refined Zone
+[16-02-2025 12:06:58] Iniciando escrita da tabela dimensional Títulos
+[16-02-2025 12:07:01] Tabela dimensional Títulos enviada para a Refined Zone
+[16-02-2025 12:07:01] Iniciando escrita da tabela dimensional Análise Textual
+[16-02-2025 12:20:44] Tabela dimensional Análise Textual enviada para a Refined Zone
+[16-02-2025 12:20:44] Iniciando escrita da tabela dimensional Corpora
+[16-02-2025 12:20:46] Tabela dimensional Corpora enviada para a Refined Zone
+[16-02-2025 12:20:46] Iniciando escrita da tabela dimensional Vocabulário
+[16-02-2025 12:30:27] Tabela dimensional Vocabulário enviada para a Refined Zone
+[16-02-2025 12:30:27] Iniciando escrita da tabela fato Filmes
+[16-02-2025 12:30:30] Tabela fato Filmes enviada para a Refined Zone
+[16-02-2025 12:30:30] Listagem de objetos no bucket compass-desafio-final-dramance
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Config/')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Config/requirements.txt')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Logs/log-ingestao-20250106.txt')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Logs/log-ingestao-20250118.txt')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Logs/log-ingestao-20250128.txt')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Logs/log-transform-trusted-local-20250202')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Logs/log-transform-trusted-local-20250203')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Logs/log-transform-trusted-tmdb-20250202')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Logs/log-transform-trusted-tmdb-20250203')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/Local/CSV/Movies/2025/01/06/movies.csv')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/Local/CSV/Series/2025/01/06/series.csv')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/18/filmes_attr_batch_1.json')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/18/filmes_attr_batch_10.json')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/18/filmes_attr_batch_2.json')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/18/filmes_attr_batch_3.json')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/18/filmes_attr_batch_4.json')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/18/filmes_attr_batch_5.json')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/18/filmes_attr_batch_6.json')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/18/filmes_attr_batch_7.json')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/18/filmes_attr_batch_8.json')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/18/filmes_attr_batch_9.json')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/31/filmes_batch_1.json')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/31/filmes_batch_2.json')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/31/filmes_batch_3.json')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/31/filmes_batch_4.json')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/31/filmes_batch_5.json')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/31/filmes_batch_6.json')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/31/linguas.json')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Raw/TMDB/JSON/2025/01/31/paises.json')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Refined/analise_textual_dim/part-00000-14c1de02-2cfa-46f6-ac3b-112fe1d89702-c000.snappy.parquet')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Refined/corpora_dim/part-00000-cd401c60-e583-43bb-b260-358984062429-c000.snappy.parquet')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Refined/filmes_fact/part-00000-d16adb62-bff7-4f47-9f16-452b45879015-c000.snappy.parquet')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Refined/linguas_dim/part-00000-01316952-a9d2-4157-ac4c-84db556c213d-c000.snappy.parquet')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Refined/paises_dim/part-00000-13e8c662-c5d0-42d8-9340-f006603ae31f-c000.snappy.parquet')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Refined/titulos_dim/part-00000-79f44779-524e-474f-b810-62c798f21bee-c000.snappy.parquet')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Refined/vocab_dim/part-00000-61a8132e-68a3-44df-9cd5-0d4ec130ac17-c000.snappy.parquet')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Trusted/Local/Parquet/Movies/part-00000-2d366ce3-00ec-49f4-9308-37285b876047-c000.snappy.parquet')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Trusted/TMDB/Parquet/Movies/2025/1/31/linguas/part-00000-a75047dd-e4ae-4695-bfdd-f7669b812d7a-c000.snappy.parquet')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Trusted/TMDB/Parquet/Movies/2025/1/31/paises/part-00000-353f6219-86d2-4e00-8051-b4e7a27f67c0-c000.snappy.parquet')
+[16-02-2025 12:30:30] s3.ObjectSummary(bucket_name='compass-desafio-final-dramance', key='Trusted/TMDB/Parquet/Movies/2025/1/31/titulos/part-00000-6e258c52-aded-4d66-9e79-d0130acf9051-c000.snappy.parquet')
+[16-02-2025 12:30:30] Modelagem e ingressão na Refined Zone realizada com sucesso

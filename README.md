@@ -26,7 +26,8 @@
 ## EXPERIÊNCIAS NA ÁREA DE DADOS
 
 * **Analista de Metainformação Sênior & Squad Leader | Omnilogic SA**  
-Coordenação de rotinas de squad responsável pela documentação de processos, padronização de metadados e processamentos em batch de dados, com uso de RegEx e SQL, auxiliando o squad de MLOps na otimização dos modelos de machine learning dos produtos voltados à área de e-commerce.
+Início como estagiária, e posteriormente efetivada para analista de metainformação junior, desempenhando tarefas de anotação de dados e controle de qualidade.  
+    Posteriormente, como analista sênior, exercendo a coordenação de rotinas de squad, responsável pela documentação de processos, padronização de metadados com base em modelos ontológicos e pré-processamento em batch de dados, com uso de RegEx e SQL em ambiente Databricks; rotinas alinhadas aos processos do squad de MLOps na otimização dos modelos de machine learning dos produtos voltados à área de e-commerce.
 
 * **Integrante | [SemioCom](https://semio.cc/) - Grupo Experimental em Semiótica Computacional**  
 Breve participação no grupo com contribuição de ideias e códigos. Nesse período, buscávamos o desenvolvimento de alternativas de processamento de linguagem natural, em específico para análise de sentimento, baseadas em uma abordagem metodológica semiótica.
@@ -65,7 +66,6 @@ Coleta e elaboração de *corpora* terminológicos, bem como análise lexical de
 
 ## TRILHA DE APRENDIZADO
 
-[![The Guide](https://img.shields.io/badge/O_Guia_da_Aprendiz_das_Nuvens-000000)](/guide)  
 [![Sprint 1](https://img.shields.io/badge/Sprint_1-Linux_Git_&_GitHub-ED751A)](/sprint1)  
 [![Sprint 2](https://img.shields.io/badge/Sprint_2-SQL_&_AWS_Partner-E42322)](/sprint2)  
 [![Sprint 3](https://img.shields.io/badge/Sprint_3-Python_&_AWS_Partner-FDCA00)](/sprint3)  
@@ -73,4 +73,5 @@ Coleta e elaboração de *corpora* terminológicos, bem como análise lexical de
 [![Sprint 5](https://img.shields.io/badge/Sprint_5-AWS_&_Boto-E42322)](/sprint5)  
 [![Sprint 6](https://img.shields.io/badge/Sprint_6-AWS_&_Data_Lake-FDCA00)](/sprint6)  
 [![Sprint 7](https://img.shields.io/badge/Sprint_7-Apache_Spark-ED751A)](/sprint7)  
-[![Sprint 8](https://img.shields.io/badge/Sprint_8-AWS_ETL:_Glue_e_Spark-E42322)](/sprint8)
+[![Sprint 8](https://img.shields.io/badge/Sprint_8-AWS_ETL:_Glue_e_Spark-E42322)](/sprint8)  
+[![Sprint 9](https://img.shields.io/badge/Sprint_9-AWS_ETL:_Glue_e_Spark_Pt_2-FDCA00)](/sprint9)

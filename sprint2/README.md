@@ -9,9 +9,6 @@
 
 ### SQL & Dados Relacionais
 
-[![Data Warehouse](https://img.shields.io/badge/Guia-Data_Warehouse-ED751A)](/guide/data_warehouse.md)  
-[![Data Modeling](https://img.shields.io/badge/Guia-Data_Modeling-ED751A)](/guide/data_modeling.md)
-
 Tinha familiaridade anterior com SQL e experiência em utilizar DQL para tarefas mais simples. No entanto, apesar de estar estudando arquitetura e modelagem de dados, ainda não havia tido a experiência de pensar e implementar algo na prática.
 
 Foi uma experiência enriquecedora, sinto que consegui compreender e entrelaçar diversos conceitos que ainda estavam vagos no meu entendimento, como Data Warehouse e Modelagem de Dados, tanto em sistemas OLTP quanto OLAP. Também pude trabalhar com DDL, algo que ainda não havia feito.
@@ -21,8 +18,6 @@ Porém ainda sinto que preciso praticar mais o processo de normalização, sinto
 ---
 
 ### AWS Partner: Sales Accreditation
-
-[![AWS Fundamentos](https://img.shields.io/badge/Guia-Fundamentos_AWS-ED751A)](/guide/aws_fundamentos.md)
 
 Tenho estudado e me preparado para o exame CLF-C02 da AWS há alguns meses, então já tinha familiaridade com a maioria dos conceitos abordados.
 

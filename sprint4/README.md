@@ -9,16 +9,11 @@
 
 ### Arquitetura de Microsserviços, Contêineres & Docker
 
-[![Containeres](https://img.shields.io/badge/Guia-Containeres-ED751A)](/guide/containeres.md)
-
 Achei muito interessante a transformação na forma de pensar e desenvolver aplicações ao considerarmos uma estrutura baseada em componentes. Entendo que é extremamente importante absorver tais práticas, pois é fundamental para o ambiente de Cloud Computing.
 
 Sinto que comecei a entender os princípios e fundamentos da Arquitetura de Microsserviços, porém ainda preciso praticar mais a elaboração de imagens no dia a dia para adquirir confiança. Gostaria também de praticar a orquestração de contêineres com Kubernetes, o que não foi possível com as atividades propostas nesta sprint, portanto tenho intenção de estudar no meu tempo livre.
 
 ### AWS Partner: Technical
-
-[![AWS Fundamentos](https://img.shields.io/badge/Guia-AWS_Fundamentos-ED751A)](/guide/aws_fundamentos.md)  
-[![AWS Orchestration](https://img.shields.io/badge/Guia-AWS_Orchestration-ED751A)](/guide/aws_orchestration.md)
 
 Me sinto cada vez mais confiante com os fundamentos da AWS, e o curso de Technical Essentials foi ótimo para reforçar conceitos. Ainda tenho dificuldades com o domínio de Networking, e durante a sprint busquei estudar conceitos gerais de redes para entender melhor como se interrelacionam os serviços da AWS.
 

@@ -9,8 +9,6 @@
 
 ### Linux & Shell Scripting
 
-[![Guide-01](https://img.shields.io/badge/Guia-Linux._Shell._Bash.-ED751A)](/guide/linux_shell_bash.md)
-
 Apesar de ter o Ubuntu instalado em meu PC pessoal, para tentar me habituar ao sistema por coerção, antes da sprint, eu tinha pouca familiaridade e um certo desconforto com o terminal.
 
 Hoje, após experienciar o poder dos scripts e desmistificar o uso do terminal (não é tão difícil quanto parece!), sinto prazer em utilizá-lo, e tenho confiança em escrever rotinas mais básicas, me localizar no Linux, debuggar meus scripts ou buscar referências para a solução de problemas.
@@ -23,8 +21,6 @@ Repositório pessoal, onde comecei a compilar minhas práticas a partir de refer
 ---
 
 ### Git & GitHub
-
-[![Guide-02](https://img.shields.io/badge/Guia-Git-ED751A)](/guide/git.md)
 
 Antes da sprint, já utilizava Git e GitHub na minha rotina pessoal, portanto conhecia comandos básicos de envio e recebimento de alterações entre o repositório local e o remoto.
 

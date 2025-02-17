@@ -9,9 +9,6 @@
 
 ### Fundamentos de Cloud & AWS S3
 
-[![AWS Fundamentos](https://img.shields.io/badge/Guia-AWS_Fundamentos-ED751A)](/guide/aws_fundamentos.md)  
-[![AWS Storage](https://img.shields.io/badge/Guia-AWS_Storage-ED751A)](/guide/aws_storage.md)
-
 Até então, eu tinha estudado muito de aspectos teóricos dos serviços de cloud da AWS. E esta sprint me possibilitou uma experiência de aprendizado na prática, que faltava para entender a relação entre alguns serviços e recursos aplicados nos estudos de caso verossimilhantes.
 
 ### Boto3 API
