@@ -33,10 +33,11 @@ O projeto final desenvolve um fluxo de processamento e análise de dados, a part
   - [**corpora_dim.parquet**](./desafio/parquet/corpora_dim.parquet)
   - [**vocab_dim.parquet**](./desafio/parquet/vocab_dim.parquet)
   - [**filmes_fact.parquet**](./desafio/parquet/filmes_fact.parquet)
+  - [**filmes_vocab_bridge.parquet**](./desafio/parquet/filmes_vocab_bridge.parquet)
 - [**job_refined.py**](./desafio/job_refined.py) : script de execução do Glue Job, responsável pela modelagem dimensional, geração dos arquivos acima e ingressão no data lake S3 na Refined Zone.
 - [**dramance_analise_exploratoria.ipynb**](./desafio/dramance_analise_exploratoria.ipynb) : notebook de testes e análises exploratórias dos dados.
 - [**requirements.txt**](./desafio/requirements.txt) : arquivo de instalações de dependências.
-- [**log-transform-refined-20250216**](./desafio/log-transform-refined-20250216) : arquivo de logs de execução do script.
+- [**log-transform-refined-20250217**](./desafio/log-transform-refined-20250217) : arquivo de logs de execução do script.
 
 ### MODELAGEM DIMENSIONAL
 
