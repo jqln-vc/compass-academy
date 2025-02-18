@@ -631,6 +631,10 @@ O processo é realizado em 2 etapas:
 
 Após isso, a dimensão Vocabulário é criada, filtrando linhas vazias e valores nulos que possam ter passado nas etapas anteriores, e ordenada por classe sintática.
 
+* `vocab_key`
+* `palavra`
+* `pos_class`
+
 ##### CRIAÇÃO FATO FILMES
 
 *Voltar para **Seções*** [֍](#seções)
