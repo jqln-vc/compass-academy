@@ -58,7 +58,7 @@
 
 *Voltar para **Seções*** [֍](#seções)
 
-Uma subárea da Inteligência Artificial, o Processamento de Linguagem Natural (ou NLP) engloba todas as técnicas de compreensão e tratamento de dados da língua humana (escrita ou oral). A complexidade da comunicação pela língua se estende para além do texto em si, dependente de referenciais externos, visões da realidade e da percepção compartilhadas pelos seres humanos, e subentedidas durante as interações pela língua.
+Uma subárea da Inteligência Artificial, o Processamento de Linguagem Natural (ou NLP) engloba todas as técnicas de compreensão e tratamento de dados da língua humana (escrita ou oral). A complexidade da comunicação pela língua se estende para além do texto em si, dependente de referenciais externos, visões da realidade e da percepção compartilhadas pelos seres humanos, e subentendidas durante as interações pela língua.
 
 Além disso, as maneiras de codificar a língua humana não são padronizadas, lidar com um dicionário ou um artigo acadêmico é muito diferente de lidar com comentários em redes sociais, onde a língua assume formas orgânicas e dinâmicas de significado, com neologismos, símbolos, emojis, jogos de palavras, truncações, abreviações, etc.
 
@@ -140,10 +140,10 @@ A seguir os modelos utilizados nas plataformas utilizadas e algumas informaçõe
 
 `annahaz/xlm-roberta-base-misogyny-sexism-indomain-mix-bal` | Hugging Face 🤗
 
-[Modelo multilíngue](https://huggingface.co/annahaz/xlm-roberta-base-misogyny-sexism-indomain-mix-bal) de detecção de emoções, misoginia e sexismo em discursos, o treino foi realizado em cima dos modelos-base e `XLM-RoBERTa`, `BERT` e `DistilBERT`, com *corpora* de comentários em fóruns de discussão de cunho político e datasets anotados. A seguir alguns dos métodos, critérios e modelos complementares para obtenção das métricas [^7]:
+[Modelo multilíngue](https://huggingface.co/annahaz/xlm-roberta-base-misogyny-sexism-indomain-mix-bal) de detecção de emoções, misoginia e sexismo em discursos, o treino foi realizado em cima dos modelos-base e `XLM-RoBERTa`, `BERT` e `DistilBERT`, com *corpora* de comentários em fóruns de discussão de cunho político e datasets anotados. A seguir alguns dos métodos, critérios e modelos complementares para obtenção de métricas [^7]:
 
-* **Detecção de Toxicidade** : utiliza o modelo `Detoxify`
-* **Detecção de Emoções** : utiliza o modelo `GoEmotions`
+* **Detecção de Toxicidade**
+* **Detecção de Emoções**
 * **Detecção Multilíngue de Misoginia e Sexismo**
   
 `uget/sexual_content_dection` | Hugging Face 🤗
@@ -741,6 +741,8 @@ Abaixo, os comandos utilizados para as verificações de databases e tabelas cri
 
 > ❗ A criação e execução do Crawler acima não é a versão com a criação da tabela Bridge Filmes-Vocab. Devido às dificuldades com a limitação de testes no Glue, tanto o Job quanto o Crawler final que gera essa tabela e se refere ao script `job_refined.py` não foram registrados em vídeo.
 
+![Tabelas Crawler](../evidencias/41-glue-tables.png)
+
 ## MODELAGEM DIMENSIONAL: VISÃO GERAL COM ATHENA
 
 *Voltar para **Seções*** [֍](#seções)
@@ -748,22 +750,7 @@ Abaixo, os comandos utilizados para as verificações de databases e tabelas cri
 Após a execução do Crawler, é possível confirmar a correta modelagem dos dados, a partir de uma amostra de cada tabela por meio do AWS Athena com queries em SQL:
 
 ```sql
-  SELECT * FROM "AwsDataCatalog"."dramance_db"."filmes_fact" limit 5;
-```
-
-E abaixo, os comandos utilizados para a (re)execução da query de teste durante o vídeo de apresentação. Para facilitar a visualização no terminal, foram selecionadas somente algumas colunas de amostra.
-
-```bash
-  aws athena start-query-execution \
-      --query-string "SELECT * FROM dramance_db.filmes_fact LIMIT 25" \
-      --query-execution-context Database=dramance_db \
-      --result-configuration OutputLocation=s3://compass-desafio-final-dramance/query-results/
-```
-
-E a seguir, para visualizar os resultados obtidos :
-
-```bash
-  aws athena get-query-results --query-execution-id <id-de-execução-obtido> | jq -r '.ResultSet.Rows[] | [.Data[].VarCharValue] | @csv' > /tmp/results.csv
+  SELECT * FROM "AwsDataCatalog"."dramance_db"."filmes_fact" limit 10;
 ```
 
 ### TABELA DIMENSIONAL LÍNGUAS
@@ -812,6 +799,8 @@ E a seguir, para visualizar os resultados obtidos :
 
 *Voltar para **Seções*** [֍](#seções)
 
+![Bridge Filmes Vocab](../evidencias/60-filmes-vocab-bridge-athena.png)
+
 ## VISÃO GERAL DO BUCKET DRAMANCE
 
 *Voltar para **Seções*** [֍](#seções)
@@ -850,19 +839,29 @@ Foi preciso aumentar a configuração: primeiro no nº de *workers*; não sendo 
 
 A 1ª execução de sucesso foi para o teste de instalações e download dos modelos, e criação da tabela `linguas_dim`, a qual não contém nenhuma inferência com modelos.
 
-A 2ª execução de sucesso, a mais recente, foi a execução completa da modelagem das tabelas e ingressão na Refined Zone. Com exceção da tabela `filmes_vocab_bridge` , que não constava no script desse Job.
+A 2ª execução de sucesso, a mais recente, foi a execução completa da modelagem das tabelas e ingressão na Refined Zone. Com exceção da tabela `filmes_vocab_bridge` , que não constava no script desse Job. O último Job, contendo a tabela `filmes_vocab_bridge` durou cerca de 12 minutos a mais, somente para a geração dessa tabela.
 
-Para otimizar o fluxo, seria preciso melhorar o planejamento da capacidade de computação necessária, mapear a quantidade de cálculos de inferências necessária para o código, e entender qual esse custo de acordo com as especificidades de cada modelo. A seguir, alguns detalhes sobre esse estudo.
+![Último Job](../evidencias/61-ultima-run.png)
+
+Para otimizar o fluxo, seria preciso melhorar o planejamento da capacidade de computação necessária, mapear a quantidade de cálculos e inferências necessárias para o código, entender qual esse custo de acordo com as especificidades de cada modelo e mapear possíveis duplicações de computações no script.
+
+A seguir, alguns estudos iniciais de mapeamento de custos:
 
 * **Tamanho do Modelo | Nº de Parâmetros**
-  * `explosion/en_core_web_trf` 463 MB | 125 M parâmetros
-  * `annahaz/xlm-roberta-base-misogyny-sexism-indomain-mix-bal` 1.11 GB | 279 M parâmetros
-  * `uget/sexual_content_dection` 711 MB | 178 M parâmetros
+  * **en_core_web_trf** : 463 MB | 125 M parâmetros
+  * **xlm-roberta-base-misogyny-sexism-indomain-mix-bal** : 1.11 GB | 279 M parâmetros
+  * **sexual_content_dection** : 711 MB | 178 M parâmetros
 
 * **Quantidade de Inferências para Cada Modelo**
-  * `explosion/en_core_web_trf`
-  * `annahaz/xlm-roberta-base-misogyny-sexism-indomain-mix-bal`
-  * `uget/sexual_content_dection`
+  * **en_core_web_trf** : 4 execuções x 484 linhas = 1936 inferências
+  * **annahaz/xlm-roberta-base-misogyny-sexism-indomain-mix-bal** : 1 execução x 484 linhas = 484 inferências
+  * **sexual_content_dection** : 1 execução x 484 linhas = 484 inferências
+
+* **Custo Job AWS Glue** : cobrança por segundo rodado
+  * **1 DPU/hora** : 0.44 USD
+  * **Configuração** : 4 DPUs
+  * **Tempo de execução**: 45m 25s = 0.757 horas
+  * **Custo total**: 0.757 × 4 × $0.44 = 1.33 USD
 
 ## REFERÊNCIAS
 

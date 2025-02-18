@@ -57,6 +57,10 @@ No passo a passo explicativo, encontrado na pasta `desafio`, serão comentados o
 
 ![Diagrama Modelagem Dimensional](./evidencias/39-diagrama-modelagem-dimensional.png)
 
+### VISÃO DA REFINED ZONE
+
+![Refined Zone](./evidencias/35-bucket-refined-zone.png)
+
 ## BIBLIOGRAFIA
 
 AMAZON WEB SERVICES. **Boto Documentation**. Última atualização: 2024. Disponível em: <[boto3.amazonaws.com/v1/documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)>.

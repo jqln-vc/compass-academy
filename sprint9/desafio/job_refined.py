@@ -203,6 +203,9 @@ def termo_mais_comum(lista: list[str]) -> str:
 
 # Tratamento de Palavras para Vocabulário _______________________________________
 
+padrao_process = "\\[|\\]"
+padrao_add_vocab = "^\\s+|\\s+$"
+
 def split_palavras_vocab(df: object,
                          coluna_palavras: str,
                          padrao_process: str,
@@ -402,6 +405,46 @@ print("Gerando coluna Corpus com concatenação de textos de análise")
 corpora_df = analise_textual_df.groupBy() \
     .agg(F.concat_ws(" ", F.collect_list("texto_total")).alias("corpus"))
 
+# Coluna: Frequência ___________________________________________________________
+
+print("Gerando coluna Frequência com ocorrência de termos para cada filme")
+
+# Split de Listas de Termos Classificados Sintaticamente
+palavras_df = split_palavras_vocab(
+    analise_textual_df,
+    "substantivos",
+    padrao_process=padrao_process,
+    sep=",",
+    padrao_add_vocab=padrao_add_vocab,
+    coluna_extra="tmdb_id"
+).union(split_palavras_vocab(
+    analise_textual_df,
+    "verbos",
+    padrao_process=padrao_process,
+    sep=",",
+    padrao_add_vocab=padrao_add_vocab,
+    coluna_extra="tmdb_id"
+)).union(split_palavras_vocab(
+    analise_textual_df,
+    "adjetivos",
+    padrao_process=padrao_process,
+    sep=",",
+    padrao_add_vocab=padrao_add_vocab,
+    coluna_extra="tmdb_id"
+)).union(split_palavras_vocab(
+    analise_textual_df,
+    "adverbios",
+    padrao_process=padrao_process,
+    sep=",",
+    padrao_add_vocab=padrao_add_vocab,
+    coluna_extra="tmdb_id"
+))
+
+# Contagem de Ocorrências de Cada Palavra Normalizada
+contagem_palavras = palavras_df.groupBy("tmdb_id", "palavra").agg(
+    F.count("*").alias("frequencia")
+)
+
 ################################################################################
 # CRIAÇÃO DE TABELAS FATO E DIMENSÕES
 
@@ -499,9 +542,6 @@ print("Tabela dimensional Corpora criada com sucesso")
 
 print("Iniciando criação da tabela dimensional Vocabulário")
 
-padrao_process = "\\[|\\]"
-padrao_add_vocab = "^\\s+|\\s+$"
-
 vocab_df = analise_textual_df.select(
     F.expr("""
             stack(4,
@@ -579,13 +619,32 @@ filmes_fact = filmes_fact.join(
 
 print("Tabela fato Filmes criada com sucesso")
 
-# FILMES-LÍNGUAS BRIDGE _________________________________________________________
+# FILMES-VOCAB BRIDGE _________________________________________________________
+
+print("Iniciando criação da tabela bridge Filmes-Vocab")
+
+# JOIN Entre Fato Filmes e Dimensional Vocabulário
+filmes_vocab_bridge = contagem_palavras.join(
+    vocab_dim,
+    contagem_palavras.palavra == vocab_dim.palavra,
+    "inner"
+).join(
+    filmes_fact,
+    filmes_fact.tmdb_id == contagem_palavras.tmdb_id,
+    "inner"
+).select(
+    "fato.filme_key",
+    "vocab.vocab_key",
+    F.col("frequencia")
+)
+
+print("Tabela bridge Filmes-Vocab criada com sucesso")
 
 # EXCLUSÃO DE COLUNAS AUXILIARES ________________________________________________
 
 print("Excluindo colunas auxiliares para associação entre tabelas")
 
-#filmes_vocab_bridge = filmes_vocab_bridge.drop("tmdb_id")
+filmes_vocab_bridge = filmes_vocab_bridge.drop("tmdb_id")
 titulos_dim = titulos_dim.drop("tmdb_id")
 analise_textual_dim = analise_textual_dim.drop("tmdb_id")
 
@@ -671,7 +730,19 @@ filmes_fact.coalesce(1).write \
 
 print("Tabela fato Filmes enviada para a Refined Zone")
 
-print(f"Listagem de objetos no bucket {nome_bucket}")
+# FILMES-VOCAB BRIDGE __________________________________________________________
+
+print("Iniciando escrita da tabela bridge Filmes-Vocab")
+
+filmes_vocab_bridge.coalesce(1).write \
+    .mode("overwrite") \
+    .format("parquet") \
+    .save(f"{s3_refined_output}/filmes_vocab_bridge/")
+
+print("Tabela bridge Filmes-Vocab enviada para a Refined Zone")
+
+print(f"Concluindo a execução do script\n\
+    Listagem de objetos no bucket {nome_bucket}")
 [print(objeto) for objeto in bucket.objects.all()]
 
 print("Modelagem e ingressão na Refined Zone realizada com sucesso")
