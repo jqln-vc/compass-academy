@@ -20,6 +20,16 @@
 
 *Voltar para **Seções*** [֍](#seções)
 
+> *A **Análise do Discurso** visa fazer compreender como os objetos simbólicos produzem sentidos, analisando assim os próprios gestos de interpretação que ela considera como atos no domínio simbólico, pois eles intervêm no real do sentido. A **Análise do Discurso** não estaciona na interpretação, trabalha seus limites, seus mecanismos, como parte dos processos de significação. [...] Não há uma verdade oculta atrás do texto. Há gestos de interpretação que o constituem e que o analista, com seu dispositivo, deve ser capaz de compreender.* (ORLANDI, 2015, p. 26)
+
+> *Em suma, a **Análise do Discurso** visa a compreensão de como um objeto simbólico produz sentidos, como ele está investido de significância para e por sujeitos*. (ORLANDI, 2015, p. 26)
+
+> *Gostaríamos de acrescentar que como a pergunta é de responsabilidade do pesquisador, é essa responsabilidade que organiza sua relação com o discurso, levando-o à construção de "seu" dispositivo analítico, optando pela mobilização desses ou aqueles conceitos, esse ou aquele procedimento, com os quais ele se compromete na resolução de sua questão.* (ORLANDI, 2015, p. 27)
+
+> *O que são pois as condições de produção? Elas compreendem fundamentalmente os sujeitos e a situação. Também a memória faz parte da produção do discurso. [...] Podemos considerar as condições de produção em sentido estrito e temos as circunstâncias da enunciação: é o contexto imediato. E se as considerarmos em sentido amplo, as condições de produção incluem o contexto sócio-histórico, ideológico.** (ORLANDI, 2015, p. 30)
+
+
+
 ### QUESTÕES NORTEADORAS PARA A ANÁLISE
 
 ### REVISÃO CRÍTICA DAS IMPLEMENTAÇÕES ATUAIS
@@ -35,89 +45,6 @@ Em vista das dificuldades de implementação das inferências de LLMs na anális
 * Os modelos são carregados separadamente para cada *worker*
 * UDFs são inicializados a cada linha, não utilizando processamentos em batch
 * UDFs não utilizam GPUs de maneira eficaz
-
-## TOPIC MODELING
-
-### DF-IDF
-
-### SIMILARIDADE SEMÂNTICA
-
-* **Distância Mínima (Mininum Edit Distance)
-
-> *Edit distance gives us a way to quantify these intuitions about string similarity.
-More formally, the minimum edit distance between two strings is defined as the minimum edit distance minimum number of editing operations (operations like insertion, deletion, substitution) needed to transform one string into another. [...] We can also assign a particular cost or weight to each of these operations. The Levenshtein distance between two sequences is the simplest weighting factor in which each of the three operations has a cost of 1 (Levenshtein, 1966)—we assume that the substitution of a letter for itself, for example, t for t, has zero cost.* (JURAFSKY, MARTIN; 2025, p. 25)
-
-## ARQUITETURA DE TRANSFORMERS
-
-*Voltar para **Seções*** [֍](#seções)
-
-Transformer models mentioned above (GPT, BERT, BART, T5, etc.) have been trained as language models. This means they have been trained on large amounts of raw text in a self-supervised fashion. Self-supervised learning is a type of training in which the objective is automatically computed from the inputs of the model.
-
-This type of model develops a statistical understanding of the language it has been trained on, but it’s not very useful for specific practical tasks. Because of this, the general pretrained model then goes through a process called transfer learning. During this process, the model is fine-tuned in a supervised way — that is, using human-annotated labels — on a given task.
-
-### ENCODER E DECODER
-
-*Voltar para **Seções*** [֍](#seções)
-
-### POSITIONAL ENCODINGS
-
-*Voltar para **Seções*** [֍](#seções)
-
-### MECANISMO DE ATENÇÃO
-
-*Voltar para **Seções*** [֍](#seções)
-
->*Mecanismos de atenção têm se tornado uma parte fundamental de modelagens de sequências e modelos de transdução em várias tarefas, permitindo a modelagem de dependências não obstante sua distância nas sequências de input ou output. [2, 16].* (VASWANI, Ashish et al, 2010, p. 2)
-
-> ***Self-attention**, às vezes denominado "intra-atenção" é um mecanismo de atenção relacionando as diferentes posições de uma única sequência de modo a computar uma representação da sequência* (VASWANI, Ashish et al, 2010, p. 3)
-
-#### QUERY MATRIX
-
-*Voltar para **Seções*** [֍](#seções)
-
-#### KEY MATRIX
-
-*Voltar para **Seções*** [֍](#seções)
-
-#### VALUE MATRIX
-
-*Voltar para **Seções*** [֍](#seções)
-
-#### RAW ATTENTION SCORES
-
-*Voltar para **Seções*** [֍](#seções)
-
-#### MULTI HEAD ATTENTION
-
-*Voltar para **Seções*** [֍](#seções)
-
-## LLMs, FOUNDATION MODELS E FINE-TUNING
-
-*Voltar para **Seções*** [֍](#seções)
-
-### PROMPT-ENGINEERING
-
-*Voltar para **Seções*** [֍](#seções)
-
-### RETRIEVAL-AUGMENTED GENERATION (RAG)
-
-*Voltar para **Seções*** [֍](#seções)
-
-* **Datasets**
-
-https://huggingface.co/datasets/hendrycks/ethics
-https://huggingface.co/datasets/society-ethics/laion2b_100k_religion
-https://huggingface.co/datasets/society-ethics/laion2B-en_continents
-https://huggingface.co/datasets/BramDelisse/ETHICS_llama-chat
-https://huggingface.co/datasets/yirenc/4_ethics_all
-https://huggingface.co/datasets/RedaAlami/ethics-safe-deontology
-https://huggingface.co/datasets/yirenc/10K_general_1K_ethics
-https://huggingface.co/datasets/yirenc/all_ethics_1000_2024
-https://huggingface.co/datasets/wassname/ethics_expression_preferences
-
-## NOVA ETAPA DE ENRIQUECIMENTO DE DADOS NA REFINED ZONE
-
-*Voltar para **Seções*** [֍](#seções)
 
 ## REVISÃO DO CICLO DE VIDA DA ENGENHARIA DE DADOS
 
@@ -195,7 +122,13 @@ A pesquisa desenvolvida no projeto Dramance de Data Lake e Engenharia de Dados f
 
 > *Podemos então afirmar que não há um conhecimento neutro, pois ele sempre expressa o ponto de vista de uma classe a respeito da realidade. Todo conhecimento está comprometido com os interesses sociais. Esse fato dá uma dimensão mais ampla ao conceito de ideologia; ela é uma "visão de mundo", ou seja, o ponto de vista de uma classe social a respeito da realidade, a maneira como uma classe ordena, justifica e explica a ordem social.*  (FIORIN, 1998, p. 29)
 
-> * Há, portanto, dois momentos essenciais na passagem da semântica fundamental à semântica narrativa: a seleção dos valores, articulados nos quadrados semióticos, e a relação com os sujeitos. A escolha de valores corresponde a uma primeira decisão do sujeito da enunciação, quanto ao discurso que será produzido. A atualização dos valores ocorre, como visto, no enunciado de estado, em que o valor é investido no objeto e relacionado, por disjunção ou conjunção, com o sujeito.* (BARROS, 2001, p. 45)
+> *Há, portanto, dois momentos essenciais na passagem da semântica fundamental à semântica narrativa: a seleção dos valores, articulados nos quadrados semióticos, e a relação com os sujeitos. A escolha de valores corresponde a uma primeira decisão do sujeito da enunciação, quanto ao discurso que será produzido. A atualização dos valores ocorre, como visto, no enunciado de estado, em que o valor é investido no objeto e relacionado, por disjunção ou conjunção, com o sujeito.* (BARROS, 2001, p. 45)
+
+> *Na análise do discurso, procura-se compreender a língua fazendo sentido, enquanto trabalho simbólico, parte do trabalho social geral, constitutivo do homem e da sua história.* (ORLANDI, 2015, p. 15)
+
+> *[...] podemos dizer que o sentido não existe em si mas é determinado pelas posições ideológicas colocadas em jogo no processo sócio-histórico em que as palavras são produzidas. As palavras mudam de sentido segundo as posições daqueles que as empregam.* (ORLANDI, 2015, p. 42)
+
+> *O que interessa primordialmente ao analista são as propriedades internas ao processo discursivo: condições, remissão a formações discursivas, modo de funcionamento. [...] Discursos, a priori, não tidos como políticos, podem estar funcionando como tal.* (ORLANDI, 2015, p. 86)
 
 #### RECORTES DE CLASSIFICAÇÃO TEXTUAL: CONTEÚDO SEXUAL E SEXISMO
 
@@ -242,17 +175,17 @@ Dentre os filmes do dataset, é possível visualizar a localização no mapa das
 
 #### RECORTES LINGUÍSTICOS
 
-#### RECORTES SEMÂNTICOS
-
 ## VISÃO PANORÂMICA DA ARQUITETURA E COMPONENTES DO DATA LAKE
 
 *Voltar para **Seções*** [֍](#seções)
+
+![Arquitetura final do Data Lake](../evidencias/)
 
 ## CONSIDERAÇÕES FINAIS
 
 *Voltar para **Seções*** [֍](#seções)
 
-Para uma compreensão de especificidades discursivas relativas às diferentes culturas, seria preciso buscar um comparativo nos discursos dos filmes excluídos no recorte inicial. Seriam os termos lexicais recorrentes um reflexo de simbologias afetivas inerentemente humanas, desejos e referentes partilhados por todos independentemente de cultura? Ou existiriam novas formas de figurativizar os temas da dimensão emocional, do *pathos*, quando migramos para outras vivências sociais?
+Para uma compreensão de especificidades discursivas relativas às diferentes culturas, seria preciso buscar um comparativo nos discursos dos filmes excluídos no recorte inicial. Seriam os termos lexicais recorrentes um reflexo de simbologias afetivas inerentemente humanas, desejos e referentes partilhados por todos independentemente da cultura? Ou existiriam novas formas de figurativizar os temas da dimensão emocional, do *pathos*, quando migramos para outras vivências sociais?
 
 A globalização facilita o contato com outras culturas, assim podemos vislumbrar novos modos de criar a realidade, no entanto, essa é uma faca de dois gumes, pois com o passar do tempos, as diferenças também estão sujeitas à normalização, dando espaço a novos padrões globais e um apagamento cultural.
 

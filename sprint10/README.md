@@ -9,33 +9,31 @@
 
 ## DESAFIO
 
-O projeto final desenvolve um fluxo de processamento e análise de dados, a partir de uma arquitetura data lake. Para a quarta etapa
+O projeto final desenvolve um fluxo de processamento e análise de dados, a partir de uma arquitetura data lake. Para a quinta e última etapa, os dados já dimensionalmente modelados, armazenados na camada Refined Zone, são finalmente consumidos e analisados por meio do AWS QuickSight, uma ferramenta de BI e Analytics que demanda pouquíssima utilização de código.
+
+Esse é o fluxo *downstream* do processamento, nesta etapa, é possível verificar toda qualidade e otimização do fluxo *upstream*, e essa comunicação entre as etapas é essencial para entender gaps e melhorias no processo, produzindo um retorno constante de *feedback loops* no dia a dia da Engenharia de Dados.
 
 ## EVIDÊNCIAS
 
-Na pasta `evidencias`, encontram-se prints referentes a momentos de execução, exemplificando abordagens adotadas para o desenvolvimento dos exercícios e do desafio.  
-No passo a passo explicativo, encontrado na pasta `desafio`, serão comentados outros prints de pontos específicos.
+Na pasta `evidencias`, encontram-se prints referentes a momentos de execução, exemplificando abordagens adotadas para o desenvolvimento do desafio. No passo a passo explicativo, encontrado na pasta `desafio`, serão comentados outros prints de pontos específicos.
 
 ### QUICKSIGHT: DESATIVAÇÃO DE BILLING DE PIXEL REPORTS
 
 ![Desativação Pixel Reports](./evidencias/1-billing-desativado-quicksight.png)
 
-## CERTIFICADOS COMPLEMENTARES
+### VISÃO GERAL DO DATA LAKE
 
-Para absorver melhor o conteúdo desta sprint e me aprofundar em pontos de interesse, concluí em paralelo os cursos abaixo, externos à Udemy.
+### VISÃO GERAL DO DATASET INTEGRADO (PÓS-JOIN) COM QUICKSIGHT
 
-### AWS
-
-| |
-|---|
-|![Certificado](../sprint10/certificados)|
-||
+![Visão Geral Dataset Integrado](./evidencias/2-joins-tabelas-qs.png)
 
 ## BIBLIOGRAFIA
 
 BARROS, Diana Luz Pessoa de. **Teoria do Discurso: Fundamentos Semióticos**. São Paulo: Humanitas, 2001.
 
 FIORIN, José Luiz. **Linguagem e Ideologia**. São Paulo: Editora Ática, 1998.
+
+ORLANDI, Eli P. **Análise do Discurso: Princípios e Procedimentos**. Campinas: Pontes Editores, 2015.
 
 PAPADIMITRIOU, Isabel; MANNING, Christopher. **Language** In: On the Opportunities and Risks of Foundation Models. Stanford University, CRFM, 2021. p. 22-27. Disponível em: <[dl.acm.org/doi/pdf](https://dl.acm.org/doi/pdf/10.1145/1327452)>.
 

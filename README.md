@@ -17,7 +17,7 @@
 | | | |
 |:---|---|---:|
 |NOME|---|Jaqueline Villagra Costa|
-|IDADE|---|31 anos|
+|IDADE|---|32 anos|
 |CIDADE|---|Carapicuíba / SP|
 |CURSANDO|---|Bacharelado em Ciência de Dados (4° sem) - UNIVESP|
 |GRADUADA|---|Bacharelado em Letras - Habilitação em Português e Japonês (2021) - USP|
@@ -74,4 +74,5 @@ Coleta e elaboração de *corpora* terminológicos, bem como análise lexical de
 [![Sprint 6](https://img.shields.io/badge/Sprint_6-AWS_&_Data_Lake-FDCA00)](/sprint6)  
 [![Sprint 7](https://img.shields.io/badge/Sprint_7-Apache_Spark-ED751A)](/sprint7)  
 [![Sprint 8](https://img.shields.io/badge/Sprint_8-AWS_ETL:_Glue_e_Spark-E42322)](/sprint8)  
-[![Sprint 9](https://img.shields.io/badge/Sprint_9-AWS_ETL:_Glue_e_Spark_Pt_2-FDCA00)](/sprint9)
+[![Sprint 9](https://img.shields.io/badge/Sprint_9-AWS_ETL:_Glue_e_Spark_Pt_2-FDCA00)](/sprint9)  
+[![Sprint 10](https://img.shields.io/badge/Sprint_10-QuickSight_Analytics_e_BI-ED751A)](/sprint10)
