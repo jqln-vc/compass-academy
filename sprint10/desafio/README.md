@@ -7,11 +7,34 @@
 
 ## SEÇÕES
 
-* **Revisitando a Proposta de Análise do Projeto Dramance** [֍]()
-  * **Questões Norteadoras para a Análise** [֍]()
-  * **Revisão Crítica das Implementações Anteriores** [֍]()
-    * **Testes de Modelos e Processamentos em GPU** [֍]()
-    * **Ineficácia do Uso de UDFs para Pipelines de LLMs** [֍]()
+* **Revisitando a Proposta de Análise do Projeto Dramance** [֍](#revisitando-a-proposta-de-análise-do-projeto-dramance)
+  * **Questões Norteadoras para a Análise** [֍](#questões-norteadoras-para-a-análise)
+  * **Revisão Crítica das Implementações Atuais** [֍](#revisão-crítica-das-implementações-atuais)
+    * **Testes de Modelos e Processamentos em GPU** [֍](#testes-de-modelos-e-processamentos-em-gpu)
+    * **Ineficácia do Uso de UDFs para Pipelines de LLMs** [֍](#ineficácia-do-uso-de-udfs-para-pipelines-de-llms)
+* **Revisão do Ciclo de Vida da Engenharia de Dados** [֍](#revisão-do-ciclo-de-vida-da-engenharia-de-dados)
+* **Processamento de Dados: Preparo do Dataset para Analytics** [֍](#processamento-de-dados-preparo-do-dataset-para-analytics)
+  * **Introdução ao Amazon QuickSight** [֍](#introdução-ao-amazon-quicksight)
+  * **Relações entre Tabelas: Fato, Dimensão e Bridge** [֍](#relações-entre-tabelas-fato-dimensão-e-bridge)
+  * **Compreensão dos Dados Utilizados** [֍](#compreensão-dos-dados-utilizados)
+    * **Dimensão Línguas** [֍](#dimensão-línguas)
+    * **Dimensão Países** [֍](#dimensão-países)
+    * **Dimensão Títulos** [֍](#dimensão-títulos)
+    * **Dimensão Análise Textual** [֍](#dimensão-análise-textual)
+    * **Dimensão Corpora** [֍](#dimensão-corpora)
+    * **Dimensão Vocabulário** [֍](#dimensão-vocabulário)
+    * **Fato Filmes** [֍](#fato-filmes)
+    * **Bridge Filmes-Vocabulário** [֍](#bridge-filmes-vocabulário)
+  * **Tratamento de Dados do Dataset: Conversão de Booleanos** [֍](#tratamento-de-dados-do-dataset-conversão-de-booleanos)
+  * **Fluxo Downstream do Data Lake: Consumo dos Dados** [֍](#fluxo-downstream-do-data-lake-consumo-dos-dados)
+* **Contra-Hegemonia no Cinema: Semânticas Afetivas na Era Pós-Streaming** [֍](#contra-hegemonia-no-cinema-semânticas-afetivas-na-era-pós-streaming)
+  * **Recortes de Classificação Textual: Conteúdo Sexual e Sexismo** [֍](#recortes-de-classificação-textual-conteúdo-sexual-e-sexismo)
+  * **Recortes Geográficos** [֍](#recortes-geográficos)
+  * **Recortes Temporais** [֍](#recortes-temporais)
+  * **Métricas de Avaliações e Popularidade** [֍](#métricas-de-avaliações-e-popularidade)
+  * **Recortes Linguísticos** [֍](#recortes-linguísticos)
+  * **Visualização do Dashboard com Interações e Filtros Aplicados** [֍](#visualização-do-dashboard-com-interações-e-filtros-aplicados)
+* **Visão Panorâmica da Arquitetura e Componentes do Data Lake** [֍](#visão-panorâmica-da-arquitetura-e-componentes-do-data-lake)
 * **Considerações Finais** [֍](#considerações-finais)
 * **Referências** [֍](#referências)
 
@@ -19,19 +42,17 @@
 
 *Voltar para **Seções*** [֍](#seções)
 
-A pesquisa desenvolvida no projeto Dramance de Data Lake e Engenharia de Dados foi baseada na análise norteadora intitulada **Contra-Hegemonia no Cinema: Semânticas Afetivas na Era Pós-Streaming**. Antes de prosseguir com a apresentação dos dados no dashboard, é essencial destrinchar as intenções evidenciadas no título e as perguntas às quais buscou-se responder.
+A pesquisa desenvolvida no projeto Dramance de Data Lake e Engenharia de Dados foi baseada na análise norteadora intitulada [**Contra-Hegemonia no Cinema: Semânticas Afetivas na Era Pós-Streaming**](#contra-hegemonia-no-cinema-semânticas-afetivas-na-era-pós-streaming). Antes de prosseguir com a apresentação dos dados no dashboard, é essencial destrinchar as intenções evidenciadas no título e as perguntas às quais buscou-se responder.
 
-Utilizando dados do banco TMDB, propõe-se analisar a produção cinematográfica de países fora do eixo historicamente dominante, tanto por meios quantitativos para caracterizar a predominância de novas vozes, quanto a partir da **Análise do Discurso** aliada às técnicas de **Processamento de Linguagem Natural**, buscando identificar novos padrões de expressão por meios linguísticos. 
+Utilizando dados do banco TMDB, propõe-se analisar a produção cinematográfica de países fora do eixo historicamente dominante, tanto por meios quantitativos para caracterizar a predominância de novas vozes, quanto a partir da **Análise do Discurso** aliada às técnicas de **Processamento de Linguagem Natural**, buscando identificar novos padrões de expressão por meios linguísticos.
 
 Já o recorte de filmes exclusivamente do **gênero Romance** traz o enfoque ao campo semântico relacionado às expressões emocionais-afetivas das relações humanas.
 
-> *A **Análise do Discurso** visa fazer compreender como os objetos simbólicos produzem sentidos, analisando assim os próprios gestos de interpretação que ela considera como atos no domínio simbólico, pois eles intervêm no real do sentido. A **Análise do Discurso** não estaciona na interpretação, trabalha seus limites, seus mecanismos, como parte dos processos de significação. [...] Não há uma verdade oculta atrás do texto. Há gestos de interpretação que o constituem e que o analista, com seu dispositivo, deve ser capaz de compreender.* (ORLANDI, 2015, p. 26)
+> *A **Análise do Discurso** visa fazer compreender como os objetos simbólicos produzem sentidos, analisando assim os próprios gestos de interpretação que ela considera como atos no domínio simbólico, pois eles intervêm no real do sentido. A **Análise do Discurso** não estaciona na interpretação, trabalha seus limites, seus mecanismos, como parte dos processos de significação. [...] Não há uma verdade oculta atrás do texto. Há gestos de interpretação que o constituem e que o analista, com seu dispositivo, deve ser capaz de compreender.* [^1]
 
 ### QUESTÕES NORTEADORAS PARA A ANÁLISE
 
 *Voltar para **Seções*** [֍](#seções)
-
-> *Em suma, a **Análise do Discurso** visa a compreensão de como um objeto simbólico produz sentidos, como ele está investido de significância para e por sujeitos*. (ORLANDI, 2015, p. 26)
 
 > *Gostaríamos de acrescentar que como a pergunta é de responsabilidade do pesquisador, é essa responsabilidade que organiza sua relação com o discurso, levando-o à construção de "seu" dispositivo analítico, optando pela mobilização desses ou aqueles conceitos, esse ou aquele procedimento, com os quais ele se compromete na resolução de sua questão.* (ORLANDI, 2015, p. 27)
 
@@ -45,9 +66,63 @@ Em vista das dificuldades de implementação das inferências de LLMs na anális
 
 *Voltar para **Seções*** [֍](#seções)
 
+Todos os testes realizados no ambiente do Databricks não utilizaram GPU, aproveitar o uso com a implementação dos códigos abaixo poderia ter reduzido significantemente os tempos de teste e, deste modo, haveria mais tempo e poder computacional para novas extrações e implementações no dataset.
+
+A seguir os passos para a utilização de GPU, considerando as mesmas condições anteriores:
+
+* **1ª etapa: verificar a disponibilidade de GPU CUDA**
+
+```python
+  print("Disponibilidade de CUDA:", torch.cuda.is_available())
+  print("Quantidade de Dispositivos CUDA:", torch.cuda.device_count())
+```
+
+* **2ª etapa: verificar os detalhes do dispositivo, caso disponível**
+
+```python
+  if torch.cuda.is_available():
+    print("Dispositivo CUDA atual:", torch.cuda.current_device())
+    print("Nome do dispositivo CUDA:", torch.cuda.get_device_name(0))
+```
+
+* **3ª etapa: configuração de sessão Spark com GPU**
+
+```python
+  spark = SparkSession.builder \
+    .appName("Spark com GPU") \
+    .config("spark.rapids.sql.enabled", "true") \
+    .config("spark.rapids.sql.gpu.enabled", "true") \
+    .getOrCreate()
+```
+
+* **4ª etapa: forçar os modelos a utilizarem GPU**
+
+```python
+  # MODELOS HUGGING FACE + PIPELINE
+  device = 0 if torch.cuda.is_available() else -1
+
+  # Argumento "device":
+  # 0 para a 1ª GPU 
+  # -1 para CPU
+  classificador_texto = pipeline('text-classification', 
+                      model='gpt2', 
+                      device=device)
+  
+  # MODELO SPACY
+
+  # Carregando o modelo desabilitando o uso default de CPU
+  try:
+      nlp = spacy.load("en_core_web_trf")
+      nlp.disable_gpu = False
+  except Exception as e:
+      print("SpaCy GPU falhou:", e)
+```
+
 #### INEFICÁCIA DO USO DE UDFs PARA PIPELINES DE LLMs
 
 *Voltar para **Seções*** [֍](#seções)
+
+Uma possível otimização na extração de valores com os modelos de língua utilizados, seria utilizar funções simples, sem o uso de UDFs do Spark como foi implementado no script. Com UDFs:
 
 * Os modelos são carregados separadamente para cada *worker*
 * UDFs são inicializados a cada linha, não utilizando processamentos em batch
@@ -63,7 +138,7 @@ Tais componentes do fluxo aqui estão inseridos no ambiente contextual de nuvem 
 
 ![Visão Geral Engenharia de Dados](../evidencias/17-visao-geral-engenharia-dados.png)
 
-## PROCESSAMENTO DE DADOS: PREPARO DOS DATASETS PARA ANALYTICS
+## PROCESSAMENTO DE DADOS: PREPARO DO DATASET PARA ANALYTICS
 
 *Voltar para **Seções*** [֍](#seções)
 
@@ -135,7 +210,7 @@ Para facilitar, foi utilizada um estrutura condicional para converter tais valor
 
 Após a criação das novas colunas modificadas, estas tiveram seu nome alterado para o anterior, `conteudo_sexual` e `sexismo` , e as antigas foram renomeadas e removidas do dataset.
 
-## FLUXO DOWNSTREAM DO DATA LAKE: CONSUMO DOS DADOS
+### FLUXO DOWNSTREAM DO DATA LAKE: CONSUMO DOS DADOS
 
 *Voltar para **Seções*** [֍](#seções)
 
@@ -145,7 +220,7 @@ Buscando responder às perguntas iniciais, encontrando respostas não esperadas,
 
 É preciso entender o tema que se estuda, é preciso entender as motivações iniciais da pesquisa e, mais importante, é preciso se aproximar de quem não estava presente durante o processo e estará vendo tudo pela primeira vez.
 
-### CONTRA-HEGEMONIA NO CINEMA: SEMÂNTICAS AFETIVAS NA ERA PÓS-STREAMING
+## CONTRA-HEGEMONIA NO CINEMA: SEMÂNTICAS AFETIVAS NA ERA PÓS-STREAMING
 
 *Voltar para **Seções*** [֍](#seções)
 
@@ -156,6 +231,8 @@ Contudo, as marcas do colonialismo perduram nas diversas esferas humanas; além 
 Com a acessibilização da Internet e suas possibilidades de troca, novas tendências de consumo vêm florescendo, e a visibilidade de outras culturas proporciona a cada indivíduo a adoção de formas de expressão alinhadas às suas perspectivas pessoais, eliminando fronteiras.
 
 > *[...] a elocução (lexis), que não diz respeito à palavra oral, mas à redação escrita do discurso, ao estilo.* (REBOUL, 2004, p. 43)
+
+> *Em suma, a **Análise do Discurso** visa a compreensão de como um objeto simbólico produz sentidos, como ele está investido de significância para e por sujeitos*. (ORLANDI, 2015, p. 26)
 
 > *O **ethos** é o caráter que o orador deve assumir para inspirar confiança no auditório, pois, sejam quais forem seus argumentos lógicos, eles nada obtêm sem essa confiança.* (REBOUL, 2004, p. 48)
 
@@ -181,7 +258,7 @@ Com a acessibilização da Internet e suas possibilidades de troca, novas tendê
 
 
 
-#### RECORTES DE CLASSIFICAÇÃO TEXTUAL: CONTEÚDO SEXUAL E SEXISMO
+### RECORTES DE CLASSIFICAÇÃO TEXTUAL: CONTEÚDO SEXUAL E SEXISMO
 
 *Voltar para **Seções*** [֍](#seções)
 
@@ -200,7 +277,7 @@ Ainda que esse tipo de produção não estivesse prevista para incluir o dataset
 
 > *O que interessa primordialmente ao analista são as propriedades internas ao processo discursivo: condições, remissão a formações discursivas, modo de funcionamento. [...] Discursos, a priori, não tidos como políticos, podem estar funcionando como tal.* (ORLANDI, 2015, p. 86)
 
-#### RECORTES GEOGRÁFICOS
+### RECORTES GEOGRÁFICOS
 
 *Voltar para **Seções*** [֍](#seções)
 
@@ -211,7 +288,7 @@ Dentre os filmes do dataset, é possível visualizar a localização no mapa das
 |![Gráfico Geográfico Pontos Mapa](../evidencias/3-points-on-map-graph.png)|![Config Geográfico Pontos Mapa](../evidencias/4-points-on-map-config.png)|
 |||
 
-#### RECORTES TEMPORAIS
+### RECORTES TEMPORAIS
 
 *Voltar para **Seções*** [֍](#seções)
 
@@ -220,7 +297,7 @@ Dentre os filmes do dataset, é possível visualizar a localização no mapa das
 |![Gráfico Funnel Lançamentos por Ano](../evidencias/12-lancamentos-anuais-graph.png)|![Config Funnel Lançamentos por Ano](../evidencias/13-lancamentos-anuais-config.png)|
 |||
 
-#### RECORTES POR MÉTRICAS DE AVALIAÇÕES E POPULARIDADE
+### MÉTRICAS DE AVALIAÇÕES E POPULARIDADE
 
 *Voltar para **Seções*** [֍](#seções)
 
@@ -234,7 +311,7 @@ Dentre os filmes do dataset, é possível visualizar a localização no mapa das
 |![Gráfico KPI Popularidade](../evidencias/10-popularidade-media-graph.png)|![Config KPI Popularidade](../evidencias/11-popularidade-media-config.png)|
 |||
 
-#### RECORTES LINGUÍSTICOS
+### RECORTES LINGUÍSTICOS
 
 *Voltar para **Seções*** [֍](#seções)
 
@@ -269,3 +346,5 @@ A globalização facilita o contato com outras culturas, assim podemos vislumbra
 ## REFERÊNCIAS
 
 *Voltar para **Seções*** [֍](#seções)
+
+[^1]: ORLANDI, 2015, p. 26
