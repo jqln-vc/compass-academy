@@ -7,30 +7,33 @@
 
 ## SEÇÕES
 
-* **Revisitando o Projeto Dramance** [֍]()
+* **Revisitando a Proposta de Análise do Projeto Dramance** [֍]()
   * **Questões Norteadoras para a Análise** [֍]()
-  * **Revisão Crítica das Implementações Atuais** [֍]()
+  * **Revisão Crítica das Implementações Anteriores** [֍]()
     * **Testes de Modelos e Processamentos em GPU** [֍]()
     * **Ineficácia do Uso de UDFs para Pipelines de LLMs** [֍]()
-* **Arquitetura de Transformers** [֍]()
 * **Considerações Finais** [֍](#considerações-finais)
 * **Referências** [֍](#referências)
 
-## REVISITANDO O PROJETO DRAMANCE
+## REVISITANDO A PROPOSTA DE ANÁLISE DO PROJETO DRAMANCE
 
 *Voltar para **Seções*** [֍](#seções)
 
+A pesquisa desenvolvida no projeto Dramance de Data Lake e Engenharia de Dados foi baseada na análise norteadora intitulada **Contra-Hegemonia no Cinema: Semânticas Afetivas na Era Pós-Streaming**. Antes de prosseguir com a apresentação dos dados no dashboard, é essencial destrinchar as intenções evidenciadas no título e as perguntas às quais buscou-se responder.
+
+Utilizando dados do banco TMDB, propõe-se analisar a produção cinematográfica de países fora do eixo historicamente dominante, tanto por meios quantitativos para caracterizar a predominância de novas vozes, quanto a partir da **Análise do Discurso** aliada às técnicas de **Processamento de Linguagem Natural**, buscando identificar novos padrões de expressão por meios linguísticos. 
+
+Já o recorte de filmes exclusivamente do **gênero Romance** traz o enfoque ao campo semântico relacionado às expressões emocionais-afetivas das relações humanas.
+
 > *A **Análise do Discurso** visa fazer compreender como os objetos simbólicos produzem sentidos, analisando assim os próprios gestos de interpretação que ela considera como atos no domínio simbólico, pois eles intervêm no real do sentido. A **Análise do Discurso** não estaciona na interpretação, trabalha seus limites, seus mecanismos, como parte dos processos de significação. [...] Não há uma verdade oculta atrás do texto. Há gestos de interpretação que o constituem e que o analista, com seu dispositivo, deve ser capaz de compreender.* (ORLANDI, 2015, p. 26)
+
+### QUESTÕES NORTEADORAS PARA A ANÁLISE
+
+*Voltar para **Seções*** [֍](#seções)
 
 > *Em suma, a **Análise do Discurso** visa a compreensão de como um objeto simbólico produz sentidos, como ele está investido de significância para e por sujeitos*. (ORLANDI, 2015, p. 26)
 
 > *Gostaríamos de acrescentar que como a pergunta é de responsabilidade do pesquisador, é essa responsabilidade que organiza sua relação com o discurso, levando-o à construção de "seu" dispositivo analítico, optando pela mobilização desses ou aqueles conceitos, esse ou aquele procedimento, com os quais ele se compromete na resolução de sua questão.* (ORLANDI, 2015, p. 27)
-
-> *O que são pois as condições de produção? Elas compreendem fundamentalmente os sujeitos e a situação. Também a memória faz parte da produção do discurso. [...] Podemos considerar as condições de produção em sentido estrito e temos as circunstâncias da enunciação: é o contexto imediato. E se as considerarmos em sentido amplo, as condições de produção incluem o contexto sócio-histórico, ideológico.** (ORLANDI, 2015, p. 30)
-
-
-
-### QUESTÕES NORTEADORAS PARA A ANÁLISE
 
 ### REVISÃO CRÍTICA DAS IMPLEMENTAÇÕES ATUAIS
 
@@ -40,7 +43,11 @@ Em vista das dificuldades de implementação das inferências de LLMs na anális
 
 #### TESTES DE MODELOS E PROCESSAMENTOS EM GPU
 
+*Voltar para **Seções*** [֍](#seções)
+
 #### INEFICÁCIA DO USO DE UDFs PARA PIPELINES DE LLMs
+
+*Voltar para **Seções*** [֍](#seções)
 
 * Os modelos são carregados separadamente para cada *worker*
 * UDFs são inicializados a cada linha, não utilizando processamentos em batch
@@ -50,11 +57,17 @@ Em vista das dificuldades de implementação das inferências de LLMs na anális
 
 *Voltar para **Seções*** [֍](#seções)
 
+Uma revisão do fluxo de dados inserido no âmbito da Engenharia de Dados, em que as etapas mais *upstream*, aquelas acima do fluxo, referem-se à **ingestão** dos dados dos sistemas-fonte e as mais *downstream* aquelas referentes ao consumo por ferramentas de BI e Analytics.
+
+Tais componentes do fluxo aqui estão inseridos no ambiente contextual de nuvem da AWS, com integração das ferramentas estudadas e aplicadas nas rotinas ao longo do Programa de Bolsas em geral.
+
 ![Visão Geral Engenharia de Dados](../evidencias/17-visao-geral-engenharia-dados.png)
 
 ## PROCESSAMENTO DE DADOS: PREPARO DOS DATASETS PARA ANALYTICS
 
 *Voltar para **Seções*** [֍](#seções)
+
+A seguir, será explicitado o processo de consumo e integração dos dados resultantes do fluxo *upstream* da Engenharia de Dados, incluindo a integração das diversas tabelas da camada Refined Zone em um dataset único, possuidor de relacionamentos entre si por meio de chaves comuns entre tabelas fato, dimensões e bridge.
 
 ### INTRODUÇÃO AO AMAZON QUICKSIGHT
 
@@ -73,6 +86,40 @@ A integração com os dados foi realizada a partir das tabelas identificadas com
 ![Join de Tabelas Dimensão, Bridge e Fato](../evidencias/2-joins-tabelas-qs.png)
 
 ### COMPREENSÃO DOS DADOS UTILIZADOS
+
+*Voltar para **Seções*** [֍](#seções)
+
+Abaixo, serão brevemente comentados os dados contidos nas colunas de cada tabela que constituem o dataset final.
+
+#### DIMENSÃO LÍNGUAS
+
+*Voltar para **Seções*** [֍](#seções)
+
+#### DIMENSÃO PAÍSES
+
+*Voltar para **Seções*** [֍](#seções)
+
+#### DIMENSÃO TÍTULOS
+
+*Voltar para **Seções*** [֍](#seções)
+
+#### DIMENSÃO ANÁLISE TEXTUAL
+
+*Voltar para **Seções*** [֍](#seções)
+
+#### DIMENSÃO CORPORA
+
+*Voltar para **Seções*** [֍](#seções)
+
+#### DIMENSÃO VOCABULÁRIO
+
+*Voltar para **Seções*** [֍](#seções)
+
+#### FATO FILMES
+
+*Voltar para **Seções*** [֍](#seções)
+
+#### BRIDGE FILMES-VOCABULÁRIO
 
 *Voltar para **Seções*** [֍](#seções)
 
@@ -96,13 +143,17 @@ Nesta etapa, após a preparação inicial do dataset e a integração de tabelas
 
 Buscando responder às perguntas iniciais, encontrando respostas não esperadas, esta etapa de visualização de dados se aproxima ao design, à redação criativa e à pesquisa.
 
-É preciso entender o tema que se estuda, é preciso entender as motivações iniciais da pesquisa e, mais importante, é preciso entender quem não estava presente durante o processo e estará vendo tudo pela primeira vez.
+É preciso entender o tema que se estuda, é preciso entender as motivações iniciais da pesquisa e, mais importante, é preciso se aproximar de quem não estava presente durante o processo e estará vendo tudo pela primeira vez.
 
 ### CONTRA-HEGEMONIA NO CINEMA: SEMÂNTICAS AFETIVAS NA ERA PÓS-STREAMING
 
 *Voltar para **Seções*** [֍](#seções)
 
-A pesquisa desenvolvida no projeto Dramance de Data Lake e Engenharia de Dados foi baseada na análise norteadora intitulada **Contra-Hegemonia no Cinema: Semânticas Afetivas na Era Pós-Streaming**. Antes de prosseguir com a apresentação dos dados no dashboard, é essencial destrinchar as intenções evidenciadas no título e as perguntas às quais buscou-se responder.
+A identidade e expressão de um povo fortalece a coesão de suas relações sociais, a consciência e persistência de modos de ser e fazer nos conectam aos nossos antepassados e à nossa história.
+
+Contudo, as marcas do colonialismo perduram nas diversas esferas humanas; além dos efeitos estruturais socioeconômicos, o processo contínuo de independência e soberania dos países subjugados também inclui a luta contra seu apagamento linguístico e cultural.
+
+Com a acessibilização da Internet e suas possibilidades de troca, novas tendências de consumo vêm florescendo, e a visibilidade de outras culturas proporciona a cada indivíduo a adoção de formas de expressão alinhadas às suas perspectivas pessoais, eliminando fronteiras.
 
 > *[...] a elocução (lexis), que não diz respeito à palavra oral, mas à redação escrita do discurso, ao estilo.* (REBOUL, 2004, p. 43)
 
@@ -128,16 +179,26 @@ A pesquisa desenvolvida no projeto Dramance de Data Lake e Engenharia de Dados f
 
 > *[...] podemos dizer que o sentido não existe em si mas é determinado pelas posições ideológicas colocadas em jogo no processo sócio-histórico em que as palavras são produzidas. As palavras mudam de sentido segundo as posições daqueles que as empregam.* (ORLANDI, 2015, p. 42)
 
-> *O que interessa primordialmente ao analista são as propriedades internas ao processo discursivo: condições, remissão a formações discursivas, modo de funcionamento. [...] Discursos, a priori, não tidos como políticos, podem estar funcionando como tal.* (ORLANDI, 2015, p. 86)
+
 
 #### RECORTES DE CLASSIFICAÇÃO TEXTUAL: CONTEÚDO SEXUAL E SEXISMO
 
 *Voltar para **Seções*** [֍](#seções)
 
+Em vista da inconsistência dos dados do TMDB referente às classificações de conteúdo adulto, ocorreu que, mesmo aplicando o filtro de exclusão de tais filmes, estes foram incluídos no dataset por estar erroneamente classificados.
+
+A princípio, esse tipo de produção não era de interesse para a análise, e para contornar a presença desses dados, foram utilizados 2 modelos de língua para identificar a presença de conteúdo sexual e conotações sexistas nos textos do título e da sinopse.
+
+Foi utilizado o gráfico do tipo **donut** para essa visualização, com interação para filtrar os demais gráficos, em que **amarelo** significa `não` e **vermelho** `sim` .
+
 |||
 |---|---|
 |![Gráficos Donuts Conteúdo Sexual/Sexismo](../evidencias/5-inferencias-conteudo-sexual-sexismo-graphs.png)|![Config Conteúdo Sexual/Sexismo](../evidencias/6-inferencias-conteudo-sexual-sexismo-configs.png)|
 |||
+
+Ainda que esse tipo de produção não estivesse prevista para incluir o dataset, sua presença também agrega à análise discursiva, visto que tais filmes apresentam termos característicos de interpretação das relações humanas e a construção de semânticas em torno da sexualidade. Tais construções, em âmbito sociopolítico, demonstram certas expectativas de identidade e gênero em suas narrativas.
+
+> *O que interessa primordialmente ao analista são as propriedades internas ao processo discursivo: condições, remissão a formações discursivas, modo de funcionamento. [...] Discursos, a priori, não tidos como políticos, podem estar funcionando como tal.* (ORLANDI, 2015, p. 86)
 
 #### RECORTES GEOGRÁFICOS
 
@@ -175,19 +236,33 @@ Dentre os filmes do dataset, é possível visualizar a localização no mapa das
 
 #### RECORTES LINGUÍSTICOS
 
+*Voltar para **Seções*** [֍](#seções)
+
+### VISUALIZAÇÃO DO DASHBOARD COM INTERAÇÕES E FILTROS APLICADOS
+
+*Voltar para **Seções*** [֍](#seções)
+
+Visualização geral do dataset e demonstração de aplicação de alguns filtros, possibilitando recortes analíticos com relação ao período, região, países e termos linguísticos.
+
+![Visualização do Dashboard com Interações](../evidencias/32-amostra-interatividade-dash.gif)
+
 ## VISÃO PANORÂMICA DA ARQUITETURA E COMPONENTES DO DATA LAKE
 
 *Voltar para **Seções*** [֍](#seções)
 
-![Arquitetura final do Data Lake](../evidencias/)
+![Arquitetura final do Data Lake](../evidencias/31-visao-geral-fluxo-dramance.png)
 
 ## CONSIDERAÇÕES FINAIS
 
 *Voltar para **Seções*** [֍](#seções)
 
-Os dados obtidos na análise do dataset ingerido sugerem uma esfera do romance e afeto orientada em temas familiares e cotidianos: as figuras do "marido", da "esposa", da "amiga" ou "amigo", dos "irmãos" ou familiares de alguém são entidades representativas das relações humanas mais básicas. Além disso, a localização dessas figuras no espaço das relações, como no "trabalho", na "casa" ou no "lar"; bem como as qualificações das relações como "de repente", "perigoso", "secretamente" e "sem intenção", trazem à esfera repetitiva e banal do dia a dia ideais de descoberta e exploração.
+Os dados obtidos na análise do dataset ingerido sugerem uma esfera do romance e afeto orientada em temas familiares e cotidianos: as figuras do "marido", da "esposa", da "amiga" ou "amigo", dos "irmãos" ou familiares de alguém são entidades representativas das relações humanas mais básicas. 
 
-Para uma compreensão de especificidades discursivas relativas às diferentes culturas, seria preciso buscar um comparativo nos discursos dos filmes excluídos no recorte inicial. Seriam os termos lexicais recorrentes um reflexo de simbologias afetivas inerentemente humanas, desejos e referentes partilhados por todos independentemente da cultura? Ou existiriam novas formas de figurativizar os temas da dimensão emocional, do *pathos*, quando migramos para outras vivências sociais? Por exemplo, a frequência relativamente alta do termo "lei" (law) sugere uma possível característica cultural, não aparentemente vinculada às semânticas ocidentais, que poderia ser explorada mais a fundo.
+Além disso, a localização dessas figuras no espaço das relações, como no "trabalho", na "casa" ou no "lar"; bem como as qualificações das relações como "de repente", "perigoso", "secretamente" e "sem intenção", trazem à esfera repetitiva e banal do dia a dia ideais de descoberta e exploração.
+
+Para uma compreensão de especificidades discursivas relativas às diferentes culturas, seria preciso buscar um comparativo nos discursos dos filmes excluídos no recorte inicial.
+
+Seriam os termos lexicais recorrentes um reflexo de simbologias afetivas inerentemente humanas, desejos e referentes partilhados por todos independentemente da cultura? Ou existiriam novas formas de figurativizar os temas da dimensão emocional, do *pathos*, quando migramos para outras vivências sociais? Por exemplo, a frequência relativamente alta do termo "lei" (law) sugere uma possível característica cultural, não aparentemente vinculada às semânticas ocidentais, que poderia ser explorada mais a fundo.
 
 A globalização facilita o contato com outras culturas, assim podemos vislumbrar novos modos de criar a realidade, no entanto, essa é uma faca de dois gumes, pois com o passar do tempos, as diferenças também estão sujeitas à normalização, dando espaço a novos padrões globais e um apagamento cultural.
 
