@@ -16,15 +16,6 @@
 * **Processamento de Dados: Preparo do Dataset para Analytics** [֍](#processamento-de-dados-preparo-do-dataset-para-analytics)
   * **Introdução ao Amazon QuickSight** [֍](#introdução-ao-amazon-quicksight)
   * **Relações entre Tabelas: Fato, Dimensão e Bridge** [֍](#relações-entre-tabelas-fato-dimensão-e-bridge)
-  * **Compreensão dos Dados Utilizados** [֍](#compreensão-dos-dados-utilizados)
-    * **Dimensão Línguas** [֍](#dimensão-línguas)
-    * **Dimensão Países** [֍](#dimensão-países)
-    * **Dimensão Títulos** [֍](#dimensão-títulos)
-    * **Dimensão Análise Textual** [֍](#dimensão-análise-textual)
-    * **Dimensão Corpora** [֍](#dimensão-corpora)
-    * **Dimensão Vocabulário** [֍](#dimensão-vocabulário)
-    * **Fato Filmes** [֍](#fato-filmes)
-    * **Bridge Filmes-Vocabulário** [֍](#bridge-filmes-vocabulário)
   * **Tratamento de Dados do Dataset: Conversão de Booleanos** [֍](#tratamento-de-dados-do-dataset-conversão-de-booleanos)
   * **Fluxo Downstream do Data Lake: Consumo dos Dados** [֍](#fluxo-downstream-do-data-lake-consumo-dos-dados)
 * **Contra-Hegemonia no Cinema: Semânticas Afetivas na Era Pós-Streaming** [֍](#contra-hegemonia-no-cinema-semânticas-afetivas-na-era-pós-streaming)
@@ -46,15 +37,37 @@ A pesquisa desenvolvida no projeto Dramance de Data Lake e Engenharia de Dados f
 
 Utilizando dados do banco TMDB, propõe-se analisar a produção cinematográfica de países fora do eixo historicamente dominante, tanto por meios quantitativos para caracterizar a predominância de novas vozes, quanto a partir da **Análise do Discurso** aliada às técnicas de **Processamento de Linguagem Natural**, buscando identificar novos padrões de expressão por meios linguísticos.
 
+> *A **Análise do Discurso** visa fazer compreender como os objetos simbólicos produzem sentidos, analisando assim os próprios gestos de interpretação que ela considera como atos no domínio simbólico, pois eles intervêm no real do sentido. A **Análise do Discurso** não estaciona na interpretação, trabalha seus limites, seus mecanismos, como parte dos processos de significação. [...] Não há uma verdade oculta atrás do texto. Há gestos de interpretação que o constituem e que o analista, com seu dispositivo, deve ser capaz de compreender.* [^1]
+
 Já o recorte de filmes exclusivamente do **gênero Romance** traz o enfoque ao campo semântico relacionado às expressões emocionais-afetivas das relações humanas.
 
-> *A **Análise do Discurso** visa fazer compreender como os objetos simbólicos produzem sentidos, analisando assim os próprios gestos de interpretação que ela considera como atos no domínio simbólico, pois eles intervêm no real do sentido. A **Análise do Discurso** não estaciona na interpretação, trabalha seus limites, seus mecanismos, como parte dos processos de significação. [...] Não há uma verdade oculta atrás do texto. Há gestos de interpretação que o constituem e que o analista, com seu dispositivo, deve ser capaz de compreender.* [^1]
+> *O **ethos** é o caráter que o orador deve assumir para inspirar confiança no auditório, pois, sejam quais forem seus argumentos lógicos, eles nada obtêm sem essa confiança. [...] O **pathos** é o conjunto de emoções, paixões e sentimentos que o orador deve suscitar no auditório com seu discurso. [...] Aqui o **ethos** já não é o caráter (moral) que o orador deve assumir, mas o caráter (psicológico) dos diferentes públicos, aos quais o orador deve adaptar-se.* [^2]
+
+A partir desse recorte, é possível vislumbrar a individualidade de uma única produção ou uma única cultura, expandir padrões buscando uma cultura partilhada por pessoas de uma mesma região e, por fim, identificar formas de expressão comuns a todos, originados nas necessidades básicas humanas.
+
+> *A linguagem é um fenômeno extremamente complexo, que pode ser estudado de múltiplos pontos de vista, pois pertence a diferentes domínios. É, ao mesmo tempo, individual e social, física, fisiológica e psíquica.* [^3]
 
 ### QUESTÕES NORTEADORAS PARA A ANÁLISE
 
 *Voltar para **Seções*** [֍](#seções)
 
-> *Gostaríamos de acrescentar que como a pergunta é de responsabilidade do pesquisador, é essa responsabilidade que organiza sua relação com o discurso, levando-o à construção de "seu" dispositivo analítico, optando pela mobilização desses ou aqueles conceitos, esse ou aquele procedimento, com os quais ele se compromete na resolução de sua questão.* (ORLANDI, 2015, p. 27)
+A análise foi desenvolvida com algumas intenções iniciais, progressivamente ajustadas conforme a familiaridade com os dados se desenvolvia e padrões ali contidos se evidenciavam.
+
+Ainda que seja essencial manter certo distanciamento de quaisquer pretensões, de modo a não interferir nos resultados da análise, o papel do observador é inseparável do resultado final, pois o olhar se direciona para onde se busca ver, e cada recorte é uma exclusão.
+
+> *Gostaríamos de acrescentar que como a pergunta é de responsabilidade do pesquisador, é essa responsabilidade que organiza sua relação com o discurso, levando-o à construção de "seu" dispositivo analítico, optando pela mobilização desses ou aqueles conceitos, esse ou aquele procedimento, com os quais ele se compromete na resolução de sua questão.* [^4]
+
+A seguir as questões selecionadas para nortear a análise do corpus composto dos textos do `título comercial` e `sinopse` :
+
+* *Qual a quantidade de filmes lançados anualmente, por região?*
+* *Quais os países com maior quantidade de filmes lançados? Desses países, quais línguas são mais utilizadas?*
+* *Quais as línguas com maior quantidade de títulos?*
+* *Quais os termos (unigramas) mais recorrentes nas narrativas dos títulos selecionados? Dentre estes, quais suas funções sintáticas no discurso?*
+* *Quais os tópicos mais encontrados em cada país?*
+* *Quais os tópicos mais encontrados por língua?*
+* *Qual a proporção de "sexualidade" e "nuances sexistas" nas narrativas desses filmes?*
+
+Para fundamentar e estruturar a análise teoricamente, foram utilizadas obras referentes à Teoria do Discurso, dos autores Diana Luz Pessoa de Barros, José Luiz Fiorin, Eli Orlandi e Reboul Olivier.
 
 ### REVISÃO CRÍTICA DAS IMPLEMENTAÇÕES ATUAIS
 
@@ -158,45 +171,13 @@ A integração com os dados foi realizada a partir das tabelas identificadas com
 
 *Voltar para **Seções*** [֍](#seções)
 
+As tabelas foram integradas com JOINs sugeridos pelo sistema, de forma a otimizar a computação reduzindo a necessidade de leituras, no caso dos LEFT JOINs, considerando que as tabelas dimensionais desses casos possuíam IDs únicos de referência.
+
+![Otimização Left Joins](../evidencias/16-config-joins-recomendacao.png)
+
+Para a associação entre as tabelas fato filmes e dimensão vocabulário, foi utilizado INNER JOINs, visto que ali é uma relação de muitos para muitos.
+
 ![Join de Tabelas Dimensão, Bridge e Fato](../evidencias/2-joins-tabelas-qs.png)
-
-### COMPREENSÃO DOS DADOS UTILIZADOS
-
-*Voltar para **Seções*** [֍](#seções)
-
-Abaixo, serão brevemente comentados os dados contidos nas colunas de cada tabela que constituem o dataset final.
-
-#### DIMENSÃO LÍNGUAS
-
-*Voltar para **Seções*** [֍](#seções)
-
-#### DIMENSÃO PAÍSES
-
-*Voltar para **Seções*** [֍](#seções)
-
-#### DIMENSÃO TÍTULOS
-
-*Voltar para **Seções*** [֍](#seções)
-
-#### DIMENSÃO ANÁLISE TEXTUAL
-
-*Voltar para **Seções*** [֍](#seções)
-
-#### DIMENSÃO CORPORA
-
-*Voltar para **Seções*** [֍](#seções)
-
-#### DIMENSÃO VOCABULÁRIO
-
-*Voltar para **Seções*** [֍](#seções)
-
-#### FATO FILMES
-
-*Voltar para **Seções*** [֍](#seções)
-
-#### BRIDGE FILMES-VOCABULÁRIO
-
-*Voltar para **Seções*** [֍](#seções)
 
 ### TRATAMENTO DE DADOS DO DATASET: CONVERSÃO DE BOOLEANOS
 
@@ -218,7 +199,9 @@ Nesta etapa, após a preparação inicial do dataset e a integração de tabelas
 
 Buscando responder às perguntas iniciais, encontrando respostas não esperadas, esta etapa de visualização de dados se aproxima ao design, à redação criativa e à pesquisa.
 
-É preciso entender o tema que se estuda, é preciso entender as motivações iniciais da pesquisa e, mais importante, é preciso se aproximar de quem não estava presente durante o processo e estará vendo tudo pela primeira vez.
+É preciso entender o tema que se estuda, é preciso entender as motivações iniciais da pesquisa, é preciso se aproximar de quem não estava presente durante o processo e estará vendo tudo pela primeira vez e, mais importante, é preciso entender os viéses de quem analise e cria um novo discurso a partir de sua interpretação dos dados.
+
+> *[...] podemos dizer que o sentido não existe em si mas é determinado pelas posições ideológicas colocadas em jogo no processo sócio-histórico em que as palavras são produzidas. As palavras mudam de sentido segundo as posições daqueles que as empregam.* [^5]
 
 ## CONTRA-HEGEMONIA NO CINEMA: SEMÂNTICAS AFETIVAS NA ERA PÓS-STREAMING
 
@@ -226,37 +209,13 @@ Buscando responder às perguntas iniciais, encontrando respostas não esperadas,
 
 A identidade e expressão de um povo fortalece a coesão de suas relações sociais, a consciência e persistência de modos de ser e fazer nos conectam aos nossos antepassados e à nossa história.
 
+> *Na análise do discurso, procura-se compreender a língua fazendo sentido, enquanto trabalho simbólico, parte do trabalho social geral, constitutivo do homem e da sua história.* [^6]
+
 Contudo, as marcas do colonialismo perduram nas diversas esferas humanas; além dos efeitos estruturais socioeconômicos, o processo contínuo de independência e soberania dos países subjugados também inclui a luta contra seu apagamento linguístico e cultural.
 
 Com a acessibilização da Internet e suas possibilidades de troca, novas tendências de consumo vêm florescendo, e a visibilidade de outras culturas proporciona a cada indivíduo a adoção de formas de expressão alinhadas às suas perspectivas pessoais, eliminando fronteiras.
 
-> *[...] a elocução (lexis), que não diz respeito à palavra oral, mas à redação escrita do discurso, ao estilo.* (REBOUL, 2004, p. 43)
-
-> *Em suma, a **Análise do Discurso** visa a compreensão de como um objeto simbólico produz sentidos, como ele está investido de significância para e por sujeitos*. (ORLANDI, 2015, p. 26)
-
-> *O **ethos** é o caráter que o orador deve assumir para inspirar confiança no auditório, pois, sejam quais forem seus argumentos lógicos, eles nada obtêm sem essa confiança.* (REBOUL, 2004, p. 48)
-
-> *O **pathos** é o conjunto de emoções, paixões e sentimentos que o orador deve suscitar no auditório com seu discurso. [...] Aqui o **ethos** já não é o caráter (moral) que o orador deve assumir, mas o caráter (psicológico) dos diferentes públicos, aos quais o orador deve adaptar-se.* (REBOUL, 2004, p. 48)
-
-> *A linguagem é um fenômeno extremamente complexo, que pode ser estudado de múltiplos pontos de vista, pois pertence a diferentes domínios. É, ao mesmo tempo, individual e social, física, fisiológica e psíquica.* (FIORIN, 1998, p. 8)
-
-> *O campo das determinações inconscientes é a semântica discursiva, pois o conjunto de elementos semânticos habitualmente usado nos discursos de uma dada época constitui a maneira de ver o mundo numa dada formação social. Esses elementos surgem a partir de outros discursos já construídos, cristalizados e cujas condições de produção foram apagadas. [...] A semântica discursiva é o campo da determinação ideológica propriamente dita. Embora esta seja inconsciente, também pode ser consciente.* (FIORIN, 1998, p. 19)
-
-> *[...] dois discursos podem trabalhar com os mesmos elementos semânticos e revelar duas visões de mundo completamente diferentes, porque o falante pode dar valores distintos aos elementos semânticos que utiliza. Alguns são considerados eufóricos, isto é, são valorizados positivamente; outros, disfóricos, ou seja são valorizados negativamente.* (FIORIN, 1998, p. 21)
-
-> *Tema é o elemento semântico que designa um elemento não-presente no mundo natural, mas que exerce o papel de categoria ordenadora dos fatos observáveis. São temas, por exemplo, amor, paixão, lealdade, alegria. Figura é o elemento semântico que remete a um elemento do mundo natural: casa, mesa, mulher, rosa, etc. A distinção entre ambos é, pois, de maior ou menor grau de concretude [...] concreto e abstrato são dois pólos de uma escala que comporta toda espécie de gradação. [...] O discurso figurativo é a concretização de um discurso temático. Para entender um discurso figurativo é preciso, pois, antes de mais nada, apreender o discurso temático que subjaz a ele.* (FIORIN, 1998, p. 24)
-
-> *A esse conjunto de ideias, a essas representações que servem para justificar e explicar a ordem social, as condições de vida do homem e as relações que ele mantém com os outros homens é o que comumente se chama **ideologia**.* (FIORIN, 1998, p. 28)
-
-> *Podemos então afirmar que não há um conhecimento neutro, pois ele sempre expressa o ponto de vista de uma classe a respeito da realidade. Todo conhecimento está comprometido com os interesses sociais. Esse fato dá uma dimensão mais ampla ao conceito de ideologia; ela é uma "visão de mundo", ou seja, o ponto de vista de uma classe social a respeito da realidade, a maneira como uma classe ordena, justifica e explica a ordem social.*  (FIORIN, 1998, p. 29)
-
-> *Há, portanto, dois momentos essenciais na passagem da semântica fundamental à semântica narrativa: a seleção dos valores, articulados nos quadrados semióticos, e a relação com os sujeitos. A escolha de valores corresponde a uma primeira decisão do sujeito da enunciação, quanto ao discurso que será produzido. A atualização dos valores ocorre, como visto, no enunciado de estado, em que o valor é investido no objeto e relacionado, por disjunção ou conjunção, com o sujeito.* (BARROS, 2001, p. 45)
-
-> *Na análise do discurso, procura-se compreender a língua fazendo sentido, enquanto trabalho simbólico, parte do trabalho social geral, constitutivo do homem e da sua história.* (ORLANDI, 2015, p. 15)
-
-> *[...] podemos dizer que o sentido não existe em si mas é determinado pelas posições ideológicas colocadas em jogo no processo sócio-histórico em que as palavras são produzidas. As palavras mudam de sentido segundo as posições daqueles que as empregam.* (ORLANDI, 2015, p. 42)
-
-
+> *A esse conjunto de ideias, a essas representações que servem para justificar e explicar a ordem social, as condições de vida do homem e as relações que ele mantém com os outros homens é o que comumente se chama **ideologia**.* [^7]
 
 ### RECORTES DE CLASSIFICAÇÃO TEXTUAL: CONTEÚDO SEXUAL E SEXISMO
 
@@ -275,36 +234,63 @@ Foi utilizado o gráfico do tipo **donut** para essa visualização, com intera�
 
 Ainda que esse tipo de produção não estivesse prevista para incluir o dataset, sua presença também agrega à análise discursiva, visto que tais filmes apresentam termos característicos de interpretação das relações humanas e a construção de semânticas em torno da sexualidade. Tais construções, em âmbito sociopolítico, demonstram certas expectativas de identidade e gênero em suas narrativas.
 
-> *O que interessa primordialmente ao analista são as propriedades internas ao processo discursivo: condições, remissão a formações discursivas, modo de funcionamento. [...] Discursos, a priori, não tidos como políticos, podem estar funcionando como tal.* (ORLANDI, 2015, p. 86)
+> *O que interessa primordialmente ao analista são as propriedades internas ao processo discursivo: condições, remissão a formações discursivas, modo de funcionamento. [...] Discursos, a priori, não tidos como políticos, podem estar funcionando como tal.* [^8]
 
 ### RECORTES GEOGRÁFICOS
 
 *Voltar para **Seções*** [֍](#seções)
 
-Dentre os filmes do dataset, é possível visualizar a localização no mapa das regiões--
+Dentre os filmes do dataset, é possível visualizar a localização no mapa das regiões selecionadas (classificadas por cor) e quantidade de filmes lançados por país (tamanho das bolhas).
 
 |||
 |---|---|
 |![Gráfico Geográfico Pontos Mapa](../evidencias/3-points-on-map-graph.png)|![Config Geográfico Pontos Mapa](../evidencias/4-points-on-map-config.png)|
 |||
 
+> *Podemos então afirmar que não há um conhecimento neutro, pois ele sempre expressa o ponto de vista de uma classe a respeito da realidade. Todo conhecimento está comprometido com os interesses sociais. Esse fato dá uma dimensão mais ampla ao conceito de ideologia; ela é uma "visão de mundo", ou seja, o ponto de vista de uma classe social a respeito da realidade, a maneira como uma classe ordena, justifica e explica a ordem social.* [^9]
+
 ### RECORTES TEMPORAIS
 
 *Voltar para **Seções*** [֍](#seções)
+
+Para o recorte temporal, foi utilizada como referência a presença global da plataforma de streaming Netflix, escolhida devido ao vasto catálogo de produções estrangeiras com diversidade de gêneros, dublagens e traduções em diversas línguas, principalmente aquelas inclusivas dos países de interesse desta análise.
+
+![Timeline Netflix](/assets/sprint10-dash-netflix-timeline.png)
+
+Os filmes do banco TMDB foram selecionados dentro do período de 2013 aos dias atuais, buscando compreender tanto um período anterior quanto posterior à globalização da plataforma.
+
+> *O campo das determinações inconscientes é a semântica discursiva, pois o conjunto de elementos semânticos habitualmente usado nos discursos de uma dada época constitui a maneira de ver o mundo numa dada formação social. Esses elementos surgem a partir de outros discursos já construídos, cristalizados e cujas condições de produção foram apagadas. [...] A semântica discursiva é o campo da determinação ideológica propriamente dita. Embora esta seja inconsciente, também pode ser consciente.* [^10]
+
+* **Lançamentos Anuais** : gráfico do tipo funil, mostra a quantidade de produções lançadas por ano, independentemente do país de origem.
 
 |||
 |---|---|
 |![Gráfico Funnel Lançamentos por Ano](../evidencias/12-lancamentos-anuais-graph.png)|![Config Funnel Lançamentos por Ano](../evidencias/13-lancamentos-anuais-config.png)|
 |||
 
+* **Lançamentos Anuais por Região** : gráfico do tipo barras verticais empilhadas, organiza os lançamentos anuais de acordo com a região.
+
+|||
+|---|---|
+|![Gráfico Bar Vertical Stacked Lançamentos por Ano](../evidencias/29-bar-vertical-stacked-lancamentos-ano-regiao-graph.png)|![Config Bar Vertical Stacked Lançamentos por Ano](../evidencias/30-bar-vertical-stacked-lancamentos-ano-regiao-config.png)|
+|||
+
 ### MÉTRICAS DE AVALIAÇÕES E POPULARIDADE
 
 *Voltar para **Seções*** [֍](#seções)
+
+A seleção de dois gráficos referentes às metricas de aceitação do público, busca relativizar que nem sempre determinado discurso estará alinhado com as perspectivas da cultura em que se insere.
+
+* **Média de Avaliações em Relação à Avaliação Máxima** : gráfico do tipo velocímetro, traz a métrica de avaliação média em relação ao máximo atingido de acordo com o filtro aplicado.
 
 |||
 |---|---|
 |![Gráfico Gauge Média Avaliações](../evidencias/14-gauge-media-avaliacoes-graph.png)|![Config Gauge Média Avaliações](../evidencias/15-gauge-media-avaliacoes-config.png)|
 |||
+
+* **Performance de Popularidade ao Longo do Anos** : gráfico do tipo indicador chave de desempenho (KPI), relaciona a popularidade média do ano atual com a do anterior, indicando tendências de alta ou baixa.
+
+A [popularidade](https://developer.themoviedb.org/docs/popularity-and-trending#:~:text=Popularity%20is%20a%20fairly%20important,impacted%20by%20the%20attributes%20below.) mensurada é uma métrica calculada pelo TMDB, criando um modelo que utiliza os seguintes atributos, atualizados diariamente: nº de votos, nº de visualizações, nº de usuários que marcaram o filme como favorito, nº de usuários que adicionaram o filme à sua "watchlist", data de lançamento, nº total de votos, métrica dos dias anteriores.
 
 |||
 |---|---|
@@ -314,6 +300,81 @@ Dentre os filmes do dataset, é possível visualizar a localização no mapa das
 ### RECORTES LINGUÍSTICOS
 
 *Voltar para **Seções*** [֍](#seções)
+
+Os gráficos associados aos recortes de língua e termos discursivos buscam identificar a existência de tendências de adoção de figuras e temas de acordo com a língua original. Deste modo, sendo a língua o canal de expressão construtor da realidade de uma cultura, os termos que aparecem em línguas diferentes podem indicar generalizações humanas da esfera afetiva.
+
+> *Tema é o elemento semântico que designa um elemento não-presente no mundo natural, mas que exerce o papel de categoria ordenadora dos fatos observáveis. São temas, por exemplo, amor, paixão, lealdade, alegria. Figura é o elemento semântico que remete a um elemento do mundo natural: casa, mesa, mulher, rosa, etc. A distinção entre ambos é, pois, de maior ou menor grau de concretude [...] concreto e abstrato são dois pólos de uma escala que comporta toda espécie de gradação. [...] O discurso figurativo é a concretização de um discurso temático. Para entender um discurso figurativo é preciso, pois, antes de mais nada, apreender o discurso temático que subjaz a ele.* [^11]
+
+* **Quantidade de Filmes por Língua** : gráfico do tipo mapa de árvore, além de contabilizar a quantidade de lançamentos por língua, identifica a avaliação média dessas produções.
+
+Um indício visualizado aponta que uma quantidade maior de lançamentos em determinada língua não está, necessariamente, relacionada ao nível de aceitação, representado pela média de avaliações.
+
+||
+|---|
+|![Gráfico TreeMap Filmes por Línguas e Avaliação Média](../evidencias/25-treemap-linguas-media-graph.png)|
+||
+
+||
+|---|
+|![Config TreeMap Filmes por Línguas e Avaliação Média](../evidencias/26-treemap-linguas-media-config.png)|
+||
+
+* **Tabela de Títulos com Maior Popularidade** : tabela com títulos ordenados de acordo com maior pontuação de popularidade, separados por país.
+
+|||
+|---|---|
+|![Gráfico Tabela Títulos por Popularidade e País](../evidencias/20-table-títulos-popularidade-graph.png)|![Config Tabela Títulos por Popularidade e País](../evidencias/21-table-títulos-popularidade-config.png)|
+|||
+
+* **Termos Mais Frequentes** : gráficos do tipo nuvem de palavras, separados de acordo com a classificação sintática dos termos, assim é possível salientar algumas possíveis associações entre termos qualificativos (adjetivos e advérbios) e seus qualificados (substantivos e verbos).
+
+> *Há, portanto, dois momentos essenciais na passagem da semântica fundamental à semântica narrativa: a seleção dos valores, articulados nos quadrados semióticos, e a relação com os sujeitos. A escolha de valores corresponde a uma primeira decisão do sujeito da enunciação, quanto ao discurso que será produzido. A atualização dos valores ocorre, como visto, no enunciado de estado, em que o valor é investido no objeto e relacionado, por disjunção ou conjunção, com o sujeito.* [^12]
+
+|||
+|:---|---|
+|**substantivos**|representam os temas e figuras per se, produzem as entidades, físicas ou abstratas, social e historicamente relevantes para o discurso|
+|**adjetivos**|dão as qualidades e julgamentos de valor às entidades expressas por substantivo|
+|**verbos**|a partir de ações e interações entre entidades e ambiente social, assim aquelas constroem e modificam sua realidade|
+|**advérbios**|qualificam as ações e acontecimentos, incutindo também valores às interações humanas|
+
+||
+|---|
+|![Gráfico WordCloud Graph](../evidencias/18-wordcloud-termos-comuns-graphs.png)|
+||
+
+Uma amostra da configuração utilizada para quantificar os termos da nuvem:
+
+||
+|---|
+|![Config WordCloud Graph](../evidencias/19-wordcloud-termos-comuns-config.png)|
+||
+
+A construção de um **ethos coletivizado** se dá tanto pelas personagens interpretadas quanto pelas personas que, representadas por arquétipos, caracterizam determinados tipos da sociedade. Por exemplos, as figuras: *esposa (wife), mãe (mother / mom), pai (father), irmã (sister), amigos (friend), esposo (husband), etc*.
+
+Com relação ao **pathos**, a suscitação de emoções se dá por meio de adjetivos e advérbios, que buscam caracterizar pessoas, sensações e comportamentos a partir da perspectiva de quem discursa: *jovem (young), perigoso (dangerous), incapaz (unable), secretamente (secretely), de repente (suddenly), sem intenção (unintentionally), entre outros*.
+
+* **Frequência Geral de Palavras** : tabela de frequência de palavras, em ordem decrescente, referente ao dataset como um todo, sem distinção de funções sintáticas.
+
+|||
+|---|---|
+|![Gráfico Tabela Frequência Geral Palavras](../evidencias/27-table-frequencia-geral-palavras-graph.png)|![Config Tabela Frequência Geral Palavras](../evidencias/28-table-frequencia-geral-palavras-config.png)|
+|||
+
+* **Frequência de Termos por País** : gráfico do tipo mapa de calor, com filtro para classificação sintática, possibilita a comparação de termos com relação à sua frequência de ocorrências por cada país. Abaixo uma amostra com o filtro aplicado para substantivos.
+
+||
+|---|
+|![Gráfico HeatMap Termos](../evidencias/22-heatmap-frequencia-classes-nouns-graph.png)|
+||
+
+A seguir os filtros e a configuração para o gráfico:
+
+|||
+|---|---|
+|![Filtro HeatMap Termos](../evidencias/23-heatmap-frequencia-classes-filter.png)|![Config HeatMap Termos](../evidencias/24-heatmap-frequencia-classes-config.png)|
+|||
+
+> *[...] dois discursos podem trabalhar com os mesmos elementos semânticos e revelar duas visões de mundo completamente diferentes, porque o falante pode dar valores distintos aos elementos semânticos que utiliza. Alguns são considerados eufóricos, isto é, são valorizados positivamente; outros, disfóricos, ou seja são valorizados negativamente.* [^13]
 
 ### VISUALIZAÇÃO DO DASHBOARD COM INTERAÇÕES E FILTROS APLICADOS
 
@@ -327,13 +388,21 @@ Visualização geral do dataset e demonstração de aplicação de alguns filtro
 
 *Voltar para **Seções*** [֍](#seções)
 
+A seguir um diagrama demonstrando como as etapas desenvolvidas e os componentes utilizados se complementam na arquitetura do data lake.
+
+* **Sprint 6**: ingestão de dados locais | Raw Zone
+* **Sprint 7**: ingestão de dados externos via API (TMDB) | Raw Zone
+* **Sprint 8**: seleção de dados de interesse, limpeza, tratamento de tipos e otimização para leitura em Parquet | Trusted Zone
+* **Sprint 9**: modelagem dimensional e extrações adicionais com LLMs | Refined Zone
+* **Sprint 10**: consumo de dados com ferramentas de BI e Analytics | Dashboard QuickSight
+
 ![Arquitetura final do Data Lake](../evidencias/31-visao-geral-fluxo-dramance.png)
 
 ## CONSIDERAÇÕES FINAIS
 
 *Voltar para **Seções*** [֍](#seções)
 
-Os dados obtidos na análise do dataset ingerido sugerem uma esfera do romance e afeto orientada em temas familiares e cotidianos: as figuras do "marido", da "esposa", da "amiga" ou "amigo", dos "irmãos" ou familiares de alguém são entidades representativas das relações humanas mais básicas. 
+Os dados obtidos na análise do dataset ingerido sugerem uma esfera do romance e afeto orientada em temas familiares e cotidianos: as figuras do "marido", da "esposa", da "amiga" ou "amigo", dos "irmãos" ou familiares de alguém são entidades representativas das relações humanas mais básicas.
 
 Além disso, a localização dessas figuras no espaço das relações, como no "trabalho", na "casa" ou no "lar"; bem como as qualificações das relações como "de repente", "perigoso", "secretamente" e "sem intenção", trazem à esfera repetitiva e banal do dia a dia ideais de descoberta e exploração.
 
@@ -348,3 +417,27 @@ A globalização facilita o contato com outras culturas, assim podemos vislumbra
 *Voltar para **Seções*** [֍](#seções)
 
 [^1]: ORLANDI, 2015, p. 26
+
+[^2]: REBOUL, 2004, p. 48
+
+[^3]: FIORIN, 1998, p. 8
+
+[^4]: ORLANDI, 2015, p. 27
+
+[^5]: Ibid., p. 42
+
+[^6]: Ibid., p. 15
+
+[^7]: FIORIN, 1998, p. 28
+
+[^8]: ORLANDI, 2015, p. 86
+
+[^9]: FIORIN, 1998, p. 29
+
+[^10]: Ibid., p. 19
+
+[^11]: Ibid., p. 24
+
+[^12]: BARROS, 2001, p. 45
+
+[^13]: FIORIN, 1998, p. 21
