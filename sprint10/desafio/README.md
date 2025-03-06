@@ -73,7 +73,7 @@ Para fundamentar e estruturar a análise teoricamente, foram utilizadas obras re
 
 *Voltar para **Seções*** [֍](#seções)
 
-Em vista das dificuldades de implementação das inferências de LLMs na análise passada, com tempos de execução elevados para os Glue Jobs, uma das prioridades foi identificar pontos de melhoria no pipeline de dados, detalhados a seguir.
+Em vista das dificuldades de implementação das inferências de LLMs na sprint passada, com tempos de execução elevados para os Glue Jobs, uma das prioridades foi identificar pontos de melhoria no pipeline de tratamento e extração de dados, detalhados a seguir.
 
 #### TESTES DE MODELOS E PROCESSAMENTOS EM GPU
 
@@ -135,7 +135,7 @@ A seguir os passos para a utilização de GPU, considerando as mesmas condiçõe
 
 *Voltar para **Seções*** [֍](#seções)
 
-Uma possível otimização na extração de valores com os modelos de língua utilizados, seria utilizar funções simples, sem o uso de UDFs do Spark como foi implementado no script. Com UDFs:
+Uma possível otimização na extração de valores com os modelos de língua utilizados seria utilizar funções simples, sem o uso de UDFs do Spark como foi implementado no script. Com UDFs:
 
 * Os modelos são carregados separadamente para cada *worker*
 * UDFs são inicializados a cada linha, não utilizando processamentos em batch
@@ -145,7 +145,7 @@ Uma possível otimização na extração de valores com os modelos de língua ut
 
 *Voltar para **Seções*** [֍](#seções)
 
-Uma revisão do fluxo de dados inserido no âmbito da Engenharia de Dados, em que as etapas mais *upstream*, aquelas acima do fluxo, referem-se à **ingestão** dos dados dos sistemas-fonte e as mais *downstream* aquelas referentes ao consumo por ferramentas de BI e Analytics.
+Uma revisão do fluxo de dados inserido no âmbito da Engenharia de Dados, em que as etapas mais *upstream* (aquelas acima do fluxo) referem-se à **ingestão** dos dados dos sistemas-fonte e as mais *downstream* aquelas referentes ao consumo por ferramentas de BI e Analytics.
 
 Tais componentes do fluxo aqui estão inseridos no ambiente contextual de nuvem da AWS, com integração das ferramentas estudadas e aplicadas nas rotinas ao longo do Programa de Bolsas em geral.
 
@@ -161,7 +161,7 @@ A seguir, será explicitado o processo de consumo e integração dos dados resul
 
 *Voltar para **Seções*** [֍](#seções)
 
-Para o consumo dos dados processados nas etapas anteriores do fluxo do data lake, foi utilizado o serviço de BI (Business Intelligence) *serverless* Amazon QuickSight. O serviço permite a integração de datasets provenientes de diversas fontes de dados, possibilitando a relação entre tabelas e a criação de dashboards interativos e compartilhados entre diversos usuários, com atualização em tempo real e capacidade de utilização de modelos de aprendizado de máquina para inferências até mesmo em linguagem natural.
+Para o consumo dos dados processados nas etapas anteriores do fluxo do data lake, foi utilizado o serviço de BI (Business Intelligence) *serverless* Amazon QuickSight. O serviço permite a integração de datasets provenientes de diversas fontes de dados, possibilitando a relação entre tabelas e a criação de dashboards interativos e compartilhados entre diversos usuários, com atualização em tempo real e capacidade de utilização de modelos de aprendizado de máquina para inferências, até mesmo em linguagem natural.
 
 A integração com os dados foi realizada a partir das tabelas identificadas com o Glue Crawler e mapeadas no Glue Data Catalog, assim o acesso com o QuickSight teve o Athena como *data source*. Abaixo a configuração do dataset `dramance_data` :
 
@@ -185,7 +185,7 @@ Para a associação entre as tabelas fato filmes e dimensão vocabulário, foi u
 
 Nas colunas `conteudo_sexual` e `sexismo`, os valores booleanos estavam representados como inteiros, sendo `1` para "sim" e `0` para "não". Tais valores podem ser utilizados nesse formato, no entanto, não incorporam a semântica necessária para a compreensão imediata em legendas e nos gráficos.
 
-Para facilitar, foi utilizada um estrutura condicional para converter tais valores para `Yes` e `No` (como o dataset já possuía seus valores originais em inglês, foi mantido o padrão).
+Para facilitar, foi utilizada uma estrutura condicional para converter tais valores para `Yes` e `No` (como o dataset já possuía seus valores originais em inglês, foi mantido o padrão).
 
 ![Conversão Booleanos por Condicional](../evidencias/7-edicao-colunas-subst-booleanos.png)
 
@@ -197,9 +197,9 @@ Após a criação das novas colunas modificadas, estas tiveram seu nome alterado
 
 Nesta etapa, após a preparação inicial do dataset e a integração de tabelas com seus devidos relacionamentos, foi desenvolvido o dashboard final que consolida a análise proposta em um relatório visualmente enriquecido com os padrões identificados nos dados.
 
-Buscando responder às perguntas iniciais, encontrando respostas não esperadas, esta etapa de visualização de dados se aproxima ao design, à redação criativa e à pesquisa.
+Buscando responder às perguntas iniciais e encontrando respostas não esperadas, esta etapa de visualização de dados se aproxima ao design, à redação criativa e à pesquisa.
 
-É preciso entender o tema que se estuda, é preciso entender as motivações iniciais da pesquisa, é preciso se aproximar de quem não estava presente durante o processo e estará vendo tudo pela primeira vez e, mais importante, é preciso entender os viéses de quem analise e cria um novo discurso a partir de sua interpretação dos dados.
+É preciso entender o tema que se estuda, é preciso entender as motivações iniciais da pesquisa, é preciso se aproximar de quem não estava presente durante o processo e estará vendo tudo pela primeira vez e, mais importante, é preciso entender os viéses de quem analisa e cria um novo discurso a partir de sua interpretação dos dados, isto é, quem aqui vos escreve.
 
 > *[...] podemos dizer que o sentido não existe em si mas é determinado pelas posições ideológicas colocadas em jogo no processo sócio-histórico em que as palavras são produzidas. As palavras mudam de sentido segundo as posições daqueles que as empregam.* [^5]
 
@@ -221,9 +221,9 @@ Com a acessibilização da Internet e suas possibilidades de troca, novas tendê
 
 *Voltar para **Seções*** [֍](#seções)
 
-Em vista da inconsistência dos dados do TMDB referente às classificações de conteúdo adulto, ocorreu que, mesmo aplicando o filtro de exclusão de tais filmes, estes foram incluídos no dataset por estar erroneamente classificados.
+Em vista da inconsistência dos dados do TMDB referente às classificações de conteúdo adulto, ocorreu que, mesmo aplicando o filtro de exclusão de tais filmes, estes foram incluídos no dataset por estarem erroneamente classificados.
 
-A princípio, esse tipo de produção não era de interesse para a análise, e para contornar a presença desses dados, foram utilizados 2 modelos de língua para identificar a presença de conteúdo sexual e conotações sexistas nos textos do título e da sinopse.
+A princípio, esse tipo de produção não era de interesse para a análise e, para contornar a presença desses dados, foram utilizados 2 modelos de língua para identificar a presença de conteúdo sexual e conotações sexistas nos textos do título e da sinopse.
 
 Foi utilizado o gráfico do tipo **donut** para essa visualização, com interação para filtrar os demais gráficos, em que **amarelo** significa `não` e **vermelho** `sim` .
 
@@ -232,7 +232,7 @@ Foi utilizado o gráfico do tipo **donut** para essa visualização, com intera�
 |![Gráficos Donuts Conteúdo Sexual/Sexismo](../evidencias/5-inferencias-conteudo-sexual-sexismo-graphs.png)|![Config Conteúdo Sexual/Sexismo](../evidencias/6-inferencias-conteudo-sexual-sexismo-configs.png)|
 |||
 
-Ainda que esse tipo de produção não estivesse prevista para incluir o dataset, sua presença também agrega à análise discursiva, visto que tais filmes apresentam termos característicos de interpretação das relações humanas e a construção de semânticas em torno da sexualidade. Tais construções, em âmbito sociopolítico, demonstram certas expectativas de identidade e gênero em suas narrativas.
+Ainda que esse tipo de produção não estivesse prevista para compor o dataset, sua presença também agrega à análise discursiva, visto que tais filmes apresentam termos característicos de interpretação das relações humanas e a construção de semânticas em torno da sexualidade. Tais construções, em âmbito sociopolítico, demonstram certas expectativas de identidade e gênero em suas narrativas.
 
 > *O que interessa primordialmente ao analista são as propriedades internas ao processo discursivo: condições, remissão a formações discursivas, modo de funcionamento. [...] Discursos, a priori, não tidos como políticos, podem estar funcionando como tal.* [^8]
 
@@ -257,7 +257,7 @@ Para o recorte temporal, foi utilizada como referência a presença global da pl
 
 ![Timeline Netflix](/assets/sprint10-dash-netflix-timeline.png)
 
-Os filmes do banco TMDB foram selecionados dentro do período de 2013 aos dias atuais, buscando compreender tanto um período anterior quanto posterior à globalização da plataforma.
+Os filmes do banco TMDB foram selecionados dentro do período de 2013 aos dias atuais, buscando compreender tanto um período anterior quanto posterior à globalização da plataforma, em 2016.
 
 > *O campo das determinações inconscientes é a semântica discursiva, pois o conjunto de elementos semânticos habitualmente usado nos discursos de uma dada época constitui a maneira de ver o mundo numa dada formação social. Esses elementos surgem a partir de outros discursos já construídos, cristalizados e cujas condições de produção foram apagadas. [...] A semântica discursiva é o campo da determinação ideológica propriamente dita. Embora esta seja inconsciente, também pode ser consciente.* [^10]
 
@@ -279,7 +279,7 @@ Os filmes do banco TMDB foram selecionados dentro do período de 2013 aos dias a
 
 *Voltar para **Seções*** [֍](#seções)
 
-A seleção de dois gráficos referentes às metricas de aceitação do público, busca relativizar que nem sempre determinado discurso estará alinhado com as perspectivas da cultura em que se insere.
+A seleção de dois gráficos referentes às metricas de aceitação do público busca relativizar que nem sempre determinado discurso estará alinhado com as perspectivas da cultura em que se insere.
 
 * **Média de Avaliações em Relação à Avaliação Máxima** : gráfico do tipo velocímetro, traz a métrica de avaliação média em relação ao máximo atingido de acordo com o filtro aplicado.
 
@@ -332,8 +332,8 @@ Um indício visualizado aponta que uma quantidade maior de lançamentos em deter
 
 |||
 |:---|---|
-|**substantivos**|representam os temas e figuras per se, produzem as entidades, físicas ou abstratas, social e historicamente relevantes para o discurso|
-|**adjetivos**|dão as qualidades e julgamentos de valor às entidades expressas por substantivo|
+|**substantivos**|representam os temas e figuras *per se*, produzem as entidades, físicas ou abstratas, social e historicamente relevantes para o discurso|
+|**adjetivos**|dão as qualidades e julgamentos de valor às entidades expressas por substantivos|
 |**verbos**|a partir de ações e interações entre entidades e ambiente social, assim aquelas constroem e modificam sua realidade|
 |**advérbios**|qualificam as ações e acontecimentos, incutindo também valores às interações humanas|
 
@@ -349,9 +349,9 @@ Uma amostra da configuração utilizada para quantificar os termos da nuvem:
 |![Config WordCloud Graph](../evidencias/19-wordcloud-termos-comuns-config.png)|
 ||
 
-A construção de um **ethos coletivizado** se dá tanto pelas personagens interpretadas quanto pelas personas que, representadas por arquétipos, caracterizam determinados tipos da sociedade. Por exemplos, as figuras: *esposa (wife), mãe (mother / mom), pai (father), irmã (sister), amigos (friend), esposo (husband), etc*.
+A construção de um ***ethos* coletivizado** se dá tanto pelas personagens interpretadas quanto pelas personas que, representadas por arquétipos, caracterizam determinados tipos da sociedade. Por exemplos, as figuras: *esposa (wife), mãe (mother / mom), pai (father), irmã (sister), amigos (friend), esposo (husband), etc*.
 
-Com relação ao **pathos**, a suscitação de emoções se dá por meio de adjetivos e advérbios, que buscam caracterizar pessoas, sensações e comportamentos a partir da perspectiva de quem discursa: *jovem (young), perigoso (dangerous), incapaz (unable), secretamente (secretely), de repente (suddenly), sem intenção (unintentionally), entre outros*.
+Com relação ao ***pathos***, a suscitação de emoções se dá por meio de adjetivos e advérbios, que buscam caracterizar pessoas, sensações e comportamentos a partir da perspectiva de quem discursa: *jovem (young), perigoso (dangerous), incapaz (unable), secretamente (secretely), de repente (suddenly), sem intenção (unintentionally), entre outros*.
 
 * **Frequência Geral de Palavras** : tabela de frequência de palavras, em ordem decrescente, referente ao dataset como um todo, sem distinção de funções sintáticas.
 
@@ -360,7 +360,7 @@ Com relação ao **pathos**, a suscitação de emoções se dá por meio de adje
 |![Gráfico Tabela Frequência Geral Palavras](../evidencias/27-table-frequencia-geral-palavras-graph.png)|![Config Tabela Frequência Geral Palavras](../evidencias/28-table-frequencia-geral-palavras-config.png)|
 |||
 
-* **Frequência de Termos por País** : gráfico do tipo mapa de calor, com filtro para classificação sintática, possibilita a comparação de termos com relação à sua frequência de ocorrências por cada país. Abaixo uma amostra com o filtro aplicado para substantivos.
+* **Frequência de Termos por País** : gráfico do tipo mapa de calor com filtro para classificação sintática, possibilita a comparação de termos com relação à sua frequência de ocorrências por cada país. Abaixo uma amostra com o filtro aplicado para substantivos.
 
 ||
 |---|
@@ -406,7 +406,7 @@ Os dados obtidos na análise do dataset ingerido sugerem uma esfera do romance e
 
 Além disso, a localização dessas figuras no espaço das relações, como no "trabalho", na "casa" ou no "lar"; bem como as qualificações das relações como "de repente", "perigoso", "secretamente" e "sem intenção", trazem à esfera repetitiva e banal do dia a dia ideais de descoberta e exploração.
 
-Para uma compreensão de especificidades discursivas relativas às diferentes culturas, seria preciso buscar um comparativo nos discursos dos filmes excluídos no recorte inicial.
+Para uma compreensão de especificidades discursivas relativas às diferentes culturas, seria preciso buscar um comparativo nos discursos dos filmes excluídos nos recortes iniciais de línguas e países hegemônicos.
 
 Seriam os termos lexicais recorrentes um reflexo de simbologias afetivas inerentemente humanas, desejos e referentes partilhados por todos independentemente da cultura? Ou existiriam novas formas de figurativizar os temas da dimensão emocional, do *pathos*, quando migramos para outras vivências sociais? Por exemplo, a frequência relativamente alta do termo "lei" (law) sugere uma possível característica cultural, não aparentemente vinculada às semânticas ocidentais, que poderia ser explorada mais a fundo.
 
