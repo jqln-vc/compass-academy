@@ -5,24 +5,6 @@
 |![Banner](/assets/banner-sprint5.png)|
 ||
 
-## RELATOS DE APRENDIZADO
-
-### Fundamentos de Cloud & AWS S3
-
-Até então, eu tinha estudado muito de aspectos teóricos dos serviços de cloud da AWS. E esta sprint me possibilitou uma experiência de aprendizado na prática, que faltava para entender a relação entre alguns serviços e recursos aplicados nos estudos de caso verossimilhantes.
-
-### Boto3 API
-
-Procurei me dedicar ao desenvolvimento com o Boto, pois considero essencial adquirir familiaridade com a API, visto que um dos conceitos principais da arquitetura de microsserviços e segurança é a automatização de processos.
-
-Busquei explorar algumas formas de integração, utilizando o modo `client` e `resource`, e praticar o desenvolvimento de scripts ao automatizar a criação de uma instância EC2, além da integração com o S3 realizada no desafio. Espero continuar desenvolvendo essa habilidade ao longo da trilha.
-
-### Polars
-
-Comecei a estudar, mas não tive tempo de aplicar a versão em Polars na minha análise. No entanto, me empolguei muito com a biblioteca ao aprender e ver o quão ágil ela pode ser: uma das colegas do programa só conseguiu tratar o dataset dela (de +- 6.5 M de linhas) com Polars. Essa demonstração do poder da biblioteca me motiva a continuar estudando, pois me parece uma ferramenta essencial para big data.
-
----
-
 ## EXERCÍCIOS
 
 Todos os códigos dos exercícios foram implementados seguindo os Python Enhancement Proposal, especificamente as recomendações de estilo do PEP8 e convenções de docstrings do PEP257, indicados na seção [Bibliografia](#bibliografia), com validação no [*CodeWOF: Python 3 Style Checker*](https://www.codewof.co.nz/style/python3/) online.
@@ -88,35 +70,7 @@ Hospedagem de site estático em um bucket, utilizando o AWS S3.
 
 ![Bucket Desafio](./evidencias/desafio/3-bucket-conteudo.png)
 
-## CERTIFICADOS AWS SKILL BUILDER
-
-### AWS Curso-Padrão de Preparação para o Exame: CLF-C02 - Português
-
-| |
-|---|
-|![Certificado](./certificados/cert-curso-prep-clf02.png) |
-||
-
-### AWS Cloud Quest: Cloud Practitioner
-
-| |
-|---|
-|[![Badge](./certificados/badge-cloud-quest.png)](https://www.credly.com/badges/65109749-29ad-4465-bcdb-81f979186ea4/public_url) |
-||
-
-## CERTIFICADOS COMPLEMENTARES
-
-Para absorver melhor o conteúdo desta sprint e me aprofundar em pontos de interesse, concluí em paralelo os cursos abaixo, externos à Udemy.
-
-### AWS Fundamentals of Machine Learning and Artificial Intelligence
-
-| |
-|---|
-|![Certificado](certificados/cert-comp-fundamentals-ml-ai.png)|
-||
-
 ## BIBLIOGRAFIA
-
 
 AMAZON WEB SERVICES. **Boto Documentation**. Última atualização: 2024. Disponível em: <[boto3.amazonaws.com/v1/documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)>.
 

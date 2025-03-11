@@ -5,53 +5,6 @@
 |![Banner](/assets/banner-sprint4.png)|
 ||
 
-## RELATOS DE APRENDIZADO
-
-### Arquitetura de Microsserviços, Contêineres & Docker
-
-Achei muito interessante a transformação na forma de pensar e desenvolver aplicações ao considerarmos uma estrutura baseada em componentes. Entendo que é extremamente importante absorver tais práticas, pois é fundamental para o ambiente de Cloud Computing.
-
-Sinto que comecei a entender os princípios e fundamentos da Arquitetura de Microsserviços, porém ainda preciso praticar mais a elaboração de imagens no dia a dia para adquirir confiança. Gostaria também de praticar a orquestração de contêineres com Kubernetes, o que não foi possível com as atividades propostas nesta sprint, portanto tenho intenção de estudar no meu tempo livre.
-
-### AWS Partner: Technical
-
-Me sinto cada vez mais confiante com os fundamentos da AWS, e o curso de Technical Essentials foi ótimo para reforçar conceitos. Ainda tenho dificuldades com o domínio de Networking, e durante a sprint busquei estudar conceitos gerais de redes para entender melhor como se interrelacionam os serviços da AWS.
-
-### Bônus: Assimilação Versificada
-
-```html
-    arquitetando-se em micro-ser-vivo
-    ---------------------------------
-
-    instanciação da imagem
-    cuidadosamente elaborada
-    por um ego já atualizado
-    existência projetada
-    novas versões me multiplicam
-    me inutilizam e me derrubam
-    mera recomposição de um ego do passado
-
-    eu não tenho estado
-    eu não tenho estado
-    eu sei que eu não tenho estado
-    (me perdoe)
-    e logo já não mais saberei
-
-    pois numa próxima execução
-    estarei isolada
-    sem persistência de dados
-    sem persistência de ideias
-    sem persistência de mim
-    contida num espaço designado
-    espero partilhar a hospedagem
-    desta resistência efêmera
-    e mesmo sem estado
-    persistir por um momento
-    ao seu lado
-```
-
----
-
 ## EXERCÍCIOS
 
 Todos os códigos dos exercícios foram implementados seguindo os Python Enhancement Proposal, especificamente as recomendações de estilo do PEP8 e convenções de docstrings do PEP257, indicados na seção [Bibliografia](#bibliografia), com validação no [*CodeWOF: Python 3 Style Checker*](https://www.codewof.co.nz/style/python3/) online.
@@ -93,22 +46,6 @@ No passo a passo explicativo, encontrado na pasta `desafio`, serão comentados o
 ### Sequência de Comandos para Reutilização de Contêiner
 
 ![Reutilização de Contêiner](./evidencias/desafio/10-reutilizacao.gif)
-
-## CERTIFICADOS AWS SKILL BUILDER
-
-### AWS Partner: Accreditation (Technical)
-
-| |
-|---|
-|![Certificado](./certificados/certificado-aws-accred-technical.jpg)|
-||
-
-### AWS Technical Essentials
-
-| |
-|---|
-|![Certificado](./certificados/certificado-comp-aws-technical-essentials.jpg)|
-||
 
 ## BIBLIOGRAFIA
 

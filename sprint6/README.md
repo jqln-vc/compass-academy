@@ -5,16 +5,6 @@
 |![Banner](/assets/banner-sprint6.png)|
 ||
 
-## RELATOS DE APRENDIZADO
-
-### AWS S3, Athena, Lambda & Data Lake
-
-Acredito que esta sprint tenha sido essencial para fundamentar meus conhecimentos dos serviços AWS e como eles se integram uns aos outros. Tivemos muitas oportunidades de ver isso, como na integração do Athena e do Lambda com o S3.
-
-Também foi ótimo visualizar como iremos integrar os serviços de *analytics* futuramente, bem como implementar uma arquitetura de data lake na prática. Além de vislumbrar, nos cursos, outras alternativas de arquiteturas para especificidades e ambientes diferentes, como o Data Warehouse "Moderno" e o Data Mesh, e como a AWS possibilita isso com os serviços disponíveis.
-
----
-
 ## EXERCÍCIOS
 
 Todos os códigos dos exercícios foram implementados seguindo os Python Enhancement Proposal, especificamente as recomendações de estilo do PEP8 e convenções de docstrings do PEP257, indicados na seção [Bibliografia](#bibliografia), com validação no [*CodeWOF: Python 3 Style Checker*](https://www.codewof.co.nz/style/python3/) online.
@@ -103,103 +93,6 @@ Análise de dados *serverless*, consumindo dados de um bucket S3, utilizando Ath
 #### ETAPA 7: TESTE DA FUNÇÃO REALIZADO COM SUCESSO
 
 ![Etapa 7 Teste Realizado com Sucesso](./evidencias/exercicios/10-lambda-successful-test.png)
-
-## CERTIFICADOS AWS SKILL BUILDER
-
-### Fundamentals of Analytics on AWS - Part 1
-
-| |
-|---|
-|![Certificado](./certificados/cert-analytics-fundamentals-1.jpg) |
-||
-
-### Fundamentals of Analytics on AWS - Part 2
-
-| |
-|---|
-|![Certificado](./certificados/cert-analytics-fundamentals-2.jpg) |
-||
-
-### AWS Serverless Analytics
-
-| |
-|---|
-|![Certificado](./certificados/cert-serverless-analytics.jpg) |
-||
-
-### Introduction to Amazon Athena
-
-| |
-|---|
-|![Certificado](./certificados/cert-intro-amazon-athena.jpg) |
-||
-
-### AWS Glue Getting Started
-
-| |
-|---|
-|![Certificado](./certificados/cert-getting-start-emr.jpg) |
-||
-
-### Amazon EMR Getting Started
-
-| |
-|---|
-|![Certificado](./certificados/cert-getting-start-emr.jpg) |
-||
-
-### Amazon Redshift Getting Started
-
-| |
-|---|
-|![Certificado](./certificados/cert-getting-started-redshift.jpg) |
-||
-
-### Best Practices for Data Warehousing with Amazon Redshift
-
-| |
-|---|
-|![Certificado](./certificados/cert-best-practices-data-warehousing.jpg) |
-||
-
-### Amazon QuickSight - Getting Started
-
-| |
-|---|
-|![Certificado](./certificados/cert-getting-started-quicksight.jpg) |
-||
-
-## CERTIFICADOS COMPLEMENTARES
-
-Para absorver melhor o conteúdo desta sprint e me aprofundar em pontos de interesse, concluí em paralelo os cursos abaixo, externos à Udemy.
-
-### Amazon Q Business Getting Started
-
-| |
-|---|
-|![Certificado](certificados/cert-comp-amazon-q-business.jpg)|
-||
-
-### Introduction to AWS Identity and Access Management (IAM)
-
-| |
-|---|
-|![Certificado](certificados/cert-comp-intro-aws-iam.jpg)|
-||
-
-### Getting Started with Amazon Simple Storage Service (S3)
-
-| |
-|---|
-|![Certificado](certificados/cert-comp-getting-started-s3.jpg)|
-||
-
-### Amazon RDS Primer
-
-| |
-|---|
-|![Certificado](certificados/cert-comp-rds-service-primer.jpg)|
-||
 
 ## BIBLIOGRAFIA
 

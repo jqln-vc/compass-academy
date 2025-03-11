@@ -5,18 +5,6 @@
 |![Banner](/assets/banner-sprint7.png)|
 ||
 
-## RELATOS DE APRENDIZADO
-
-### Apache Spark
-
-Fiquei muito interessada em me aprofundar e explorar as diversas utilizações de Spark, principalmente na área de Machine Learning, consultas e tratamento de dados em larga escala. Fico feliz que iremos continuar a desenvolver nossos estudos na próxima sprint, pois é uma ferramenta que quero dominar.
-
-A princípio, a compreensão da arquitetura de computação paralela é mais difícil de absorver, porém não é algo que realmente impacta a utilização em alto nível. Ainda assim, vou continuar estudando a parte teórica para fundamentar melhor minhas decisões.
-
-### AWS Glue
-
-Esta é uma ferramenta que senti mais dificuldade de entender, por conter diversos detalhes e existir um receio com relação aos custos de utilização. Entendo que é necessário estudar bem, não somente pela importância na integração de dados entre serviços, gerenciando todo o processo de ETL, mas também por ser essencial sua utilização otimizada, com consciência das cargas de trabalho a serem processadas e o tempo de execução para tanto, de modo a não incorrer em custos indesejados.
-
 ## EXERCÍCIOS
 
 Todos os códigos dos exercícios foram implementados seguindo os Python Enhancement Proposal, especificamente as recomendações de estilo do PEP8 e convenções de docstrings do PEP257, indicados na seção [Bibliografia](#bibliografia), com validação no [*CodeWOF: Python 3 Style Checker*](https://www.codewof.co.nz/style/python3/) online.
@@ -142,38 +130,6 @@ Job referente ao exercício pessoal com fins de aplicação dos conceitos aprend
 ##### ETAPA 4.6: ESTRUTURAS DOS ARQUIVOS CRIADOS NO S3
 
 ![Etapa 4.6: Estrutura Criada no S3](./evidencias/exercicios/15-glue-arquivos-json-s3.png)
-
-## CERTIFICADOS COMPLEMENTARES
-
-Para absorver melhor o conteúdo desta sprint e me aprofundar em pontos de interesse, concluí em paralelo os cursos abaixo, externos à Udemy.
-
-### AWS INTRODUCTION TO MACHINE LEARNING: ART OF THE POSSIBLE
-
-| |
-|---|
-|![Certificado](./certificados/cert-comp-intro-to-ml.jpg)|
-||
-
-### AWS MACHINE LEARNING TERMINOLOGY AND PROCESS
-
-| |
-|---|
-|![Certificado](./certificados/cert-comp-ml-term-process.jpg)|
-||
-
-### AWS DEVELOPING MACHINE LEARNING SOLUTIONS
-
-| |
-|---|
-|![Certificado](./certificados/cert-comp-developing-ml-solutions.jpg)|
-||
-
-### AWS INTRODUCTION TO AMAZON SAGEMAKER
-
-| |
-|---|
-|![Certificado](./certificados/cert-comp-intro-to-sagemaker.jpg)|
-||
 
 ## BIBLIOGRAFIA
 

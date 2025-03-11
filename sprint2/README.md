@@ -5,26 +5,6 @@
 |![Banner](/assets/banner-sprint2.png)|
 ||
 
-## RELATOS DE APRENDIZADO
-
-### SQL & Dados Relacionais
-
-Tinha familiaridade anterior com SQL e experiência em utilizar DQL para tarefas mais simples. No entanto, apesar de estar estudando arquitetura e modelagem de dados, ainda não havia tido a experiência de pensar e implementar algo na prática.
-
-Foi uma experiência enriquecedora, sinto que consegui compreender e entrelaçar diversos conceitos que ainda estavam vagos no meu entendimento, como Data Warehouse e Modelagem de Dados, tanto em sistemas OLTP quanto OLAP. Também pude trabalhar com DDL, algo que ainda não havia feito.
-
-Porém ainda sinto que preciso praticar mais o processo de normalização, sinto dificuldade em distinguir entre as 3 formas normais, e só consegui localizar uma oportunidade de melhoria no último dia, após ter me familiarizado melhor com o banco.
-
----
-
-### AWS Partner: Sales Accreditation
-
-Tenho estudado e me preparado para o exame CLF-C02 da AWS há alguns meses, então já tinha familiaridade com a maioria dos conceitos abordados.
-
-No entanto, ainda não conhecia o programa de partnership e relações comerciais da AWS, e sinto que o curso trouxe esse conhecimento valioso para minha preparação para o exame.
-
-> ❗ *Optei por realizar os cursos da AWS no Skill Builder em inglês, pois me sinto mais segura em consumir os conteúdos na língua original. E, se possível, também pretendo realizar o exame do certificado CLF-C02 em inglês.*
-
 ## EXERCÍCIOS
 
 - **Banco de Dados: Biblioteca**
@@ -78,47 +58,6 @@ No passo a passo explicativo, encontrado na pasta `desafio`, serão comentados o
 ### MODELAGEM SNOWFLAKE SCHEMA
 
 ![Star Schema](./evidencias/12-snowflake-schema.png)
-
-## CERTIFICADOS AWS SKILL BUILDER
-
-### AWS Partner: Sales Accreditation (Business)
-
-| |
-|---|
-|![Certificado-Comp-](certificados/certificado-aws-parter-sales-business.jpg)|
-||
-
-## CERTIFICADOS COMPLEMENTARES
-
-Para absorver melhor o conteúdo desta sprint e me aprofundar em pontos de interesse, concluí em paralelo os cursos abaixo, externos à Udemy.
-
-### AWS Cloud Practitioner Essentials
-
-| |
-|---|
-|![Certificado-Comp-](certificados/certificado-comp-cloud-practitioner-essentials.jpg)|
-||
-
-### AWS Security Fundamentals - Second Edition
-
-| |
-|---|
-|![Certificado-Comp-](certificados/certificado-comp-security-fundamentals.jpg)|
-||
-
-### AWS Compute Services Overview
-
-| |
-|---|
-|![Certificado-Comp-](certificados/certificado-comp-compute-services.jpg)|
-||
-
-### AWS Getting Started With CloudFormation
-
-| |
-|---|
-|![Certificado-Comp-](certificados/certificado-comp-cloudformation.jpg)|
-||
 
 ## BIBLIOGRAFIA
 

@@ -5,22 +5,6 @@
 |![Banner](/assets/banner-sprint3.png)|
 ||
 
-## RELATOS DE APRENDIZADO
-
-### Python
-
-Eu já possuía certa familiaridade com Python, portanto, me dediquei a avançar em conteúdos mais avançados da linguagem, buscando implementar boas práticas de modularização, robustez, legibilidade e documentação nos meus códigos. Estou assimilando *type hinting* em meus códigos, tentando ser clara e concisa, implementando *docstrings* e internalizando o conceito DRY (*Don't Repeat Yoursefl*).
-
-Pretendo continuar desenvolvendo minhas habilidades ao longo da trilha do programa, atualmente estou me aprofundando no paradigma funcional, e em seguida quero me dedicar à orientação a objetos.
-
-### AWS Partner: Cloud Economics
-
-Já tinha familiaridade com o conteúdo deste curso, portanto, me dediquei a avançar nos estudos para o **Cloud Practitioner** (CLF-C02) e, concomitantemente, estou consumindo cursos preparatórios para o **AI Practitioner** (AIF-CO1) e o  **Solutions Architect Associate** (SAA-C03). Estou me aprofundando nos conceitos técnicos dos serviços, nestas semanas estudei segurança, orquestração e iniciei armazenamento.
-
-> ❗ *Optei por realizar os cursos da AWS no Skill Builder em inglês, pois me sinto mais segura em consumir os conteúdos na língua original. E, se possível, também pretendo realizar o exame do certificado CLF-C02 em inglês.*
-
----
-
 ## EXERCÍCIOS
 
 Todos os códigos dos exercícios foram implementados seguindo os Python Enhancement Proposal, especificamente as recomendações de estilo do PEP8 e convenções de docstrings do PEP257, indicados na seção [Bibliografia](#bibliografia), com validação no [*CodeWOF: Python 3 Style Checker*](https://www.codewof.co.nz/style/python3/) online.
@@ -108,40 +92,6 @@ A seguir a adoção de modularização do processo em funções especializadas p
 E a seção de execução das funções e consumo dos dados já tratados, demonstrando a reutilização de código e aplicação do conceito DRY:
 
 ![DRY: Execução de Função Reutilizadas](./evidencias/58-etl-execucao-funcoes.png)
-
-## CERTIFICADOS AWS SKILL BUILDER
-
-### AWS Partner: Cloud Economics
-
-| |
-|---|
-|![Certificado](certificados/certificado-aws-cloud-economics.jpg)|
-||
-
-## CERTIFICADOS COMPLEMENTARES
-
-Para absorver melhor o conteúdo desta sprint e me aprofundar em pontos de interesse, concluí em paralelo os cursos abaixo, externos à Udemy.
-
-### AWS Technical Essentials
-
-| |
-|---|
-|![Certificado](certificados/certificado-comp-aws-technical-essentials.jpg)|
-||
-
-### AWS Introduction to Step Functions
-
-| |
-|---|
-|![Certificado](certificados/certificado-comp-aws-step-functions.jpg)|
-||
-
-### AWS Essentials of Prompt Engineering
-
-| |
-|---|
-|![Certificado](certificados/certificado-comp-aws-prompt-engineering.jpg)|
-||
 
 ## BIBLIOGRAFIA
 

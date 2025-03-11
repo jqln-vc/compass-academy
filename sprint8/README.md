@@ -5,14 +5,6 @@
 |![Banner](/assets/banner-sprint8.png)|
 ||
 
-## RELATOS DE APRENDIZADO
-
-Nesta sprint, ao continuar as práticas de Spark no AWS Glue, pude assimilar melhor os benefícios da computação em nuvem e de forma distribuída, ao vivenciar quedas bruscas de tempo de execução e a facilidade de realizar transformações em massa de forma simplificada.
-
-Comecei a explorar os dados da análise final no Databricks, eu já utilizava a plataforma anteriormente (em âmbito profissional) para análise de dados em SQL, e não fazia ideia do seu sistema de clusters ou que era uma "interface" para computação distribuída.
-
-Então, sinto que estas semanas foram muito importantes para integrar não só meus dados, mas meus conhecimentos fragmentados ao longo das minhas experiências.
-
 ## EXERCÍCIOS
 
 Todos os códigos dos exercícios foram implementados seguindo os Python Enhancement Proposal, especificamente as recomendações de estilo do PEP8 e convenções de docstrings do PEP257, indicados na seção [Bibliografia](#bibliografia), com validação no [*CodeWOF: Python 3 Style Checker*](https://www.codewof.co.nz/style/python3/) online.
@@ -141,17 +133,6 @@ No passo a passo explicativo, encontrado na pasta `desafio`, serão comentados o
 ### API TMDB
 
 ![Script Dados API](./evidencias/exercicios/1-tmdb-filmes.png)
-
-## CERTIFICADOS COMPLEMENTARES
-
-Para absorver melhor o conteúdo desta sprint e me aprofundar em pontos de interesse, concluí em paralelo os cursos abaixo, externos à Udemy.
-
-### EXAM PREP STANDARD COURSE: AWS CERTIFIED AI PRACTITIONER (AIF-C01)
-
-| |
-|---|
-|![Certificado](./certificados/cert-comp-aws-prep-ai-practitioner.jpg)|
-||
 
 ## BIBLIOGRAFIA
 

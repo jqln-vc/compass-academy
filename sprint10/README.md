@@ -5,14 +5,6 @@
 |![Banner](/assets/banner-sprint10.png)|
 ||
 
-## RELATOS DE APRENDIZADO
-
-Nesta sprint pude aplicar tanto meus conhecimentos de modelagem, análise de dados, design, como também minhas bases de formação linguística.
-
-Dentro da esfera de dados, minha preferência é o tratamento e modelagem de dados em larga escala, principalmente dados de texto; e a possibilidade de incorporar modelos de língua e técnicas de normalização de Processamento de Linguagem Natural foi uma das partes mais prazerosas.
-
-Além da área de PLN/IA, a abstração de componentes e o planejamento da integração e otimização de microsserviços, tendo em vista uma arquitetura e fins de consumo específicos, foram as tarefas com que mais me identifiquei e pretendo continuar aperfeiçoando meus conhecimentos prático-teóricos.
-
 ## DESAFIO
 
 O projeto final desenvolve um fluxo de processamento e análise de dados, a partir de uma arquitetura data lake.

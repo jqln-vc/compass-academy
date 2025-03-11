@@ -5,22 +5,6 @@
 |![Banner](/assets/banner-sprint9.png)|
 ||
 
-## RELATOS DE APRENDIZADO
-
-Esta foi a sprint em que tive maiores dificuldades, sinto que aprendi muito com relação a limites de computação e otimizações, também consegui entender melhor sobre o "tamanho do meu script", por exemplo :
-
-- a quantidade de instalações necessárias,
-- o tamanho dos modelos utilizados,
-- a quantidade de computações necessárias por dataframe,
-- o custo das inferências dos modelos,
-- a busca pela configuração de Job ideal para minha carga de trabalho,
-- a minimização de Jobs rodados (quando cada execução começa a demorar meia hora) e, consequentemente,
-- a maximização de testes e validações do código pré-execução total.
-
-Para entregar este desafio em tempo, tive que reformular e/ou descartar algumas ideias, e isso foi enriquecedor para a prática de planejamento, quando tive que entender os componentes essenciais para o projeto considerando a viabilidade de recursos de tempo e computação disponíveis, assim buscando o valor ótimo entre funcionalidades e qualidade.
-
-Além disso, pude retomar e aprofundar meus estudos em Natural Language Processing e Deep Learning, me familiarizar com o Hugging Face 🤗(com o qual não havia trabalhado ainda) e aplicar algumas soluções para análises de texto em uma situação aproximada da realidade.
-
 ## DESAFIO
 
 O projeto final desenvolve um fluxo de processamento e análise de dados, a partir de uma arquitetura data lake. Para a quarta etapa, foi realizada a modelagem dimensional otimizando os dados para o consumo analítico de ferramentas de BI, a ingressão dos dados é realizada na camada Refined Zone.
